@@ -42,4 +42,27 @@
 
 	<!-- Ban inline assignment in control structures. See note on Yoda condtions. -->
 	<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
+
+	<!-- TODO: HM Rules -->
+	<!-- File Layout: Declare symbols or run code, but not both. -->
+	<!-- File Layout: Classes in own file. -->
+
+	<!-- File Naming: `name/space/` -->
+	<!-- File Naming: `class-classname.php` -->
+	<!-- File Naming: `namespace.php` -->
+	<!-- File Naming: `plugin.php` or `functions.php` -->
+
+	<!-- Namespacing: Required -->
+	<!-- Namespacing: `use` statements -->
+	<!-- Namespacing: No backslash with `use` -->
+
+	<!-- Anonymous Functions: Spaces after `function` and `use` -->
+
+	<!-- Array Creation: Short Syntax -->
+
+	<!-- TEMPLATE RULES / TEMPLATES RULE -->
+	<!-- Namespacing: No namespace -->
+
+	<!-- Inline Statements: Single statement on same line -->
+	<!-- Inline Statements: No semicolons -->
 </ruleset>
