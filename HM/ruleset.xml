@@ -48,6 +48,7 @@
 
 	<!-- File Naming: `name/space/` -->
 	<!-- File Naming: `class-classname.php` -->
+	<!-- Handled in Files/ClassNameFileSniff -->
 	<!-- File Naming: `namespace.php` -->
 	<!-- File Naming: `plugin.php` or `functions.php` -->
 
