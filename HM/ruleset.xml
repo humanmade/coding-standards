@@ -54,6 +54,7 @@
 	<!-- Namespacing: Required for classes -->
 	<rule ref="PSR1.Classes.ClassDeclaration" />
 	<!-- Namespacing: Required for functions -->
+	<!-- Handled in Functions/NamespacedFunctionsSniff -->
 	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
 	<!-- Namespacing: `use` statements -->
 	<rule ref="PSR2.Namespaces.UseDeclaration" />
