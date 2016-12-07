@@ -43,6 +43,7 @@
 
 	<!-- TODO: HM Rules -->
 	<!-- File Layout: Declare symbols or run code, but not both. -->
+	<rule ref="PSR1.Files.SideEffects" />
 	<!-- File Layout: Classes in own file. -->
 
 	<!-- File Naming: `name/space/` -->
@@ -51,13 +52,18 @@
 	<!-- File Naming: `plugin.php` or `functions.php` -->
 
 	<!-- Namespacing: Required for classes -->
+	<rule ref="PSR1.Classes.ClassDeclaration" />
 	<!-- Namespacing: Required for functions -->
+	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
 	<!-- Namespacing: `use` statements -->
+	<rule ref="PSR2.Namespaces.UseDeclaration" />
 	<!-- Namespacing: No backslash with `use` -->
 
 	<!-- Yoda Conditions: Ban inline assignment in control structures. See note above. -->
+	<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
 
 	<!-- Anonymous Functions: Spaces after `function` and `use` -->
+	<!-- checked in Squiz.Functions.MultiLineFunctionDeclaration -->
 
 	<!-- Array Creation: Short Syntax -->
 
@@ -65,5 +71,6 @@
 	<!-- Namespacing: No namespace -->
 
 	<!-- Inline Statements: Single statement on same line -->
+	<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 	<!-- Inline Statements: No semicolons -->
 </ruleset>
