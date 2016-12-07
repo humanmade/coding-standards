@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<ruleset name="HM">
+	<description>Sniffs for the coding standards of the WP-API plugin</description>
+
+	<!-- vendor/humanmade/coding-standards, -->
+	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/fig-r/psr2r-sniffer" />
+
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
+
+	<!-- Include everything in the VIP standard... -->
+	<rule ref="WordPress-VIP">
+		<!-- ...Except for VIP-specific things -->
+		<exclude name="WordPress.VIP.FileSystemWritesDisallow" />
+		<exclude name="WordPress.VIP.RestrictedFunctions" />
+		<exclude name="WordPress.VIP.RestrictedVariables" />
+		<exclude name="WordPress.VIP.SuperGlobalInputUsage" />
+		<exclude name="WordPress.VIP.ValidatedSanitizedInput" />
+		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
+		<exclude name="WordPress.XSS.EscapeOutput" />
+
+		<!--
+		OK, real talk right now. Yoda conditions are ridiculous.
+
+		The fundamental problem that Yoda conditions attempts to solve is:
+		the equality operator is very close to the assignment operator.
+		It's easy to mess up and accidentally assign to the variable you're
+		trying to check.
+
+		Here's the thing though. Yoda conditions just don't read correctly
+		in the code flow. They require you to change the way you think
+		about the control flow.
+
+		Rather than forcing every conditional to be backwards, why not ban
+		assignment from conditionals? You never really *need* to assign in
+		a conditional.
+
+		So, here's where I stand: no to Yoda conditions. Yes to banning
+		assignment in conditionals.
+		-->
+		<exclude name="WordPress.PHP.YodaConditions" />
+	</rule>
+
+	<!-- TODO: HM Rules -->
+	<!-- File Layout: Declare symbols or run code, but not both. -->
+	<!-- File Layout: Classes in own file. -->
+
+	<!-- File Naming: `name/space/` -->
+	<!-- File Naming: `class-classname.php` -->
+	<!-- File Naming: `namespace.php` -->
+	<!-- File Naming: `plugin.php` or `functions.php` -->
+
+	<!-- Namespacing: Required for classes -->
+	<!-- Namespacing: Required for functions -->
+	<!-- Namespacing: `use` statements -->
+	<!-- Namespacing: No backslash with `use` -->
+
+	<!-- Yoda Conditions: Ban inline assignment in control structures. See note above. -->
+
+	<!-- Anonymous Functions: Spaces after `function` and `use` -->
+
+	<!-- Array Creation: Short Syntax -->
+
+	<!-- TEMPLATE RULES / TEMPLATES RULE -->
+	<!-- Namespacing: No namespace -->
+
+	<!-- Inline Statements: Single statement on same line -->
+	<!-- Inline Statements: No semicolons -->
+</ruleset>
