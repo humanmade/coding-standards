@@ -58,6 +58,7 @@
 	<!-- File Naming: `class-classname.php` -->
 	<!-- Handled in Files/ClassNameFileSniff -->
 	<!-- File Naming: `namespace.php` -->
+	<!-- Handled in Files/FunctionFileNameSniff -->
 	<!-- File Naming: `plugin.php` or `functions.php` -->
 
 	<!-- Namespacing: Required for classes -->
