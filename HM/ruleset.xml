@@ -41,7 +41,12 @@
 		<exclude name="WordPress.PHP.YodaConditions" />
 	</rule>
 
-	<!-- TODO: HM Rules -->
+	<!--
+	HM Rules / HM RULEZZZZ
+
+	http://engineering.hmn.md/style/php/
+	-->
+
 	<!-- File Layout: Declare symbols or run code, but not both. -->
 	<rule ref="PSR1.Files.SideEffects" />
 	<!-- File Layout: Classes in own file. -->
