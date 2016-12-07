@@ -10,5 +10,5 @@ This is a codified version of [the Human Made style guide](http://engineering.hm
 2. Add style checking to your Travis configuration with the following command:
 
 ```
-vendor/bin/phpcs --extensions=php --standard=HM
+vendor/bin/phpcs --standard=vendor/humanmade/coding-standards .
 ```
