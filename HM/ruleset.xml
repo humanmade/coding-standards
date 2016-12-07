@@ -47,6 +47,7 @@
 	<!-- File Layout: Classes in own file. -->
 
 	<!-- File Naming: `name/space/` -->
+	<!-- Handled in Files/NamespaceDirectoryNameSniff -->
 	<!-- File Naming: `class-classname.php` -->
 	<!-- Handled in Files/ClassNameFileSniff -->
 	<!-- File Naming: `namespace.php` -->
