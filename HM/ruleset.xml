@@ -68,6 +68,7 @@
 	<!-- Namespacing: `use` statements -->
 	<rule ref="PSR2.Namespaces.UseDeclaration" />
 	<!-- Namespacing: No backslash with `use` -->
+	<!-- Handled in Namespaces/NoLeadingSlashOnUseSniff -->
 
 	<!-- Yoda Conditions: Ban inline assignment in control structures. See note above. -->
 	<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
