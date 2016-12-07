@@ -1,0 +1,9 @@
+{
+	"name": "humanmade/coding-standards",
+	"description": "Human Made coding standards",
+	"type": "project",
+	"license": "GPL-2.0",
+	"require": {
+		"wp-coding-standards/wpcs": "^0.10.0"
+	}
+}
