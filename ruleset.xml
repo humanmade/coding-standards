@@ -7,7 +7,9 @@
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>node_modules/*</exclude-pattern>
 
+	<!-- Include everything in the VIP standard... -->
 	<rule ref="WordPress-VIP">
+		<!-- ...Except for VIP-specific things -->
 		<exclude name="WordPress.VIP.FileSystemWritesDisallow" />
 		<exclude name="WordPress.VIP.RestrictedFunctions" />
 		<exclude name="WordPress.VIP.RestrictedVariables" />
