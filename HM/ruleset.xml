@@ -50,6 +50,8 @@
 	<!-- File Layout: Declare symbols or run code, but not both. -->
 	<rule ref="PSR1.Files.SideEffects" />
 	<!-- File Layout: Classes in own file. -->
+	<!-- Handled in Classes/OnlyClassInFileSniff -->
+	<!-- Also handled in PSR1.Classes.ClassDeclaration below. -->
 
 	<!-- File Naming: `name/space/` -->
 	<!-- Handled in Files/NamespaceDirectoryNameSniff -->
