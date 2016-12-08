@@ -32,6 +32,21 @@ You can then reference this file when running phpcs:
 vendor/bin/phpcs --standard=phpcs.ruleset.xml .
 ```
 
+You can also customise the rule to exclude elements if they aren't applicable to the project:
+
+```
+<rule ref="vendor/humanmade/coding-standards">
+	<!-- Disable short array syntax -->
+	<exclude name="HM.Debug.ForceShortArray" />
+
+	<!-- Disable all ESLint checks... -->
+	<exclude name="HM.Debug.ESLint" />
+
+	<!-- Or disable just a singular rule -->
+	<exclude name="HM.Debug.ESLint.no-unused-vars" />
+</rule>
+```
+
 
 ## Included Checks
 
