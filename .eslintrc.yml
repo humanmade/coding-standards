@@ -52,8 +52,6 @@ rules:
   - always
   - exceptions:
     - "{}"
-    - "[]"
-    - "()"
     - empty
   indent:
   - error
