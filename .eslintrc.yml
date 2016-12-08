@@ -110,5 +110,7 @@ rules:
   - warn
   no-trailing-spaces:
   - error
+  no-extra-bind:
+  - error
   no-var:
   - warn
