@@ -27,6 +27,8 @@ This is a codified version of [the Human Made style guide](http://engineering.hm
 vendor/bin/phpcs --standard=vendor/humanmade/coding-standards .
 ```
 
+The final `.` here specifies the files you want to test; this is typically the current directory (`.`), but you can also selectively check files or directories by specifying them instead.
+
 You can add this to your Travis YAML file as a test:
 
 ```yaml
