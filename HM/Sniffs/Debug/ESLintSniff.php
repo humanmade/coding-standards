@@ -11,6 +11,11 @@ use PHP_CodeSniffer_Sniff;
  */
 class ESLintSniff implements PHP_CodeSniffer_Sniff {
 	/**
+	 * Path to default configuration.
+	 */
+	const DEFAULT_CONFIG = 'vendor/humanmade/coding-standards/.eslintrc.yml';
+
+	/**
 	 * A list of tokenizers this sniff supports.
 	 *
 	 * @var array
@@ -20,9 +25,9 @@ class ESLintSniff implements PHP_CodeSniffer_Sniff {
 	/**
 	 * ESLint configuration file path.
 	 *
-	 * @var string Path to eslintrc
+	 * @var string|null Path to eslintrc. Null to autodetect.
 	 */
-	public $configFile = 'vendor/humanmade/coding-standards/.eslintrc.yml';
+	public $configFile = null;
 
 	/**
 	 * Returns the token types that this sniff is interested in.
@@ -49,8 +54,19 @@ class ESLintSniff implements PHP_CodeSniffer_Sniff {
 		if ( $eslint_path === null ) {
 			return;
 		}
+		$config_file = $this->configFile;
+		if ( empty( $config_file ) ) {
+			// Attempt to autodetect.
+			$candidates = glob( '.eslintrc{.js,.yaml,.yml,.json}', GLOB_BRACE );
+			if ( ! empty( $candidates ) ) {
+				$config_file = $candidates[0];
+			} else {
+				$config_file = static::DEFAULT_CONFIG;
+			}
+		}
+
 		$eslint_options = [
-			sprintf( '--config %s', $this->configFile ),
+			sprintf( '--config %s', $config_file ),
 			'--format json',
 		];
 
