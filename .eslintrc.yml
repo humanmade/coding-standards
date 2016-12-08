@@ -52,7 +52,6 @@ rules:
   - warn
   - always
   - exceptions:
-    - "{}"
     - empty
   indent:
   - error
