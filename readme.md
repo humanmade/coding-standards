@@ -1,4 +1,20 @@
-# Human Made Coding Standards
+<table width="100%">
+	<tr>
+		<td align="left" width="70%">
+			<strong>Human Made Coding Standards</strong><br />
+			WordPress coding standards, enhanced for modern development.
+		</td>
+		<td align="center" rowspan="2" width="30%">
+			<p>Made with &hearts; by</p>
+			<img src="https://hmn.md/content/themes/hmnmd/assets/images/hm-logo.svg" width="100" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			A <strong><a href="https://hmn.md/">Human Made</a></strong> project. Maintained by @rmccue.
+		</td>
+	</tr>
+</table>
 
 This is a codified version of [the Human Made style guide](http://engineering.hmn.md/how-we-work/style/). We include phpcs and ESLint rules.
 
