@@ -32,6 +32,9 @@ You can then reference this file when running phpcs:
 vendor/bin/phpcs --standard=phpcs.ruleset.xml .
 ```
 
+
+#### Excluding/Disabling Checks
+
 You can also customise the rule to exclude elements if they aren't applicable to the project:
 
 ```
@@ -46,6 +49,21 @@ You can also customise the rule to exclude elements if they aren't applicable to
 	<exclude name="HM.Debug.ESLint.no-unused-vars" />
 </rule>
 ```
+
+
+### Custom ESLint Configuration
+
+This repo comes with a .eslintrc.yml file matching the HM coding standards. While checks can be disabled using the `<exclude />` rules, you can't add additional checks this way. Instead, you can create your own ESLint config file, and reference this in your ruleset:
+
+```
+<rule ref="HM.Debug.ESLint">
+	<properties>
+		<property name="configFile" value="your/lint/config.yml"/>
+	</properties>
+</rule>
+```
+
+**Important Note:** This must come *after* the `vendor/humanmade/coding-standards` rule, and be a direct child of `<ruleset />`.
 
 
 ## Included Checks
