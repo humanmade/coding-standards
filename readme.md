@@ -21,10 +21,18 @@ This is a codified version of [the Human Made style guide](http://engineering.hm
 ## Setup
 
 1. `composer require humanmade/coding-standards`
-2. Add style checking to your Travis configuration with the following command:
+2. Run the following command to run the standards checks:
 
 ```
 vendor/bin/phpcs --standard=vendor/humanmade/coding-standards .
+```
+
+You can add this to your Travis YAML file as a test:
+
+```yaml
+script:
+	- phpunit
+	- vendor/bin/phpcs --standard=vendor/humanmade/coding-standards .
 ```
 
 ### Advanced/Extending
