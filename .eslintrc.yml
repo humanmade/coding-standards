@@ -28,6 +28,8 @@ rules:
   comma-dangle:
   - error
   - always-multiline
+  eqeqeq:
+  - error
   key-spacing:
     - error
     - beforeColon: false
