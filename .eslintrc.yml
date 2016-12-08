@@ -103,5 +103,8 @@ rules:
   yoda:
   - error
   - never
+  no-cond-assign:
+  - error
+  - always
   no-console:
   - warn
