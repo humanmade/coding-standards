@@ -47,7 +47,9 @@ rules:
   - error
   space-before-function-paren:
   - error
-  - always
+  - anonymous: always
+    asyncArrow: always
+    named: never
   space-in-parens:
   - warn
   - always
