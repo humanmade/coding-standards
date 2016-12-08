@@ -18,6 +18,13 @@ class ESLintSniff implements PHP_CodeSniffer_Sniff {
 	public $supportedTokenizers = [ 'JS' ];
 
 	/**
+	 * ESLint configuration file path.
+	 *
+	 * @var string Path to eslintrc
+	 */
+	public $configFile = 'vendor/humanmade/coding-standards/.eslintrc.yml';
+
+	/**
 	 * Returns the token types that this sniff is interested in.
 	 *
 	 * @return int[]
@@ -43,7 +50,7 @@ class ESLintSniff implements PHP_CodeSniffer_Sniff {
 			return;
 		}
 		$eslint_options = [
-			'--config vendor/humanmade/coding-standards/.eslintrc.yml',
+			sprintf( '--config %s', $this->configFile ),
 			'--format json',
 		];
 
