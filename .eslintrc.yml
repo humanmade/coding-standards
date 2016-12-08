@@ -66,9 +66,6 @@ rules:
   quotes:
   - error
   - single
-  semi:
-  - error
-  - always
   semi-spacing:
   - error
   - before: false
