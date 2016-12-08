@@ -42,6 +42,13 @@
 		<exclude name="WordPress.PHP.YodaConditions" />
 	</rule>
 
+	<!-- Allow . in hook names -->
+	<rule ref="WordPress.NamingConventions.ValidHookName">
+		<properties>
+			<property name="additionalWordDelimiters" value="."/>
+		</properties>
+	</rule>
+
 	<!--
 	HM Rules / HM RULEZZZZ
 
