@@ -31,7 +31,7 @@ vendor/bin/phpcs --standard=vendor/humanmade/coding-standards .
 
 If you want to add further rules (such as WordPress.com VIP-specific rules), you can create your own custom standard file (e.g. `phpcs.ruleset.xml`):
 
-```
+```xml
 <?xml version="1.0"?>
 <ruleset>
 	<!-- Use HM Coding Standards -->
@@ -53,7 +53,7 @@ vendor/bin/phpcs --standard=phpcs.ruleset.xml .
 
 You can also customise the rule to exclude elements if they aren't applicable to the project:
 
-```
+```xml
 <rule ref="vendor/humanmade/coding-standards">
 	<!-- Disable short array syntax -->
 	<exclude name="HM.Debug.ForceShortArray" />
@@ -73,7 +73,7 @@ This repo comes with a .eslintrc.yml file matching the HM coding standards. Whil
 
 ESLint configuration files (`.eslintrc.js`, `.eslintrc.yaml`, `.eslintrc.yml`, `.eslintrc.json`) will be **autodetected** by phpcs and used automatically if they exist. Inside your configuration file, you can extend the HM Coding Standards lint file by referencing it by a path:
 
-```
+```yaml
 ---
 extends:
 - vendor/humanmade/coding-standards/.eslintrc.yml
@@ -81,7 +81,7 @@ extends:
 
 You can also use a custom path and reference this in your ruleset:
 
-```
+```xml
 <rule ref="HM.Debug.ESLint">
 	<properties>
 		<property name="configFile" value="your/lint/config.yml"/>
