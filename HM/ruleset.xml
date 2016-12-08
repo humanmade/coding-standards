@@ -7,6 +7,7 @@
 
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>*.min.js</exclude-pattern>
 
 	<!-- Include everything in the VIP standard... -->
 	<rule ref="WordPress-VIP">
