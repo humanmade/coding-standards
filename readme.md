@@ -53,3 +53,5 @@ You can also customise the rule to exclude elements if they aren't applicable to
 The phpcs standard is based upon the `WordPress-VIP` standard from [WordPress Coding Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards), with [customisation and additions](HM/ruleset.xml) to match our style guide.
 
 phpcs also includes ESLint checking based upon the `eslint:recommended` standard (checks from [this page](http://eslint.org/docs/rules/) marked with a check mark), with [customisation and additions](.eslintrc.yml) to match our style guide.
+
+**Note:** ESLint checks are mapped from ESLint codes to phpcs codes by prefixing with `HM.Debug.ESLint`. e.g. the `no-unused-vars` ESLint code becomes `HM.Debug.ESLint.no-unused-vars`. You need to use the phpcs code when excluding specific rules.
