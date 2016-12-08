@@ -110,3 +110,5 @@ rules:
   - warn
   no-trailing-spaces:
   - error
+  no-var:
+  - warn
