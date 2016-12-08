@@ -6,7 +6,7 @@ This is a codified version of [the Human Made style guide](http://engineering.hm
 
 ### Simple Setup
 
-1. `composer require humanmade/coding-standards squizlabs/php_codesniffer`
+1. `composer require humanmade/coding-standards`
 2. Add style checking to your Travis configuration with the following command:
 
 ```
