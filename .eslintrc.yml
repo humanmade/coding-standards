@@ -63,8 +63,6 @@ rules:
   linebreak-style:
   - error
   - unix
-  no-whitespace-before-property:
-  - error
   quotes:
   - error
   - single
@@ -102,14 +100,9 @@ rules:
   yoda:
   - error
   - never
-  no-cond-assign:
-  - error
-  - always
   no-console:
   - warn
   no-trailing-spaces:
-  - error
-  no-extra-bind:
   - error
   no-var:
   - warn
