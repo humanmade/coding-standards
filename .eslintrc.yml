@@ -46,7 +46,7 @@ rules:
   - error
   space-before-function-paren:
   - error
-  - never
+  - always
   space-in-parens:
   - warn
   - always
