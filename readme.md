@@ -53,7 +53,17 @@ You can also customise the rule to exclude elements if they aren't applicable to
 
 ### Custom ESLint Configuration
 
-This repo comes with a .eslintrc.yml file matching the HM coding standards. While checks can be disabled using the `<exclude />` rules, you can't add additional checks this way. Instead, you can create your own ESLint config file, and reference this in your ruleset:
+This repo comes with a .eslintrc.yml file matching the HM coding standards. While checks can be disabled using the `<exclude />` rules, you can't add additional checks this way. Instead, you can create your own ESLint config file.
+
+ESLint configuration files (`.eslintrc.js`, `.eslintrc.yaml`, `.eslintrc.yml`, `.eslintrc.json`) will be **autodetected** by phpcs and used automatically if they exist. Inside your configuration file, you can extend the HM Coding Standards lint file by referencing it by a path:
+
+```
+---
+extends:
+- vendor/humanmade/coding-standards/.eslintrc.yml
+```
+
+You can also use a custom path and reference this in your ruleset:
 
 ```
 <rule ref="HM.Debug.ESLint">
