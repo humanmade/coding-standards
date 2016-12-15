@@ -555,6 +555,7 @@ function ensureBlock(node) {
 }
 
 function clone(node) {
+  if (!node) return node;
   var newNode = {};
   for (var key in node) {
     if (key[0] === "_") continue;
@@ -570,6 +571,7 @@ function cloneWithoutLoc(node) {
 }
 
 function cloneDeep(node) {
+  if (!node) return node;
   var newNode = {};
 
   for (var key in node) {

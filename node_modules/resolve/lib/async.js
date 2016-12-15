@@ -12,8 +12,9 @@ module.exports = function resolve (x, opts, cb) {
     }
     if (!opts) opts = {};
     if (typeof x !== 'string') {
+        var err = new TypeError('path must be a string');
         return process.nextTick(function () {
-            cb(new Error('path must be a string'));
+            cb(err);
         });
     }
     
@@ -64,8 +65,8 @@ module.exports = function resolve (x, opts, cb) {
         
         var exts = [''].concat(extensions);
         load(exts, x, pkg)
-		
-		function load (exts, x, pkg) {
+
+        function load (exts, x, pkg) {
             if (exts.length === 0) return cb(null, undefined, pkg);
             var file = x + exts[0];
             

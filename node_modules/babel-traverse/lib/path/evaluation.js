@@ -156,6 +156,10 @@ function evaluate() {
         return deopt(binding.path);
       }
 
+      if (binding && path.node.start < binding.path.node.end) {
+        return deopt(binding.path);
+      }
+
       if (binding && binding.hasValue) {
         return binding.value;
       } else {

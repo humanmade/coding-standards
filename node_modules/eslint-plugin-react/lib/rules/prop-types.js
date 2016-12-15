@@ -9,6 +9,7 @@
 
 var Components = require('../util/Components');
 var variable = require('../util/variable');
+var annotations = require('../util/annotations');
 
 // ------------------------------------------------------------------------------
 // Constants
@@ -108,24 +109,6 @@ module.exports = {
             (tokens[1] && tokens[1].value === 'props')
           )
         ) {
-          return true;
-        }
-      }
-      return false;
-    }
-
-     /**
-      * Checks if we are declaring a `props` argument with a flow type annotation.
-      * @param {ASTNode} node The AST node being checked.
-      * @returns {Boolean} True if the node is a type annotated props declaration, false if not.
-      */
-    function isAnnotatedFunctionPropsDeclaration(node) {
-      if (node && node.params && node.params.length) {
-        var tokens = context.getFirstTokens(node.params[0], 2);
-        var isAnnotated = node.params[0].typeAnnotation;
-        var isDestructuredProps = node.params[0].type === 'ObjectPattern';
-        var isProps = tokens[0].value === 'props' || (tokens[1] && tokens[1].value === 'props');
-        if (isAnnotated && (isDestructuredProps || isProps)) {
           return true;
         }
       }
@@ -288,8 +271,11 @@ module.exports = {
      */
     function getKeyValue(node) {
       if (node.type === 'ObjectTypeProperty') {
-        var tokens = context.getFirstTokens(node, 1);
-        return tokens[0].value;
+        var tokens = context.getFirstTokens(node, 2);
+        return (tokens[0].value === '+' || tokens[0].value === '-'
+          ? tokens[1].value
+          : tokens[0].value
+        );
       }
       var key = node.key || node.argument;
       return key.type === 'Identifier' ? key.name : key.value;
@@ -792,7 +778,7 @@ module.exports = {
      *   FunctionDeclaration, or FunctionExpression
      */
     function markAnnotatedFunctionArgumentsAsDeclared(node) {
-      if (!node.params || !node.params.length || !isAnnotatedFunctionPropsDeclaration(node)) {
+      if (!node.params || !node.params.length || !annotations.isAnnotatedFunctionPropsDeclaration(node, context)) {
         return;
       }
       markPropTypesAsDeclared(node, resolveTypeAnnotation(node.params[0]));
