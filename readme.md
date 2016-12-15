@@ -105,6 +105,8 @@ You can also use a custom path and reference this in your ruleset:
 
 **Important Note:** This must come *after* the `vendor/humanmade/coding-standards` rule, and be a direct child of `<ruleset />`.
 
+If you're using the ESLint configuration without phpcs, you can simply use `humanmade`, as the configuration is [published on npm](https://www.npmjs.com/package/eslint-config-humanmade). You can also install this globally (`npm install -g eslint-config-humanmade`) and then use directly on the command line via `eslint -c humanmade .`
+
 
 ## Included Checks
 
