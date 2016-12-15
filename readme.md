@@ -4,14 +4,17 @@
 			<strong>Human Made Coding Standards</strong><br />
 			WordPress coding standards, enhanced for modern development.
 		</td>
-		<td align="center" rowspan="2" width="30%">
-			<p>Made with &hearts; by</p>
-			<img src="https://hmn.md/content/themes/hmnmd/assets/images/hm-logo.svg" width="100" />
+		<td align="center" width="30%">
+			<a href="https://packagist.org/packages/humanmade/coding-standards"><img src="https://img.shields.io/packagist/v/humanmade/coding-standards.svg" /></a>
+			<a href="https://www.npmjs.com/package/eslint-config-humanmade"><img src="https://img.shields.io/npm/v/eslint-config-humanmade.svg" /></a>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			A <strong><a href="https://hmn.md/">Human Made</a></strong> project. Maintained by @rmccue.
+		</td>
+		<td align="center" width="30%">
+			<img src="https://hmn.md/content/themes/hmnmd/assets/images/hm-logo.svg" width="100" />
 		</td>
 	</tr>
 </table>
