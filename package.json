@@ -14,5 +14,9 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
     "js-yaml": "^3.7.0"
-  }
+  },
+  "files": [
+    ".eslintrc.yml",
+    "index.js"
+  ]
 }
