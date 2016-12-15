@@ -18,7 +18,7 @@
     "js-yaml": "^3.7.0"
   },
   "files": [
-    "../../.eslintrc.yml",
+    ".eslintrc.yml",
     "index.js"
   ]
 }
