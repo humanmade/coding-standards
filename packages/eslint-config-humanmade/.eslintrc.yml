@@ -15,8 +15,7 @@ rules:
   array-bracket-spacing:
   - error
   - always
-  - singleValue: false
-    objectsInArrays: false
+  - objectsInArrays: false
   block-spacing:
   - error
   brace-style:
