@@ -57,6 +57,7 @@ rules:
   indent:
   - error
   - tab
+  - SwitchCase: 1
   no-mixed-spaces-and-tabs:
   - error
   - smart-tabs
