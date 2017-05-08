@@ -21,10 +21,10 @@ jobs:
             cd PHP_CodeSniffer
             git checkout 2.8.1
             php /tmp/composer.phar install
-            scripts/phpcs --set-config
+            scripts/phpcs --set-config installed_paths
       - run: php composer.phar install
       - run:
-          name: Tests
+          name: Run Tests
           command: |
             cd PHP_CodeSniffer
             vendor/bin/phpunit --filter HM

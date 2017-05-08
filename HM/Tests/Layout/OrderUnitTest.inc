@@ -1,7 +1,5 @@
 <?php
 
-use Exception;
-
 namespace HM\Coding\Standards\Tests;
 
 require 'include1.php';
