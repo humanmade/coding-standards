@@ -28,7 +28,7 @@ jobs:
             cd /tmp/phpcs
             git checkout 2.8.1
             php /tmp/composer/composer.phar install
-            scripts/phpcs --set-config installed_paths /tmp/hm-cs
+            scripts/phpcs --config-set installed_paths /tmp/hm-cs
       - run:
           name: Composer Install
           command: php /tmp/composer/composer.phar install
