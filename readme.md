@@ -118,3 +118,64 @@ The phpcs standard is based upon the `WordPress-VIP` standard from [WordPress Co
 phpcs also includes ESLint checking based upon the `eslint:recommended` standard (checks from [this page](http://eslint.org/docs/rules/) marked with a check mark), with [customisation and additions](.eslintrc.yml) to match our style guide.
 
 **Note:** ESLint checks are mapped from ESLint codes to phpcs codes by prefixing with `HM.Debug.ESLint`. e.g. the `no-unused-vars` ESLint code becomes `HM.Debug.ESLint.no-unused-vars`. You need to use the phpcs code when excluding specific rules.
+
+## Testing
+
+### Running tests
+
+To run the tests locally you need a checkout of PHP Code Sniffer, any other
+type of install that isn't v3 or higher will not have the tests included.
+
+```bash
+git clone git@github.com:squizlabs/PHP_CodeSniffer
+cd PHP_CodeSniffer
+git checkout 2.8.1
+composer install
+scripts/phpcs --config-set installed_paths /path/to/this/repo
+vendor/bin/phpunit --filter HM
+```
+
+### Writing tests
+
+To add tests you should mirror the directory structure of the sniffs. For example a test
+for `HM/Sniffs/Layout/OrderSniff.php` would require the following files:
+
+```
+HM/Tests/Layout/OrderUnitTest.php # Unit test code
+HM/Tests/Layout/OrderUnitTest.inc # Code to be tested
+```
+
+A basic unit test class looks like the following:
+
+```php
+<?php
+
+/**
+ * Class name must follow the directory structure to be autoloaded correctly.
+ * 
+ * **NO NAMESPACES!!**
+ */
+class HM_Tests_Layout_OrderUnitTest extends AbstractSniffUnitTest {
+
+	/**
+	 * Returns the lines where errors should occur.
+	 *
+	 * @return array <int line number> => <int number of errors>
+	 */
+	public function getErrorList() {
+		return [
+			1  => 1, // line 1 expects 1 error
+		];
+	}
+
+	/**
+	 * Returns the lines where warnings should occur.
+	 *
+	 * @return array <int line number> => <int number of warnings>
+	 */
+	public function getWarningList() {
+		return [];
+	}
+
+}
+```
