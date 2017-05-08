@@ -5,6 +5,11 @@ jobs:
       - image: php:7.1
     working_directory: /tmp/hm-cs
     steps:
+      - run:
+          name: Install Git
+          command: |
+            apt-get update
+            apt-get install -y git-all
       - checkout
       - run:
           name: Install Composer
