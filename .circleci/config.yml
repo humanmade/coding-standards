@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: php:7.1
-    working_directory: /tmp
     steps:
       - checkout
       - run:
