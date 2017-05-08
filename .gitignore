@@ -1,3 +1,4 @@
 # Ignore composer things.
 vendor/
 composer.lock
+.idea/

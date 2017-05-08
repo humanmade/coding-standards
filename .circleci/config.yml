@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: php:7.1
+    working_directory: /tmp
+    steps:
+      - checkout
+      - run:
+          name: Install Composer
+          command: |
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+            php -r "copy('https://composer.github.io/installer.sig', 'composer-setup.sig');" && \
+            php -r "if (hash_file('SHA384', 'composer-setup.php') === trim(file_get_contents('composer-setup.sig'))) { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
+            php composer-setup.php && \
+            php -r "unlink('composer-setup.php');"
+      - run:
+          name: Install PHPCS
+          command: |
+            git clone git@github.com:squizlabs/PHP_CodeSniffer
+            cd PHP_CodeSniffer
+            git checkout 2.8.1
+            php /tmp/composer.phar install
+            scripts/phpcs --set-config
+      - run: php composer.phar install
+      - run:
+          name: Tests
+          command: |
+            cd PHP_CodeSniffer
+            vendor/bin/phpunit --filter HM
