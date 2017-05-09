@@ -47,6 +47,11 @@ class OrderSniff implements PHP_CodeSniffer_Sniff {
 
 			$next_token = $tokens[ $next_pos ];
 
+			// Ignore nested `use` eg. in lambda functions.
+			if ( $next_token['type'] === 'T_USE' && $next_token['level'] > 0 ) {
+				return;
+			}
+
 			// Must be current or higher.
 			$next_type_score = $look_for[ $next_token['code'] ];
 			if ( $next_type_score < $current_score ) {
