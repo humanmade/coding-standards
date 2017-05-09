@@ -10,7 +10,7 @@ install:
   - npm install
 
 before_script:
-  - git clone -b 2.8.1 git@github.com:squizlabs/PHP_CodeSniffer /tmp/phpcs
+  - git clone -b 2.8.1 https://github.com/squizlabs/PHP_CodeSniffer.git /tmp/phpcs
   - cd /tmp/phpcs && composer install
   - /tmp/phpcs/scripts/phpcs --config-set installed_paths $TRAVIS_BUILD_DIR
 
