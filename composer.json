@@ -6,5 +6,9 @@
 	"require": {
 		"wp-coding-standards/wpcs": "^0.10.0",
 		"fig-r/psr2r-sniffer": "^0.3.1"
+	},
+	"scripts": {
+		"post-install-cmd": "phpcs --config-set installed_paths $(pwd)",
+		"post-update-cmd" : "phpcs --config-set installed_paths $(pwd)"
 	}
 }

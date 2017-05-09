@@ -1,0 +1,39 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: php:7.1
+    working_directory: /tmp/hm-cs
+    steps:
+      - run:
+          name: Install Git
+          command: |
+            apt-get update
+            apt-get install -y git-all
+      - run:
+          name: Install Composer
+          command: |
+            mkdir /tmp/composer
+            cd /tmp/composer
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+            php -r "copy('https://composer.github.io/installer.sig', 'composer-setup.sig');" && \
+            php -r "if (hash_file('SHA384', 'composer-setup.php') === trim(file_get_contents('composer-setup.sig'))) { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
+            php composer-setup.php && \
+            php -r "unlink('composer-setup.php');"
+      - checkout
+      - run:
+          name: Install PHPCS
+          command: |
+            git clone git@github.com:squizlabs/PHP_CodeSniffer /tmp/phpcs
+            cd /tmp/phpcs
+            git checkout 2.8.1
+            php /tmp/composer/composer.phar install
+            scripts/phpcs --config-set installed_paths /tmp/hm-cs
+      - run:
+          name: Composer Install
+          command: php /tmp/composer/composer.phar install
+      - run:
+          name: Run Tests
+          command: |
+            cd /tmp/phpcs
+            vendor/bin/phpunit --filter HM
