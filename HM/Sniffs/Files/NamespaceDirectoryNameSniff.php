@@ -43,11 +43,11 @@ class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
 
 		$full = $phpcsFile->getFileName();
 		$filename = basename( $full );
-		$directory = dirname( $full );
-		
+		$directory = dirname( $full );			 
+
 		// Normalize the directory seperator accross operating systems
-		if ( strtoupper( substr( PHP_OS, 0, 3 ) ) === 'WIN' ) {
-			$directory = str_replace( '\\', '/', $directory );
+		if ( DIRECTORY_SEPARATOR !== '/' ) {
+			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
 		}		
 
 		if ( $filename === 'plugin.php' || $filename === 'functions.php' ) {
