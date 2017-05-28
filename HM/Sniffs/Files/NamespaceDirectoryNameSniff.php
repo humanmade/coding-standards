@@ -45,6 +45,11 @@ class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
 		$filename = basename( $full );
 		$directory = dirname( $full );
 
+		// Normalize the directory seperator accross operating systems
+		if ( DIRECTORY_SEPARATOR !== '/' ) {
+			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
+		}
+
 		if ( $filename === 'plugin.php' || $filename === 'functions.php' ) {
 			// Ignore the main file.
 			return;
@@ -64,7 +69,7 @@ class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
 		}
 
 		$namespace_parts = explode( '\\', $namespace );
-		$directory_parts = explode( DIRECTORY_SEPARATOR, trim( $after_inc, DIRECTORY_SEPARATOR ) );
+		$directory_parts = explode( '/', trim( $after_inc, '/' ) );
 
 		// Check that the path matches the namespace, allowing parts to be dropped.
 		while ( ! empty( $directory_parts ) ) {
