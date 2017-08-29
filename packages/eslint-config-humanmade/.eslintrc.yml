@@ -74,10 +74,7 @@ rules:
   space-unary-ops:
   - error
   - words: true
-    nonwords: true
-    overrides:
-      ++: false
-      --: false
+    nonwords: false
   no-multiple-empty-lines:
   - error
   - max: 1
