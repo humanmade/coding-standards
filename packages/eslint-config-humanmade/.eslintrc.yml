@@ -75,6 +75,8 @@ rules:
   - error
   - words: true
     nonwords: false
+    overrides:
+      "!": true
   no-multiple-empty-lines:
   - error
   - max: 1
