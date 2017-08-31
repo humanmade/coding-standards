@@ -86,7 +86,6 @@ rules:
   object-curly-spacing:
   - error
   - always
-  - objectsInObjects: false
   arrow-parens:
   - error
   - as-needed
