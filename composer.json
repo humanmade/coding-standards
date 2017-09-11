@@ -5,6 +5,6 @@
 	"license": "GPL-2.0",
 	"require": {
 		"wp-coding-standards/wpcs": "^0.13.1",
-		"fig-r/psr2r-sniffer": "^0.3.1"
+		"fig-r/psr2r-sniffer": "^0.4.1"
 	}
 }
