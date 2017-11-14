@@ -104,4 +104,6 @@
 	<!-- Inline Statements: Single statement on same line -->
 		<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 	<!-- Inline Statements: No semicolons -->
+
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 </ruleset>
