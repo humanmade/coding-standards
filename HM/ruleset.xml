@@ -19,6 +19,7 @@
 		<exclude name="WordPress.VIP.ValidatedSanitizedInput" />
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
 		<exclude name="WordPress.XSS.EscapeOutput" />
+		<exclude name="WordPress.VIP.AdminBarRemoval" />
 
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
