@@ -81,7 +81,10 @@ class ESLintSniff implements PHP_CodeSniffer_Sniff {
 			1 => [ 'pipe', 'w' ],
 			2 => [ 'pipe', 'w' ],
 		];
-		$process = proc_open( $cmd, $descriptors, $pipes );
+		$env = array_merge( $_ENV, [
+			'NODE_PATH' => dirname( dirname( dirname( __DIR__ ) ) ) . '/packages',
+		] );
+		$process = proc_open( $cmd, $descriptors, $pipes, null, $env );
 
 		// Ignore stdin.
 		fclose( $pipes[0] );
