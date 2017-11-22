@@ -1,0 +1,6 @@
+<?php
+
+namespace HM\Coding\Standards\Tests;
+
+use \HM\Other;
+use \WP_Post;
