@@ -9,6 +9,7 @@
 		<!-- Default test suite to run all tests -->
 		<testsuite>
 			<file>tests/AllSniffs.php</file>
+			<file>tests/FixtureTests.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>
