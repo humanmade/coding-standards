@@ -1,18 +1,18 @@
 <?php
 namespace HM\Sniffs\Layout;
 
-use PHP_CodeSniffer_File;
-use PHP_CodeSniffer_Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Sniff to check order of declarations (namespace, use, const, code).
  */
-class OrderSniff implements PHP_CodeSniffer_Sniff {
+class OrderSniff implements Sniff {
 	public function register() {
 		return array( T_OPEN_TAG );
 	}
 
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
 		// Things we can look for:

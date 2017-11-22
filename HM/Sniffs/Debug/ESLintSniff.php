@@ -2,14 +2,14 @@
 
 namespace HM\Sniffs\Debug;
 
-use PHP_CodeSniffer;
-use PHP_CodeSniffer_File;
-use PHP_CodeSniffer_Sniff;
+use PHP_CodeSniffer\Config;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Run ESLint on the file.
  */
-class ESLintSniff implements PHP_CodeSniffer_Sniff {
+class ESLintSniff implements Sniff {
 	/**
 	 * Path to default configuration.
 	 */
@@ -41,16 +41,16 @@ class ESLintSniff implements PHP_CodeSniffer_Sniff {
 	/**
 	 * Processes the tokens that this sniff is interested in.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file where the token was found.
-	 * @param int                  $stackPtr  The position in the stack where
+	 * @param File $phpcsFile The file where the token was found.
+	 * @param int  $stackPtr  The position in the stack where
 	 *                                        the token was found.
 	 *
 	 * @return void
 	 * @throws PHP_CodeSniffer_Exception If jslint.js could not be run
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$filename = $phpcsFile->getFilename();
-		$eslint_path = PHP_CodeSniffer::getConfigData( 'eslint_path' );
+		$eslint_path = Config::getConfigData( 'eslint_path' );
 		if ( $eslint_path === null ) {
 			return;
 		}
