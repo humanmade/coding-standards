@@ -1,6 +1,10 @@
 <?php
 
-class HM_Tests_Layout_OrderUnitTest extends AbstractSniffUnitTest {
+namespace HM\Tests\Layout;
+
+use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
+
+class OrderUnitTest extends AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.
