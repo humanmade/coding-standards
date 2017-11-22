@@ -124,18 +124,23 @@ phpcs also includes ESLint checking based upon the `eslint:recommended` standard
 
 ### Running tests
 
-To run the tests locally you need a checkout of PHP Code Sniffer, any other
-type of install that isn't v3 or higher will not have the tests included.
+To run the tests locally, you'll need the source version of PHP CodeSniffer.
+
+If you haven't already installed your Composer dependencies:
 
 ```bash
-git clone -b 2.8.1 git@github.com:squizlabs/PHP_CodeSniffer
-cd PHP_CodeSniffer
-composer install
-scripts/phpcs --config-set installed_paths /path/to/this/repo
-vendor/bin/phpunit --filter HM
+composer install --prefer-source --dev
 ```
 
-### Writing tests
+If you already have, and need to convert the phpcs directory to a source version:
+
+```bash
+rm -r vendor/squizlabs/php_codesniffer
+composer install --prefer-source --dev
+composer dump-autoload
+```
+
+### Writing sniff tests
 
 To add tests you should mirror the directory structure of the sniffs. For example a test
 for `HM/Sniffs/Layout/OrderSniff.php` would require the following files:
@@ -152,12 +157,14 @@ A basic unit test class looks like the following:
 ```php
 <?php
 
+namespace HM\Tests\Layout;
+
+use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
+
 /**
  * Class name must follow the directory structure to be autoloaded correctly.
- * 
- * **NO NAMESPACES!!**
  */
-class HM_Tests_Layout_OrderUnitTest extends AbstractSniffUnitTest {
+class OrderUnitTest extends AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.
