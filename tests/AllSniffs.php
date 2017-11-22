@@ -18,6 +18,8 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
 class AllSniffs {
+	const TEST_SUFFIX = 'UnitTest.php';
+
 	/**
 	 * Prepare the test runner.
 	 *
@@ -56,15 +58,15 @@ class AllSniffs {
 		$di = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $test_dir ) );
 
 		foreach ( $di as $file ) {
+			$filename = $file->getFilename();
+
 			// Skip hidden files.
-			if ( substr( $file->getFilename(), 0, 1 ) === '.' ) {
+			if ( substr( $filename, 0, 1 ) === '.' ) {
 				continue;
 			}
 
-			// Tests must have the extension 'php'.
-			$parts = explode( '.', $file );
-			$ext   = array_pop( $parts );
-			if ( $ext !== 'php' ) {
+			// Tests must end with "UnitTest.php"
+			if ( substr( $filename, -1 * strlen( static::TEST_SUFFIX ) ) !== static::TEST_SUFFIX ) {
 				continue;
 			}
 
