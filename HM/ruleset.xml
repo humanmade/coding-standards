@@ -9,6 +9,11 @@
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>*.min.js</exclude-pattern>
 
+	<!-- Exclude rules from the JS parser. -->
+	<rule ref="WordPress.WhiteSpace.OperatorSpacing">
+		<exclude-pattern>*.js</exclude-pattern>
+	</rule>
+
 	<!-- Include everything in the VIP standard... -->
 	<rule ref="WordPress-VIP">
 		<!-- ...Except for VIP-specific things -->
