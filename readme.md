@@ -181,3 +181,28 @@ class HM_Tests_Layout_OrderUnitTest extends AbstractSniffUnitTest {
 
 }
 ```
+
+
+### Fixture Tests
+
+Rather than testing sniffs individually, `FixtureTests.php` also tests the files in the `tests/fixtures` directory and ensures that whole files pass.
+
+To add an expected-pass file, simply add it into `tests/fixtures/pass` in the appropriate subdirectory/file.
+
+To add an expected-fail file, add it into `tests/fixtures/fail` in the appropriate subdirectory/file. You then need to add the expected errors to the JSON file accompanying the tested file (i.e. the filename with `.json` appended). This file should contain a valid JSON object keyed by line number, with each item being a list of error objects:
+
+```json
+{
+	"1": [
+		{
+			"source": "HM.Files.FunctionFileName.WrongFile",
+			"type": "error"
+		}
+	]
+}
+```
+
+An error object contains:
+
+* `source`: Internal phpcs error code; use the `-s` flag to `phpcs` to get the code.
+* `type`: One of `error` or `warning`, depending on the check's severity.
