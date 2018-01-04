@@ -74,10 +74,9 @@ rules:
   space-unary-ops:
   - error
   - words: true
-    nonwords: true
+    nonwords: false
     overrides:
-      ++: false
-      --: false
+      "!": true
   no-multiple-empty-lines:
   - error
   - max: 1
@@ -87,7 +86,6 @@ rules:
   object-curly-spacing:
   - error
   - always
-  - objectsInObjects: false
   arrow-parens:
   - error
   - as-needed

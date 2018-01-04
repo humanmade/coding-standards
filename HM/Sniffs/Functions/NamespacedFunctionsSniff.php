@@ -1,18 +1,18 @@
 <?php
 namespace HM\Sniffs\Functions;
 
-use PHP_CodeSniffer_File;
-use PHP_CodeSniffer_Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Sniff to check for namespaces for functions.
  */
-class NamespacedFunctionsSniff implements PHP_CodeSniffer_Sniff {
+class NamespacedFunctionsSniff implements Sniff {
 	public function register() {
 		return array( T_FUNCTION );
 	}
 
-	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		if (isset($tokens[$stackPtr]['scope_closer']) === false) {
 			return;

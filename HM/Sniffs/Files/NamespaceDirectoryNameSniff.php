@@ -1,13 +1,13 @@
 <?php
 namespace HM\Sniffs\Files;
 
-use PHP_CodeSniffer_File;
-use PHP_CodeSniffer_Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Namespaced things must be in directories matching the namespace.
  */
-class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
+class NamespaceDirectoryNameSniff implements Sniff {
 	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
@@ -20,13 +20,13 @@ class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token in the
-	 *                                        stack passed in $tokens.
+	 * @param File $phpcsFile The file being scanned.
+	 * @param int  $stackPtr  The position of the current token in the
+	 *                        stack passed in $tokens.
 	 *
 	 * @return int
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$namespace = '';
 
@@ -44,6 +44,11 @@ class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
 		$full = $phpcsFile->getFileName();
 		$filename = basename( $full );
 		$directory = dirname( $full );
+
+		// Normalize the directory seperator accross operating systems
+		if ( DIRECTORY_SEPARATOR !== '/' ) {
+			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
+		}
 
 		if ( $filename === 'plugin.php' || $filename === 'functions.php' ) {
 			// Ignore the main file.
@@ -64,7 +69,7 @@ class NamespaceDirectoryNameSniff implements PHP_CodeSniffer_Sniff {
 		}
 
 		$namespace_parts = explode( '\\', $namespace );
-		$directory_parts = explode( DIRECTORY_SEPARATOR, trim( $after_inc, DIRECTORY_SEPARATOR ) );
+		$directory_parts = explode( '/', trim( $after_inc, '/' ) );
 
 		// Check that the path matches the namespace, allowing parts to be dropped.
 		while ( ! empty( $directory_parts ) ) {

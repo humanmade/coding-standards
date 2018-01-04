@@ -2,14 +2,13 @@
 
 namespace HM\Sniffs\Classes;
 
-use PHP_CodeSniffer_File;
-use PHP_CodeSniffer_Sniff;
-use PHP_CodeSniffer_Tokens;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Sniff to check classes are by themselves.
  */
-class OnlyClassInFileSniff implements PHP_CodeSniffer_Sniff {
+class OnlyClassInFileSniff implements Sniff {
 	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
@@ -28,7 +27,7 @@ class OnlyClassInFileSniff implements PHP_CodeSniffer_Sniff {
 	 *
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$error = 'Files should only contain a single class, and no other declarations. First class was defined on line %s, and a %s was found on line %s.';
 
 		$tokens = $phpcsFile->getTokens();

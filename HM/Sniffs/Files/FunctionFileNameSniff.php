@@ -1,18 +1,18 @@
 <?php
 namespace HM\Sniffs\Files;
 
-use PHP_CodeSniffer_File;
-use PHP_CodeSniffer_Sniff;
+use PHP_CodeSniffer\Files\File;
+use PHP_CodeSniffer\Sniffs\Sniff;
 
 /**
  * Sniff to check for namespaced functions are in `namespace.php`.
  */
-class FunctionFileNameSniff implements PHP_CodeSniffer_Sniff {
+class FunctionFileNameSniff implements Sniff {
 	public function register() {
 		return array( T_FUNCTION );
 	}
 
-	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
+	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		if ( $tokens[ $stackPtr ]['level'] !== 0 ) {
 			// Ignore methods.

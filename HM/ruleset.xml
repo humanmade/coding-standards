@@ -9,6 +9,11 @@
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>*.min.js</exclude-pattern>
 
+	<!-- Exclude rules from the JS parser. -->
+	<rule ref="WordPress.WhiteSpace.OperatorSpacing">
+		<exclude-pattern>*.js</exclude-pattern>
+	</rule>
+
 	<!-- Include everything in the VIP standard... -->
 	<rule ref="WordPress-VIP">
 		<!-- ...Except for VIP-specific things -->
@@ -19,6 +24,7 @@
 		<exclude name="WordPress.VIP.ValidatedSanitizedInput" />
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
 		<exclude name="WordPress.XSS.EscapeOutput" />
+		<exclude name="WordPress.VIP.AdminBarRemoval" />
 
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
@@ -104,4 +110,6 @@
 	<!-- Inline Statements: Single statement on same line -->
 		<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 	<!-- Inline Statements: No semicolons -->
+
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 </ruleset>
