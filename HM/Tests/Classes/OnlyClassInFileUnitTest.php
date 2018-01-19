@@ -1,10 +1,10 @@
 <?php
 
-namespace HM\Tests\Layout;
+namespace HM\Tests\Classes;
 
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
-class OrderUnitTest extends AbstractSniffUnitTest {
+class OnlyClassInFileUnitTest extends AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.
@@ -12,9 +12,7 @@ class OrderUnitTest extends AbstractSniffUnitTest {
 	 * @return array <int line number> => <int number of errors>
 	 */
 	public function getErrorList() {
-		return [
-			1  => 1,
-		];
+		return [];
 	}
 
 	/**
@@ -23,7 +21,15 @@ class OrderUnitTest extends AbstractSniffUnitTest {
 	 * @return array <int line number> => <int number of warnings>
 	 */
 	public function getWarningList() {
-		return [];
+		$file = func_get_arg( 0 );
+		list( $_, $type, $variant ) = explode( '.', $file, 3 );
+		if ( $type !== 'fail' ) {
+			return [];
+		}
+
+		return [
+			1 => 1,
+		];
 	}
 
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace HM\Tests\Layout;
+namespace HM\Tests\Namespaces;
 
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
-class OrderUnitTest extends AbstractSniffUnitTest {
+class NoLeadingSlashOnUseUnitTest extends AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.
@@ -12,9 +12,17 @@ class OrderUnitTest extends AbstractSniffUnitTest {
 	 * @return array <int line number> => <int number of errors>
 	 */
 	public function getErrorList() {
-		return [
-			1  => 1,
-		];
+		$file = func_get_arg( 0 );
+		switch ( $file ) {
+			case 'NoLeadingSlashOnUseUnitTest.success':
+				return [];
+
+			case 'NoLeadingSlashOnUseUnitTest.fail':
+				return [
+					5 => 1,
+					6 => 1,
+				];
+		}
 	}
 
 	/**
