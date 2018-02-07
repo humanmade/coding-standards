@@ -71,12 +71,6 @@ You can also customise the rule to exclude elements if they aren't applicable to
 <rule ref="vendor/humanmade/coding-standards">
 	<!-- Disable short array syntax -->
 	<exclude name="HM.Debug.ForceShortArray" />
-
-	<!-- Disable all ESLint checks... -->
-	<exclude name="HM.Debug.ESLint" />
-
-	<!-- Or disable just a singular rule -->
-	<exclude name="HM.Debug.ESLint.no-unused-vars" />
 </rule>
 ```
 
@@ -88,6 +82,12 @@ To find out what these codes are, specify `-s` when running `phpcs`, and the cod
 ### Custom ESLint Configuration
 
 This repo comes with a .eslintrc.yml file matching the HM coding standards. While checks can be disabled using the `<exclude />` rules, you can't add additional checks this way. Instead, you can create your own ESLint config file.
+
+To enable checking ESLint via phpcs, you need to add the ESLint rule to your custom ruleset:
+
+```xml
+<rule ref="HM.Debug.ESLint" />
+```
 
 ESLint configuration files (`.eslintrc.js`, `.eslintrc.yaml`, `.eslintrc.yml`, `.eslintrc.json`) will be **autodetected** by phpcs and used automatically if they exist. Inside your configuration file, you can extend the HM Coding Standards lint file by referencing it by a path:
 
