@@ -4,7 +4,7 @@
 	"type": "project",
 	"license": "GPL-2.0-or-later",
 	"require": {
-		"wp-coding-standards/wpcs": "^0.13.1",
+		"wp-coding-standards/wpcs": "^0.14.0",
 		"fig-r/psr2r-sniffer": "^0.5.0",
 		"squizlabs/php_codesniffer": "^3.1"
 	},
