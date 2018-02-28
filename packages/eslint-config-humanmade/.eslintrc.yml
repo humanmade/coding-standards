@@ -105,3 +105,4 @@ rules:
   react/jsx-curly-spacing:
   - error
   - always
+  - children: true
