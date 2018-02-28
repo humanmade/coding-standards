@@ -102,3 +102,6 @@ rules:
   - error
   no-var:
   - warn
+  react/jsx-curly-spacing:
+  - error
+  - always
