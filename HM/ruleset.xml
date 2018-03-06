@@ -10,6 +10,8 @@
 	<exclude-pattern>*.js</exclude-pattern>
 	<exclude-pattern>*.css</exclude-pattern>
 
+	<autoload>./bootstrap.php</autoload>
+
 	<!-- Include everything in the VIP standard... -->
 	<rule ref="WordPress-VIP">
 		<!-- ...Except for VIP-specific things -->
