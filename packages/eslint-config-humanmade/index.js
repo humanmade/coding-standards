@@ -5,7 +5,7 @@ module.exports = {
 	'root': true,
 	'env': {
 		'browser': true,
-		'es6': true
+		'es6': true,
 	},
 	'extends': [
 		'eslint:recommended',
@@ -14,14 +14,12 @@ module.exports = {
 	'parserOptions': {
 		'ecmaFeatures': {
 			'experimentalObjectRestSpread': true,
-			'jsx': true
+			'jsx': true,
 		},
-		'sourceType': 'module'
+		'sourceType': 'module',
 	},
 	'rules': {
-		'array-bracket-spacing': [ 'error', 'always', {
-			'objectsInArrays': false,
-		} ],
+		'array-bracket-spacing': [ 'error', 'always' ],
 		'block-spacing': [ 'error' ],
 		'brace-style': [ 'error', '1tbs' ],
 		'comma-spacing': [ 'error', {
@@ -33,11 +31,10 @@ module.exports = {
 		'key-spacing': [ 'error', {
 			'beforeColon': false,
 			'afterColon': true,
-			'align': 'value'
 		} ],
 		'keyword-spacing': [ 'error', {
 			'after': true,
-			'before': true
+			'before': true,
 		} ],
 		'eol-last': [ 'error', 'unix' ],
 		'func-call-spacing': [ 'error' ],
@@ -47,7 +44,7 @@ module.exports = {
 			'named': 'never',
 		} ],
 		'space-in-parens': [ 'warn', 'always', {
-			'exceptions': [ 'empty' ]
+			'exceptions': [ 'empty' ],
 		} ],
 		'indent': [ 'error', 'tab', {
 			'SwitchCase': 1,
@@ -71,6 +68,7 @@ module.exports = {
 		} ],
 		'object-curly-newline': [ 'error', {
 			'multiline': true,
+			'consistent': true,
 		} ],
 		'object-curly-spacing': [ 'error', 'always' ],
 		'arrow-parens': [ 'error', 'as-needed' ],
