@@ -1,6 +1,3 @@
-/* eslint quote-props: ["error", "always"] */
-// Quote properties for consistency in this file only
-// (Many ESLint rules use key names that require quotation marks)
 module.exports = {
 	'root': true,
 	'env': {
@@ -20,14 +17,24 @@ module.exports = {
 	},
 	'rules': {
 		'array-bracket-spacing': [ 'error', 'always' ],
+		'arrow-parens': [ 'error', 'as-needed' ],
+		'arrow-spacing': [ 'error', {
+			'before': true,
+			'after': true,
+		} ],
 		'block-spacing': [ 'error' ],
 		'brace-style': [ 'error', '1tbs' ],
+		'comma-dangle': [ 'error', 'always-multiline' ],
 		'comma-spacing': [ 'error', {
 			'before': false,
 			'after': true,
 		} ],
-		'comma-dangle': [ 'error', 'always-multiline' ],
+		'eol-last': [ 'error', 'unix' ],
 		'eqeqeq': [ 'error' ],
+		'func-call-spacing': [ 'error' ],
+		'indent': [ 'error', 'tab', {
+			'SwitchCase': 1,
+		} ],
 		'key-spacing': [ 'error', {
 			'beforeColon': false,
 			'afterColon': true,
@@ -36,8 +43,24 @@ module.exports = {
 			'after': true,
 			'before': true,
 		} ],
-		'eol-last': [ 'error', 'unix' ],
-		'func-call-spacing': [ 'error' ],
+		'linebreak-style': [ 'error', 'unix' ],
+		'no-console': [ 'warn' ],
+		'no-mixed-spaces-and-tabs': [ 'error', 'smart-tabs' ],
+		'no-multiple-empty-lines': [ 'error', {
+			'max': 1,
+		} ],
+		'no-trailing-spaces': [ 'error' ],
+		'no-var': [ 'warn' ],
+		'object-curly-newline': [ 'error', {
+			'minProperties': 2,
+			'consistent': true,
+		} ],
+		'object-curly-spacing': [ 'error', 'always' ],
+		'quotes': [ 'error', 'single' ],
+		'semi-spacing': [ 'error', {
+			'before': false,
+			'after': true,
+		} ],
 		'space-before-function-paren': [ 'error', {
 			'anonymous': 'always',
 			'asyncArrow': 'always',
@@ -46,16 +69,6 @@ module.exports = {
 		'space-in-parens': [ 'warn', 'always', {
 			'exceptions': [ 'empty' ],
 		} ],
-		'indent': [ 'error', 'tab', {
-			'SwitchCase': 1,
-		} ],
-		'no-mixed-spaces-and-tabs': [ 'error', 'smart-tabs' ],
-		'linebreak-style': [ 'error', 'unix' ],
-		'quotes': [ 'error', 'single' ],
-		'semi-spacing': [ 'error', {
-			'before': false,
-			'after': true,
-		} ],
 		'space-unary-ops': [ 'error', {
 			'words': true,
 			'nonwords': false,
@@ -63,23 +76,7 @@ module.exports = {
 				'!': true,
 			},
 		} ],
-		'no-multiple-empty-lines': [ 'error', {
-			'max': 1,
-		} ],
-		'object-curly-newline': [ 'error', {
-			'multiline': true,
-			'consistent': true,
-		} ],
-		'object-curly-spacing': [ 'error', 'always' ],
-		'arrow-parens': [ 'error', 'as-needed' ],
-		'arrow-spacing': [ 'error', {
-			'before': true,
-			'after': true,
-		} ],
 		'yoda': [ 'error', 'never' ],
-		'no-console': [ 'warn' ],
-		'no-trailing-spaces': [ 'error' ],
-		'no-var': [ 'warn' ],
 		'react/jsx-curly-spacing': [ 'error', 'always' ],
 	},
 };
