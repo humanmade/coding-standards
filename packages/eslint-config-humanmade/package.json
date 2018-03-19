@@ -7,7 +7,7 @@
   },
   "peerDependencies": {
     "babel-eslint": "^7.0.0",
-    "eslint": "^3.11.1",
+    "eslint": "^4.19.0",
     "eslint-config-react-app": "^0.5.0",
     "eslint-plugin-flowtype": "^2.21.0",
     "eslint-plugin-import": "^2.0.1",
