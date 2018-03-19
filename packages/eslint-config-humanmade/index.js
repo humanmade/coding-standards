@@ -79,5 +79,6 @@ module.exports = {
 		} ],
 		'yoda': [ 'error', 'never' ],
 		'react/jsx-curly-spacing': [ 'error', 'always' ],
+		'react/jsx-wrap-multilines': [ 'error' ],
 	},
 };
