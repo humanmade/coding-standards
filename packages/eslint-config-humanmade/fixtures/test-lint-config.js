@@ -33,6 +33,7 @@ if ( antipatternCounts.errors ) {
 	console.log( chalk.green( 'ESLint logs errors as expected.\n' ) );
 } else {
 	console.log( chalk.bold.red( 'Errors expected, but none encountered!\n' ) );
+	process.exitCode = 1;
 }
 
 // Log full report when --verbose, or when no errors are reported.
@@ -53,7 +54,7 @@ if ( verbose || exampleCounts.errors || exampleCounts.warnings ) {
 if ( exampleCounts.errors ) {
 	const { errors } = exampleCounts;
 	console.log( chalk.bold.red( `${ errors } unexpected error${ errors !== 1 ? 's' : '' }!\n` ) );
-	process.exit( 1 );
+	process.exitCode = 1;
 } else {
 	const { files } = exampleCounts;
 	console.log( chalk.green( `${ files } files pass lint.` ) );
