@@ -383,7 +383,7 @@ class UnusedUseStatementSniff implements PHP_CodeSniffer_Sniff
         // - usage in another use statement
         // - usage prefixed by a slash
         $tokens = $phpcsFile->getTokens();
-        $ptr = $phpcsFile->findNext(T_STRING, $useStatementSemicolonPtr + 1, $endOfNamespacePtr);
+        $ptr = $phpcsFile->findNext(T_STRING, $useStatementSemicolonPtr + 1, $endOfNamespacePtr ?: null);
         while ($ptr !== false) {
             $tstringContent = $tokens[$ptr]['content'];
             if (strcasecmp($tstringContent, $name) === 0) {
@@ -407,7 +407,7 @@ class UnusedUseStatementSniff implements PHP_CodeSniffer_Sniff
                     return true;
                 }
             }
-            $ptr = $phpcsFile->findNext(T_STRING, $ptr + 1, $endOfNamespacePtr);
+            $ptr = $phpcsFile->findNext(T_STRING, $ptr + 1, $endOfNamespacePtr ?: null);
         }
         return false;
     }
