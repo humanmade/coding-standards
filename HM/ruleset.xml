@@ -89,6 +89,8 @@
 
 	<!-- Namespacing: `use` statements -->
 		<rule ref="PSR2.Namespaces.UseDeclaration" />
+		<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
+		<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
 
 	<!-- Namespacing: No backslash with `use` -->
 		<!-- Handled in Namespaces/NoLeadingSlashOnUseSniff -->
