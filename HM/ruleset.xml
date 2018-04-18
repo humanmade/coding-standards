@@ -44,6 +44,14 @@
 		assignment in conditionals.
 		-->
 		<exclude name="WordPress.PHP.YodaConditions" />
+
+	</rule>
+
+	<!-- Allow the use of filesystem functions -->
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<properties>
+			<property name="exclude" value="file_get_contents,file_system_read" />
+		</properties>
 	</rule>
 
 	<!-- Allow . in hook names -->
