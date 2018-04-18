@@ -24,6 +24,9 @@
 		<exclude name="WordPress.XSS.EscapeOutput" />
 		<exclude name="WordPress.VIP.AdminBarRemoval" />
 
+		<!-- Exclude other conflicting rules -->
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
+
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
 
