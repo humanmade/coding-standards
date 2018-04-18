@@ -23,6 +23,16 @@
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
 		<exclude name="WordPress.XSS.EscapeOutput" />
 		<exclude name="WordPress.VIP.AdminBarRemoval" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_read_file_get_contents" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_fwrite" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_fread" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_fclose" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_pfsockopen" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_fsockopen" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_fopen" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_readfile" />
 
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
