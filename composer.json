@@ -2,10 +2,13 @@
 	"name": "humanmade/coding-standards",
 	"description": "Human Made coding standards",
 	"type": "project",
-	"license": "GPL-2.0",
+	"license": "GPL-2.0-or-later",
 	"require": {
-		"wp-coding-standards/wpcs": "^0.13.1",
-		"fig-r/psr2r-sniffer": "dev-master",
+		"wp-coding-standards/wpcs": "^0.14.0",
+		"fig-r/psr2r-sniffer": "^0.5.0",
 		"squizlabs/php_codesniffer": "^3.1"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^5.7"
 	}
 }

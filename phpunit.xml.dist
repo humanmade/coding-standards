@@ -1,0 +1,15 @@
+<phpunit
+	bootstrap="tests/bootstrap.php"
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+>
+	<testsuites>
+		<!-- Default test suite to run all tests -->
+		<testsuite>
+			<file>tests/AllSniffs.php</file>
+			<file>tests/FixtureTests.php</file>
+		</testsuite>
+	</testsuites>
+</phpunit>

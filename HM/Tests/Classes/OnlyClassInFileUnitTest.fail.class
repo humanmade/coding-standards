@@ -1,0 +1,15 @@
+<?php
+
+namespace HM\Coding\Standards\Tests;
+
+class Bar {
+	public function test() {
+		echo 'bar';
+	}
+}
+
+class Foo {
+	public function test() {
+		echo 'foo';
+	}
+}

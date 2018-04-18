@@ -4,6 +4,7 @@
  */
 'use strict';
 
+var find = require('array.prototype.find');
 var variableUtil = require('../util/variable');
 
 // ------------------------------------------------------------------------------
@@ -22,10 +23,17 @@ module.exports = {
 
   create: function(context) {
     /**
+     * @param {object} node An Identifier node
+     */
+    function isNonNullaryLiteral(expression) {
+      return expression.type === 'Literal' && expression.value !== null;
+    }
+
+    /**
      * @param {object} node A Identifier node
      */
     function checkIdentifiers(node) {
-      var variable = variableUtil.variablesInScope(context).find(function (item) {
+      var variable = find(variableUtil.variablesInScope(context), function (item) {
         return item.name === node.name;
       });
 
@@ -33,7 +41,7 @@ module.exports = {
         return;
       }
 
-      if (variable.defs[0].node.init.type === 'Literal') {
+      if (isNonNullaryLiteral(variable.defs[0].node.init)) {
         context.report(node, 'Style prop value must be an object');
       }
     }
@@ -47,13 +55,13 @@ module.exports = {
           && node.arguments.length > 1
         ) {
           if (node.arguments[1].type === 'ObjectExpression') {
-            var style = node.arguments[1].properties.find(function(property) {
+            var style = find(node.arguments[1].properties, function(property) {
               return property.key && property.key.name === 'style' && !property.computed;
             });
             if (style) {
               if (style.value.type === 'Identifier') {
                 checkIdentifiers(style.value);
-              } else if (style.value.type === 'Literal' && style.value.value !== null) {
+              } else if (isNonNullaryLiteral(style.value)) {
                 context.report(style.value, 'Style prop value must be an object');
               }
             }
@@ -66,10 +74,7 @@ module.exports = {
           return;
         }
 
-        if (
-          node.value.type !== 'JSXExpressionContainer'
-          || (node.value.expression.type === 'Literal' && node.value.expression.value !== null)
-        ) {
+        if (node.value.type !== 'JSXExpressionContainer' || isNonNullaryLiteral(node.value.expression)) {
           context.report(node, 'Style prop value must be an object');
         } else if (node.value.expression.type === 'Identifier') {
           checkIdentifiers(node.value.expression);

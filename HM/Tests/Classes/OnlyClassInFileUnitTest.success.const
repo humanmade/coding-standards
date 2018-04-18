@@ -1,0 +1,11 @@
+<?php
+
+namespace HM\Coding\Standards\Tests;
+
+const FOO = 'foo';
+
+class Bar {
+	public function test() {
+		echo 'bar';
+	}
+}

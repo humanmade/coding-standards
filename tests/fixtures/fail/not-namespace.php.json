@@ -1,0 +1,14 @@
+{
+	"6": [
+		{
+			"source": "HM.Files.NamespaceDirectoryName.NoIncDirectory",
+			"type": "error"
+		}
+	],
+	"11": [
+		{
+			"source": "HM.Files.FunctionFileName.WrongFile",
+			"type": "error"
+		}
+	]
+}

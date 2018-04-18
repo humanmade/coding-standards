@@ -6,10 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = extract;
 exports.extractLiteral = extractLiteral;
 
-var _objectAssign = require('object-assign');
-
-var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
 var _Literal = require('../Literal');
 
 var _Literal2 = _interopRequireDefault(_Literal);
@@ -107,7 +103,7 @@ var noop = function noop() {
 };
 
 // Composition map of types to their extractor functions to handle literals.
-var LITERAL_TYPES = (0, _objectAssign2.default)({}, TYPES, {
+var LITERAL_TYPES = Object.assign({}, TYPES, {
   Literal: function Literal(value) {
     var extractedVal = TYPES.Literal.call(undefined, value);
     var isNull = extractedVal === null;
@@ -162,8 +158,15 @@ var errorMessage = function errorMessage(expression) {
  */
 function extract(value) {
   // Value will not have the expression property when we recurse.
-  var expression = value.expression || value;
-  var type = expression.type;
+  // The type for expression on ArrowFunctionExpression is a boolean.
+  var expression = void 0;
+  if (typeof value.expression !== 'boolean' && value.expression) {
+    expression = value.expression;
+  } else {
+    expression = value;
+  }
+  var _expression = expression,
+      type = _expression.type;
 
 
   if (TYPES[type] === undefined) {
