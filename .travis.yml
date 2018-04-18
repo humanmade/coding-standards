@@ -5,6 +5,8 @@ php:
 install:
   - composer install
   - npm install
+  - cd packages/eslint-config-humanmade && npm install
 
 script:
   - vendor/bin/phpunit
+  - node packages/eslint-config-humanmade/fixtures/test-lint-config
