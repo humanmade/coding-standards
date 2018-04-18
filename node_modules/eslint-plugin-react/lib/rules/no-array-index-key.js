@@ -4,6 +4,8 @@
  */
 'use strict';
 
+var has = require('has');
+
 // ------------------------------------------------------------------------------
 // Rule Definition
 // ------------------------------------------------------------------------------
@@ -50,7 +52,7 @@ module.exports = {
       if (callee.property.type !== 'Identifier') {
         return null;
       }
-      if (!iteratorFunctionsToIndexParamPosition.hasOwnProperty(callee.property.name)) {
+      if (!has(iteratorFunctionsToIndexParamPosition, callee.property.name)) {
         return null;
       }
 
@@ -143,7 +145,8 @@ module.exports = {
           }
 
           props.properties.forEach(function (prop) {
-            if (prop.key.name !== 'key') {
+            if (!prop.key || prop.key.name !== 'key') {
+              // { ...foo }
               // { foo: bar }
               return;
             }

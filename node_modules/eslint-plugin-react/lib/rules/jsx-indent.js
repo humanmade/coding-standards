@@ -233,7 +233,7 @@ module.exports = {
           do {
             prevToken = sourceCode.getTokenBefore(prevToken);
           } while (prevToken.type === 'Punctuator');
-          prevToken = sourceCode.getNodeByRangeIndex(prevToken.start);
+          prevToken = sourceCode.getNodeByRangeIndex(prevToken.range[0]);
           while (prevToken.parent && prevToken.parent.type !== 'ConditionalExpression') {
             prevToken = prevToken.parent;
           }

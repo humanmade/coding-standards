@@ -30,7 +30,7 @@ module.exports = function(__this, that, limit) {
   }
 
   // Calculate matrix.
-  var this_i, that_j, cost, min, t;
+  var j, this_i, that_j, cost, min, t;
   for (i = 1; i <= thisLength; ++i) {
     this_i = __this[i-1];
 

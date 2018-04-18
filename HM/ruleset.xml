@@ -24,6 +24,9 @@
 		<exclude name="WordPress.XSS.EscapeOutput" />
 		<exclude name="WordPress.VIP.AdminBarRemoval" />
 
+		<!-- Allow with or without semicolons -->
+		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
+
 		<!-- Exclude other conflicting rules -->
 		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
 
@@ -47,6 +50,14 @@
 		assignment in conditionals.
 		-->
 		<exclude name="WordPress.PHP.YodaConditions" />
+
+	</rule>
+
+	<!-- Allow the use of filesystem functions -->
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<properties>
+			<property name="exclude" value="file_get_contents,file_system_read" />
+		</properties>
 	</rule>
 
 	<!-- Allow . in hook names -->

@@ -90,4 +90,6 @@ function attach_to_runner( $runner ) {
 	}
 }
 
-attach_to_runner( $GLOBALS['runner'] );
+if ( ! empty( $GLOBALS['runner'] ) ) {
+	attach_to_runner( $GLOBALS['runner'] );
+}

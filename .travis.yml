@@ -7,4 +7,4 @@ install:
   - npm install
 
 script:
-  - phpunit
+  - vendor/bin/phpunit

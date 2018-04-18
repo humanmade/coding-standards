@@ -64,10 +64,11 @@ class FixtureTests extends TestCase {
 		$phpcsFile = new LocalFile( $file, $this->ruleset, $this->config );
 		$phpcsFile->process();
 
+		$rel_file = substr( $file, strlen( __DIR__ ) );
 		$foundErrors = $phpcsFile->getErrors();
-		$this->assertEquals( [], $foundErrors, 'File should not contain any errors' );
+		$this->assertEquals( [], $foundErrors, sprintf( 'File %s should not contain any errors', $rel_file ) );
 		$foundWarnings = $phpcsFile->getWarnings();
-		$this->assertEquals( [], $foundWarnings, 'File should not contain any warnings' );
+		$this->assertEquals( [], $foundWarnings, sprintf( 'File %s should not contain any warnings', $rel_file ) );
 	}
 
 	/**
