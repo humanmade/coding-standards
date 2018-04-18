@@ -24,9 +24,9 @@ const count = results => results.reduce( ( counts, file ) => ( {
 } );
 
 console.log( 'Running ESLint on fixture directories. Use --verbose for a detailed report.' );
-console.log( '\nLinting `fixtures/antipatterns/**`...' );
+console.log( '\nLinting `fixtures/fail/**`...' );
 
-const antipatternReport = cli.executeOnFiles( [ join( __dirname, 'antipatterns/**' ) ] );
+const antipatternReport = cli.executeOnFiles( [ join( __dirname, 'fail/**' ) ] );
 const antipatternCounts = count( antipatternReport.results );
 
 if ( antipatternCounts.errors ) {
@@ -41,9 +41,9 @@ if ( verbose || ! antipatternCounts.errors ) {
 	console.log( formatter( antipatternReport.results ) );
 }
 
-console.log( 'Linting `fixtures/examples/**`...' );
+console.log( 'Linting `fixtures/pass/**`...' );
 
-const exampleReport = cli.executeOnFiles( [ join( __dirname, 'examples/**' ) ] );
+const exampleReport = cli.executeOnFiles( [ join( __dirname, 'pass/**' ) ] );
 const exampleCounts = count( exampleReport.results );
 
 // Log full report when --verbose, or whenever errors are unexpectedly reported.
