@@ -2,7 +2,6 @@
 <ruleset name="HM">
 	<description>Loader for the main HM sniffer.</description>
 
-	<config name="eslint_path" value="vendor/humanmade/coding-standards/node_modules/.bin/eslint" />
 	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/fig-r/psr2r-sniffer" />
 	<rule ref="vendor/humanmade/coding-standards/HM/ruleset.xml" />
 </ruleset>
