@@ -48,8 +48,8 @@ class OrderSniff implements Sniff {
 			$next_token = $tokens[ $next_pos ];
 
 			// Ignore nested `use` eg. in lambda functions.
-			if ( $next_token['type'] === 'T_USE' && $next_token['level'] > 0 ) {
-				return;
+			if ( $next_token['code'] === T_USE && $phpcsFile->findPrevious( T_CLOSURE, $next_pos, null, false, null, true ) !== false ) {
+				continue;
 			}
 
 			// Must be current or higher.
