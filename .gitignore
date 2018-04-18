@@ -2,3 +2,7 @@
 vendor/
 composer.lock
 .idea/
+
+# Ignore node things.
+node_modules/
+yarn.lock
