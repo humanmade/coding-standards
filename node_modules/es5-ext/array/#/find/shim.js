@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
-var findIndex = require('../find-index/shim');
+var findIndex = require("../find-index/shim");
 
-module.exports = function (predicate/*, thisArg*/) {
+// eslint-disable-next-line no-unused-vars
+module.exports = function (predicate /*, thisArg*/) {
 	var index = findIndex.apply(this, arguments);
-	return (index === -1) ? undefined : this[index];
+	return index === -1 ? undefined : this[index];
 };

@@ -1,3 +1,20 @@
+For recent changelog see CHANGELOG.md
+
+-----
+
+v0.10.15  --  2017.03.20
+* Fix Object.isValue (it was actually isNotValue)
+
+v0.10.14  --  2017.03.15
+* Object.isValue util
+
+v0.10.13  --  2017.03.13
+* Introduce JSON.safeStringify
+* Improve message handling in error/custom
+* Fix Array#concat shim
+* Improve Array#flatten algorithm so it's stack trace friendly
+* Make Object.isObject ES3 compatible
+
 v0.10.12  --  2016.07.01
 * Ensure symbols are copied in Object.mixin
 * Prevent RangeError errors in array#flatten

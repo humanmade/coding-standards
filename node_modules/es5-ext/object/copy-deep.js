@@ -1,38 +1,37 @@
-'use strict';
+"use strict";
 
-var forEach       = require('./for-each')
-  , isPlainObject = require('./is-plain-object')
-  , value         = require('./valid-value')
+var forEach       = require("./for-each")
+  , isPlainObject = require("./is-plain-object")
+  , ensureValue   = require("./valid-value")
+  , isArray       = Array.isArray;
 
-  , isArray = Array.isArray
-  , copy, copyItem;
+var copyValue = function (value, ancestors, ancestorsCopy) {
+	var mode;
+	if (isPlainObject(value)) mode = "object";
+	else if (isArray(value)) mode = "array";
+	if (!mode) return value;
 
-copyItem = function (value, key) {
-	var index;
-	if (!isPlainObject(value) && !isArray(value)) return value;
-	index = this[0].indexOf(value);
-	if (index === -1) return copy.call(this, value);
-	return this[1][index];
-};
+	var copy = ancestorsCopy[ancestors.indexOf(value)];
+	if (copy) return copy;
+	copy = mode === "object" ? {} : [];
 
-copy = function (source) {
-	var target = isArray(source) ? [] : {};
-	this[0].push(source);
-	this[1].push(target);
-	if (isArray(source)) {
-		source.forEach(function (value, key) {
-			target[key] = copyItem.call(this, value, key);
-		}, this);
+	ancestors.push(value);
+	ancestorsCopy.push(copy);
+	if (mode === "object") {
+		forEach(value, function (item, key) {
+			copy[key] = copyValue(item, ancestors, ancestorsCopy);
+		});
 	} else {
-		forEach(source, function (value, key) {
-			target[key] = copyItem.call(this, value, key);
-		}, this);
+		value.forEach(function (item, index) {
+			copy[index] = copyValue(item, ancestors, ancestorsCopy);
+		});
 	}
-	return target;
+	ancestors.pop();
+	ancestorsCopy.pop();
+
+	return copy;
 };
 
 module.exports = function (source) {
-	var obj = Object(value(source));
-	if (obj !== source) return obj;
-	return copy.call([[], []], obj);
+	return copyValue(ensureValue(source), [], []);
 };

@@ -6,10 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = getValue;
 exports.getLiteralValue = getLiteralValue;
 
-var _objectAssign = require('object-assign');
-
-var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
 var _Literal = require('./Literal');
 
 var _Literal2 = _interopRequireDefault(_Literal);
@@ -32,7 +28,7 @@ var TYPES = {
 };
 
 // Composition map of types to their extractor functions to handle literals.
-var LITERAL_TYPES = (0, _objectAssign2.default)({}, TYPES, {
+var LITERAL_TYPES = Object.assign({}, TYPES, {
   JSXElement: function JSXElement() {
     return null;
   },

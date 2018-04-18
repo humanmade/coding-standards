@@ -74,4 +74,9 @@ module.exports = function (t, a) {
 
 	a.h2("Direct");
 	a(Foo.prototype.flat2, 'bar');
+
+	a.h2("Reset direct");
+	Object.defineProperties(Foo.prototype, t({ testResetDirect: d(false) }));
+
+	a.throws(function () { Foo.prototype.testResetDirect = false; }, TypeError);
 };

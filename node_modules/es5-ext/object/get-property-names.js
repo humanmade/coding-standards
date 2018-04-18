@@ -1,11 +1,10 @@
-'use strict';
+"use strict";
 
-var uniq  = require('../array/#/uniq')
-  , value = require('./valid-value')
-
-  , push = Array.prototype.push
+var uniq                = require("../array/#/uniq")
+  , value               = require("./valid-value")
+  , push                = Array.prototype.push
   , getOwnPropertyNames = Object.getOwnPropertyNames
-  , getPrototypeOf = Object.getPrototypeOf;
+  , getPrototypeOf      = Object.getPrototypeOf;
 
 module.exports = function (obj) {
 	var keys;

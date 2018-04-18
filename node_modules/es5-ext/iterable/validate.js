@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
-var is = require('./is');
+var is = require("./is");
 
-module.exports = function (x) {
-	if (is(x)) return x;
-	throw new TypeError(x + " is not an iterable or array-like");
+module.exports = function (value) {
+	if (is(value)) return value;
+	throw new TypeError(value + " is not an iterable or array-like");
 };

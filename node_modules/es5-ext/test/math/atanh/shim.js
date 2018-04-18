@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = function (t, a) {
 	a(t({}), NaN, "NaN");
@@ -7,5 +7,5 @@ module.exports = function (t, a) {
 	a(t(-1), -Infinity, "-1");
 	a(t(1), Infinity, "1");
 	a(t(0), 0, "Zero");
-	a(t(0.5), 0.5493061443340549, "Ohter");
+	a(Math.round(t(0.5) * 1e15), 549306144334055, "Other");
 };

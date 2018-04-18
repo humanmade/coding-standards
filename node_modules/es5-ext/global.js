@@ -1,3 +1,5 @@
-'use strict';
+/* eslint strict: "off" */
 
-module.exports = new Function("return this")();
+module.exports = (function () {
+	return this;
+}());

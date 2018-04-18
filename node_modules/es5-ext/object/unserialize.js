@@ -1,7 +1,8 @@
-'use strict';
+"use strict";
 
-var value  = require('./valid-value');
+var value = require("./valid-value");
 
 module.exports = exports = function (code) {
-	return (new Function('return ' + value(code)))();
+	// eslint-disable-next-line no-new-func
+	return new Function("return " + value(code))();
 };

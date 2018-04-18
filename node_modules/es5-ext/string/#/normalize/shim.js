@@ -1,3 +1,5 @@
+/* eslint no-bitwise: "off", max-statements: "off", max-lines: "off" */
+
 // Taken from: https://github.com/walling/unorm/blob/master/lib/unorm.js
 
 /*
@@ -9,21 +11,39 @@
 	* $Rev: 13309 $
 */
 
-'use strict';
+"use strict";
 
-var primitiveSet = require('../../../object/primitive-set')
-  , validValue   = require('../../../object/valid-value')
-  , data         = require('./_data')
+var primitiveSet = require("../../../object/primitive-set")
+  , validValue   = require("../../../object/valid-value")
+  , data         = require("./_data");
 
-  , floor = Math.floor
-  , forms = primitiveSet('NFC', 'NFD', 'NFKC', 'NFKD')
-
-  , DEFAULT_FEATURE = [null, 0, {}], CACHE_THRESHOLD = 10, SBase = 0xAC00
-  , LBase = 0x1100, VBase = 0x1161, TBase = 0x11A7, LCount = 19, VCount = 21
-  , TCount = 28, NCount = VCount * TCount, SCount = LCount * NCount
-  , UChar, cache = {}, cacheCounter = [], i, fromCache, fromData, fromCpOnly
-  , fromRuleBasedJamo, fromCpFilter, strategies, UCharIterator
-  , RecursDecompIterator, DecompIterator, CompIterator, createIterator
+var floor = Math.floor
+  , forms = primitiveSet("NFC", "NFD", "NFKC", "NFKD")
+  , DEFAULT_FEATURE = [null, 0, {}]
+  , CACHE_THRESHOLD = 10
+  , SBase = 0xac00
+  , LBase = 0x1100
+  , VBase = 0x1161
+  , TBase = 0x11a7
+  , LCount = 19
+  , VCount = 21
+  , TCount = 28
+  , NCount = VCount * TCount
+  , SCount = LCount * NCount
+  , UChar
+  , cache = {}
+  , cacheCounter = []
+  , fromCache
+  , fromData
+  , fromCpOnly
+  , fromRuleBasedJamo
+  , fromCpFilter
+  , strategies
+  , UCharIterator
+  , RecursDecompIterator
+  , DecompIterator
+  , CompIterator
+  , createIterator
   , normalize;
 
 UChar = function (cp, feature) {
@@ -32,73 +52,80 @@ UChar = function (cp, feature) {
 };
 
 // Strategies
-for (i = 0; i <= 0xFF; ++i) cacheCounter[i] = 0;
+(function () {
+	for (var i = 0; i <= 0xff; ++i) cacheCounter[i] = 0;
+}());
 
-fromCache = function (next, cp, needFeature) {
+fromCache = function (nextStep, cp, needFeature) {
 	var ret = cache[cp];
 	if (!ret) {
-		ret = next(cp, needFeature);
-		if (!!ret.feature && ++cacheCounter[(cp >> 8) & 0xFF] > CACHE_THRESHOLD) {
+		ret = nextStep(cp, needFeature);
+		if (Boolean(ret.feature) && ++cacheCounter[(cp >> 8) & 0xff] > CACHE_THRESHOLD) {
 			cache[cp] = ret;
 		}
 	}
 	return ret;
 };
 
-fromData = function (next, cp, needFeature) {
-	var hash = cp & 0xFF00, dunit = UChar.udata[hash] || {}, f = dunit[cp];
-	return f ? new UChar(cp, f) : new UChar(cp, DEFAULT_FEATURE);
+fromData = function (next, cp) {
+	var hash = cp & 0xff00, dunit = UChar.udata[hash] || {}, feature = dunit[cp];
+	return feature ? new UChar(cp, feature) : new UChar(cp, DEFAULT_FEATURE);
 };
 fromCpOnly = function (next, cp, needFeature) {
-	return !!needFeature ? next(cp, needFeature) : new UChar(cp, null);
+	return needFeature ? next(cp, needFeature) : new UChar(cp, null);
 };
 
 fromRuleBasedJamo = function (next, cp, needFeature) {
-	var c, base, i, arr, SIndex, TIndex, feature, j;
-	if (cp < LBase || (LBase + LCount <= cp && cp < SBase) ||
-			(SBase + SCount < cp)) {
+	var char, base, i, arr, SIndex, TIndex, feature, j;
+	if (cp < LBase || (LBase + LCount <= cp && cp < SBase) || SBase + SCount < cp) {
 		return next(cp, needFeature);
 	}
 	if (LBase <= cp && cp < LBase + LCount) {
-		c = {};
+		char = {};
 		base = (cp - LBase) * VCount;
 		for (i = 0; i < VCount; ++i) {
-			c[VBase + i] = SBase + TCount * (i + base);
+			char[VBase + i] = SBase + TCount * (i + base);
 		}
 		arr = new Array(3);
-		arr[2] = c;
+		arr[2] = char;
 		return new UChar(cp, arr);
 	}
 
 	SIndex = cp - SBase;
 	TIndex = SIndex % TCount;
 	feature = [];
-	if (TIndex !== 0) {
-		feature[0] = [SBase + SIndex - TIndex, TBase + TIndex];
-	} else {
-		feature[0] = [LBase + floor(SIndex / NCount), VBase +
-			floor((SIndex % NCount) / TCount)];
+	if (TIndex === 0) {
+		feature[0] = [LBase + floor(SIndex / NCount), VBase + floor(SIndex % NCount / TCount)];
 		feature[2] = {};
 		for (j = 1; j < TCount; ++j) {
 			feature[2][TBase + j] = cp + j;
 		}
+	} else {
+		feature[0] = [SBase + SIndex - TIndex, TBase + TIndex];
 	}
 	return new UChar(cp, feature);
 };
 
 fromCpFilter = function (next, cp, needFeature) {
-	return (cp < 60) || ((13311 < cp) && (cp < 42607))
-		? new UChar(cp, DEFAULT_FEATURE) : next(cp, needFeature);
+	return cp < 60 || (cp > 13311 && cp < 42607)
+		? new UChar(cp, DEFAULT_FEATURE)
+		: next(cp, needFeature);
 };
 
 strategies = [fromCpFilter, fromCache, fromCpOnly, fromRuleBasedJamo, fromData];
 
 UChar.fromCharCode = strategies.reduceRight(function (next, strategy) {
-	return function (cp, needFeature) { return strategy(next, cp, needFeature); };
+	return function (cp, needFeature) {
+		return strategy(next, cp, needFeature);
+	};
 }, null);
 
-UChar.isHighSurrogate = function (cp) { return cp >= 0xD800 && cp <= 0xDBFF; };
-UChar.isLowSurrogate = function (cp) { return cp >= 0xDC00 && cp <= 0xDFFF; };
+UChar.isHighSurrogate = function (cp) {
+	return cp >= 0xd800 && cp <= 0xdbff;
+};
+UChar.isLowSurrogate = function (cp) {
+	return cp >= 0xdc00 && cp <= 0xdfff;
+};
 
 UChar.prototype.prepFeature = function () {
 	if (!this.feature) {
@@ -107,10 +134,10 @@ UChar.prototype.prepFeature = function () {
 };
 
 UChar.prototype.toString = function () {
-	var x;
+	var num;
 	if (this.codepoint < 0x10000) return String.fromCharCode(this.codepoint);
-	x = this.codepoint - 0x10000;
-	return String.fromCharCode(floor(x / 0x400) + 0xD800, x % 0x400 + 0xDC00);
+	num = this.codepoint - 0x10000;
+	return String.fromCharCode(floor(num / 0x400) + 0xd800, num % 0x400 + 0xdc00);
 };
 
 UChar.prototype.getDecomp = function () {
@@ -120,15 +147,15 @@ UChar.prototype.getDecomp = function () {
 
 UChar.prototype.isCompatibility = function () {
 	this.prepFeature();
-	return !!this.feature[1] && (this.feature[1] & (1 << 8));
+	return Boolean(this.feature[1]) && this.feature[1] & (1 << 8);
 };
 UChar.prototype.isExclude = function () {
 	this.prepFeature();
-	return !!this.feature[1] && (this.feature[1] & (1 << 9));
+	return Boolean(this.feature[1]) && this.feature[1] & (1 << 9);
 };
 UChar.prototype.getCanonicalClass = function () {
 	this.prepFeature();
-	return !!this.feature[1] ? (this.feature[1] & 0xff) : 0;
+	return this.feature[1] ? this.feature[1] & 0xff : 0;
 };
 UChar.prototype.getComposite = function (following) {
 	var cp;
@@ -143,11 +170,14 @@ UCharIterator = function (str) {
 	this.cursor = 0;
 };
 UCharIterator.prototype.next = function () {
-	if (!!this.str && this.cursor < this.str.length) {
+	if (Boolean(this.str) && this.cursor < this.str.length) {
 		var cp = this.str.charCodeAt(this.cursor++), d;
-		if (UChar.isHighSurrogate(cp) && this.cursor < this.str.length &&
-				UChar.isLowSurrogate((d = this.str.charCodeAt(this.cursor)))) {
-			cp = (cp - 0xD800) * 0x400 + (d - 0xDC00) + 0x10000;
+		if (
+			UChar.isHighSurrogate(cp) &&
+			this.cursor < this.str.length &&
+			UChar.isLowSurrogate(d = this.str.charCodeAt(this.cursor))
+		) {
+			cp = (cp - 0xd800) * 0x400 + (d - 0xdc00) + 0x10000;
 			++this.cursor;
 		}
 		return UChar.fromCharCode(cp);
@@ -164,19 +194,19 @@ RecursDecompIterator = function (it, cano) {
 
 RecursDecompIterator.prototype.next = function () {
 	var recursiveDecomp, uchar;
-	recursiveDecomp = function (cano, uchar) {
-		var decomp = uchar.getDecomp(), ret, i, a, j;
-		if (!!decomp && !(cano && uchar.isCompatibility())) {
+	recursiveDecomp = function (cano, ucharLoc) {
+		var decomp = ucharLoc.getDecomp(), ret, i, a, j;
+		if (Boolean(decomp) && !(cano && ucharLoc.isCompatibility())) {
 			ret = [];
 			for (i = 0; i < decomp.length; ++i) {
 				a = recursiveDecomp(cano, UChar.fromCharCode(decomp[i]));
-				//ret.concat(a); //<-why does not this work?
-				//following block is a workaround.
+				// Ret.concat(a); //<-why does not this work?
+				// following block is a workaround.
 				for (j = 0; j < a.length; ++j) ret.push(a[j]);
 			}
 			return ret;
 		}
-		return [uchar];
+		return [ucharLoc];
 	};
 	if (this.resBuf.length === 0) {
 		uchar = this.it.next();
@@ -203,6 +233,7 @@ DecompIterator.prototype.next = function () {
 				for (inspt; inspt > 0; --inspt) {
 					uchar2 = this.resBuf[inspt - 1];
 					cc2 = uchar2.getCanonicalClass();
+					// eslint-disable-next-line max-depth
 					if (cc2 <= cc) break;
 				}
 			}
@@ -235,7 +266,7 @@ CompIterator.prototype.next = function () {
 			starter = this.procBuf[0];
 			composite = starter.getComposite(uchar);
 			cc = uchar.getCanonicalClass();
-			if (!!composite && (this.lastClass < cc || this.lastClass === 0)) {
+			if (Boolean(composite) && (this.lastClass < cc || this.lastClass === 0)) {
 				this.procBuf[0] = composite;
 			} else {
 				if (cc === 0) {
@@ -252,38 +283,35 @@ CompIterator.prototype.next = function () {
 
 createIterator = function (mode, str) {
 	switch (mode) {
-	case "NFD":
-		return new DecompIterator(
-			new RecursDecompIterator(new UCharIterator(str), true)
-		);
-	case "NFKD":
-		return new DecompIterator(
-			new RecursDecompIterator(new UCharIterator(str), false)
-		);
-	case "NFC":
-		return new CompIterator(new DecompIterator(
-			new RecursDecompIterator(new UCharIterator(str), true)
-		));
-	case "NFKC":
-		return new CompIterator(new DecompIterator(
-			new RecursDecompIterator(new UCharIterator(str), false)
-		));
+		case "NFD":
+			return new DecompIterator(new RecursDecompIterator(new UCharIterator(str), true));
+		case "NFKD":
+			return new DecompIterator(new RecursDecompIterator(new UCharIterator(str), false));
+		case "NFC":
+			return new CompIterator(
+				new DecompIterator(new RecursDecompIterator(new UCharIterator(str), true))
+			);
+		case "NFKC":
+			return new CompIterator(
+				new DecompIterator(new RecursDecompIterator(new UCharIterator(str), false))
+			);
+		default:
+			throw new Error(mode + " is invalid");
 	}
-	throw mode + " is invalid";
 };
 normalize = function (mode, str) {
 	var it = createIterator(mode, str), ret = "", uchar;
-	while (!!(uchar = it.next())) ret += uchar.toString();
+	while ((uchar = it.next())) ret += uchar.toString();
 	return ret;
 };
 
 /* Unicode data */
-UChar.udata =  data;
+UChar.udata = data;
 
-module.exports = function (/*form*/) {
+module.exports = function (/* Form*/) {
 	var str = String(validValue(this)), form = arguments[0];
-	if (form === undefined) form = 'NFC';
+	if (form === undefined) form = "NFC";
 	else form = String(form);
-	if (!forms[form]) throw new RangeError('Invalid normalization form: ' + form);
+	if (!forms[form]) throw new RangeError("Invalid normalization form: " + form);
 	return normalize(form, str);
 };

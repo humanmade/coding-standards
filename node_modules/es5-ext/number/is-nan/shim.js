@@ -1,3 +1,6 @@
-'use strict';
+"use strict";
 
-module.exports = function (value) { return (value !== value); } //jslint: ignore
+module.exports = function (value) {
+	// eslint-disable-next-line no-self-compare
+	return value !== value;
+};

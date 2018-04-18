@@ -4,6 +4,7 @@ Custom JSON-Schema keywords for [ajv](https://github.com/epoberezkin/ajv) valida
 
 [![Build Status](https://travis-ci.org/epoberezkin/ajv-keywords.svg?branch=master)](https://travis-ci.org/epoberezkin/ajv-keywords)
 [![npm version](https://badge.fury.io/js/ajv-keywords.svg)](https://www.npmjs.com/package/ajv-keywords)
+[![npm downloads](https://img.shields.io/npm/dm/ajv-keywords.svg)](https://www.npmjs.com/package/ajv-keywords)
 [![Coverage Status](https://coveralls.io/repos/github/epoberezkin/ajv-keywords/badge.svg?branch=master)](https://coveralls.io/github/epoberezkin/ajv-keywords?branch=master)
 
 
@@ -16,6 +17,10 @@ Custom JSON-Schema keywords for [ajv](https://github.com/epoberezkin/ajv) valida
   - [instanceof](#instanceof)
   - [range and exclusiveRange](#range-and-exclusiverange)
   - [propertyNames](#propertynames)
+  - [if/then/else](#ifthenelse)
+  - [prohibited](#prohibited)
+  - [deepProperties](#deepproperties)
+  - [deepRequired](#deeprequired)
   - [regexp](#regexp)
   - [dynamicDefaults](#dynamicdefaults)
 - [License](#license)
@@ -79,7 +84,7 @@ ajv.validate({ typeof: ['undefined', 'object'] }, null); // true
 
 ### `instanceof`
 
-Based on JavaScript `typeof` operation.
+Based on JavaScript `instanceof` operation.
 
 The value of the keyword should be a string (`"Object"`, `"Array"`, `"Function"`, `"Number"`, `"String"`, `"Date"`, `"RegExp"` or `"Buffer"`) or array of strings.
 
@@ -109,7 +114,7 @@ Syntax sugar for the combination of minimum and maximum keywords, also fails sch
 
 The value of this keyword must be the array consisting of two numbers, the second must be greater or equal than the first one.
 
-If the validated value is not a number the validation passes, otherwise to pas validation the value should be greater (or equal) than the first number and smaller (or equal) than the second number in the array. If `exclusiveRange` keyword is present in the same schema and its value is true, the validated value must not be equal to the range boundaries.
+If the validated value is not a number the validation passes, otherwise to pass validation the value should be greater (or equal) than the first number and smaller (or equal) than the second number in the array. If `exclusiveRange` keyword is present in the same schema and its value is true, the validated value must not be equal to the range boundaries.
 
 ```javascript
 var schema = { range: [1, 3] };
@@ -156,6 +161,146 @@ ajv.validate(schema, validData); // true
 ajv.validate(schema, invalidData); // false
 ```
 
+__Please note__: This keyword will be added to the next version of the JSON-Schema standard (draft-6), after it is published the keyword will be included in Ajv as standard validation keyword.
+
+
+### `if`/`then`/`else`
+
+These keywords allow to implement conditional validation. Their values should be valid JSON-schemas. At the moment it requires using Ajv with v5 option.
+
+If the data is valid according to the sub-schema in `if` keyword, then the result is equal to the result of data validation against the sub-schema in `then` keyword, otherwise - in `else` keyword (if `else` is absent, the validation succeeds).
+
+```javascript
+require('ajv-keywords')(ajv, 'if');
+
+var schema = {
+  type: 'array',
+  items: {
+    type: 'integer',
+    minimum: 1,
+    if: { maximum: 10 },
+    then: { multipleOf: 2 },
+    else: { multipleOf: 5 }
+  }
+};
+
+var validItems = [ 2, 4, 6, 8, 10, 15, 20, 25 ]; // etc.
+
+var invalidItems = [ 1, 3, 5, 11, 12 ]; // etc.
+
+ajv.validate(schema, validItems); // true
+ajv.validate(schema, invalidItems); // false
+```
+
+This keyword is [proposed](https://github.com/json-schema-org/json-schema-spec/issues/180) for the future version of JSON-Schema standard.
+
+
+### `prohibited`
+
+This keyword allows to prohibit that any of the properties in the list is present in the object.
+
+This keyword applies only to objects. If the data is not an object, the validation succeeds.
+
+The value of this keyword should be an array of strings, each string being a property name. For data object to be valid none of the properties in this array should be present in the object.
+
+```
+var schema = { prohibited: ['foo', 'bar']};
+
+var validData = { baz: 1 };
+var alsoValidData = {};
+
+var invalidDataList = [
+  { foo: 1 },
+  { bar: 2 },
+  { foo: 1, bar: 2}
+];
+```
+
+
+### `deepRequired`
+
+This keyword allows to check that some deep properties (identified by JSON pointers) are available. The value should be an array of JSON pointers to the data, starting from the current position in data.
+
+```javascript
+var schema = {
+  type: 'object',
+  deepRequired: ["/users/1/role"]
+};
+
+var validData = {
+  users: [
+    {},
+    {
+      id: 123,
+      role: 'admin'
+    }
+  ]
+};
+
+var invalidData = {
+  users: [
+    {},
+    {
+      id: 123
+    }
+  ]
+};
+```
+
+See [json-schema-org/json-schema-spec#203](https://github.com/json-schema-org/json-schema-spec/issues/203#issue-197211916) for an example of the equivalent schema without `deepRequired` keyword.
+
+
+## `deepProperties`
+
+This keyword allows to validate deep properties (identified by JSON pointers). The value should be an object, where keys are JSON pointers to the data, starting from the current position in data, and the values are corresponding schemas.
+
+```javascript
+var schema = {
+  type: 'object',
+  deepProperties: {
+    "/users/1/role": { "enum": ["admin"] }
+  }
+};
+
+var validData = {
+  users: [
+    {},
+    {
+      id: 123,
+      role: 'admin'
+    }
+  ]
+};
+
+var alsoValidData = {
+  users: {
+    "1": {
+      id: 123,
+      role: 'admin'
+    }
+  }
+};
+
+var invalidData = {
+  users: [
+    {},
+    {
+      id: 123,
+      role: 'user'
+    }
+  ]
+};
+
+var alsoInvalidData = {
+  users: {
+    "1": {
+      id: 123,
+      role: 'user'
+    }
+  }
+};
+```
+
 
 ### `regexp`
 
@@ -198,8 +343,8 @@ The properties used in `dynamicDefaults` should not be added to `required` keywo
 There are several predefined dynamic default functions:
 
 - `"timestamp"` - current timestamp in milliseconds
-- `"datetime"' - current date and time as string (ISO, valid according to `date-time` format)
-- `"date"' - current date as string (ISO, valid according to `date` format)
+- `"datetime"` - current date and time as string (ISO, valid according to `date-time` format)
+- `"date"` - current date as string (ISO, valid according to `date` format)
 - `"time"` - current time as string (ISO, valid according to `time` format)
 - `"random"` - pseudo-random number in [0, 1) interval
 - `"randomint"` - pseudo-random integer number. If string is used as a property value, the function will randomly return 0 or 1. If object `{func: 'randomint', max: N}` is used then the default will be an integer number in [0, N) interval.

@@ -1,10 +1,10 @@
 // Implementation credits go to:
 // http://wiki.ecmascript.org/doku.php?id=harmony:egal
 
-'use strict';
+"use strict";
 
-module.exports = function (x, y) {
-	return (x === y) ?
-			((x !== 0) || ((1 / x) === (1 / y))) :
-			((x !== x) && (y !== y)); //jslint: ignore
+var numIsNaN = require("../number/is-nan");
+
+module.exports = function (val1, val2) {
+	return val1 === val2 ? val1 !== 0 || 1 / val1 === 1 / val2 : numIsNaN(val1) && numIsNaN(val2);
 };

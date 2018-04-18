@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-var isPlainObject = require('./is-plain-object')
-  , forEach       = require('./for-each')
+var isPlainObject = require("./is-plain-object")
+  , forEach       = require("./for-each")
 
   , process;
 
