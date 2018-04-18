@@ -29,6 +29,6 @@ function anonymous_function() {
 
 	return function () use ( $x ) {
 		$x++;
-		return $x;
+		return new WP_Post( $x );
 	};
 }
