@@ -5,7 +5,13 @@ php:
 install:
   - composer install
   - npm install
-  - cd packages/eslint-config-humanmade && npm install
+
+  # Install for ESLint tests
+  - cd packages/eslint-config-humanmade
+  - npm install
+
+  # Reset
+  - cd ../..
 
 script:
   - vendor/bin/phpunit
