@@ -28,9 +28,22 @@ console.log( '\nLinting `fixtures/fail/**`...' );
 
 const antipatternReport = cli.executeOnFiles( [ join( __dirname, 'fail/**' ) ] );
 const antipatternCounts = count( antipatternReport.results );
+const allFail = antipatternReport.results.reduce( ( didFail, file ) => didFail = didFail && ( file.errorCount > 0 || file.warningCount > 0 ), true );
 
-if ( antipatternCounts.errors ) {
+if ( allFail ) {
 	console.log( chalk.green( 'ESLint logs errors as expected.\n' ) );
+} else if ( antipatternCounts.errors ) {
+	console.log( chalk.bold.red( 'The following files did not produce errors:' ) );
+	antipatternReport.results.forEach( file => {
+		if ( file.errorCount > 0 || file.warningCount > 0 ) {
+			return;
+		}
+
+		console.log( '  ' + file.filePath );
+	} );
+	console.log( '' );
+
+	process.exitCode = 1;
 } else {
 	console.log( chalk.bold.red( 'Errors expected, but none encountered!\n' ) );
 	process.exitCode = 1;
