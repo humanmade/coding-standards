@@ -24,6 +24,9 @@
 		<exclude name="WordPress.XSS.EscapeOutput" />
 		<exclude name="WordPress.VIP.AdminBarRemoval" />
 
+		<!-- Allow with or without semicolons -->
+		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
+
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
 
