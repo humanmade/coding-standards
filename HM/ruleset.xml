@@ -10,6 +10,8 @@
 	<exclude-pattern>*.js</exclude-pattern>
 	<exclude-pattern>*.css</exclude-pattern>
 
+	<autoload>./bootstrap.php</autoload>
+
 	<!-- Include everything in the VIP standard... -->
 	<rule ref="WordPress-VIP">
 		<!-- ...Except for VIP-specific things -->
@@ -21,6 +23,9 @@
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
 		<exclude name="WordPress.XSS.EscapeOutput" />
 		<exclude name="WordPress.VIP.AdminBarRemoval" />
+
+		<!-- Allow with or without semicolons -->
+		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
 
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
@@ -42,6 +47,14 @@
 		assignment in conditionals.
 		-->
 		<exclude name="WordPress.PHP.YodaConditions" />
+
+	</rule>
+
+	<!-- Allow the use of filesystem functions -->
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<properties>
+			<property name="exclude" value="file_get_contents,file_system_read" />
+		</properties>
 	</rule>
 
 	<!-- Allow . in hook names -->
@@ -87,6 +100,8 @@
 
 	<!-- Namespacing: `use` statements -->
 		<rule ref="PSR2.Namespaces.UseDeclaration" />
+		<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
+		<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
 
 	<!-- Namespacing: No backslash with `use` -->
 		<!-- Handled in Namespaces/NoLeadingSlashOnUseSniff -->
