@@ -64,6 +64,13 @@
 		</properties>
 	</rule>
 
+	<!-- Prefer alignment over line length -->
+	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
+		<properties>
+			<property name="maxColumn" value="1000"/>
+		</properties>
+	</rule>
+
 	<!--
 	HM Rules / HM RULEZZZZ
 
