@@ -52,8 +52,24 @@ module.exports = {
 		'no-trailing-spaces': [ 'error' ],
 		'no-var': [ 'warn' ],
 		'object-curly-newline': [ 'error', {
-			'minProperties': 2,
-			'consistent': true,
+			'ObjectExpression': {
+				'consistent': true,
+				'minProperties': 2,
+				'multiline': true,
+			},
+			'ObjectPattern': {
+				'consistent': true,
+				'multiline': true,
+			},
+			'ImportDeclaration': {
+				'consistent': true,
+				'multiline': true,
+			},
+			'ExportDeclaration': {
+				'consistent': true,
+				'minProperties': 2,
+				'multiline': true,
+			},
 		} ],
 		'object-curly-spacing': [ 'error', 'always' ],
 		'quotes': [ 'error', 'single' ],
