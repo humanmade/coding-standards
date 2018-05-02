@@ -27,6 +27,9 @@
 		<!-- Allow with or without semicolons -->
 		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
 
+		<!-- Exclude other conflicting rules -->
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
+
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
 
