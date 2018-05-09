@@ -5,6 +5,19 @@
     "type": "git",
     "url": "https://github.com/humanmade/coding-standards.git"
   },
+  "scripts": {
+    "test": "node fixtures/test-lint-config"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "chalk": "^2.3.2",
+    "eslint": "^4.19.0",
+    "eslint-config-react-app": "^0.5.0",
+    "eslint-plugin-flowtype": "^2.21.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1"
+  },
   "peerDependencies": {
     "babel-eslint": "^7.0.0",
     "eslint": "^4.19.0",

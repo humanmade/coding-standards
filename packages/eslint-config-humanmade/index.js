@@ -72,6 +72,7 @@ module.exports = {
 			},
 		} ],
 		'object-curly-spacing': [ 'error', 'always' ],
+		'object-property-newline': [ 'error' ],
 		'quotes': [ 'error', 'single' ],
 		'semi-spacing': [ 'error', {
 			'before': false,
@@ -94,5 +95,6 @@ module.exports = {
 		} ],
 		'yoda': [ 'error', 'never' ],
 		'react/jsx-curly-spacing': [ 'error', 'always' ],
+		'react/jsx-wrap-multilines': [ 'error' ],
 	},
 };
