@@ -30,6 +30,13 @@
         "ignore": [ "after-comment" ]
       }
     ],
+    "at-rule-empty-line-before" : [
+      "always",
+      {
+        "except": [ "blockless-after-blockless", "first-nested" ],
+        "ignore": [ "after-comment" ]
+      }
+    ],
     "number-max-precision": 3
   }
 }
