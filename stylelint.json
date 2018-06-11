@@ -17,7 +17,8 @@
     "declaration-property-unit-whitelist": {
       "line-height": []
     },
-    "function-parentheses-space-inside": "always",
+    "function-parentheses-space-inside": "always-single-line",
+    "function-comma-space-after": "always-single-line",
     "max-line-length": 100,
     "max-empty-lines": 1,
     "max-nesting-depth": [ 2, {
