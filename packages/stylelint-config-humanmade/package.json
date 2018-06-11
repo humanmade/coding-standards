@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "stylelint-config-wordpress": "^13.0.0"
+  }
+}
