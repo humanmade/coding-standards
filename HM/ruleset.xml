@@ -24,6 +24,12 @@
 		<exclude name="WordPress.XSS.EscapeOutput" />
 		<exclude name="WordPress.VIP.AdminBarRemoval" />
 
+		<!-- Allow with or without semicolons -->
+		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
+
+		<!-- Exclude other conflicting rules -->
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
+
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
 
@@ -44,12 +50,27 @@
 		assignment in conditionals.
 		-->
 		<exclude name="WordPress.PHP.YodaConditions" />
+
+	</rule>
+
+	<!-- Allow the use of filesystem functions -->
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<properties>
+			<property name="exclude" value="file_get_contents,file_system_read" />
+		</properties>
 	</rule>
 
 	<!-- Allow . in hook names -->
 	<rule ref="WordPress.NamingConventions.ValidHookName">
 		<properties>
 			<property name="additionalWordDelimiters" value="."/>
+		</properties>
+	</rule>
+
+	<!-- Prefer alignment over line length -->
+	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
+		<properties>
+			<property name="maxColumn" value="1000"/>
 		</properties>
 	</rule>
 
@@ -89,6 +110,8 @@
 
 	<!-- Namespacing: `use` statements -->
 		<rule ref="PSR2.Namespaces.UseDeclaration" />
+		<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
+		<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
 
 	<!-- Namespacing: No backslash with `use` -->
 		<!-- Handled in Namespaces/NoLeadingSlashOnUseSniff -->

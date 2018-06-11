@@ -52,10 +52,27 @@ module.exports = {
 		'no-trailing-spaces': [ 'error' ],
 		'no-var': [ 'warn' ],
 		'object-curly-newline': [ 'error', {
-			'minProperties': 2,
-			'consistent': true,
+			'ObjectExpression': {
+				'consistent': true,
+				'minProperties': 2,
+				'multiline': true,
+			},
+			'ObjectPattern': {
+				'consistent': true,
+				'multiline': true,
+			},
+			'ImportDeclaration': {
+				'consistent': true,
+				'multiline': true,
+			},
+			'ExportDeclaration': {
+				'consistent': true,
+				'minProperties': 2,
+				'multiline': true,
+			},
 		} ],
 		'object-curly-spacing': [ 'error', 'always' ],
+		'object-property-newline': [ 'error' ],
 		'quotes': [ 'error', 'single' ],
 		'semi-spacing': [ 'error', {
 			'before': false,
@@ -78,5 +95,11 @@ module.exports = {
 		} ],
 		'yoda': [ 'error', 'never' ],
 		'react/jsx-curly-spacing': [ 'error', 'always' ],
+		'react/jsx-wrap-multilines': [ 'error' ],
+		'jsx-a11y/anchor-is-valid': [ 'error' ],
+		// href-no-hash has been removed from jsx-a11y: this line silences an error
+		// caused by eslint-config-react-app still using the deprecated rule, and
+		// can be removed once the react-app config is updated to a recent jsx-a11y.
+		'jsx-a11y/href-no-hash': [ 'off' ],
 	},
 };

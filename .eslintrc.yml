@@ -1,3 +1,0 @@
----
-extends:
-- ./packages/eslint-config-humanmade/.eslintrc.yml

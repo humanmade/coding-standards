@@ -6,5 +6,13 @@ install:
   - composer install
   - npm install
 
+  # Install for ESLint tests
+  - cd packages/eslint-config-humanmade
+  - npm install
+
+  # Reset
+  - cd ../..
+
 script:
-  - phpunit
+  - vendor/bin/phpunit
+  - node packages/eslint-config-humanmade/fixtures/test-lint-config
