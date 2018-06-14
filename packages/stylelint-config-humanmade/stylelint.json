@@ -3,16 +3,8 @@
     "stylelint-config-wordpress/scss"
   ],
   "rules": {
-    "no-extra-semicolons": true,
-    "no-eol-whitespace": true,
-    "no-missing-end-of-source-newline": true,
-    "comment-no-empty": true,
-    "block-no-empty": true,
-    "selector-list-comma-newline-after": "always",
-    "declaration-block-trailing-semicolon": "always",
     "block-closing-brace-newline-before": "always-multi-line",
     "declaration-block-semicolon-newline-after": "always-multi-line",
-    "declaration-colon-space-after": "always-single-line",
     "declaration-block-single-line-max-declarations": 4,
     "declaration-property-unit-whitelist": {
       "line-height": []
