@@ -3,6 +3,13 @@
     "stylelint-config-wordpress/scss"
   ],
   "rules": {
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": [ "first-nested"],
+        "ignore": [ "stylelint-commands" ]
+      }
+    ],
     "block-closing-brace-newline-before": "always-multi-line",
     "declaration-block-semicolon-newline-after": "always-multi-line",
     "declaration-block-single-line-max-declarations": 4,
