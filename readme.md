@@ -100,7 +100,7 @@ To find out what these codes are, specify `-s` when running `phpcs`, and the cod
 
 ### Custom ESLint Configuration
 
-This repo comes with a .eslintrc.yml file matching the HM coding standards. While checks can be disabled using the `<exclude />` rules, you can't add additional checks this way. Instead, you can create your own ESLint config file.
+This repo comes with an `.eslintrc` file matching the HM coding standards. While specific checks can be disabled using `<exclude />` rules or comment directives, to override HM coding standards for a specific project you should extend these rules in your own ESLint config file.
 
 To enable checking ESLint via phpcs, you need to add the ESLint rule to your custom ruleset:
 
@@ -108,12 +108,19 @@ To enable checking ESLint via phpcs, you need to add the ESLint rule to your cus
 <rule ref="HM.Debug.ESLint" />
 ```
 
-ESLint configuration files (`.eslintrc.js`, `.eslintrc.yaml`, `.eslintrc.yml`, `.eslintrc.json`) will be **autodetected** by phpcs and used automatically if they exist. Inside your configuration file, you can extend the HM Coding Standards lint file by referencing it by a path:
+ESLint configuration files (`.eslintrc`/`.eslintrc.json`, `.eslintrc.js`, or `.eslintrc.yaml`/`.eslintrc.yml`) will be **autodetected** by phpcs and used automatically if they exist. Inside your configuration file, you can extend the HM Coding Standards lint file by referencing it by a path:
 
+`.eslintrc`
+```json
+{
+	"extends": "vendor/humanmade/coding-standards/packages/eslint-config-humanmade.eslintrc"
+}
+```
+`.eslintrc.yml`
 ```yaml
 ---
 extends:
-- vendor/humanmade/coding-standards/.eslintrc.yml
+- vendor/humanmade/coding-standards/packages/eslint-config-humanmade.eslintrc
 ```
 
 You can also use a custom path and reference this in your ruleset:
@@ -126,7 +133,9 @@ You can also use a custom path and reference this in your ruleset:
 </rule>
 ```
 
-**Important Note:** This must come *after* the `vendor/humanmade/coding-standards` rule, and be a direct child of `<ruleset />`.
+**Important Note:** This must come *after* the `vendor/humanmade/coding-standards/packages/eslint-config-humanmade` rule, and be a direct child of `<ruleset />`.
+
+#### Using ESLint without PHPCS
 
 If you're using the ESLint configuration without phpcs, you can simply use `humanmade`, as the configuration is [published on npm](https://www.npmjs.com/package/eslint-config-humanmade). You can also install this globally (`npm install -g eslint-config-humanmade`) and then use directly on the command line via `eslint -c humanmade .`
 

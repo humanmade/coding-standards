@@ -13,7 +13,7 @@ class ESLintSniff implements Sniff {
 	/**
 	 * Path to default configuration.
 	 */
-	const DEFAULT_CONFIG = 'vendor/humanmade/coding-standards/.eslintrc.yml';
+	const DEFAULT_CONFIG = 'vendor/humanmade/coding-standards/packages/eslint-config-humanmade/.eslintrc';
 
 	/**
 	 * A list of tokenizers this sniff supports.
