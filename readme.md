@@ -37,8 +37,8 @@ You can add this to your Travis YAML file as a test:
 
 ```yaml
 script:
-	- phpunit
-	- vendor/bin/phpcs --standard=vendor/humanmade/coding-standards .
+  - phpunit
+  - vendor/bin/phpcs --standard=vendor/humanmade/coding-standards .
 ```
 
 ### Excluding Files
