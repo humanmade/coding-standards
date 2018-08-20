@@ -3,7 +3,7 @@
 	<description>Sniffs for the coding standards of the WP-API plugin</description>
 
 	<!-- vendor/humanmade/coding-standards, -->
-	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/fig-r/psr2r-sniffer" />
+	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/fig-r/psr2r-sniffer,vendor/phpcompatibility/php-compatibility,vendor/phpcompatibility/phpcompatibility-wp" />
 
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>node_modules/*</exclude-pattern>
@@ -11,6 +11,10 @@
 	<exclude-pattern>*.css</exclude-pattern>
 
 	<autoload>./bootstrap.php</autoload>
+
+	<!-- Check for PHP cross-version compatibility. -->
+	<config name="testVersion" value="7.0-" />
+	<rule ref="PHPCompatibilityWP" />
 
 	<!-- Include everything in the VIP standard... -->
 	<rule ref="WordPress-VIP">
