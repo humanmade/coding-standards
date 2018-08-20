@@ -98,46 +98,10 @@ Rules can also be disabled inline. [phpcs rules can be disabled](https://github.
 To find out what these codes are, specify `-s` when running `phpcs`, and the code will be output as well. You can specify a full code, or a partial one to disable groups of errors.
 
 
-### Custom ESLint Configuration
-
-This repo comes with a .eslintrc.yml file matching the HM coding standards. While checks can be disabled using the `<exclude />` rules, you can't add additional checks this way. Instead, you can create your own ESLint config file.
-
-To enable checking ESLint via phpcs, you need to add the ESLint rule to your custom ruleset:
-
-```xml
-<rule ref="HM.Debug.ESLint" />
-```
-
-ESLint configuration files (`.eslintrc.js`, `.eslintrc.yaml`, `.eslintrc.yml`, `.eslintrc.json`) will be **autodetected** by phpcs and used automatically if they exist. Inside your configuration file, you can extend the HM Coding Standards lint file by referencing it by a path:
-
-```yaml
----
-extends:
-- vendor/humanmade/coding-standards/.eslintrc.yml
-```
-
-You can also use a custom path and reference this in your ruleset:
-
-```xml
-<rule ref="HM.Debug.ESLint">
-	<properties>
-		<property name="configFile" value="your/lint/config.yml"/>
-	</properties>
-</rule>
-```
-
-**Important Note:** This must come *after* the `vendor/humanmade/coding-standards` rule, and be a direct child of `<ruleset />`.
-
-If you're using the ESLint configuration without phpcs, you can simply use `humanmade`, as the configuration is [published on npm](https://www.npmjs.com/package/eslint-config-humanmade). You can also install this globally (`npm install -g eslint-config-humanmade`) and then use directly on the command line via `eslint -c humanmade .`
-
-
 ## Included Checks
 
 The phpcs standard is based upon the `WordPress-VIP` standard from [WordPress Coding Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards), with [customisation and additions](HM/ruleset.xml) to match our style guide.
 
-phpcs also includes ESLint checking based upon the `eslint:recommended` standard (checks from [this page](http://eslint.org/docs/rules/) marked with a check mark), with [customisation and additions](.eslintrc.yml) to match our style guide.
-
-**Note:** ESLint checks are mapped from ESLint codes to phpcs codes by prefixing with `HM.Debug.ESLint`. e.g. the `no-unused-vars` ESLint code becomes `HM.Debug.ESLint.no-unused-vars`. You need to use the phpcs code when excluding specific rules.
 
 ## Testing
 
@@ -232,3 +196,25 @@ An error object contains:
 
 * `source`: Internal phpcs error code; use the `-s` flag to `phpcs` to get the code.
 * `type`: One of `error` or `warning`, depending on the check's severity.
+
+
+## Using ESLint
+
+This package contains an [ESLint](https://eslint.org/) configuration which you can use to validate your JavaScript code style. While it is possible to run ESLint via phpcs, we recommend you install and use eslint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `eslint-config-humanmade` package README](packages/eslint-config-humanmade/readme.md) for more information on configuring ESLint to use the Human Made coding standards.
+
+Once you have installed the [`eslint-config-humanmade` npm package](https://www.npmjs.com/package/eslint-config-humanmade), you may simply specify that your own project-level ESLint file extends the `humanmade` configuration. If you install this globally (`npm install -g eslint-config-humanmade`) you can also reference the configuration directly from the command line via `eslint -c humanmade .`
+
+While you will still have to manually install package peer dependencies, if you have installed this package using Composer it is possible to reference the `.eslintrc` file directly from the composer package in your own ESLint configuration file:
+
+`.eslintrc`
+```json
+{
+	"extends": "vendor/humanmade/coding-standards/packages/eslint-config-humanmade/.eslintrc"
+}
+```
+`.eslintrc.yml`
+```yaml
+---
+extends:
+- vendor/humanmade/coding-standards/packages/eslint-config-humanmade/.eslintrc
+```
