@@ -96,58 +96,29 @@
 	https://engineering.hmn.md/how-we-work/style/php/
 	-->
 
-	<!-- File Layout: Declare symbols or run code, but not both. -->
-		<rule ref="PSR1.Files.SideEffects" />
+	<!-- Disallow long array syntax. -->
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
-	<!-- File Layout: Classes in own file. -->
-		<!-- Handled in Classes/OnlyClassInFileSniff. -->
-		<!-- Also handled in PSR1.Classes.ClassDeclaration below. -->
+	<!-- Single statement on same line. -->
+	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
 
-	<!-- File Layout: Order: `namespace`, `use`, `const`, code. -->
-		<!-- Handled in Layout/OrderSniff. -->
+	<!-- Namespacing required for classes. -->
+	<rule ref="PSR1.Classes.ClassDeclaration" />
 
-	<!-- File Naming: `name/space/`. -->
-		<!-- Handled in Files/NamespaceDirectoryNameSniff. -->
+	<!-- Declare symbols or run code, but not both. -->
+	<rule ref="PSR1.Files.SideEffects" />
 
-	<!-- File Naming: `class-classname.php`. -->
-		<!-- Handled in Files/ClassNameFileSniff. -->
+	<!-- Namespacing required for functions. -->
+	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
 
-	<!-- File Naming: `namespace.php`. -->
-		<!-- Handled in Files/FunctionFileNameSniff. -->
+	<!-- Namespacing of `use` statements. -->
+	<rule ref="PSR2.Namespaces.UseDeclaration">
+		<exclude name="PSR2.Namespaces.UseDeclaration.MultipleDeclarations" />
+	</rule>
+	<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
+	<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
 
-	<!-- File Naming: `plugin.php` or `functions.php`. -->
-
-	<!-- Namespacing: Required for classes. -->
-		<rule ref="PSR1.Classes.ClassDeclaration" />
-
-	<!-- Namespacing: Required for functions. -->
-		<!-- Handled in Functions/NamespacedFunctionsSniff. -->
-		<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
-
-	<!-- Namespacing: `use` statements. -->
-		<rule ref="PSR2.Namespaces.UseDeclaration">
-			<exclude name="PSR2.Namespaces.UseDeclaration.MultipleDeclarations" />
-		</rule>
-		<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
-		<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
-
-	<!-- Namespacing: No backslash with `use`. -->
-		<!-- Handled in Namespaces/NoLeadingSlashOnUseSniff. -->
-
-	<!-- Yoda Conditions: Ban inline assignment in control structures. See note above. -->
-		<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
-
-	<!-- Anonymous Functions: Spaces after `function` and `use`. -->
-		<!-- Handled in Squiz.Functions.MultiLineFunctionDeclaration. -->
-
-	<!-- Array Creation: Short syntax. -->
-		<!-- Handled in Arrays/ForceShortArraysSniff. -->
-		<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
-
-	<!-- TEMPLATE RULES / TEMPLATES RULE -->
-	<!-- Namespacing: No namespace -->
-
-	<!-- Inline Statements: Single statement on same line -->
-		<rule ref="Generic.Formatting.DisallowMultipleStatements" />
+	<!-- Ban inline assignment in control structures (see note on Yoda Conditions above). -->
+	<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
 
 </ruleset>
