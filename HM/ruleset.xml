@@ -109,7 +109,9 @@
 		<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
 
 	<!-- Namespacing: `use` statements -->
-		<rule ref="PSR2.Namespaces.UseDeclaration" />
+		<rule ref="PSR2.Namespaces.UseDeclaration">
+			<exclude name="PSR2.Namespaces.UseDeclaration.MultipleDeclarations" />
+		</rule>
 		<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
 		<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
 
