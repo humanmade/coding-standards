@@ -14,13 +14,7 @@ To install this config and dependencies:
 npm install --save-dev stylelint stylelint-config-humanmade
 ```
 
-You can then use it directly on the command line:
-
-```
-stylelint --config ./vendor/humanmade/coding-standards/stylelint.json content/**/*.scss
-```
-
-Alternatively, you can create your own `.stylelintrc` configuration and extend these rules:
+Then, add a `.stylelintrc` file and extend these rules. You can also add your own rules and overrides for further customization.
 
 ```json
 {
