@@ -29,6 +29,7 @@
 
 		<!-- Exclude other conflicting rules -->
 		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment.NotSameWarning" />
 
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
@@ -53,6 +54,8 @@
 
 	</rule>
 
+	<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
+
 	<!-- Allow the use of filesystem functions -->
 	<rule ref="WordPress.WP.AlternativeFunctions">
 		<properties>
@@ -64,13 +67,6 @@
 	<rule ref="WordPress.NamingConventions.ValidHookName">
 		<properties>
 			<property name="additionalWordDelimiters" value="."/>
-		</properties>
-	</rule>
-
-	<!-- Prefer alignment over line length -->
-	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
-		<properties>
-			<property name="maxColumn" value="1000"/>
 		</properties>
 	</rule>
 
