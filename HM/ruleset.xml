@@ -70,6 +70,7 @@
 	<rule ref="WordPress.WP.AlternativeFunctions">
 		<properties>
 			<property name="exclude" value="file_get_contents,file_system_read" />
+			<property name="exclude" value="json_encode,json_decode" />
 		</properties>
 	</rule>
 
