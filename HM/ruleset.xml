@@ -29,6 +29,7 @@
 
 		<!-- Exclude other conflicting rules -->
 		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
+		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
 
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
