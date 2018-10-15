@@ -32,7 +32,7 @@ class FunctionFileNameSniff implements Sniff {
 		}
 
 		// Get the trailing part of the namespace to match it against the file name.
-		$trailing_namespace = $tokens[ $phpcsFile->findPrevious( T_STRING, $phpcsFile->findNext( T_SEMICOLON , 0 ) ) ];
+		$trailing_namespace = $tokens[ $phpcsFile->findPrevious( T_STRING, $phpcsFile->findNext( T_SEMICOLON , $namespace ) ) ];
 		$expected_filename = str_replace( '_', '-', strtolower( $trailing_namespace['content'] ) ) . '.php';
 		if ( $filename === $expected_filename ) {
 			return;
