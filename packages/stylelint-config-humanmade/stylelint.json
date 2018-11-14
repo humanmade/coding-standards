@@ -18,6 +18,7 @@
     },
     "function-parentheses-space-inside": "always-single-line",
     "function-comma-space-after": "always-single-line",
+    "function-url-quotes": "always",
     "max-line-length": 100,
     "max-empty-lines": 1,
     "max-nesting-depth": [ 2, {
