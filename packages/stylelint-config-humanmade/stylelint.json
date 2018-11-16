@@ -17,7 +17,11 @@
       "font-size": [ "px" ]
     },
     "declaration-property-unit-whitelist": {
-      "line-height": []
+      "animation": [ "ms" ],
+      "animation-duration": [ "ms" ],
+      "line-height": [],
+      "transition": [ "ms" ],
+      "transition-duration": [ "ms" ]
     },
     "function-parentheses-space-inside": "always-single-line",
     "function-comma-space-after": "always-single-line",
