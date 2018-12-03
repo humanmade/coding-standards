@@ -18,9 +18,11 @@
     },
     "declaration-property-unit-whitelist": {
       "animation": [ "ms" ],
+      "animation-delay": [ "ms" ],
       "animation-duration": [ "ms" ],
       "line-height": [],
       "transition": [ "ms" ],
+      "transition-delay": [ "ms" ],
       "transition-duration": [ "ms" ]
     },
     "function-parentheses-space-inside": "always-single-line",
