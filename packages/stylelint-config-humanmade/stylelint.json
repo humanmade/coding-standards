@@ -13,8 +13,17 @@
     "block-closing-brace-newline-before": "always-multi-line",
     "declaration-block-semicolon-newline-after": "always-multi-line",
     "declaration-block-single-line-max-declarations": 4,
+    "declaration-property-unit-blacklist": {
+      "font-size": [ "px" ]
+    },
     "declaration-property-unit-whitelist": {
-      "line-height": []
+      "animation": [ "ms" ],
+      "animation-delay": [ "ms" ],
+      "animation-duration": [ "ms" ],
+      "line-height": [],
+      "transition": [ "ms" ],
+      "transition-delay": [ "ms" ],
+      "transition-duration": [ "ms" ]
     },
     "function-parentheses-space-inside": "always-single-line",
     "function-comma-space-after": "always-single-line",
