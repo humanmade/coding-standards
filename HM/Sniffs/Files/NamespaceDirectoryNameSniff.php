@@ -45,7 +45,7 @@ class NamespaceDirectoryNameSniff implements Sniff {
 		$filename = basename( $full );
 		$directory = dirname( $full );
 
-		// Normalize the directory seperator accross operating systems
+		// Normalize the directory separator across operating systems
 		if ( DIRECTORY_SEPARATOR !== '/' ) {
 			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
 		}
