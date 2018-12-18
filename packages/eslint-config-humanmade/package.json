@@ -9,20 +9,20 @@
     "test": "node fixtures/test-lint-config"
   },
   "devDependencies": {
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.0",
     "chalk": "^2.4.1",
-    "eslint": "^5.8.0",
+    "eslint": "^5.10.0",
     "eslint-config-react-app": "^3.0.5",
-    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-flowtype": "^3.2.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1"
   },
   "peerDependencies": {
-    "babel-eslint": "^9.0.0",
-    "eslint": "^5.8.0",
+    "babel-eslint": "^10.0.0",
+    "eslint": "^5.10.0",
     "eslint-config-react-app": "^3.0.5",
-    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-flowtype": "^3.2.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1"
