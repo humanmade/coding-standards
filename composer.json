@@ -1,7 +1,7 @@
 {
 	"name": "humanmade/coding-standards",
 	"description": "Human Made coding standards",
-	"type": "project",
+	"type": "phpcodesniffer-standard",
 	"license": "GPL-2.0-or-later",
 	"require": {
 		"wp-coding-standards/wpcs": "^0.14.0",
