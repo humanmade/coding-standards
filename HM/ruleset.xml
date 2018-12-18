@@ -2,9 +2,6 @@
 <ruleset name="HM">
 	<description>Sniffs for the coding standards of the WP-API plugin</description>
 
-	<!-- vendor/humanmade/coding-standards, -->
-	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/fig-r/psr2r-sniffer" />
-
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>*.js</exclude-pattern>
