@@ -33,6 +33,7 @@
     "max-nesting-depth": [ 2, {
       "ignore": [ "blockless-at-rules" ]
     } ],
+    "media-feature-parentheses-space-inside": "always",
     "rule-empty-line-before" : [
       "always",
       {
