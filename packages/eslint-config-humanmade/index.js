@@ -94,7 +94,10 @@ module.exports = {
 			},
 		} ],
 		'yoda': [ 'error', 'never' ],
-		'react/jsx-curly-spacing': [ 'error', 'always' ],
+		'react/jsx-curly-spacing': [ 'error', {
+			'when': 'always',
+			'children': true,
+		} ],
 		'react/jsx-wrap-multilines': [ 'error' ],
 		'jsx-a11y/anchor-is-valid': [ 'error' ],
 		// href-no-hash has been removed from jsx-a11y: this line silences an error
