@@ -45,7 +45,7 @@ class NamespaceDirectoryNameSniff implements Sniff {
 		$filename = basename( $full );
 		$directory = dirname( $full );
 
-		// Normalize the directory seperator accross operating systems
+		// Normalize the directory separator across operating systems
 		if ( DIRECTORY_SEPARATOR !== '/' ) {
 			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
 		}
@@ -55,13 +55,16 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			return;
 		}
 
-		if ( ! preg_match( '#/inc(?:/|$)#', $directory, $matches, PREG_OFFSET_CAPTURE ) ) {
+		if (
+			! preg_match( '#/inc(?:/|$)#', $directory, $matches, PREG_OFFSET_CAPTURE )
+			&& ! preg_match( '#/tests(?:/|$)#', $directory, $test_matches, PREG_OFFSET_CAPTURE )
+		) {
 			$error = 'Namespaced classes and functions should live inside an inc directory.';
 			$phpcsFile->addError( $error, $stackPtr, 'NoIncDirectory' );
 			return;
 		}
 
-		$inc_position = $matches[0][1];
+		$inc_position = $matches[0][1] ?? $test_matches[0][1];
 		$after_inc = substr( $directory, $inc_position + strlen( '/inc' ) );
 		if ( empty( $after_inc ) ) {
 			// Base inc directory, skip checks.

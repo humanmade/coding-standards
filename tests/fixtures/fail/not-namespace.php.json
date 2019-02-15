@@ -1,7 +1,7 @@
 {
 	"6": [
 		{
-			"source": "HM.Files.NamespaceDirectoryName.NoIncDirectory",
+			"source": "HM.Files.NamespaceDirectoryName.NameMismatch",
 			"type": "error"
 		}
 	],
