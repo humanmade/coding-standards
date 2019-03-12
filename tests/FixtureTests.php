@@ -54,6 +54,10 @@ class FixtureTests extends TestCase {
 		$this->config->cache     = false;
 		$this->config->standards = [ 'HM' ];
 
+		// Keeping the tabWidth set inline with WPCS.
+		// See: https://github.com/humanmade/coding-standards/pull/88#issuecomment-464076803
+		$this->config->tabWidth = 4;
+
 		$this->ruleset = new Ruleset( $this->config );
 	}
 
