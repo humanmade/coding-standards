@@ -1,0 +1,14 @@
+{
+  "name": "stylelint-config-humanmade",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/humanmade/coding-standards.git"
+  },
+  "devDependencies": {
+    "stylelint-config-wordpress": "^13.0.0"
+  },
+  "files": [
+    "stylelint.json"
+  ]
+}

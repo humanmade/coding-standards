@@ -24,7 +24,7 @@ This is a codified version of [the Human Made style guide](http://engineering.hm
 
 ## Setup
 
-1. `composer require humanmade/coding-standards`
+1. `composer require --dev humanmade/coding-standards`
 2. Run the following command to run the standards checks:
 
 ```
