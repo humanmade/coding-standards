@@ -30,5 +30,6 @@ The process for releasing is:
 	* This triggers Packagist to release the new version
 * Run `./publish.sh` to push the standards for hm-linter
 	* This will ask if you want to bump the latest version to the new version. Only do this for minor releases.
+* For major releases, publish a changelog to the Dev H2 (significant bugfixes may also warrant a post)
 
 If you're releasing a major version, you should also create a branch for the major version so that bugfix releases can be created. This branch should be a humanised name of the version; e.g. 0.4 would be `oh-dot-four`, 1.6 would be `one-dot-six`.
