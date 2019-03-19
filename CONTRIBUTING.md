@@ -18,7 +18,7 @@ Generally, so long as changes to rules have consensus, they are fine to be publi
 
 Any changes which cause existing, working production code to fail should trigger a new major release. Only bugfixes or making rules more lenient should be in minor releases.
 
-When publishing major releases, these need to be published in a two-step process. First, publish the standards, then bump the defaults after some time. This gives projects time to assess the changes and migrate at their own pace.
+When publishing major releases, these need to be published in a two-step process. First, publish the standards, then bump the defaults after some time. This gives projects time to assess the changes and migrate at their own pace. The time between the publish and the default bump depends on the size and scope of the major changes, but generally should be 2-4 sprints worth of time for major changes.
 
 The process for releasing is:
 
