@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="HM">
-
 	<description>Human Made coding standards.</description>
-
-	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/fig-r/psr2r-sniffer" />
 
 	<file>.</file>
 

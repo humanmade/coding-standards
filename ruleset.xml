@@ -3,8 +3,6 @@
 
 	<description>Proxy to the actual Human Made coding standards.</description>
 
-	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/fig-r/psr2r-sniffer" />
-
 	<rule ref="vendor/humanmade/coding-standards/HM/ruleset.xml" />
 
 </ruleset>
