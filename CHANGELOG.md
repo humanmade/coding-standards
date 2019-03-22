@@ -50,13 +50,37 @@
 
 ## 0.5.0 (May 22, 2018)
 
+- Update ESLint config peer dependencies #65
+- Add ESLint config test script with example fixtures #42
+
 ## 0.4.2 (May 1, 2018)
+
+- Remove support for ESLint-via-phpcs #54
+- Ignore array item alignment rule #49
+- Ignore line length when checking array alignment #57
+- Adjust object rules for destructuring #59
 
 ## 0.4.1 (Apr 18, 2018)
 
+- Fix order error for closure `use` #53
+- Fix false positives for `T_USE` #12
+
 ## 0.4.0 (Apr 17, 2018)
 
+- Always allow spaces inside arrays #3
+- Only run PHPCS on PHP files #36
+- Enforce spaces inside jsx curly braces #38
+- Make index pass its own rules #41
+- Add support for a .phpcsignore file #39
+- Add Sniff for unused "use" statements #44
+- Exclude filesystem groups from checks #50
+- Allow inline statements to drop semicolons #51
+
 ## 0.3.0 (Jan 18, 2018)
+
+- Update license for new requirements #34
+- Add tests for our phpcs sniffs #32
+- Update phpcs to v3 #31
 
 ## 0.2.2 (Nov 6, 2017)
 
@@ -65,3 +89,5 @@
 ## 0.2.0 (Dec 8, 2016)
 
 ## 0.1.0 (Dec 7, 2016)
+
+- Initial Release
