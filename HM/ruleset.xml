@@ -1,30 +1,22 @@
 <?xml version="1.0"?>
 <ruleset name="HM">
-	<description>Sniffs for the coding standards of the WP-API plugin</description>
+	<description>Human Made coding standards.</description>
 
-	<exclude-pattern>vendor/*</exclude-pattern>
+	<file>.</file>
+
 	<exclude-pattern>node_modules/*</exclude-pattern>
-	<exclude-pattern>*.js</exclude-pattern>
-	<exclude-pattern>*.css</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
 
-	<autoload>./bootstrap.php</autoload>
+	<arg name="basepath" value="." />
+	<arg name="extensions" value="php" />
 
-	<!-- Include everything in the VIP standard... -->
-	<rule ref="WordPress-VIP">
-		<!-- ...Except for VIP-specific things -->
-		<exclude name="WordPress.VIP.FileSystemWritesDisallow" />
-		<exclude name="WordPress.VIP.RestrictedFunctions" />
-		<exclude name="WordPress.VIP.RestrictedVariables" />
-		<exclude name="WordPress.VIP.SuperGlobalInputUsage" />
-		<exclude name="WordPress.VIP.ValidatedSanitizedInput" />
-		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
-		<exclude name="WordPress.XSS.EscapeOutput" />
-		<exclude name="WordPress.VIP.AdminBarRemoval" />
+	<autoload>bootstrap.php</autoload>
 
-		<!-- Allow with or without semicolons -->
+	<rule ref="WordPress-Core">
+		<!-- Allow with or without semicolons. -->
 		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
 
-		<!-- Exclude other conflicting rules -->
+		<!-- Exclude other conflicting rules. -->
 		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
 		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error" />
 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
@@ -50,88 +42,82 @@
 		-->
 		<exclude name="WordPress.PHP.YodaConditions" />
 
+		<exclude name="WordPress.Security.EscapeOutput" />
 	</rule>
 
-	<!-- Allow the use of filesystem functions -->
+	<!-- Prefer alignment over line length. -->
+	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
+		<properties>
+			<property name="maxColumn" value="1000" />
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.DB.SlowDBQuery" />
+
+	<!-- Allow . in hook names. -->
+	<rule ref="WordPress.NamingConventions.ValidHookName">
+		<properties>
+			<property name="additionalWordDelimiters" value="." />
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.Security.PluginMenuSlug" />
+	<rule ref="WordPress.Security.PluginMenuSlug.Using__FILE__">
+		<type>error</type>
+	</rule>
+
+	<!-- Allow the use of filesystem functions. -->
 	<rule ref="WordPress.WP.AlternativeFunctions">
 		<properties>
 			<property name="exclude" value="file_get_contents,file_system_read" />
 		</properties>
 	</rule>
 
-	<!-- Allow . in hook names -->
-	<rule ref="WordPress.NamingConventions.ValidHookName">
-		<properties>
-			<property name="additionalWordDelimiters" value="."/>
-		</properties>
+	<rule ref="WordPress.WP.CronInterval" />
+	<rule ref="WordPress.WP.CronInterval.CronSchedulesInterval">
+		<type>error</type>
+		<message>Scheduling crons at %s sec ( less than %s minutes ) is prohibited.</message>
 	</rule>
 
-	<!-- Prefer alignment over line length -->
-	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
-		<properties>
-			<property name="maxColumn" value="1000"/>
-		</properties>
+	<rule ref="WordPress.WP.PostsPerPage" />
+	<rule ref="WordPress.WP.PostsPerPage.posts_per_page_numberposts">
+		<type>error</type>
 	</rule>
+	<rule ref="WordPress.WP.PostsPerPage.posts_per_page_posts_per_page">
+		<type>error</type>
+	</rule>
+
+	<rule ref="WordPress.WP.TimezoneChange" />
 
 	<!--
 	HM Rules / HM RULEZZZZ
 
-	http://engineering.hmn.md/style/php/
+	https://engineering.hmn.md/how-we-work/style/php/
 	-->
 
-	<!-- File Layout: Declare symbols or run code, but not both. -->
-		<rule ref="PSR1.Files.SideEffects" />
+	<!-- Disallow long array syntax. -->
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
-	<!-- File Layout: Classes in own file. -->
-		<!-- Handled in Classes/OnlyClassInFileSniff -->
-		<!-- Also handled in PSR1.Classes.ClassDeclaration below. -->
+	<!-- Single statement on same line. -->
+	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
 
-	<!-- File Layout: Order: `namespace`, `use`, `const`, code -->
-		<!-- Handled in Layout/OrderSniff -->
+	<!-- Namespacing required for classes. -->
+	<rule ref="PSR1.Classes.ClassDeclaration" />
 
-	<!-- File Naming: `name/space/` -->
-		<!-- Handled in Files/NamespaceDirectoryNameSniff -->
+	<!-- Declare symbols or run code, but not both. -->
+	<rule ref="PSR1.Files.SideEffects" />
 
-	<!-- File Naming: `class-classname.php` -->
-		<!-- Handled in Files/ClassNameFileSniff -->
+	<!-- Namespacing required for functions. -->
+	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
 
-	<!-- File Naming: `namespace.php` -->
-		<!-- Handled in Files/FunctionFileNameSniff -->
+	<!-- Namespacing of `use` statements. -->
+	<rule ref="PSR2.Namespaces.UseDeclaration">
+		<exclude name="PSR2.Namespaces.UseDeclaration.MultipleDeclarations" />
+	</rule>
+	<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
+	<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
 
-	<!-- File Naming: `plugin.php` or `functions.php` -->
+	<!-- Ban inline assignment in control structures (see note on Yoda Conditions above). -->
+	<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
 
-	<!-- Namespacing: Required for classes -->
-		<rule ref="PSR1.Classes.ClassDeclaration" />
-
-	<!-- Namespacing: Required for functions -->
-		<!-- Handled in Functions/NamespacedFunctionsSniff -->
-		<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
-
-	<!-- Namespacing: `use` statements -->
-		<rule ref="PSR2.Namespaces.UseDeclaration">
-			<exclude name="PSR2.Namespaces.UseDeclaration.MultipleDeclarations" />
-		</rule>
-		<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
-		<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
-
-	<!-- Namespacing: No backslash with `use` -->
-		<!-- Handled in Namespaces/NoLeadingSlashOnUseSniff -->
-
-	<!-- Yoda Conditions: Ban inline assignment in control structures. See note above. -->
-		<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
-
-	<!-- Anonymous Functions: Spaces after `function` and `use` -->
-		<!-- Handled in Squiz.Functions.MultiLineFunctionDeclaration -->
-
-	<!-- Array Creation: Short Syntax -->
-		<!-- Handled in Arrays/ForceShortArraysSniff -->
-
-	<!-- TEMPLATE RULES / TEMPLATES RULE -->
-	<!-- Namespacing: No namespace -->
-
-	<!-- Inline Statements: Single statement on same line -->
-		<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
-	<!-- Inline Statements: No semicolons -->
-
-	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 </ruleset>
