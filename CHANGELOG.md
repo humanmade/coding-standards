@@ -7,9 +7,11 @@
 
 ### Added:
 - Stylelint configuration #45
+- Added VIP PHPCS standards dependency #122
 
 ### Changed:
 - Use ecmaversion 2018 #87
+- Require space in curly braces for React JSX children #121
 - Allow multiple declaration in use statement #78
 - Exclude the `tests` dir from the NamespaceExclusionTest #112
 - Set composer library type to `phpcodesniffer-standard` #116 
