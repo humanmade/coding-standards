@@ -90,6 +90,25 @@
 	<rule ref="WordPress.WP.TimezoneChange" />
 
 	<!--
+	Restore the ability to have multiple arguments per line
+
+	WPCS disallowed this behavior in 1.1.0, but we'd like to keep it until
+	there is a reason to disallow multiple arguments.
+	Ref: https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/commit/bb8a48671e213a5588a6439ea52411eeefab4b0f
+	-->
+	<rule ref="PEAR.Functions.FunctionCallSignature">
+		<properties>
+			<property name="allowMultipleArguments" value="true"/>
+		</properties>
+	</rule>
+	<rule ref="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket">
+		<severity phpcs-only="true">0</severity>
+	</rule>
+	<rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
+		<severity phpcs-only="true">0</severity>
+	</rule>
+
+	<!--
 	HM Rules / HM RULEZZZZ
 
 	https://engineering.hmn.md/how-we-work/style/php/
