@@ -6,6 +6,7 @@
 	"require": {
 		"php": ">=7.1",
 		"wp-coding-standards/wpcs": "1.2.1",
+		"automattic/vipwpcs": "^0.4.0",
 		"fig-r/psr2r-sniffer": "^0.5.0",
 		"squizlabs/php_codesniffer": "~3.4.0",
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"

@@ -2,8 +2,6 @@
 
 Human Made coding standards for CSS and SCSS.
 
-We highly recommend using this [via the `humanmade/coding-standards` Composer package.](https://github.com/humanmade/coding-standards).
-
 ## Installation
 
 This package is a Stylelint shareable configuration, and requires the `stylelint` library.
