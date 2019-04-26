@@ -1,5 +1,8 @@
 ## Unreleased (0.7.0)
 
+### Added
+ - Added PHPCompatibilityWP standard to PHPCS #81
+
 ### Changed
  - Exclude `load.php` from `NamespaceDirectoryNameSniff` #131
  - Allow `json_encode` / `json_decode` function usage #97
