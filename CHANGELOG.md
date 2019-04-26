@@ -1,4 +1,9 @@
-## Unreleased (0.6.0)
+## Unreleased (0.7.0)
+
+### Changed
+ - Exclude `load.php` from `NamespaceDirectoryNameSniff`
+
+## 0.6.0 (April 2, 2019)
 
 ### Summation:
 - Updated PHPCS to v3.4 #88

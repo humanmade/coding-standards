@@ -50,7 +50,7 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
 		}
 
-		if ( $filename === 'plugin.php' || $filename === 'functions.php' ) {
+		if ( $filename === 'plugin.php' || $filename === 'functions.php' || $filename === 'load.php' ) {
 			// Ignore the main file.
 			return;
 		}
