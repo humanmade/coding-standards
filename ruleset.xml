@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <ruleset name="HM">
-	<description>Loader for the main HM sniffer.</description>
 
-	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/fig-r/psr2r-sniffer,vendor/phpcompatibility/php-compatibility,vendor/phpcompatibility/phpcompatibility-wp" />
+	<description>Proxy to the actual Human Made coding standards.</description>
+
 	<rule ref="vendor/humanmade/coding-standards/HM/ruleset.xml" />
+
 </ruleset>

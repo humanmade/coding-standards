@@ -2,8 +2,6 @@
 
 Human Made coding standards for JavaScript.
 
-We highly recommend using this [via the `humanmade/coding-standards` Composer package.](https://github.com/humanmade/coding-standards).
-
 ## Installation
 
 This package is an ESLint shareable configuration, and requires `babel-eslint`, `eslint`, `eslint-config-react-app`, `eslint-plugin-flowtype`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`.
