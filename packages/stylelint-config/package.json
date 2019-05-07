@@ -1,9 +1,10 @@
 {
-  "name": "stylelint-config-humanmade",
+  "name": "@humanmade/stylelint-config",
+  "description": "Human Made coding standards for CSS and SCSS.",
   "version": "0.6.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/humanmade/coding-standards.git"
+    "url": "git+https://github.com/humanmade/coding-standards.git"
   },
   "devDependencies": {
     "stylelint-config-wordpress": "^13.0.0"
