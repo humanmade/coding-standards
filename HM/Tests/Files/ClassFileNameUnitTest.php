@@ -5,6 +5,11 @@ namespace HM\Tests\Files;
 use DirectoryIterator;
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
+/**
+ * Class ClassFileNameUnitTest
+ *
+ * @group hm-sniffs
+ */
 class ClassFileNameUnitTest extends AbstractSniffUnitTest {
 	/**
 	 * Get files to test against.

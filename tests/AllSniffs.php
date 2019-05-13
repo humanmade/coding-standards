@@ -18,8 +18,6 @@ use RecursiveIteratorIterator;
 
 /**
  * Class AllSniffs
- *
- * @group sniffs
  */
 class AllSniffs {
 	const TEST_SUFFIX = 'UnitTest.php';
