@@ -3,10 +3,8 @@
 namespace HM\CodingStandards\Tests;
 
 use PHP_CodeSniffer\Config;
-use PHP_CodeSniffer\Exceptions\RuntimeException;
 use PHP_CodeSniffer\Ruleset;
 use PHP_CodeSniffer\Files\LocalFile;
-use PHP_CodeSniffer\Util\Common;
 use PHPUnit\Framework\TestCase;
 
 class FixtureTests extends TestCase {
