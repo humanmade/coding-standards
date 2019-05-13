@@ -4,7 +4,7 @@ Human Made coding standards for CSS and SCSS.
 
 ## Installation
 
-This package is a Stylelint shareable configuration, and requires the `stylelint` library.
+This package is a stylelint shareable configuration, and requires the `stylelint` library.
 
 To install this config and dependencies:
 
