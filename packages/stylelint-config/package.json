@@ -10,6 +10,6 @@
     "stylelint-config-wordpress": "^13.0.0"
   },
   "files": [
-    "stylelint.json"
+    ".stylelintrc.json"
   ]
 }

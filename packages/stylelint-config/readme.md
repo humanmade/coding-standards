@@ -16,7 +16,7 @@ Then, add a `.stylelintrc` file and extend these rules. You can also add your ow
 
 ```json
 {
-  "extends": "@humanmade/stylelint-config/stylelint.json",
+  "extends": "@humanmade/stylelint-config",
   "rules": {
     ...
   }
