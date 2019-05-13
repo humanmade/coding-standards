@@ -6,12 +6,39 @@ use PHP_CodeSniffer\Config;
 use PHP_CodeSniffer\Ruleset;
 use PHP_CodeSniffer\Files\LocalFile;
 use PHPUnit\Framework\TestCase;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
+/**
+ * Class FixtureTests
+ *
+ * @group fixtures
+ */
 class FixtureTests extends TestCase {
-	public static function get_files_from_dir( $directory ) {
-		$files = [];
-		$iterator = new \RecursiveIteratorIterator(
-			new \RecursiveDirectoryIterator( $directory )
+	/**
+	 * Config instance.
+	 *
+	 * @var \PHP_CodeSniffer\Config
+	 */
+	protected $config;
+
+	/**
+	 * Ruleset instance.
+	 *
+	 * @var \PHP_CodeSniffer\Ruleset
+	 */
+	protected $ruleset;
+
+	/**
+	 * Get a lit of files from a directory path.
+	 *
+	 * @param string $directory Directory to recursively look through.
+	 * @return array List of files to run.
+	 */
+	public static function get_files_from_dir( string $directory ) {
+		$files    = [];
+		$iterator = new RecursiveIteratorIterator(
+			new RecursiveDirectoryIterator( $directory )
 		);
 
 		foreach ( $iterator as $path => $file ) {
@@ -47,6 +74,9 @@ class FixtureTests extends TestCase {
 		return static::get_files_from_dir( $directory );
 	}
 
+	/**
+	 * Setup our ruleset.
+	 */
 	public function setUp() {
 		$this->config            = new Config();
 		$this->config->cache     = false;
