@@ -3,6 +3,7 @@
 ### Changed
  - Exclude `load.php` from `NamespaceDirectoryNameSniff` #131
  - Allow `json_encode` / `json_decode` function usage #97
+ - Fix NamespaceDirectoryNameUnitTest parsing the wrong namespace directory length #140
 
 ## 0.6.0 (April 2, 2019)
 
