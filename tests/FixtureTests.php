@@ -36,7 +36,7 @@ class FixtureTests extends TestCase {
 	 * @return array List of files to run.
 	 */
 	public static function get_files_from_dir( string $directory ) {
-		$files    = [];
+		$files = [];
 		$iterator = new RecursiveIteratorIterator(
 			new RecursiveDirectoryIterator( $directory )
 		);

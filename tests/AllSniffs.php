@@ -46,8 +46,8 @@ class AllSniffs {
 		$suite = new TestSuite( 'HM Standards' );
 
 		$standards_dir = dirname( __DIR__ ) . '/HM';
-		$all_details   = Standards::getInstalledStandardDetails( false, $standards_dir );
-		$details       = $all_details['HM'];
+		$all_details = Standards::getInstalledStandardDetails( false, $standards_dir );
+		$details = $all_details['HM'];
 
 		Autoload::addSearchPath( $details['path'], $details['namespace'] );
 
