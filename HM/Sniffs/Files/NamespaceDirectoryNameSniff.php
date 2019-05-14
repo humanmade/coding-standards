@@ -65,7 +65,7 @@ class NamespaceDirectoryNameSniff implements Sniff {
 		}
 
 		// Find correct after namespace-base path.
-		$after_dir = $matches[0][1]
+		$after_dir = ! empty( $matches[0][1] )
 			? substr( $directory, $matches[0][1] + strlen( '/inc' ) )
 			: substr( $directory, $test_matches[0][1] + strlen( '/tests' ) );
 
