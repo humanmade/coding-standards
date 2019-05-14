@@ -64,15 +64,18 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			return;
 		}
 
-		$inc_position = $matches[0][1] ?? $test_matches[0][1];
-		$after_inc = substr( $directory, $inc_position + strlen( '/inc' ) );
-		if ( empty( $after_inc ) ) {
+		// Find correct after namespace-base path.
+		$after_dir = $matches[0][1]
+			? substr( $directory, $matches[0][1] + strlen( '/inc' ) )
+			: substr( $directory, $test_matches[0][1] + strlen( '/tests' ) );
+
+		if ( empty( $after_dir ) ) {
 			// Base inc directory, skip checks.
 			return;
 		}
 
 		$namespace_parts = explode( '\\', $namespace );
-		$directory_parts = explode( '/', trim( $after_inc, '/' ) );
+		$directory_parts = explode( '/', trim( $after_dir, '/' ) );
 
 		// Check that the path matches the namespace, allowing parts to be dropped.
 		while ( ! empty( $directory_parts ) ) {
