@@ -4,6 +4,11 @@ namespace HM\Tests\Classes;
 
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
+/**
+ * Class OnlyClassInFileUnitTest
+ *
+ * @group hm-sniffs
+ */
 class OnlyClassInFileUnitTest extends AbstractSniffUnitTest {
 
 	/**

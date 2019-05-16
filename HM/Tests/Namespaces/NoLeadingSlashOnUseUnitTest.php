@@ -4,6 +4,11 @@ namespace HM\Tests\Namespaces;
 
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
+/**
+ * Class NoLeadingSlashOnUseUnitTest
+ *
+ * @group hm-sniffs
+ */
 class NoLeadingSlashOnUseUnitTest extends AbstractSniffUnitTest {
 
 	/**
