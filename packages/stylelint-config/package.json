@@ -6,6 +6,15 @@
     "type": "git",
     "url": "git+https://github.com/humanmade/coding-standards.git"
   },
+  "keywords": [
+     "stylelint",
+     "stylelint-config",
+     "css",
+     "scss",
+     "lint",
+     "linter",
+     "humanmade"
+  ],
   "devDependencies": {
     "stylelint-config-wordpress": "^13.0.0"
   },
