@@ -6,6 +6,11 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
+/**
+ * Class NamespaceDirectoryNameUnitTest
+ *
+ * @group hm-sniffs
+ */
 class NamespaceDirectoryNameUnitTest extends AbstractSniffUnitTest {
 	/**
 	 * Get files to test against.

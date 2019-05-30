@@ -4,6 +4,7 @@
  - Exclude `load.php` from `NamespaceDirectoryNameSniff` #131
  - Allow `json_encode` / `json_decode` function usage #97
  - Fix NamespaceDirectoryNameUnitTest parsing the wrong namespace directory length #140
+ - Updated location of stylelint package to reflect correct NPM name #137
 
 ## 0.6.0 (April 2, 2019)
 
@@ -13,7 +14,7 @@
 - Updated eslint to 5.10 and associated deps #101
 
 ### Added:
-- Stylelint configuration #45
+- stylelint configuration #45
 - Added VIP PHPCS standards dependency #122
 
 ### Changed:
