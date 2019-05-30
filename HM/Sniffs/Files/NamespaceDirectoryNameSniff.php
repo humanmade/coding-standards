@@ -55,19 +55,14 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			return;
 		}
 
-		if (
-			! preg_match( '#/inc(?:/|$)#', $directory, $matches, PREG_OFFSET_CAPTURE )
-			&& ! preg_match( '#/tests(?:/|$)#', $directory, $test_matches, PREG_OFFSET_CAPTURE )
-		) {
+		if ( ! preg_match( '#(?:.*)(?:/inc|/tests)(/.*)?#', $directory, $matches, PREG_OFFSET_CAPTURE ) ) {
 			$error = 'Namespaced classes and functions should live inside an inc directory.';
 			$phpcsFile->addError( $error, $stackPtr, 'NoIncDirectory' );
 			return;
 		}
 
 		// Find correct after namespace-base path.
-		$after_dir = ! empty( $matches[0][1] )
-			? substr( $directory, $matches[0][1] + strlen( '/inc' ) )
-			: substr( $directory, $test_matches[0][1] + strlen( '/tests' ) );
+		$after_dir = $matches[1][0] ?? '';
 
 		if ( empty( $after_dir ) ) {
 			// Base inc directory, skip checks.
@@ -84,7 +79,7 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			if ( empty( $ns_part ) ) {
 				// Ran out of namespace, but directory still has parts.
 				$error = 'Directory %s for namespace %s found; nested too deep.';
-				$error_data = [ $after_inc, $namespace ];
+				$error_data = [ $after_dir, $namespace ];
 				$phpcsFile->addError( $error, $stackPtr, 'ExtraDirs', $error_data );
 				return;
 			}
