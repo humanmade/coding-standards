@@ -7,16 +7,19 @@
     "url": "git+https://github.com/humanmade/coding-standards.git"
   },
   "keywords": [
-     "stylelint",
-     "stylelint-config",
-     "css",
-     "scss",
-     "lint",
-     "linter",
-     "humanmade"
+    "stylelint",
+    "stylelint-config",
+    "css",
+    "scss",
+    "lint",
+    "linter",
+    "humanmade"
   ],
-  "devDependencies": {
+  "dependencies": {
     "stylelint-config-wordpress": "^13.0.0"
+  },
+  "devDependencies": {
+    "stylelint": "^10.0.1"
   },
   "main": ".stylelintrc.json"
 }
