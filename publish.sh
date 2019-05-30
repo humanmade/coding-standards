@@ -40,5 +40,5 @@ case "$choice" in
 		;;
 esac
 
-#echo "Publishing archives to S3..."
-#aws s3 sync --acl=public-read archives/ s3://hm-linter/standards/
+echo "Publishing archives to S3..."
+aws s3 sync --acl=public-read archives/ s3://hm-linter/standards/
