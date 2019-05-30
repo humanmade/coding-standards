@@ -19,12 +19,17 @@ tar czvf "archives/phpcs-$CURRENT_VERSION.tar.gz" -C phpcs-standard --exclude '*
 yarn install --cwd packages/eslint-config-humanmade
 tar czvf "archives/eslint-$CURRENT_VERSION.tar.gz" -C packages/eslint-config-humanmade .eslintrc index.js package.json node_modules/
 
+# Prepare stylelint
+yarn install --cwd packages/stylelint-config
+tar czvf "archives/stylelint-$CURRENT_VERSION.tar.gz" -C packages/stylelint-config .stylelintrc.json package.json node_modules/
+
 read -p "Bump 'latest' to $CURRENT_VERSION [Y/n]? " choice
 case "$choice" in
 	y|Y|"")
 		echo "Bumping 'latest' to $CURRENT_VERSION"
 		cp "archives/eslint-$CURRENT_VERSION.tar.gz" "archives/eslint-latest.tar.gz"
 		cp "archives/phpcs-$CURRENT_VERSION.tar.gz" "archives/phpcs-latest.tar.gz"
+		cp "archives/stylelint-$CURRENT_VERSION.tar.gz" "archives/stylelint-latest.tar.gz"
 		;;
 	n|N )
 		echo "Skipping 'latest'"
@@ -35,5 +40,5 @@ case "$choice" in
 		;;
 esac
 
-echo "Publishing archives to S3..."
-aws s3 sync --acl=public-read archives/ s3://hm-linter/standards/
+#echo "Publishing archives to S3..."
+#aws s3 sync --acl=public-read archives/ s3://hm-linter/standards/
