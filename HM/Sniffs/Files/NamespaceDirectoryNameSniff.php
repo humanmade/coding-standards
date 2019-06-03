@@ -55,14 +55,14 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			return;
 		}
 
-		if ( ! preg_match( '#(?:.*)(?:/inc|/tests)(/.*)?#', $directory, $matches, PREG_OFFSET_CAPTURE ) ) {
+		if ( ! preg_match( '#(?:.*)(?:/inc|/tests)(/.*)?#', $directory, $matches ) ) {
 			$error = 'Namespaced classes and functions should live inside an inc directory.';
 			$phpcsFile->addError( $error, $stackPtr, 'NoIncDirectory' );
 			return;
 		}
 
 		// Find correct after namespace-base path.
-		$after_dir = $matches[1][0] ?? '';
+		$after_dir = $matches[1] ?? '';
 
 		if ( empty( $after_dir ) ) {
 			// Base inc directory, skip checks.
