@@ -6,7 +6,13 @@ Human Made coding standards for JavaScript.
 
 This package is an ESLint shareable configuration, and requires `babel-eslint`, `eslint`, `eslint-config-react-app`, `eslint-plugin-flowtype`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`.
 
-To install this config and the peerDependencies:
+To install this config and the peerDependencies when using **npm 5+**:
+
+```
+npx install-peerdeps --global eslint-config-humanmade@latest
+```
+
+If using **npm < 5**:
 
 ```
 npm info "eslint-config-humanmade@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "eslint-config-humanmade@latest"
