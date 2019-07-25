@@ -9,7 +9,7 @@ This package is an ESLint shareable configuration, and requires `babel-eslint`, 
 To install this config and the peerDependencies when using **npm 5+**:
 
 ```
-npx install-peerdeps eslint-config-humanmade@latest
+npx install-peerdeps --dev eslint-config-humanmade@latest
 ```
 
 If using **npm < 5**:
