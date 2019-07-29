@@ -12,12 +12,6 @@ To install this config and the peerDependencies when using **npm 5+**:
 npx install-peerdeps --dev eslint-config-humanmade@latest
 ```
 
-If using **npm < 5**:
-
-```
-npm info "eslint-config-humanmade@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "eslint-config-humanmade@latest"
-```
-
 (Thanks to [Airbnb's package](https://www.npmjs.com/package/eslint-config-airbnb) for the command.)
 
 You can then use it directly on the command line:
