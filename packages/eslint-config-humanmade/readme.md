@@ -30,10 +30,10 @@ extends:
 
 When installing globally, you need to ensure the peer dependencies are also installed globally.
 
-Run the same command as above, but with `-g` added:
+Run the same command as above, but instead with `--global`:
 
 ```
-npm info "eslint-config-humanmade@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "eslint-config-humanmade@latest"
+npx install-peerdeps --global eslint-config-humanmade@latest
 ```
 
 This allows you to use `eslint -c humanmade MyFile.js` anywhere on your filesystem.
