@@ -1,5 +1,8 @@
 ## Unreleased (0.8.0)
 
+### Added
+ - Disallowed usage of `!important` in CSS
+
 ## 0.7.0 (June 5, 2019)
 
 ### Changed:
