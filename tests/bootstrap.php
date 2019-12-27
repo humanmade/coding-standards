@@ -1,5 +1,9 @@
 <?php
 
+// Setup some constants that PHPCS uses for testing.
+define( 'PHP_CODESNIFFER_IN_TESTS', true );
+define( 'PHP_CODESNIFFER_CBF', false );
+
 // Check phpcs is installed.
 $phpcs_dir = dirname( __DIR__ ) . '/vendor/squizlabs/php_codesniffer';
 if ( ! file_exists($phpcs_dir)) {

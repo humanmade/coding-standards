@@ -4,6 +4,11 @@ namespace HM\Tests\Layout;
 
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
+/**
+ * Class OrderUnitTest
+ *
+ * @group hm-sniffs
+ */
 class OrderUnitTest extends AbstractSniffUnitTest {
 
 	/**

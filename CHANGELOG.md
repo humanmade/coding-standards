@@ -1,11 +1,18 @@
-## Unreleased (0.7.0)
+## Unreleased (0.8.0)
 
 ### Added
  - Added PHPCompatibilityWP standard to PHPCS #81
 
-### Changed
+## 0.7.0 (June 5, 2019)
+
+### Changed:
  - Exclude `load.php` from `NamespaceDirectoryNameSniff` #131
  - Allow `json_encode` / `json_decode` function usage #97
+ - Fix NamespaceDirectoryNameUnitTest parsing the wrong namespace directory length #140
+ - Updated location of stylelint package to reflect correct NPM name #137
+
+### Added:
+ - Made PHPCompatibilityWP available via Composer #146
 
 ## 0.6.0 (April 2, 2019)
 
@@ -15,7 +22,7 @@
 - Updated eslint to 5.10 and associated deps #101
 
 ### Added:
-- Stylelint configuration #45
+- stylelint configuration #45
 - Added VIP PHPCS standards dependency #122
 
 ### Changed:
