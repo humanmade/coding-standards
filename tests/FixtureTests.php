@@ -86,6 +86,18 @@ class FixtureTests extends TestCase {
 		// See: https://github.com/humanmade/coding-standards/pull/88#issuecomment-464076803
 		$this->config->tabWidth = 4;
 
+		// We want to setup our tests to only load our standards in for testing.
+		$this->config->sniffs = [
+			'HM.Classes.OnlyClassInFile',
+			'HM.Debug.ESLint',
+			'HM.Files.ClassFileName',
+			'HM.Files.FunctionFileName',
+			'HM.Files.NamespaceDirectoryName',
+			'HM.Functions.NamespacedFunctions',
+			'HM.Layout.Order',
+			'HM.Namespaces.NoLeadingSlashOnUse',
+		];
+
 		$this->ruleset = new Ruleset( $this->config );
 	}
 
