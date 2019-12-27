@@ -1,4 +1,12 @@
 <?php
+/**
+ * Run tests on fixture files against our custom standards.
+ *
+ * This test suite runs our standards against files which have
+ * known errors or known passing conditions. We run these tests
+ * against said fixture files as it's closer to real-world conditions
+ * than isolated unit tests and provides another layer of security.
+ */
 
 namespace HM\CodingStandards\Tests;
 
