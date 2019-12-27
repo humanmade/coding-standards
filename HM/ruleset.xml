@@ -140,4 +140,9 @@
 	<!-- Ban inline assignment in control structures (see note on Yoda Conditions above). -->
 	<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
 
+	<!-- Our custom empty line rule handles superfluous whitespace better -->
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines" />
+	</rule>
+
 </ruleset>
