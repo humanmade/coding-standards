@@ -5,7 +5,7 @@ namespace HM\Tests\Whitespace;
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 /**
- * Class NoLeadingSlashOnUseUnitTest
+ * Class MultipleEmptyLinesUnitTest
  *
  * @group hm-sniffs
  */
