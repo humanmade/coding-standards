@@ -1,6 +1,7 @@
 ## Unreleased (0.8.0)
 
 ### Added:
+ - Added PHPCS Rule to Detect Consecutive Newlines #168
  - Enforce semicolons in JS #169
  - Added `WordPress.Security.EscapeOutput` PHPCS rule #166
 
