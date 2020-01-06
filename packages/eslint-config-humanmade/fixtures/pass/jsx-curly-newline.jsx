@@ -18,3 +18,25 @@ const B = () => (
 		}
 	</div>
 );
+
+const C = () => (
+	<div>
+		{ foo && (
+			foo.bar
+		) }
+
+		{ foo ? (
+			foo.bar
+		) : null }
+
+		{ foo ? (
+			foo.bar
+		) : bar }
+
+		{ foo ? (
+			foo.bar
+		) : (
+			bar
+		) }
+	</div>
+);
