@@ -16,10 +16,10 @@
     "humanmade"
   ],
   "dependencies": {
-    "stylelint-config-wordpress": "^13.0.0"
+    "stylelint-config-wordpress": "^16.0.0"
   },
   "devDependencies": {
-    "stylelint": "^10.0.1"
+    "stylelint": "^12.0.0"
   },
   "main": ".stylelintrc.json"
 }

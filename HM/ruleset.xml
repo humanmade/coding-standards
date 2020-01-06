@@ -41,8 +41,6 @@
 		assignment in conditionals.
 		-->
 		<exclude name="WordPress.PHP.YodaConditions" />
-
-		<exclude name="WordPress.Security.EscapeOutput" />
 	</rule>
 
 	<!-- Prefer alignment over line length. -->
@@ -60,6 +58,8 @@
 			<property name="additionalWordDelimiters" value="." />
 		</properties>
 	</rule>
+
+	<rule ref="WordPress.Security.EscapeOutput" />
 
 	<rule ref="WordPress.Security.PluginMenuSlug" />
 	<rule ref="WordPress.Security.PluginMenuSlug.Using__FILE__">
