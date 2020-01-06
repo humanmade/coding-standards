@@ -23,15 +23,16 @@ class MultipleEmptyLinesSniff implements Sniff {
 	public function process( File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		if ( $stackPtr > 2
-			&& $tokens[$stackPtr - 1]['line'] < $tokens[$stackPtr]['line']
-			&& $tokens[$stackPtr - 2]['line'] === $tokens[$stackPtr - 1]['line']
+		if (
+			$stackPtr > 2
+			&& $tokens[ $stackPtr - 1 ]['line'] < $tokens[ $stackPtr ]['line']
+			&& $tokens[ $stackPtr - 2 ]['line'] === $tokens[ $stackPtr - 1 ]['line']
 		) {
 			// This is the first whitespace token on a line
 			// and the line before this one is not empty,
 			// so this could be the start of a multiple empty line block.
 			$next = $phpcsFile->findNext( T_WHITESPACE, $stackPtr, null, true );
-			$lines = ( $tokens[$next]['line'] - $tokens[$stackPtr]['line'] );
+			$lines = ( $tokens[ $next ]['line'] - $tokens[ $stackPtr ]['line'] );
 
 			if ( $lines > 1 ) {
 				// If the next non T_WHITESPACE token is more than 1 line away,
@@ -41,13 +42,13 @@ class MultipleEmptyLinesSniff implements Sniff {
 					$error,
 					$stackPtr,
 					'MultipleEmptyLines',
-					array( $lines )
+					[ $lines ]
 				);
 
 				if ( $fix === true ) {
 					$phpcsFile->fixer->beginChangeset();
 					$i = $stackPtr;
-					while ( $tokens[$i]['line'] !== $tokens[$next]['line'] ) {
+					while ( $tokens[ $i ]['line'] !== $tokens[ $next ]['line'] ) {
 						$phpcsFile->fixer->replaceToken( $i, '' );
 						$i++;
 					}
