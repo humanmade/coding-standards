@@ -3,7 +3,7 @@
 // Missing semicolon.
 const testMissingSemicolon = 'foo'
 
-// Missing semicolon.
+// Incorrect space before semicolon.
 const testSemiSpacing = 'bar' ;
 
 // Double semicolon.
