@@ -15,7 +15,7 @@ function run_test( $tester ) {
 			continue;
 		}
 
-		echo $y;
+		echo esc_html( $y );
 	}
 
 	return $foo;
