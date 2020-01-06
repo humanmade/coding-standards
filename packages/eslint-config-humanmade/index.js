@@ -99,6 +99,10 @@ module.exports = {
 			'children': true,
 		} ],
 		'react/jsx-wrap-multilines': [ 'error' ],
+		'react/jsx-curly-newline': [ 'warn', {
+			'multiline': 'consistent',
+			'singleline': 'consistent',
+		} ],
 		'jsx-a11y/anchor-is-valid': [ 'error' ],
 	},
 };
