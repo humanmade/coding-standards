@@ -1,7 +1,10 @@
 ## Unreleased (0.8.0)
 
 ### Added:
- - Added `WordPress.Security.EscapeOutput` PHPCS rule
+ - Added `WordPress.Security.EscapeOutput` PHPCS rule #166
+
+### Updated
+ - Bumped `stylelint-config-wordpress` package to v15 from v13 #165
 
 ## 0.7.0 (June 5, 2019)
 
