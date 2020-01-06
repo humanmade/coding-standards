@@ -74,6 +74,7 @@ module.exports = {
 		'object-curly-spacing': [ 'error', 'always' ],
 		'object-property-newline': [ 'error' ],
 		'quotes': [ 'error', 'single' ],
+		'semi': [ 'error', 'always' ],
 		'semi-spacing': [ 'error', {
 			'before': false,
 			'after': true,
