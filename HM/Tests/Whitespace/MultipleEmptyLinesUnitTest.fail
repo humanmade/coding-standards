@@ -1,0 +1,27 @@
+<?php
+
+namespace HM\Coding\Standards\Tests;
+
+
+use \HM\Other;
+use \WP_Post;
+
+function some_function( $some_argument ) {
+    $variable = 'some string';
+
+
+    return $variable;
+}
+
+class MyTest Class {
+
+
+    __construct() {
+        do_something();
+    }
+
+
+    public function another_function() {
+        return null;
+    }
+}
