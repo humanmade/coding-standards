@@ -9,7 +9,7 @@
 		"automattic/vipwpcs": "1.0.0",
 		"fig-r/psr2r-sniffer": "^0.5.0",
 		"phpcompatibility/phpcompatibility-wp": "^2.0.0",
-		"squizlabs/php_codesniffer": "~3.4.0",
+		"squizlabs/php_codesniffer": "~3.5.0",
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
 	},
 	"require-dev": {
