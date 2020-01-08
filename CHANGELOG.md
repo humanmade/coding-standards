@@ -4,6 +4,7 @@
  - Added PHPCS Rule to Detect Consecutive Newlines #168
  - Enforce semicolons in JS #169
  - Added `WordPress.Security.EscapeOutput` PHPCS rule #166
+ - Added PHPCompatibilityWP standard to PHPCS #81
 
 ### Updated
  - Bumped `stylelint-config-wordpress` package to v15 from v13 #165

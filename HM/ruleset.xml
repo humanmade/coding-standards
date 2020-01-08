@@ -12,6 +12,10 @@
 
 	<autoload>bootstrap.php</autoload>
 
+	<!-- Check for PHP cross-version compatibility. -->
+	<config name="testVersion" value="7.1-" />
+	<rule ref="PHPCompatibilityWP" />
+
 	<rule ref="WordPress-Core">
 		<!-- Allow with or without semicolons. -->
 		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
