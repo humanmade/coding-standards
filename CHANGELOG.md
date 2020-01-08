@@ -8,6 +8,7 @@
 ### Updated
  - Bumped `stylelint-config-wordpress` package to v15 from v13 #165
  - Ignore stylelint `at-rule` line break for `if/else/elseif` #170
+ - Restricted fixture tests to load only custom HM sniffs #163
 
 ## 0.7.0 (June 5, 2019)
 
