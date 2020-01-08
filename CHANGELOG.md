@@ -1,7 +1,16 @@
 ## Unreleased (0.8.0)
 
-### Added
+### Added:
+ - Added PHPCS Rule to Detect Consecutive Newlines #168
+ - Enforce semicolons in JS #169
+ - Added `WordPress.Security.EscapeOutput` PHPCS rule #166
  - Added PHPCompatibilityWP standard to PHPCS #81
+
+### Updated
+ - Bumped `stylelint-config-wordpress` package to v15 from v13 #165
+ - Ignore stylelint `at-rule` line break for `if/else/elseif` #170
+ - Restricted fixture tests to load only custom HM sniffs #163
+
 
 ## 0.7.0 (June 5, 2019)
 

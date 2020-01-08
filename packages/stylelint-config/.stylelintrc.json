@@ -45,7 +45,8 @@
       "always",
       {
         "except": [ "blockless-after-blockless", "first-nested" ],
-        "ignore": [ "after-comment" ]
+        "ignore": [ "after-comment" ],
+        "ignoreAtRules": [ "if", "else if", "else" ]
       }
     ],
     "number-max-precision": 3

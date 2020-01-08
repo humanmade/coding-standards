@@ -45,8 +45,6 @@
 		assignment in conditionals.
 		-->
 		<exclude name="WordPress.PHP.YodaConditions" />
-
-		<exclude name="WordPress.Security.EscapeOutput" />
 	</rule>
 
 	<!-- Prefer alignment over line length. -->
@@ -64,6 +62,8 @@
 			<property name="additionalWordDelimiters" value="." />
 		</properties>
 	</rule>
+
+	<rule ref="WordPress.Security.EscapeOutput" />
 
 	<rule ref="WordPress.Security.PluginMenuSlug" />
 	<rule ref="WordPress.Security.PluginMenuSlug.Using__FILE__">
@@ -143,5 +143,10 @@
 
 	<!-- Ban inline assignment in control structures (see note on Yoda Conditions above). -->
 	<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
+
+	<!-- Our custom empty line rule handles superfluous whitespace better -->
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines" />
+	</rule>
 
 </ruleset>
