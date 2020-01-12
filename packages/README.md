@@ -20,7 +20,7 @@ _Example:_
 lerna add stylelint-csstree-validator packages/stylelint-config
 ```
 
-This command adds the latest version of `eslint-config-node` as a dependency to the `@humanmade/stylelint-config` package, which is located in `packages/stylelint-config` folder.
+This command adds the latest version of `stylelint-csstree-validator` as a dependency to the `@humanmade/stylelint-config` package, which is located in `packages/stylelint-config` folder.
 
 #### Removing Existing Dependencies
 
@@ -132,6 +132,10 @@ npm run publish:prod
 ```
 
 Choose the correct version based on `CHANGELOG.md` files, confirm your choices and let Lerna do its magic.
+
+## Credits
+
+Thanks to the WordPress and Gutenberg contributors to which this [document is based on](https://github.com/WordPress/gutenberg/blob/master/packages/README.md).
 
 [lerna]: https://lerna.js.org/
 [npm]: https://www.npmjs.com/
