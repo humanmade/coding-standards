@@ -77,6 +77,7 @@
 		"publish:check": "lerna updated",
 		"publish:dev": "lerna publish --dist-tag next",
 		"publish:legacy": "lerna publish --dist-tag legacy",
-		"publish:prod": "lerna publish"
+		"publish:prod": "lerna publish",
+		"test": "npm run lint-pkg-json"
 	}
 }

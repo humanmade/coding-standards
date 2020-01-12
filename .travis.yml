@@ -15,4 +15,5 @@ install:
 
 script:
   - vendor/bin/phpunit
+  - npm test
   - node packages/eslint-config-humanmade/fixtures/test-lint-config
