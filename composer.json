@@ -1,6 +1,6 @@
 {
 	"name": "humanmade/coding-standards",
-	"description": "Human Made coding standards",
+	"description": "Human Made Coding Standards",
 	"type": "phpcodesniffer-standard",
 	"license": "GPL-2.0-or-later",
 	"require": {
