@@ -26,7 +26,8 @@
 		"node": ">=10"
 	},
 	"devDependencies": {
-		"lerna": "^3.20.2"
+		"lerna": "^3.20.2",
+		"stylelint": "^12.0.0"
 	},
 	"scripts": {
 		"publish:check": "lerna updated",
