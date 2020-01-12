@@ -1,13 +1,33 @@
 {
 	"name": "eslint-config-humanmade",
 	"version": "0.7.0",
+	"description": "Human Made coding standards for JavaScript",
+	"author": "Human Made",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"eslint",
+		"eslint-config",
+		"js",
+		"react",
+		"lint",
+		"linter",
+		"humanmade"
+	],
+	"homepage": "https://github.com/humanmade/coding-standards/tree/master/packages/eslint-config-humanmade#eslint-config-humanmade",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/humanmade/coding-standards.git"
+		"url": "git+https://github.com/humanmade/coding-standards.git"
 	},
-	"scripts": {
-		"test": "node fixtures/test-lint-config"
+	"bugs": {
+		"url": "https://github.com/humanmade/coding-standards/issues"
 	},
+	"engines": {
+		"node": ">=10"
+	},
+	"files": [
+		".eslintrc",
+		"index.js"
+	],
 	"devDependencies": {
 		"babel-eslint": "^10.0.0",
 		"chalk": "^2.4.1",
@@ -27,8 +47,7 @@
 		"eslint-plugin-jsx-a11y": "^6.1.2",
 		"eslint-plugin-react": "^7.11.1"
 	},
-	"files": [
-		".eslintrc",
-		"index.js"
-	]
+	"scripts": {
+		"test": "node fixtures/test-lint-config"
+	}
 }
