@@ -1,3 +1,15 @@
+## Unreleased (0.9.0)
+
+### Added:
+ - Added Lerna for publishing packages
+ - Updated `.editorconfig` for YAML & Markdown files
+
+### Updated
+ - Updated `package.json` files meta
+ - Updated `composer.json` description
+ - Formatted `package.json` files with tabs
+ - Moved ESLint `.editorconfig` to project _root_
+
 ## Unreleased (0.8.0)
 
 ### Added:
