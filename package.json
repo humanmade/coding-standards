@@ -25,6 +25,47 @@
 	"engines": {
 		"node": ">=10"
 	},
+	"npmpackagejsonlint": {
+		"extends": "@wordpress/npm-package-json-lint-config",
+		"rules": {
+			"description-format": [
+				"error",
+				{
+					"requireCapitalFirstLetter": true,
+					"requireEndingPeriod": true
+				}
+			],
+			"prefer-no-devDependencies": "warning",
+			"require-publishConfig": "error",
+			"require-repository-directory": "error",
+			"valid-values-author": [
+				"error",
+				[
+					"Human Made"
+				]
+			],
+			"valid-values-publishConfig": [
+				"error",
+				[
+					{
+						"access": "public"
+					}
+				]
+			]
+		},
+		"overrides": [
+			{
+				"patterns": [
+					"./package.json"
+				],
+				"rules": {
+					"require-publishConfig": "off",
+					"require-repository-directory": "off",
+					"prefer-no-devDependencies": "off"
+				}
+			}
+		]
+	},
 	"devDependencies": {
 		"@wordpress/npm-package-json-lint-config": "^2.1.0",
 		"lerna": "^3.20.2",
