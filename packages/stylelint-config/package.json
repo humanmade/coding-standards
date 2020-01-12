@@ -1,7 +1,7 @@
 {
 	"name": "@humanmade/stylelint-config",
 	"version": "0.7.0",
-	"description": "Human Made coding standards for CSS and SCSS.",
+	"description": "Human Made Coding Standards for CSS and SCSS.",
 	"author": "Human Made",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
