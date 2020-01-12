@@ -9,6 +9,7 @@
  - Updated `composer.json` description
  - Formatted `package.json` files with tabs
  - Moved ESLint `.editorconfig` to project _root_
+ - Renamed _root_ `readme.md` to `README.md`
 
 ## Unreleased (0.8.0)
 
