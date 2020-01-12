@@ -2,7 +2,7 @@
 	"name": "@humanmade/coding-standards",
 	"version": "0.1.0",
 	"private": true,
-	"description": "Human Made Coding Standards",
+	"description": "Human Made Coding Standards.",
 	"author": "Human Made",
 	"license": "GPL-2.0-or-later",
 	"keywords": [

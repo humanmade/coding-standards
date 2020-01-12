@@ -16,7 +16,8 @@
 	"homepage": "https://github.com/humanmade/coding-standards/tree/master/packages/stylelint-config#stylelint-config-humanmade",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/humanmade/coding-standards.git"
+		"url": "git+https://github.com/humanmade/coding-standards.git",
+		"directory": "packages/eslint-config-humanmade"
 	},
 	"bugs": {
 		"url": "https://github.com/humanmade/coding-standards/issues"
