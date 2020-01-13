@@ -14,6 +14,101 @@ Relaxing rules can be done in minor releases, but generally should be done in ma
 Generally, so long as changes to rules have consensus, they are fine to be published. Any controversial rules should be widely discussed, and if a tie-breaker is needed, @joehoyle can make a final call. If you're not sure, ask @rmccue. Non-controversial changes or bugfixes do not need input from @joehoyle or @rmccue provided versioning and release processes are all followed.
 
 
+## Testing
+
+### Running tests
+
+To run the tests locally, you'll need the source version of PHP CodeSniffer.
+
+If you haven't already installed your Composer dependencies:
+
+```bash
+composer install --prefer-source --dev
+```
+
+If you already have, and need to convert the phpcs directory to a source version:
+
+```bash
+rm -r vendor/squizlabs/php_codesniffer
+composer install --prefer-source --dev
+composer dump-autoload
+```
+
+### Writing sniff tests
+
+To add tests you should mirror the directory structure of the sniffs. For example a test
+for `HM/Sniffs/Layout/OrderSniff.php` would require the following files:
+
+```
+HM/Tests/Layout/OrderUnitTest.php # Unit test code
+HM/Tests/Layout/OrderUnitTest.inc # Code to be tested
+```
+
+Effectively you are replacing the suffix `Sniff.php` with `UnitTest.php`.
+
+A basic unit test class looks like the following:
+
+```php
+<?php
+
+namespace HM\Tests\Layout;
+
+use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
+
+/**
+ * Class name must follow the directory structure to be autoloaded correctly.
+ */
+class OrderUnitTest extends AbstractSniffUnitTest {
+
+	/**
+	 * Returns the lines where errors should occur.
+	 *
+	 * @return array <int line number> => <int number of errors>
+	 */
+	public function getErrorList() {
+		return [
+			1  => 1, // line 1 expects 1 error
+		];
+	}
+
+	/**
+	 * Returns the lines where warnings should occur.
+	 *
+	 * @return array <int line number> => <int number of warnings>
+	 */
+	public function getWarningList() {
+		return [];
+	}
+
+}
+```
+
+
+### Fixture Tests
+
+Rather than testing sniffs individually, `FixtureTests.php` also tests the files in the `tests/fixtures` directory and ensures that whole files pass.
+
+To add an expected-pass file, simply add it into `tests/fixtures/pass` in the appropriate subdirectory/file.
+
+To add an expected-fail file, add it into `tests/fixtures/fail` in the appropriate subdirectory/file. You then need to add the expected errors to the JSON file accompanying the tested file (i.e. the filename with `.json` appended). This file should contain a valid JSON object keyed by line number, with each item being a list of error objects:
+
+```json
+{
+	"1": [
+		{
+			"source": "HM.Files.FunctionFileName.WrongFile",
+			"type": "error"
+		}
+	]
+}
+```
+
+An error object contains:
+
+* `source`: Internal phpcs error code; use the `-s` flag to `phpcs` to get the code.
+* `type`: One of `error` or `warning`, depending on the check's severity.
+
+
 ## Releasing
 
 Any changes which cause existing, working production code to fail should trigger a new major release. Only bugfixes or making rules more lenient should be in minor releases.
