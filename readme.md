@@ -24,8 +24,15 @@ This is a codified version of [the Human Made style guide](http://engineering.hm
 
 ## Setup
 
-1. `composer require --dev humanmade/coding-standards`
-2. Run the following command to run the standards checks:
+Each ruleset is available individually via Composer or NPM. To install the needed ruleset, use one of the following commands:
+
+ - PHPCS: `composer require --dev humanmade/coding-standards`
+ - ESLint: `npx install-peerdeps --dev eslint-config-humanmade@latest`
+ - stylelint: `npm install --save-dev stylelint @humanmade/stylelint-config`
+
+## Using PHPCS
+
+Run the following command to run the standards checks:
 
 ```
 vendor/bin/phpcs --standard=vendor/humanmade/coding-standards .
