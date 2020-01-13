@@ -20,7 +20,7 @@
 	</tr>
 </table>
 
-This is a codified version of [the Human Made style guide](http://engineering.hmn.md/how-we-work/style/). We include phpcs and ESLint rules.
+This is a codified version of [the Human Made style guide](http://engineering.hmn.md/how-we-work/style/). We include phpcs, ESLint, and stylelint rules.
 
 ## Setup
 
