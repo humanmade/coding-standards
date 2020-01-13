@@ -8,6 +8,7 @@
  - Disallowed usage of `!important` in CSS #164
 
 ### Updated
+ - Bumped PHPCS to v3.5 from v3.4 #173
  - Bumped `stylelint-config-wordpress` package to v15 from v13 #165
  - Ignore stylelint `at-rule` line break for `if/else/elseif` #170
  - Restricted fixture tests to load only custom HM sniffs #163
