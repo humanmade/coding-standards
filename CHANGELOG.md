@@ -6,6 +6,7 @@
  - Added `WordPress.Security.EscapeOutput` PHPCS rule #166
  - Added PHPCompatibilityWP standard to PHPCS #81
  - Disallowed usage of `!important` in CSS #164
+ - Included `WordPress-Docs` by default in PHPCS #177
 
 ### Updated
  - Bumped `stylelint-config-wordpress` package to v15 from v13 #165
