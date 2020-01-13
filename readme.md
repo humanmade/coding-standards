@@ -22,6 +22,10 @@
 
 This is a codified version of [the Human Made style guide](http://engineering.hmn.md/how-we-work/style/). We include phpcs, ESLint, and stylelint rules.
 
+## Contributing
+
+We welcome contributions to these standards and want to make the experience as seamless as possible. To learn more about contributing, please reference the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
 ## Setup
 
 Each ruleset is available individually via Composer or NPM. To install the needed ruleset, use one of the following commands:
