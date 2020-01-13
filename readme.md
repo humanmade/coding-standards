@@ -111,7 +111,7 @@ The phpcs standard is based upon the `WordPress-VIP` standard from [WordPress Co
 
 ## Using ESLint
 
-This package contains an [ESLint](https://eslint.org/) configuration which you can use to validate your JavaScript code style. While it is possible to run ESLint via phpcs, we recommend you install and use eslint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `eslint-config-humanmade` package README](packages/eslint-config-humanmade/readme.md) for more information on configuring ESLint to use the Human Made coding standards.
+The ESLint package contains an [ESLint](https://eslint.org/) configuration which you can use to validate your JavaScript code style. While it is possible to run ESLint via phpcs, we recommend you install and use eslint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `eslint-config-humanmade` package README](packages/eslint-config-humanmade/readme.md) for more information on configuring ESLint to use the Human Made coding standards.
 
 Once you have installed the [`eslint-config-humanmade` npm package](https://www.npmjs.com/package/eslint-config-humanmade), you may simply specify that your own project-level ESLint file extends the `humanmade` configuration. If you install this globally (`npm install -g eslint-config-humanmade`) you can also reference the configuration directly from the command line via `eslint -c humanmade .`
 
@@ -128,4 +128,19 @@ While you will still have to manually install package peer dependencies, if you 
 ---
 extends:
 - vendor/humanmade/coding-standards/packages/eslint-config-humanmade/.eslintrc
+```
+
+## Using stylelint
+
+The stylelint package contains a [stylelint](https://stylelint.io/) configuration which you can use to validate your CSS and SCSS code style. We recommend you install and use eslint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `@humanmade/stylelit` package README](packages/stylelint-config/readme.md) for more information on configuring stylelint to use the Human Made coding standards.
+
+To integrate the Human Made rules into your project, add a `.stylelintrc` file and extend these rules. You can also add your own rules and overrides for further customization.
+
+```json
+{
+  "extends": "@humanmade/stylelint-config",
+  "rules": {
+    ...
+  }
+}
 ```
