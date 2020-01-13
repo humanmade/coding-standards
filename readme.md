@@ -42,6 +42,8 @@ Run the following command to run the standards checks:
 vendor/bin/phpcs --standard=vendor/humanmade/coding-standards .
 ```
 
+We use the [DealerDirect phpcodesniffer-composer-installer](https://github.com/Dealerdirect/phpcodesniffer-composer-installer) package to handle `installed_paths` for PHPCS when first installing the HM ruleset. If you an error such as `ERROR: Referenced sniff "WordPress-Core" does not exist`, delete the `composer.lock` file and `vendor` directories and re-install Composer dependencies.   
+
 The final `.` here specifies the files you want to test; this is typically the current directory (`.`), but you can also selectively check files or directories by specifying them instead.
 
 You can add this to your Travis YAML file as a test:
