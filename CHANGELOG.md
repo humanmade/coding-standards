@@ -6,6 +6,7 @@
  - Added `WordPress.Security.EscapeOutput` PHPCS rule #166
  - Added PHPCompatibilityWP standard to PHPCS #81
  - Disallowed usage of `!important` in CSS #164
+ - Enforced consistent curly newlines in jsx #172
 
 ### Updated
  - Bumped PHPCS to v3.5 from v3.4 #173
