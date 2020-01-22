@@ -13,6 +13,7 @@
     "block-closing-brace-newline-before": "always-multi-line",
     "declaration-block-semicolon-newline-after": "always-multi-line",
     "declaration-block-single-line-max-declarations": 4,
+    "declaration-no-important": true,
     "declaration-property-unit-blacklist": {
       "font-size": [ "px" ]
     },
@@ -45,7 +46,8 @@
       "always",
       {
         "except": [ "blockless-after-blockless", "first-nested" ],
-        "ignore": [ "after-comment" ]
+        "ignore": [ "after-comment" ],
+        "ignoreAtRules": [ "if", "else if", "else" ]
       }
     ],
     "number-max-precision": 3

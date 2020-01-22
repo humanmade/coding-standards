@@ -1,0 +1,20 @@
+{
+	"5": [
+		{
+			"source": "HM.Whitespace.MultipleEmptyLines.MultipleEmptyLines",
+			"type": "error"
+		}
+	],
+	"7": [
+		{
+			"source": "HM.Functions.NamespacedFunctions.MissingNamespace",
+			"type": "error"
+		}
+	],
+	"9": [
+		{
+			"source": "HM.Whitespace.MultipleEmptyLines.MultipleEmptyLines",
+			"type": "error"
+		}
+	]
+}
