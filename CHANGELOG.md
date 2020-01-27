@@ -7,6 +7,7 @@
  - Added PHPCompatibilityWP standard to PHPCS #81
  - Disallowed usage of `!important` in CSS #164
  - Enforced consistent curly newlines in jsx #172
+ - Added `eslint-plugin-sort-destructure-keys` package #179
 
 ### Updated
  - Bumped PHPCS to v3.5 from v3.4 #173
