@@ -1,4 +1,6 @@
-## Unreleased (0.8.0)
+## Unreleased (1.0.0)
+
+##  0.8.0 (January 29, 2020)
 
 ### Added:
  - Added PHPCS Rule to Detect Consecutive Newlines #168
