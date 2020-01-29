@@ -1,7 +1,7 @@
 {
   "name": "@humanmade/stylelint-config",
   "description": "Human Made coding standards for CSS and SCSS.",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/humanmade/coding-standards.git"
