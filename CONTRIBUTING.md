@@ -118,8 +118,9 @@ When publishing major releases, these need to be published in a two-step process
 The process for releasing is:
 
 * Ensure your working directory is clean and up-to-date on `master`
-* Run `yarn publish` and enter the tag number
+* CD into `packages/eslint-config-humanmade` and run `yarn publish` and enter the tag number
 	* This publishes to npm, commits the version change, and creates a corresponding git tag
+* CD into `packages/stylelint-config` and run `yarn publish` and enter the tag number
 * Push the version bump commit to `master`: `git push`
 * Push the new tag: `git push --tags`
 	* This triggers Packagist to release the new version
