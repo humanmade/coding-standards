@@ -3,8 +3,6 @@
 namespace HM\Sniffs\Security;
 
 use WordPress\Sniffs\Security\EscapeOutputSniff as WPCSEscapeOutputSniff;
-use WordPressCS\WordPress\Sniff;
-use PHP_CodeSniffer\Util\Tokens;
 
 /**
  * Verify all strings are escaped.
