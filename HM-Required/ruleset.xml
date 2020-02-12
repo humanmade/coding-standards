@@ -146,6 +146,9 @@
 		<!-- Allow overriding the error handler. -->
 		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_set_error_handler" />
 
+		<!-- Allow changing error level. -->
+		<exclude name="WordPress.PHP.DevelopmentFunctions.prevent_path_disclosure_error_reporting" />
+
 		<!-- Set all to errors. -->
 		<type>error</type>
 	</rule>
@@ -164,6 +167,9 @@
 				<element value="urlencode" />
 			</property>
 		</properties>
+
+		<!-- Allow changing error level. -->
+		<exclude name="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration_error_reporting" />
 
 		<!-- Set all to errors. -->
 		<type>error</type>
