@@ -12,6 +12,9 @@
 
 	<autoload>bootstrap.php</autoload>
 
+	<!-- Include everything from the required set -->
+	<rule ref="HM-Required" />
+
 	<!-- Check for PHP cross-version compatibility. -->
 	<config name="testVersion" value="7.1-" />
 	<rule ref="PHPCompatibilityWP" />
@@ -54,45 +57,12 @@
 		</properties>
 	</rule>
 
-	<rule ref="WordPress.DB.SlowDBQuery" />
-
 	<!-- Allow . in hook names. -->
 	<rule ref="WordPress.NamingConventions.ValidHookName">
 		<properties>
 			<property name="additionalWordDelimiters" value="." />
 		</properties>
 	</rule>
-
-	<rule ref="WordPress.Security.EscapeOutput" />
-
-	<rule ref="WordPress.Security.PluginMenuSlug" />
-	<rule ref="WordPress.Security.PluginMenuSlug.Using__FILE__">
-		<type>error</type>
-	</rule>
-
-	<!-- Allow the use of filesystem functions. -->
-	<rule ref="WordPress.WP.AlternativeFunctions">
-		<properties>
-			<property name="exclude" value="file_get_contents,file_system_read" />
-			<property name="exclude" value="json_encode,json_decode" />
-		</properties>
-	</rule>
-
-	<rule ref="WordPress.WP.CronInterval" />
-	<rule ref="WordPress.WP.CronInterval.CronSchedulesInterval">
-		<type>error</type>
-		<message>Scheduling crons at %s sec ( less than %s minutes ) is prohibited.</message>
-	</rule>
-
-	<rule ref="WordPress.WP.PostsPerPage" />
-	<rule ref="WordPress.WP.PostsPerPage.posts_per_page_numberposts">
-		<type>error</type>
-	</rule>
-	<rule ref="WordPress.WP.PostsPerPage.posts_per_page_posts_per_page">
-		<type>error</type>
-	</rule>
-
-	<rule ref="WordPress.WP.TimezoneChange" />
 
 	<!--
 	Restore the ability to have multiple arguments per line
