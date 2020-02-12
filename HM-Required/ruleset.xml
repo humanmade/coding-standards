@@ -32,7 +32,21 @@
 				<element value="whitelist_html" />
 			</property>
 			<property name="customAutoEscapedFunctions" type="array">
+				<!-- Allow all the built-in URL functions -->
+				<element value="home_url" />
+				<element value="get_home_url" />
+				<element value="site_url" />
+				<element value="get_site_url" />
 				<element value="admin_url" />
+				<element value="get_admin_url" />
+				<element value="includes_url" />
+				<element value="content_url" />
+				<element value="plugins_url" />
+				<element value="network_site_url" />
+				<element value="network_home_url" />
+				<element value="network_admin_url" />
+				<element value="user_admin_url" />
+				<element value="self_admin_url" />
 			</property>
 		</properties>
 	</rule>
