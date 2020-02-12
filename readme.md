@@ -138,7 +138,7 @@ extends:
 
 ## Using stylelint
 
-The stylelint package contains a [stylelint](https://stylelint.io/) configuration which you can use to validate your CSS and SCSS code style. We recommend you install and use stylelint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `@humanmade/stylelit` package README](packages/stylelint-config/readme.md) for more information on configuring stylelint to use the Human Made coding standards.
+The stylelint package contains a [stylelint](https://stylelint.io/) configuration which you can use to validate your CSS and SCSS code style. We recommend you install and use stylelint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `@humanmade/stylelint` package README](packages/stylelint-config/readme.md) for more information on configuring stylelint to use the Human Made coding standards.
 
 To integrate the Human Made rules into your project, add a `.stylelintrc` file and extend these rules. You can also add your own rules and overrides for further customization.
 
