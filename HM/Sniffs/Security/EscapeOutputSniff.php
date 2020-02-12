@@ -16,19 +16,30 @@ use PHP_CodeSniffer\Util\Tokens;
  */
 class EscapeOutputSniff extends WPCSEscapeOutputSniff {
 	/**
+	 * Allowed functions which are treated by WPCS as printing functions.
+	 *
+	 * @var array
+	 */
+	protected $hmSafePrintingFunctions = [
+		'_deprecated_argument' => true,
+		'_deprecated_constructor' => true,
+		'_deprecated_file' => true,
+		'_deprecated_function' => true,
+		'_deprecated_hook' => true,
+		'_doing_it_wrong' => true,
+		'trigger_error' => true,
+		'user_error' => true,
+	];
+
+	/**
 	 * Constructor.
 	 *
 	 * Removes non-printing functions from the property.
 	 */
 	public function __construct() {
 		// Remove error logging functions from output functions.
-		unset( $this->printingFunctions['trigger_error'] );
-		unset( $this->printingFunctions['user_error'] );
-		// '_deprecated_argument'    => true,
-		// '_deprecated_constructor' => true,
-		// '_deprecated_file'        => true,
-		// '_deprecated_function'    => true,
-		// '_deprecated_hook'        => true,
-		// '_doing_it_wrong'         => true,
+		foreach ( $this->hmSafePrintingFunctions as $function => $val ) {
+			unset( $this->printingFunctions[ $function ] );
+		}
 	}
 }
