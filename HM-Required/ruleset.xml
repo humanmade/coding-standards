@@ -189,19 +189,6 @@
 	<!-- Require strict types for in_array() calls. -->
 	<rule ref="WordPress.PHP.StrictInArray"/>
 
-	<!-- Disallow querying the database directly. -->
-	<rule ref="WordPress.DB.DirectDatabaseQuery" />
-	<!--
-	<rule ref="WordPress.DB.DirectDatabaseQuery.SchemaChange">
-		<type>error</type>
-		<message>Attempting a database schema change is highly discouraged.</message>
-	</rule> -->
-	<!--
-	<rule ref="WordPress.DB.DirectDatabaseQuery.NoCaching">
-		<type>error</type>
-		<message>Usage of a direct database call without caching is prohibited on the VIP platform. Use wp_cache_get / wp_cache_set or wp_cache_delete.</message>
-	</rule> -->
-
 	<!-- Require wp_safe_redirect() instead of wp_redirect -->
 	<!-- <rule ref="WordPress.Security.SafeRedirect"/> -->
 </ruleset>
