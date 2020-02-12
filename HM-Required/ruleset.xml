@@ -24,7 +24,9 @@
 	<rule ref="WordPress.DB.SlowDBQuery" />
 
 	<!-- Require output is escaped. -->
-	<rule ref="WordPress.Security.EscapeOutput">
+	<!-- Note: we use our version of EscapeOutput to ignore error-reporting functions. -->
+	<!-- <rule ref="WordPress.Security.EscapeOutput"> -->
+	<rule ref="HM.Security.EscapeOutput">
 		<properties>
 			<property name="customEscapingFunctions" type="array">
 				<element value="whitelist_html" />
