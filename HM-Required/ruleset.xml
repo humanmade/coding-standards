@@ -207,7 +207,14 @@
 	<rule ref="WordPress.Security.NonceVerification" />
 
 	<!-- Validate sanitised input. -->
-	<rule ref="WordPress.Security.ValidatedSanitizedInput"/>
+	<rule ref="WordPress.Security.ValidatedSanitizedInput">
+		<properties>
+			<property name="customUnslashingSanitizingFunctions" type="array">
+				<!-- Allow checking nonces without sanitization. -->
+				<element value="wp_verify_nonce" />
+			</property>
+		</properties>
+	</rule>
 
 	<!-- Require strict types for in_array() calls. -->
 	<rule ref="WordPress.PHP.StrictInArray"/>
