@@ -110,7 +110,10 @@
 	<rule ref="WordPress.WP.TimezoneChange" />
 
 	<!-- Disallow short PHP tags. (From WordPress-Core) -->
-	<rule ref="Generic.PHP.DisallowShortOpenTag" />
+	<rule ref="Generic.PHP.DisallowShortOpenTag">
+		<!-- But, allow short echo, which is now standard. -->
+		<exclude name="Generic.PHP.DisallowShortOpenTag.EchoFound" />
+	</rule>
 	<rule ref="Generic.PHP.DisallowAlternativePHPTags" />
 
 	<!-- Require prepared SQL statements. -->
