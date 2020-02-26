@@ -2,6 +2,8 @@
 
 namespace HM\Sniffs\Security;
 
+use HM\Sniffs\ExtraSniffCode;
+use PHP_CodeSniffer_File as PhpcsFile;
 use WordPress\Sniffs\Security\EscapeOutputSniff as WPCSEscapeOutputSniff;
 
 /**
@@ -13,6 +15,8 @@ use WordPress\Sniffs\Security\EscapeOutputSniff as WPCSEscapeOutputSniff;
  * @see https://github.com/WordPress/WordPress-Coding-Standards/issues/1864
  */
 class EscapeOutputSniff extends WPCSEscapeOutputSniff {
+	use ExtraSniffCode;
+
 	/**
 	 * Allowed functions which are treated by WPCS as printing functions.
 	 *
@@ -39,5 +43,16 @@ class EscapeOutputSniff extends WPCSEscapeOutputSniff {
 		foreach ( $this->hmSafePrintingFunctions as $function => $val ) {
 			unset( $this->printingFunctions[ $function ] );
 		}
+	}
+
+	/**
+	 * Override init to duplicate any ignores.
+	 *
+	 * @param PhpcsFile $phpcsFile
+	 */
+	protected function init( PhpcsFile $phpcsFile ) {
+		parent::init( $phpcsFile );
+
+		$this->duplicate_ignores( 'WordPress.Security.EscapeOutput' );
 	}
 }
