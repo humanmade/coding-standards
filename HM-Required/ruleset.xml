@@ -114,7 +114,13 @@
 		<!-- But, allow short echo, which is now standard. -->
 		<exclude name="Generic.PHP.DisallowShortOpenTag.EchoFound" />
 	</rule>
-	<rule ref="Generic.PHP.DisallowAlternativePHPTags" />
+
+	<!-- Disallow old-style PHP tags (e.g. ASP-style) -->
+	<rule ref="Generic.PHP.DisallowAlternativePHPTags">
+		<!-- Allow ASP-style tags that aren't tokenised. -->
+		<exclude name="Generic.PHP.DisallowAlternativePHPTags.MaybeASPShortOpenTagFound" />
+		<exclude name="Generic.PHP.DisallowAlternativePHPTags.MaybeASPOpenTagFound" />
+	</rule>
 
 	<!-- Require prepared SQL statements. -->
 	<rule ref="WordPress.DB.PreparedSQL" />
