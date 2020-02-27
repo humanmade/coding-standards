@@ -213,7 +213,7 @@
 	<rule ref="WordPress.Security.NonceVerification" />
 
 	<!-- Validate sanitised input. -->
-	<rule ref="WordPress.Security.ValidatedSanitizedInput">
+	<rule ref="HM.Security.ValidatedSanitizedInput">
 		<properties>
 			<property name="customUnslashingSanitizingFunctions" type="array">
 				<!-- Allow checking nonces without sanitization. -->
