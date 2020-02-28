@@ -20,6 +20,10 @@ trait ExtraSniffCode {
 		foreach ( $this->phpcsFile->tokenizer->ignoredLines as $line => $ignored ) {
 			$additional = [];
 
+			if ( empty( $ignored ) ) {
+				continue;
+			}
+
 			// Find any code which matches the legacy value.
 			foreach ( $ignored as $code => $value ) {
 				if ( preg_match( $expression, $code, $matches ) ) {
