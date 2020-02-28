@@ -18,6 +18,11 @@ class ValidatedSanitizedInputSniff extends WPCSValidatedSanitizedInputSniff {
 	 */
 	public $allowedServerKeys = [
 		'HTTP_HOST',
+
+		// User-Agent is forced to a static value when passing through
+		// CloudFront, so is safe to use.
+		'HTTP_USER_AGENT',
+
 		'HTTPS',
 		'REMOTE_ADDR',
 		'REQUEST_METHOD',
