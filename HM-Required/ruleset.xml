@@ -66,6 +66,9 @@
 				<element value="file_system_read" />
 				<element value="json_encode" />
 				<element value="json_decode" />
+
+				<!-- wp_parse_url() only exists for inconsistency in PHP <5.4 -->
+				<element value="parse_url" />
 			</property>
 		</properties>
 	</rule>
