@@ -223,7 +223,7 @@
 	</rule>
 
 	<!-- Require strict types for in_array() calls. -->
-	<rule ref="WordPress.PHP.StrictInArray"/>
+	<!-- <rule ref="WordPress.PHP.StrictInArray"/> -->
 
 	<!-- Require wp_safe_redirect() instead of wp_redirect -->
 	<!-- <rule ref="WordPress.Security.SafeRedirect"/> -->
