@@ -34,6 +34,16 @@ class EscapeOutputSniff extends WPCSEscapeOutputSniff {
 	];
 
 	/**
+	 * Printing functions that incorporate unsafe values.
+	 *
+	 * This is overridden from the parent class to allow unescaped
+	 * translated text.
+	 *
+	 * @var array
+	 */
+	protected $unsafePrintingFunctions = [];
+
+	/**
 	 * Constructor.
 	 *
 	 * Removes non-printing functions from the property.

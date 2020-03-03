@@ -30,6 +30,14 @@
 		<properties>
 			<property name="customEscapingFunctions" type="array">
 				<element value="whitelist_html" />
+
+				<!--
+					For the minimum standard, we're not treating translations
+					as an attack vector.
+				-->
+				<element value="__" />
+				<element value="_x" />
+				<element value="_n" />
 			</property>
 			<property name="customAutoEscapedFunctions" type="array">
 				<!-- Allow all the built-in URL functions -->
@@ -148,6 +156,16 @@
 		<properties>
 			<property name="check_translator_comments" value="false" />
 		</properties>
+
+		<!-- Allow empty strings to be translated (e.g. space character) -->
+		<exclude name="WordPress.WP.I18n.NoEmptyStrings" />
+
+		<!--
+			Allow unordered placeholders. It's not good style, but strictly
+			speaking it's not a problem.
+		-->
+		<exclude name="WordPress.WP.I18n.UnorderedPlaceholdersText" />
+		<exclude name="WordPress.WP.I18n.MixedOrderedPlaceholdersText" />
 	</rule>
 
 	<!--
