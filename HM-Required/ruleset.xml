@@ -225,6 +225,14 @@
 				<!-- Allow checking nonces without sanitization. -->
 				<element value="wp_verify_nonce" />
 			</property>
+
+			<property name="customSanitizingFunctions" type="array">
+				<!--
+					Decoding isn't technically a sanitisation function,
+					however you can't really sanitize JSON input.
+				-->
+				<element value="json_decode" />
+			</property>
 		</properties>
 	</rule>
 
