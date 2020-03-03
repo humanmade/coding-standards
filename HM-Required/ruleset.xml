@@ -47,6 +47,9 @@
 				<element value="network_admin_url" />
 				<element value="user_admin_url" />
 				<element value="self_admin_url" />
+
+				<!-- Other templating tags. -->
+				<element value="paginate_links" />
 			</property>
 		</properties>
 	</rule>
