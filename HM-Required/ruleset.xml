@@ -232,6 +232,9 @@
 					however you can't really sanitize JSON input.
 				-->
 				<element value="json_decode" />
+
+				<!-- wp_trim_words() uses wp_strip_all_tags() internally. -->
+				<element value="wp_trim_words" />
 			</property>
 		</properties>
 	</rule>
