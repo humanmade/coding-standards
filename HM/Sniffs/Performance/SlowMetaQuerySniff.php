@@ -182,7 +182,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 
 			$maybe_index_end = $this->phpcsFile->findNext( Tokens::$emptyTokens, $start + 1, null, true );
 			if ( $this->tokens[ $maybe_index_end ]['code'] !== T_DOUBLE_ARROW ) {
-				var_dump( 'warning, invalid index' );
+				// Dynamic key, maybe? This is probably not valid syntax.
 				exit;
 			}
 
@@ -195,7 +195,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			// Got the compare, grab the value.
 			$value_start = $element['value_start'];
 			if ( $this->tokens[ $value_start ]['code'] !== T_CONSTANT_ENCAPSED_STRING ) {
-				var_dump( 'dynamic value, error' );
+				// Dynamic value, skip.
 				continue;
 			}
 
