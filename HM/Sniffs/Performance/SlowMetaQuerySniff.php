@@ -105,7 +105,13 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		}
 
 		// Get the array's bounds, then grab the indices.
-		$array_open = $this->phpcsFile->findNext( [ T_ARRAY, T_OPEN_SHORT_ARRAY ], $this->stackPtr );
+		$array_open = $this->phpcsFile->findNext( array_merge( Tokens::$emptyTokens, [ T_COMMA, T_CLOSE_SHORT_ARRAY ] ), $this->stackPtr + 1, null, true );
+		$array_open_token = $this->tokens[ $array_open ];
+		if ( $array_open_token['code'] !== T_ARRAY && $array_open_token['code'] !== T_OPEN_SHORT_ARRAY ) {
+			// Dynamic value, we can't check.
+			return true;
+		}
+
 		$array_bounds = $this->find_array_open_close( $array_open );
 		$elements = $this->get_array_indices( $array_bounds['opener'], $array_bounds['closer'] );
 
