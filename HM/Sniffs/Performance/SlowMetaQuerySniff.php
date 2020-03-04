@@ -109,7 +109,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		$array_bounds = $this->find_array_open_close( $array_open );
 		$elements = $this->get_array_indices( $array_bounds['opener'], $array_bounds['closer'] );
 
-		$default_compare = $this->get_compare_from_array( $elements );
+		$default_compare = $this->get_static_value_from_array( $elements, 'compare' );
 		if ( empty( $default_compare ) ) {
 			// The default is either IN or = depending on whether value is
 			// set, but this only matters for the message.
@@ -132,7 +132,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 
 			$value_bounds = $this->find_array_open_close( $element['value_start'] );
 			$value_elements = $this->get_array_indices( $value_bounds['opener'], $value_bounds['closer'] );
-			$compare = $this->get_compare_from_array( $value_elements );
+			$compare = $this->get_static_value_from_array( $value_elements, 'compare' );
 			if ( empty( $compare ) ) {
 				$compare = $default_compare;
 			}
@@ -153,7 +153,14 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		return false;
 	}
 
-	protected function get_compare_from_array( array $elements ) : ?string {
+	/**
+	 * Get a static value from an array.
+	 *
+	 * @param array $elements Elements from the array (from get_array_indices())
+	 * @param string $array_key Key to find in the array.
+	 * @return string|null Static value if available, null otherwise.
+	 */
+	protected function get_static_value_from_array( array $elements, string $array_key ) : ?string {
 		foreach ( $elements as $element ) {
 			if ( ! isset( $element['index_start'] ) ) {
 				// Numeric item, skip.
@@ -174,8 +181,8 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			}
 
 			$index = $this->strip_quotes( $this->tokens[ $start ]['content'] );
-			if ( $index !== 'compare' ) {
-				// Not the compare function, skip.
+			if ( $index !== $array_key ) {
+				// Not the item we want, skip.
 				continue;
 			}
 
