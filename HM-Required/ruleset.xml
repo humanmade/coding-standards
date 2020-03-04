@@ -224,7 +224,17 @@
 
 	<!-- Disallow parts of WP which have better alternatives. -->
 	<rule ref="WordPress.WP.DiscouragedConstants" />
-	<rule ref="WordPress.WP.DiscouragedFunctions" />
+	<rule ref="WordPress.WP.DiscouragedFunctions">
+		<properties>
+			<property name="exclude" type="array">
+				<!--
+					wp_reset_query() does a different thing to
+					wp_reset_postdata() and should not be discouraged.
+				-->
+				<element value="wp_reset_query" />
+			</property>
+		</properties>
+	</rule>
 
 	<!-- Disallow the backtick operator (which calls out to the system). -->
 	<rule ref="Generic.PHP.BacktickOperator" />
