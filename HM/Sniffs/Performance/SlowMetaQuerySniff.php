@@ -110,6 +110,12 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		$elements = $this->get_array_indices( $array_bounds['opener'], $array_bounds['closer'] );
 
 		$default_compare = $this->get_compare_from_array( $elements );
+		if ( empty( $default_compare ) ) {
+			// The default is either IN or = depending on whether value is
+			// set, but this only matters for the message.
+			$default_compare = 'default';
+		}
+
 		foreach ( $elements as $element ) {
 			// Is this a named index?
 			if ( isset( $element['index_start'] ) ) {
