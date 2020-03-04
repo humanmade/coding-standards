@@ -30,14 +30,6 @@
 		<properties>
 			<property name="customEscapingFunctions" type="array">
 				<element value="whitelist_html" />
-
-				<!--
-					For the minimum standard, we're not treating translations
-					as an attack vector.
-				-->
-				<element value="__" />
-				<element value="_x" />
-				<element value="_n" />
 			</property>
 			<property name="customAutoEscapedFunctions" type="array">
 				<!-- Allow all the built-in URL functions -->
@@ -60,6 +52,14 @@
 				<element value="get_template_directory_uri" />
 				<element value="get_theme_file_uri" />
 				<element value="get_term_link" />
+
+				<!--
+					For the minimum standard, we're not treating translations
+					as an attack vector.
+				-->
+				<element value="__" />
+				<element value="_x" />
+				<element value="_n" />
 
 				<!-- Other templating tags. -->
 				<element value="paginate_links" />
