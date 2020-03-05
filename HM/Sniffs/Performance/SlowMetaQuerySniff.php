@@ -11,6 +11,11 @@ use WordPress\AbstractArrayAssignmentRestrictionsSniff;
  */
 class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	/**
+	 * Indicates a dynamic value.
+	 */
+	const DYNAMIC_VALUE = '__dynamic';
+
+	/**
 	 * Current stack pointer.
 	 *
 	 * @var int
@@ -152,15 +157,19 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		// Got the compare, grab the value.
 		$value_start = $element['value_start'];
 		if ( $this->tokens[ $value_start ]['code'] !== T_CONSTANT_ENCAPSED_STRING ) {
-			// Dynamic value, unknown.
-			return null;
+			// Dynamic value.
+			return static::DYNAMIC_VALUE;
 		}
 
 		$maybe_value_end = $this->phpcsFile->findNext( Tokens::$emptyTokens, $value_start + 1, null, true );
-		if ( $this->tokens[ $maybe_value_end ]['code'] !== T_COMMA ) {
-			// Dynamic value, unknown.
-			var_dump( 'invalid value, error' );
-			return null;
+		$expected_next = [
+			T_CLOSE_PARENTHESIS,
+			T_CLOSE_SHORT_ARRAY,
+			T_COMMA,
+		];
+		if ( ! in_array( $this->tokens[ $maybe_value_end ]['code'], $expected_next, true ) ) {
+			// Dynamic value.
+			return static::DYNAMIC_VALUE;
 		}
 
 		return $this->strip_quotes( $this->tokens[ $value_start ]['content'] );
@@ -256,7 +265,14 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			$stackPtr = $this->stackPtr;
 		}
 
-		if ( $compare !== 'EXISTS' && $compare !== 'NOT EXISTS' ) {
+		if ( $compare === static::DYNAMIC_VALUE ) {
+			$this->addMessage(
+				'meta_query is using a dynamic comparison, cannot be checked.',
+				$stackPtr,
+				'warning',
+				'dynamic_compare'
+			);
+		} elseif ( $compare !== 'EXISTS' && $compare !== 'NOT EXISTS' ) {
 			// Add a message ourselves.
 			$this->addMessage(
 				'meta_query is using %s comparison, which is non-performant.',
