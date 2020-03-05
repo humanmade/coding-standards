@@ -122,6 +122,17 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			$default_compare = 'default';
 		}
 
+		// Is this a "first-order" query?
+		// @see WP_Meta_Query::is_first_order_clause
+		$first_order_key = $this->find_key_in_array( $elements, 'key' );
+		$first_order_value = $this->find_key_in_array( $elements, 'value' );
+		if ( $first_order_key || $first_order_value  ) {
+			$this->check_compare_value( $default_compare );
+
+			// Disable any built-in warnings.
+			return false;
+		}
+
 		foreach ( $elements as $element ) {
 			// Is this a named index?
 			if ( isset( $element['index_start'] ) ) {
