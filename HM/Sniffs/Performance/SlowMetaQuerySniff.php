@@ -1,32 +1,13 @@
 <?php
-/**
- * WordPress Coding Standard.
- *
- * @package WPCS\WordPressCodingStandards
- * @link    https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
- * @license https://opensource.org/licenses/MIT MIT
- */
 
 namespace HM\Sniffs\Performance;
 
-// use PHP_CodeSniffer_File as File;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Util\Tokens;
 use WordPress\AbstractArrayAssignmentRestrictionsSniff;
 
 /**
- * Flag potentially slow queries.
- *
- * @link    https://vip.wordpress.com/documentation/vip-go/code-review-blockers-warnings-notices/#uncached-pageload
- *
- * @package WPCS\WordPressCodingStandards
- *
- * @since   0.3.0
- * @since   0.12.0 Introduced new and more intuitively named 'slow query' whitelist
- *                 comment, replacing the 'tax_query' whitelist comment which is now
- *                 deprecated.
- * @since   0.13.0 Class name changed: this class is now namespaced.
- * @since   1.0.0  This sniff has been moved from the `VIP` category to the `DB` category.
+ * Flag slow meta queries.
  */
 class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	/**
