@@ -115,19 +115,19 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		$array_bounds = $this->find_array_open_close( $array_open );
 		$elements = $this->get_array_indices( $array_bounds['opener'], $array_bounds['closer'] );
 
-		$default_compare = $this->get_static_value_from_array( $elements, 'compare' );
-		if ( empty( $default_compare ) ) {
-			// The default is either IN or = depending on whether value is
-			// set, but this only matters for the message.
-			$default_compare = 'default';
-		}
-
 		// Is this a "first-order" query?
 		// @see WP_Meta_Query::is_first_order_clause
 		$first_order_key = $this->find_key_in_array( $elements, 'key' );
 		$first_order_value = $this->find_key_in_array( $elements, 'value' );
 		if ( $first_order_key || $first_order_value  ) {
-			$this->check_compare_value( $default_compare );
+			$compare = $this->get_static_value_from_array( $elements, 'compare' );
+			if ( empty( $compare ) ) {
+				// The default is either IN or = depending on whether value is
+				// set, but this only matters for the message.
+				$compare = 'default';
+			}
+
+			$this->check_compare_value( $compare );
 
 			// Disable any built-in warnings.
 			return false;
@@ -151,7 +151,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			$value_elements = $this->get_array_indices( $value_bounds['opener'], $value_bounds['closer'] );
 			$compare = $this->get_static_value_from_array( $value_elements, 'compare' );
 			if ( empty( $compare ) ) {
-				$compare = $default_compare;
+				$compare = 'default';
 			}
 
 			// Add a message ourselves.
