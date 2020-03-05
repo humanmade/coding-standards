@@ -167,6 +167,38 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	 * @return string|null Static value if available, null otherwise.
 	 */
 	protected function get_static_value_from_array( array $elements, string $array_key ) : ?string {
+		$element = $this->find_key_in_array( $elements, $array_key );
+		if ( empty( $elements ) ) {
+			return null;
+		}
+
+		// Got the compare, grab the value.
+		$value_start = $element['value_start'];
+		if ( $this->tokens[ $value_start ]['code'] !== T_CONSTANT_ENCAPSED_STRING ) {
+			// Dynamic value, unknown.
+			return null;
+		}
+
+		$maybe_value_end = $this->phpcsFile->findNext( Tokens::$emptyTokens, $value_start + 1, null, true );
+		if ( $this->tokens[ $maybe_value_end ]['code'] !== T_COMMA ) {
+			// Dynamic value, unknown.
+			var_dump( 'invalid value, error' );
+			return null;
+		}
+
+		return $this->strip_quotes( $this->tokens[ $value_start ]['content'] );
+	}
+
+	/**
+	 * Find a given key in an array.
+	 *
+	 * Searches a list of elements for a given (static) index.
+	 *
+	 * @param array $elements Elements from the array (from get_array_indices())
+	 * @param string $array_key Key to find in the array.
+	 * @return string|null Static value if available, null otherwise.
+	 */
+	protected function find_key_in_array( array $elements, string $array_key ) : ?array {
 		foreach ( $elements as $element ) {
 			if ( ! isset( $element['index_start'] ) ) {
 				// Numeric item, skip.
@@ -192,20 +224,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 				continue;
 			}
 
-			// Got the compare, grab the value.
-			$value_start = $element['value_start'];
-			if ( $this->tokens[ $value_start ]['code'] !== T_CONSTANT_ENCAPSED_STRING ) {
-				// Dynamic value, skip.
-				continue;
-			}
-
-			$maybe_value_end = $this->phpcsFile->findNext( Tokens::$emptyTokens, $value_start + 1, null, true );
-			if ( $this->tokens[ $maybe_value_end ]['code'] !== T_COMMA ) {
-				var_dump( 'invalid value, error' );
-				continue;
-			}
-
-			return $this->strip_quotes( $this->tokens[ $value_start ]['content'] );
+			return $element;
 		}
 
 		return null;
