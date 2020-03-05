@@ -122,7 +122,13 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		$array_open_token = $this->tokens[ $array_open ];
 		if ( $array_open_token['code'] !== T_ARRAY && $array_open_token['code'] !== T_OPEN_SHORT_ARRAY ) {
 			// Dynamic value, we can't check.
-			// TODO: error.
+			$this->addMessage(
+				'meta_query is dynamic, cannot be checked.',
+				$array_open,
+				'warning',
+				'dynamic_query'
+			);
+
 			return;
 		}
 
