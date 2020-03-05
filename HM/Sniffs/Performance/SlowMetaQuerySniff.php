@@ -86,10 +86,6 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	protected function check_meta_query() {
 		// Grab the token we're detecting.
 		$token = $this->tokens[ $this->stackPtr ];
-		if ( $token['code'] !== T_DOUBLE_ARROW ) {
-			var_dump( $token );
-			exit;
-		}
 
 		// Find the value of meta_query, and check it.
 		$array_open = $this->phpcsFile->findNext( array_merge( Tokens::$emptyTokens, [ T_COMMA, T_CLOSE_SHORT_ARRAY ] ), $this->stackPtr + 1, null, true );
@@ -201,7 +197,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			$maybe_index_end = $this->phpcsFile->findNext( Tokens::$emptyTokens, $start + 1, null, true );
 			if ( $this->tokens[ $maybe_index_end ]['code'] !== T_DOUBLE_ARROW ) {
 				// Dynamic key, maybe? This is probably not valid syntax.
-				exit;
+				continue;
 			}
 
 			$index = $this->strip_quotes( $this->tokens[ $start ]['content'] );
