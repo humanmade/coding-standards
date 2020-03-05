@@ -96,6 +96,9 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		}
 	}
 
+	/**
+	 * Recursively check a meta_query value.
+	 */
 	protected function check_meta_query() {
 		// Grab the token we're detecting.
 		$token = $this->tokens[ $this->stackPtr ];
@@ -104,12 +107,25 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			exit;
 		}
 
-		// Get the array's bounds, then grab the indices.
+		// Find the value of meta_query, and check it.
 		$array_open = $this->phpcsFile->findNext( array_merge( Tokens::$emptyTokens, [ T_COMMA, T_CLOSE_SHORT_ARRAY ] ), $this->stackPtr + 1, null, true );
+		$this->check_meta_query_item( $array_open );
+
+		// Disable the built-in warnings.
+		return false;
+	}
+
+	/**
+	 * Check an individual meta_query item.
+	 *
+	 * @param int $array_open Token pointer for the array open token.
+	 */
+	protected function check_meta_query_item( int $array_open ) {
 		$array_open_token = $this->tokens[ $array_open ];
 		if ( $array_open_token['code'] !== T_ARRAY && $array_open_token['code'] !== T_OPEN_SHORT_ARRAY ) {
 			// Dynamic value, we can't check.
-			return true;
+			// TODO: error.
+			return;
 		}
 
 		$array_bounds = $this->find_array_open_close( $array_open );
@@ -131,41 +147,13 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			}
 
 			$this->check_compare_value( $compare, $compare_element ? $compare_element['value_start'] : null );
-
-			// Disable any built-in warnings.
-			return false;
+			return;
 		}
 
+		// Otherwise, recurse.
 		foreach ( $elements as $element ) {
-			// Is this a named index?
-			if ( isset( $element['index_start'] ) ) {
-				// Skip it, already handled above.
-				continue;
-			}
-
-			// Numeric index, so this is a specific comparison. Explore the array.
-			$value_token = $this->tokens[ $element['value_start'] ];
-			if ( $value_token['code'] !== T_ARRAY && $value_token['code'] !== T_OPEN_SHORT_ARRAY ) {
-				// Invalid item in meta query.
-				continue;
-			}
-
-			$value_bounds = $this->find_array_open_close( $element['value_start'] );
-			$value_elements = $this->get_array_indices( $value_bounds['opener'], $value_bounds['closer'] );
-			$compare_element = $this->find_key_in_array( $value_elements, 'compare' );
-			if ( ! empty( $compare_element ) ) {
-				$compare = $this->get_static_value_for_element( $compare_element );
-			}
-			if ( empty( $compare ) ) {
-				$compare = 'default';
-			}
-
-			// Add a message ourselves.
-			$this->check_compare_value( $compare, $compare_element ? $compare_element['value_start'] : null );
+			$this->check_meta_query_item( $element['value_start'] );
 		}
-
-		// Disable the built-in warnings.
-		return false;
 	}
 
 	/**
