@@ -120,14 +120,17 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		$first_order_key = $this->find_key_in_array( $elements, 'key' );
 		$first_order_value = $this->find_key_in_array( $elements, 'value' );
 		if ( $first_order_key || $first_order_value  ) {
-			$compare = $this->get_static_value_from_array( $elements, 'compare' );
+			$compare_element = $this->find_key_in_array( $elements, 'compare' );
+			if ( ! empty( $compare_element ) ) {
+				$compare = $this->get_static_value_for_element( $compare_element );
+			}
 			if ( empty( $compare ) ) {
 				// The default is either IN or = depending on whether value is
 				// set, but this only matters for the message.
 				$compare = 'default';
 			}
 
-			$this->check_compare_value( $compare );
+			$this->check_compare_value( $compare, $compare_element ? $compare_element['value_start'] : null );
 
 			// Disable any built-in warnings.
 			return false;
@@ -149,13 +152,16 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 
 			$value_bounds = $this->find_array_open_close( $element['value_start'] );
 			$value_elements = $this->get_array_indices( $value_bounds['opener'], $value_bounds['closer'] );
-			$compare = $this->get_static_value_from_array( $value_elements, 'compare' );
+			$compare_element = $this->find_key_in_array( $value_elements, 'compare' );
+			if ( ! empty( $compare_element ) ) {
+				$compare = $this->get_static_value_for_element( $compare_element );
+			}
 			if ( empty( $compare ) ) {
 				$compare = 'default';
 			}
 
 			// Add a message ourselves.
-			$this->check_compare_value( $compare );
+			$this->check_compare_value( $compare, $compare_element ? $compare_element['value_start'] : null );
 		}
 
 		// Disable the built-in warnings.
@@ -169,12 +175,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	 * @param string $array_key Key to find in the array.
 	 * @return string|null Static value if available, null otherwise.
 	 */
-	protected function get_static_value_from_array( array $elements, string $array_key ) : ?string {
-		$element = $this->find_key_in_array( $elements, $array_key );
-		if ( empty( $elements ) ) {
-			return null;
-		}
-
+	protected function get_static_value_for_element( array $element ) : ?string {
 		// Got the compare, grab the value.
 		$value_start = $element['value_start'];
 		if ( $this->tokens[ $value_start ]['code'] !== T_CONSTANT_ENCAPSED_STRING ) {
@@ -277,12 +278,16 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	 *
 	 * @param string $compare Comparison value
 	 */
-	protected function check_compare_value( string $compare ) : void {
+	protected function check_compare_value( string $compare, int $stackPtr = null ) : void {
+		if ( empty( $stackPtr ) ) {
+			$stackPtr = $this->stackPtr;
+		}
+
 		if ( $compare !== 'EXISTS' && $compare !== 'NOT EXISTS' ) {
 			// Add a message ourselves.
 			$this->addMessage(
 				'meta_query is using %s comparison, which is non-performant.',
-				$this->stackPtr,
+				$stackPtr,
 				'warning',
 				'nonperformant_comparison',
 				[ $compare ]
