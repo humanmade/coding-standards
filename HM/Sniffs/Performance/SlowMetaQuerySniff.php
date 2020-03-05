@@ -297,18 +297,16 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	protected function get_next( File $phpcsFile, $ptr, $arrayEnd ) {
 		$tokens = $phpcsFile->getTokens();
 
-		while ($ptr < $arrayEnd) {
-			if (isset($tokens[$ptr]['scope_closer']) === true) {
-				$ptr = $tokens[$ptr]['scope_closer'];
-			} else if (isset($tokens[$ptr]['parenthesis_closer']) === true) {
-				$ptr = $tokens[$ptr]['parenthesis_closer'];
-			} else if (isset($tokens[$ptr]['bracket_closer']) === true) {
-				$ptr = $tokens[$ptr]['bracket_closer'];
+		while ( $ptr < $arrayEnd ) {
+			if ( isset( $tokens[ $ptr ]['scope_closer']) === true ) {
+				$ptr = $tokens[ $ptr ]['scope_closer'];
+			} elseif ( isset( $tokens[ $ptr ]['parenthesis_closer'] ) === true ) {
+				$ptr = $tokens[ $ptr ]['parenthesis_closer'];
+			} elseif ( isset( $tokens[ $ptr ]['bracket_closer'] ) === true ) {
+				$ptr = $tokens[ $ptr ]['bracket_closer'];
 			}
 
-			if ($tokens[$ptr]['code'] === T_COMMA
-				|| $tokens[$ptr]['code'] === T_DOUBLE_ARROW
-			) {
+			if ( $tokens[ $ptr ]['code'] === T_COMMA || $tokens[ $ptr ]['code'] === T_DOUBLE_ARROW ) {
 				return $ptr;
 			}
 
