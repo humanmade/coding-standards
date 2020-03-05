@@ -143,16 +143,8 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 				$compare = $default_compare;
 			}
 
-			if ( $compare !== 'EXISTS' && $compare !== 'NOT EXISTS' ) {
-				// Add a message ourselves.
-				$this->addMessage(
-					'meta_query is using %s comparison, which is non-performant.',
-					$this->stackPtr,
-					'warning',
-					'nonperformant_comparison',
-					[ $compare ]
-				);
-			}
+			// Add a message ourselves.
+			$this->check_compare_value( $compare );
 		}
 
 		// Disable the built-in warnings.
@@ -267,6 +259,24 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		}
 
 		return $indices;
+	}
+
+	/**
+	 * Add an error if the comparison isn't allowed.
+	 *
+	 * @param string $compare Comparison value
+	 */
+	protected function check_compare_value( string $compare ) : void {
+		if ( $compare !== 'EXISTS' && $compare !== 'NOT EXISTS' ) {
+			// Add a message ourselves.
+			$this->addMessage(
+				'meta_query is using %s comparison, which is non-performant.',
+				$this->stackPtr,
+				'warning',
+				'nonperformant_comparison',
+				[ $compare ]
+			);
+		}
 	}
 
 	/**
