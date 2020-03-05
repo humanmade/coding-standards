@@ -22,6 +22,7 @@
 
 	<!-- Disallow slow database queries -->
 	<rule ref="HM.Performance.SlowMetaQuery" />
+	<rule ref="HM.Performance.SlowOrderBy" />
 
 	<!-- Require output is escaped. -->
 	<!-- Note: we use our version of EscapeOutput to ignore error-reporting functions. -->
