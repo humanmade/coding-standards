@@ -45,11 +45,9 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		return array(
 			'slow_query' => array(
 				'type'    => 'warning',
-				'message' => 'Detected non-performant usage of %s.',
+				'message' => 'Querying by %s is not performant.',
 				'keys'    => array(
-					'meta_compare',
 					'meta_query',
-					'meta_key',
 					'meta_value',
 				),
 			),
