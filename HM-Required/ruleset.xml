@@ -247,6 +247,9 @@
 
 	<!-- Disallow silencing errors. -->
 	<rule ref="WordPress.PHP.NoSilencedErrors" />
+	<rule ref="WordPress.PHP.NoSilencedErrors.Discouraged">
+		<message>Errors should not be silenced. Found: %s</message>
+	</rule>
 
 	<!--
 		Based on WordPress-VIP
