@@ -263,7 +263,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 
 		if ( $compare === static::DYNAMIC_VALUE ) {
 			$this->addMessage(
-				'meta_query is using a dynamic comparison, cannot be checked.',
+				'meta_query is using a dynamic comparison; this cannot be checked automatically, and may be non-performant.',
 				$stackPtr,
 				'warning',
 				'dynamic_compare'
