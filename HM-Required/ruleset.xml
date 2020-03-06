@@ -175,7 +175,6 @@
 		Rules based on WordPress-Extra
 	-->
 	<!-- Disallow parts of PHP which may cause compatibility issues. -->
-	<rule ref="Generic.PHP.ForbiddenFunctions" />
 	<rule ref="Generic.Functions.CallTimePassByReference" />
 
 	<!-- Disallow "development" functions like var_dump/print_r/phpinfo -->
