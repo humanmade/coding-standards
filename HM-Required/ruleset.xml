@@ -272,7 +272,11 @@
 		Based on WordPress-VIP
 	-->
 	<!-- Require nonce verification. -->
-	<rule ref="WordPress.Security.NonceVerification" />
+	<rule ref="HM.Security.NonceVerification">
+		<properties>
+			<property name="allowQueryVariables" value="true" />
+		</properties>
+	</rule>
 
 	<!-- Validate sanitised input. -->
 	<rule ref="HM.Security.ValidatedSanitizedInput">
