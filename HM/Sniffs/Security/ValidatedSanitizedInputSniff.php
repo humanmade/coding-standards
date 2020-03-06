@@ -29,6 +29,7 @@ class ValidatedSanitizedInputSniff extends WPCSValidatedSanitizedInputSniff {
 		'REQUEST_TIME',
 		'REQUEST_TIME_FLOAT',
 		'REQUEST_URI',
+		'QUERY_STRING',
 		'SERVER_ADDR',
 	];
 
