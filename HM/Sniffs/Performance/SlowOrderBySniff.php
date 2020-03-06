@@ -61,7 +61,6 @@ class SlowOrderBySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			case 'rand':
 			case 'meta_value':
 			case 'meta_value_num':
-				// Dynamic value, we can't check.
 				$this->addMessage(
 					'Ordering query results by %s is not performant.',
 					$this->stackPtr,
