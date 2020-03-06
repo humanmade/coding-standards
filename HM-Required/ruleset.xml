@@ -196,6 +196,19 @@
 		<!-- Set remaining to errors. -->
 		<type>error</type>
 	</rule>
+	<!-- Override message for clarity. -->
+	<rule ref="WordPress.PHP.DevelopmentFunctions.error_log_var_dump">
+		<message>%s() found. Errors should be logged via error_log() or trigger_error().</message>
+	</rule>
+	<rule ref="WordPress.PHP.DevelopmentFunctions.error_log_var_export">
+		<message>%s() found. Errors should be logged via error_log() or trigger_error().</message>
+	</rule>
+	<rule ref="WordPress.PHP.DevelopmentFunctions.error_log_print_r">
+		<message>%s() found. Errors should be logged via error_log() or trigger_error().</message>
+	</rule>
+	<rule ref="WordPress.PHP.DevelopmentFunctions.error_log_debug_print_backtrace">
+		<message>%s() found. Use error_log( wp_debug_backtrace_summary() ) instead.</message>
+	</rule>
 
 	<!-- Disallow a bunch of functions which change config. -->
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions">
