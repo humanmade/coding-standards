@@ -189,7 +189,11 @@
 		<!-- Allow changing error level. -->
 		<exclude name="WordPress.PHP.DevelopmentFunctions.prevent_path_disclosure_error_reporting" />
 
-		<!-- Set all to errors. -->
+		<!-- Allow backtraces. -->
+		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_debug_backtrace" />
+		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_wp_debug_backtrace_summary" />
+
+		<!-- Set remaining to errors. -->
 		<type>error</type>
 	</rule>
 
