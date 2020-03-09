@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="HM Required">
+<ruleset name="HM-Required">
 	<description>Human Made base level coding standards.</description>
 
 	<file>.</file>
