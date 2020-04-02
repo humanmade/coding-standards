@@ -1,4 +1,12 @@
 <?php
+/**
+ * Run tests on fixture files against our custom standards.
+ *
+ * This test suite runs our standards against files which have
+ * known errors or known passing conditions. We run these tests
+ * against said fixture files as it's closer to real-world conditions
+ * than isolated unit tests and provides another layer of security.
+ */
 
 namespace HM\CodingStandards\Tests;
 
@@ -85,6 +93,19 @@ class FixtureTests extends TestCase {
 		// Keeping the tabWidth set inline with WPCS.
 		// See: https://github.com/humanmade/coding-standards/pull/88#issuecomment-464076803
 		$this->config->tabWidth = 4;
+
+		// We want to setup our tests to only load our standards in for testing.
+		$this->config->sniffs = [
+			'HM.Classes.OnlyClassInFile',
+			'HM.Debug.ESLint',
+			'HM.Files.ClassFileName',
+			'HM.Files.FunctionFileName',
+			'HM.Files.NamespaceDirectoryName',
+			'HM.Functions.NamespacedFunctions',
+			'HM.Layout.Order',
+			'HM.Namespaces.NoLeadingSlashOnUse',
+			'HM.Whitespace.MultipleEmptyLines',
+		];
 
 		$this->ruleset = new Ruleset( $this->config );
 	}

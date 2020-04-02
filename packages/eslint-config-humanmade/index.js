@@ -74,6 +74,7 @@ module.exports = {
 		'object-curly-spacing': [ 'error', 'always' ],
 		'object-property-newline': [ 'error' ],
 		'quotes': [ 'error', 'single' ],
+		'semi': [ 'error', 'always' ],
 		'semi-spacing': [ 'error', {
 			'before': false,
 			'after': true,
@@ -99,6 +100,10 @@ module.exports = {
 			'children': true,
 		} ],
 		'react/jsx-wrap-multilines': [ 'error' ],
+		'react/jsx-curly-newline': [ 'warn', {
+			'multiline': 'consistent',
+			'singleline': 'consistent',
+		} ],
 		'jsx-a11y/anchor-is-valid': [ 'error' ],
 	},
 };
