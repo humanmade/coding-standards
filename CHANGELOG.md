@@ -1,5 +1,10 @@
 ## Unreleased (1.0.0)
 
+### Updated
+ - Updated WPCS to 2.2.1
+ - Updated VIPCS to 2.0.0
+ - Updated DealerDirect to 0.6
+
 ##  0.8.0 (January 29, 2020)
 
 ### Added:
