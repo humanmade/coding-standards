@@ -2,8 +2,6 @@
 <ruleset name="HM">
 	<description>Human Made coding standards.</description>
 
-	<file>.</file>
-
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 
