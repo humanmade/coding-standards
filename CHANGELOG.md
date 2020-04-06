@@ -1,4 +1,14 @@
-## Unreleased (0.8.0)
+## Unreleased (1.0.0)
+
+### Added
+ - Included `WordPress-Docs` by default in PHPCS #177
+
+### Updated
+ - Updated WPCS to 2.2.1 #151
+ - Updated VIPCS to 2.0.0 #151
+ - Updated DealerDirect to 0.6 #151
+
+##  0.8.0 (January 29, 2020)
 
 ### Added:
  - Added PHPCS Rule to Detect Consecutive Newlines #168
@@ -6,9 +16,11 @@
  - Added `WordPress.Security.EscapeOutput` PHPCS rule #166
  - Added PHPCompatibilityWP standard to PHPCS #81
  - Disallowed usage of `!important` in CSS #164
- - Included `WordPress-Docs` by default in PHPCS #177
+ - Enforced consistent curly newlines in jsx #172
+ - Added `eslint-plugin-sort-destructure-keys` package #179
 
 ### Updated
+ - Bumped PHPCS to v3.5 from v3.4 #173
  - Bumped `stylelint-config-wordpress` package to v15 from v13 #165
  - Ignore stylelint `at-rule` line break for `if/else/elseif` #170
  - Restricted fixture tests to load only custom HM sniffs #163
