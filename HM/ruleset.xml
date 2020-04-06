@@ -25,6 +25,10 @@
 		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error" />
 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
 
+		<!-- We like short arrays and ternaries around here -->
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+		<exclude name="WordPress.PHP.DisallowShortTernary" />
+
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
 
@@ -46,6 +50,9 @@
 		-->
 		<exclude name="WordPress.PHP.YodaConditions" />
 	</rule>
+
+	<!-- Require proper docblocks be used in all PHP files -->
+	<rule ref="WordPress-Docs" />
 
 	<!-- Prefer alignment over line length. -->
 	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
@@ -92,7 +99,7 @@
 		<type>error</type>
 	</rule>
 
-	<rule ref="WordPress.WP.TimezoneChange" />
+	<rule ref="WordPress.DateTime.RestrictedFunctions" />
 
 	<!--
 	Restore the ability to have multiple arguments per line

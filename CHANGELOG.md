@@ -1,5 +1,13 @@
 ## Unreleased (1.0.0)
 
+### Added
+ - Included `WordPress-Docs` by default in PHPCS #177
+
+### Updated
+ - Updated WPCS to 2.2.1 #151
+ - Updated VIPCS to 2.0.0 #151
+ - Updated DealerDirect to 0.6 #151
+
 ##  0.8.0 (January 29, 2020)
 
 ### Added:
