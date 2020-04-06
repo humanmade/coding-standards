@@ -96,7 +96,7 @@
 		<type>error</type>
 	</rule>
 
-	<rule ref="WordPress.WP.TimezoneChange" />
+	<rule ref="WordPress.DateTime.RestrictedFunctions" />
 
 	<!--
 	Restore the ability to have multiple arguments per line
