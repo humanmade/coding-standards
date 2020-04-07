@@ -121,19 +121,13 @@ The ESLint package contains an [ESLint](https://eslint.org/) configuration which
 
 Once you have installed the [`eslint-config-humanmade` npm package](https://www.npmjs.com/package/eslint-config-humanmade), you may simply specify that your own project-level ESLint file extends the `humanmade` configuration. If you install this globally (`npm install -g eslint-config-humanmade`) you can also reference the configuration directly from the command line via `eslint -c humanmade .`
 
-While you will still have to manually install package peer dependencies, if you have installed this package using Composer it is possible to reference the `.eslintrc` file directly from the composer package in your own ESLint configuration file:
+Alternatively, you can create your own configuration and extend these rules:
 
 `.eslintrc`
 ```json
 {
-	"extends": "vendor/humanmade/coding-standards/packages/eslint-config-humanmade/.eslintrc"
+  "extends": "humanmade"
 }
-```
-`.eslintrc.yml`
-```yaml
----
-extends:
-- vendor/humanmade/coding-standards/packages/eslint-config-humanmade/.eslintrc
 ```
 
 ## Using stylelint
