@@ -85,7 +85,7 @@ There are a number of common release subsections you can follow. Each is intende
 - "Bug Fix" - Resolutions to existing buggy behavior (requires a patch version bump).
 - "Internal" - Changes which do not have an impact on the public interface or behavior of the module (requires a patch version bump).
 
-While other section naming can be used when appropriate, it's important that are expressed clearly to avoid confusion for both the packages releaser and third-party consumers.
+While other section naming can be used when appropriate, it's important that the subsections are expressed clearly to avoid confusion for both the packages releaser and third-party consumers.
 
 When in doubt, refer to [Semantic Versioning specification](https://semver.org/).
 
