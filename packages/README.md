@@ -71,7 +71,7 @@ _Example:_
 ## Unreleased (1.2.3)
 
 ### Added:
- - Added stylelint `stylelint-csstree-validator` plugin to `@humanmade/sty;elint-config`
+ - Added stylelint `stylelint-csstree-validator` plugin to `@humanmade/stylelint-config`
 
 ### Removed
  - Removed ESLint `eslint-plugin-flowtype` config from `eslint-plugin-humanmade`
