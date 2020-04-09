@@ -1,6 +1,6 @@
 <?php
 
-namespace HM\Coding\Standards;
+namespace HM\Coding\Standards\Tests;
 
 use WP_Post;
 

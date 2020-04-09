@@ -1,19 +1,52 @@
 <?php
+/**
+ * Run tests on fixture files against our custom standards.
+ *
+ * This test suite runs our standards against files which have
+ * known errors or known passing conditions. We run these tests
+ * against said fixture files as it's closer to real-world conditions
+ * than isolated unit tests and provides another layer of security.
+ */
 
 namespace HM\CodingStandards\Tests;
 
 use PHP_CodeSniffer\Config;
-use PHP_CodeSniffer\Exceptions\RuntimeException;
 use PHP_CodeSniffer\Ruleset;
 use PHP_CodeSniffer\Files\LocalFile;
-use PHP_CodeSniffer\Util\Common;
 use PHPUnit\Framework\TestCase;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
+/**
+ * Class FixtureTests
+ *
+ * @group fixtures
+ */
 class FixtureTests extends TestCase {
-	public static function get_files_from_dir( $directory ) {
+	/**
+	 * Config instance.
+	 *
+	 * @var \PHP_CodeSniffer\Config
+	 */
+	protected $config;
+
+	/**
+	 * Ruleset instance.
+	 *
+	 * @var \PHP_CodeSniffer\Ruleset
+	 */
+	protected $ruleset;
+
+	/**
+	 * Get a lit of files from a directory path.
+	 *
+	 * @param string $directory Directory to recursively look through.
+	 * @return array List of files to run.
+	 */
+	public static function get_files_from_dir( string $directory ) {
 		$files = [];
-		$iterator = new \RecursiveIteratorIterator(
-			new \RecursiveDirectoryIterator( $directory )
+		$iterator = new RecursiveIteratorIterator(
+			new RecursiveDirectoryIterator( $directory )
 		);
 
 		foreach ( $iterator as $path => $file ) {
@@ -49,10 +82,30 @@ class FixtureTests extends TestCase {
 		return static::get_files_from_dir( $directory );
 	}
 
+	/**
+	 * Setup our ruleset.
+	 */
 	public function setUp() {
 		$this->config            = new Config();
 		$this->config->cache     = false;
 		$this->config->standards = [ 'HM' ];
+
+		// Keeping the tabWidth set inline with WPCS.
+		// See: https://github.com/humanmade/coding-standards/pull/88#issuecomment-464076803
+		$this->config->tabWidth = 4;
+
+		// We want to setup our tests to only load our standards in for testing.
+		$this->config->sniffs = [
+			'HM.Classes.OnlyClassInFile',
+			'HM.Debug.ESLint',
+			'HM.Files.ClassFileName',
+			'HM.Files.FunctionFileName',
+			'HM.Files.NamespaceDirectoryName',
+			'HM.Functions.NamespacedFunctions',
+			'HM.Layout.Order',
+			'HM.Namespaces.NoLeadingSlashOnUse',
+			'HM.Whitespace.MultipleEmptyLines',
+		];
 
 		$this->ruleset = new Ruleset( $this->config );
 	}

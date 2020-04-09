@@ -9,7 +9,7 @@ module.exports = {
 		'react-app',
 	],
 	'parserOptions': {
-		'ecmaVersion': 2018, 
+		'ecmaVersion': 2018,
 		'ecmaFeatures': {
 			'jsx': true,
 		},
@@ -74,6 +74,7 @@ module.exports = {
 		'object-curly-spacing': [ 'error', 'always' ],
 		'object-property-newline': [ 'error' ],
 		'quotes': [ 'error', 'single' ],
+		'semi': [ 'error', 'always' ],
 		'semi-spacing': [ 'error', {
 			'before': false,
 			'after': true,
@@ -94,12 +95,16 @@ module.exports = {
 			},
 		} ],
 		'yoda': [ 'error', 'never' ],
-		'react/jsx-curly-spacing': [ 'error', 'always' ],
+		'react/jsx-curly-spacing': [ 'error', {
+			'when': 'always',
+			'children': true,
+		} ],
 		'react/jsx-wrap-multilines': [ 'error' ],
+		'react/jsx-curly-newline': [ 'warn', {
+			'multiline': 'consistent',
+			'singleline': 'consistent',
+		} ],
+		'react/jsx-boolean-value': [ 'error', 'never' ],
 		'jsx-a11y/anchor-is-valid': [ 'error' ],
-		// href-no-hash has been removed from jsx-a11y: this line silences an error
-		// caused by eslint-config-react-app still using the deprecated rule, and
-		// can be removed once the react-app config is updated to a recent jsx-a11y.
-		'jsx-a11y/href-no-hash': [ 'off' ],
 	},
 };

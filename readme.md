@@ -12,7 +12,7 @@
 	</tr>
 	<tr>
 		<td>
-			A <strong><a href="https://hmn.md/">Human Made</a></strong> project. Maintained by @rmccue.
+			A <strong><a href="https://hmn.md/">Human Made</a></strong> project. Maintained by @rmccue and @mikeselander.
 		</td>
 		<td align="center" width="30%">
 			<img src="https://hmn.md/content/themes/hmnmd/assets/images/hm-logo.svg" width="100" />
@@ -20,16 +20,29 @@
 	</tr>
 </table>
 
-This is a codified version of [the Human Made style guide](http://engineering.hmn.md/how-we-work/style/). We include phpcs and ESLint rules.
+This is a codified version of [the Human Made style guide](http://engineering.hmn.md/how-we-work/style/). We include phpcs, ESLint, and stylelint rules.
+
+## Contributing
+
+We welcome contributions to these standards and want to make the experience as seamless as possible. To learn more about contributing, please reference the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 ## Setup
 
-1. `composer require --dev humanmade/coding-standards`
-2. Run the following command to run the standards checks:
+Each ruleset is available individually via Composer or NPM. To install the needed ruleset, use one of the following commands:
+
+ - PHPCS: `composer require --dev humanmade/coding-standards`
+ - ESLint: `npx install-peerdeps --dev eslint-config-humanmade@latest`
+ - stylelint: `npm install --save-dev stylelint @humanmade/stylelint-config`
+
+## Using PHPCS
+
+Run the following command to run the standards checks:
 
 ```
 vendor/bin/phpcs --standard=vendor/humanmade/coding-standards .
 ```
+
+We use the [DealerDirect phpcodesniffer-composer-installer](https://github.com/Dealerdirect/phpcodesniffer-composer-installer) package to handle `installed_paths` for PHPCS when first installing the HM ruleset. If you an error such as `ERROR: Referenced sniff "WordPress-Core" does not exist`, delete the `composer.lock` file and `vendor` directories and re-install Composer dependencies.   
 
 The final `.` here specifies the files you want to test; this is typically the current directory (`.`), but you can also selectively check files or directories by specifying them instead.
 
@@ -102,119 +115,32 @@ To find out what these codes are, specify `-s` when running `phpcs`, and the cod
 
 The phpcs standard is based upon the `WordPress-VIP` standard from [WordPress Coding Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards), with [customisation and additions](HM/ruleset.xml) to match our style guide.
 
-
-## Testing
-
-### Running tests
-
-To run the tests locally, you'll need the source version of PHP CodeSniffer.
-
-If you haven't already installed your Composer dependencies:
-
-```bash
-composer install --prefer-source --dev
-```
-
-If you already have, and need to convert the phpcs directory to a source version:
-
-```bash
-rm -r vendor/squizlabs/php_codesniffer
-composer install --prefer-source --dev
-composer dump-autoload
-```
-
-### Writing sniff tests
-
-To add tests you should mirror the directory structure of the sniffs. For example a test
-for `HM/Sniffs/Layout/OrderSniff.php` would require the following files:
-
-```
-HM/Tests/Layout/OrderUnitTest.php # Unit test code
-HM/Tests/Layout/OrderUnitTest.inc # Code to be tested
-```
-
-Effectively you are replacing the suffix `Sniff.php` with `UnitTest.php`.
-
-A basic unit test class looks like the following:
-
-```php
-<?php
-
-namespace HM\Tests\Layout;
-
-use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
-
-/**
- * Class name must follow the directory structure to be autoloaded correctly.
- */
-class OrderUnitTest extends AbstractSniffUnitTest {
-
-	/**
-	 * Returns the lines where errors should occur.
-	 *
-	 * @return array <int line number> => <int number of errors>
-	 */
-	public function getErrorList() {
-		return [
-			1  => 1, // line 1 expects 1 error
-		];
-	}
-
-	/**
-	 * Returns the lines where warnings should occur.
-	 *
-	 * @return array <int line number> => <int number of warnings>
-	 */
-	public function getWarningList() {
-		return [];
-	}
-
-}
-```
-
-
-### Fixture Tests
-
-Rather than testing sniffs individually, `FixtureTests.php` also tests the files in the `tests/fixtures` directory and ensures that whole files pass.
-
-To add an expected-pass file, simply add it into `tests/fixtures/pass` in the appropriate subdirectory/file.
-
-To add an expected-fail file, add it into `tests/fixtures/fail` in the appropriate subdirectory/file. You then need to add the expected errors to the JSON file accompanying the tested file (i.e. the filename with `.json` appended). This file should contain a valid JSON object keyed by line number, with each item being a list of error objects:
-
-```json
-{
-	"1": [
-		{
-			"source": "HM.Files.FunctionFileName.WrongFile",
-			"type": "error"
-		}
-	]
-}
-```
-
-An error object contains:
-
-* `source`: Internal phpcs error code; use the `-s` flag to `phpcs` to get the code.
-* `type`: One of `error` or `warning`, depending on the check's severity.
-
-
 ## Using ESLint
 
-This package contains an [ESLint](https://eslint.org/) configuration which you can use to validate your JavaScript code style. While it is possible to run ESLint via phpcs, we recommend you install and use eslint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `eslint-config-humanmade` package README](packages/eslint-config-humanmade/readme.md) for more information on configuring ESLint to use the Human Made coding standards.
+The ESLint package contains an [ESLint](https://eslint.org/) configuration which you can use to validate your JavaScript code style. While it is possible to run ESLint via phpcs, we recommend you install and use eslint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `eslint-config-humanmade` package README](packages/eslint-config-humanmade/readme.md) for more information on configuring ESLint to use the Human Made coding standards.
 
 Once you have installed the [`eslint-config-humanmade` npm package](https://www.npmjs.com/package/eslint-config-humanmade), you may simply specify that your own project-level ESLint file extends the `humanmade` configuration. If you install this globally (`npm install -g eslint-config-humanmade`) you can also reference the configuration directly from the command line via `eslint -c humanmade .`
 
-While you will still have to manually install package peer dependencies, if you have installed this package using Composer it is possible to reference the `.eslintrc` file directly from the composer package in your own ESLint configuration file:
+Alternatively, you can create your own configuration and extend these rules:
 
 `.eslintrc`
 ```json
 {
-	"extends": "vendor/humanmade/coding-standards/packages/eslint-config-humanmade/.eslintrc"
+  "extends": "humanmade"
 }
 ```
-`.eslintrc.yml`
-```yaml
----
-extends:
-- vendor/humanmade/coding-standards/packages/eslint-config-humanmade/.eslintrc
+
+## Using stylelint
+
+The stylelint package contains a [stylelint](https://stylelint.io/) configuration which you can use to validate your CSS and SCSS code style. We recommend you install and use stylelint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `@humanmade/stylelint` package README](packages/stylelint-config/readme.md) for more information on configuring stylelint to use the Human Made coding standards.
+
+To integrate the Human Made rules into your project, add a `.stylelintrc` file and extend these rules. You can also add your own rules and overrides for further customization.
+
+```json
+{
+  "extends": "@humanmade/stylelint-config",
+  "rules": {
+    ...
+  }
+}
 ```

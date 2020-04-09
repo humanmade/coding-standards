@@ -1,15 +1,15 @@
 <?php
 
-namespace HM\Tests\Classes;
+namespace HM\Tests\Whitespace;
 
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 /**
- * Class OnlyClassInFileUnitTest
+ * Class MultipleEmptyLinesUnitTest
  *
  * @group hm-sniffs
  */
-class OnlyClassInFileUnitTest extends AbstractSniffUnitTest {
+class MultipleEmptyLinesUnitTest extends AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.
@@ -17,7 +17,19 @@ class OnlyClassInFileUnitTest extends AbstractSniffUnitTest {
 	 * @return array <int line number> => <int number of errors>
 	 */
 	public function getErrorList() {
-		return [];
+		$file = func_get_arg( 0 );
+		switch ( $file ) {
+			case 'MultipleEmptyLinesUnitTest.success':
+				return [];
+
+			case 'MultipleEmptyLinesUnitTest.fail':
+				return [
+					4 => 1,
+					11 => 1,
+					17 => 1,
+					22 => 1,
+				];
+		}
 	}
 
 	/**
@@ -26,15 +38,7 @@ class OnlyClassInFileUnitTest extends AbstractSniffUnitTest {
 	 * @return array <int line number> => <int number of warnings>
 	 */
 	public function getWarningList() {
-		$file = func_get_arg( 0 );
-		list( $_, $type, $variant ) = explode( '.', $file, 3 );
-		if ( $type !== 'fail' ) {
-			return [];
-		}
-
-		return [
-			1 => 1,
-		];
+		return [];
 	}
 
 }

@@ -45,31 +45,32 @@ class NamespaceDirectoryNameSniff implements Sniff {
 		$filename = basename( $full );
 		$directory = dirname( $full );
 
-		// Normalize the directory seperator accross operating systems
+		// Normalize the directory separator across operating systems
 		if ( DIRECTORY_SEPARATOR !== '/' ) {
 			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
 		}
 
-		if ( $filename === 'plugin.php' || $filename === 'functions.php' ) {
+		if ( $filename === 'plugin.php' || $filename === 'functions.php' || $filename === 'load.php' ) {
 			// Ignore the main file.
 			return;
 		}
 
-		if ( ! preg_match( '#/inc(?:/|$)#', $directory, $matches, PREG_OFFSET_CAPTURE ) ) {
+		if ( ! preg_match( '#(?:.*)(?:/inc|/tests)(/.*)?#', $directory, $matches ) ) {
 			$error = 'Namespaced classes and functions should live inside an inc directory.';
 			$phpcsFile->addError( $error, $stackPtr, 'NoIncDirectory' );
 			return;
 		}
 
-		$inc_position = $matches[0][1];
-		$after_inc = substr( $directory, $inc_position + strlen( '/inc' ) );
-		if ( empty( $after_inc ) ) {
+		// Find correct after namespace-base path.
+		$after_dir = $matches[1] ?? '';
+
+		if ( empty( $after_dir ) ) {
 			// Base inc directory, skip checks.
 			return;
 		}
 
 		$namespace_parts = explode( '\\', $namespace );
-		$directory_parts = explode( '/', trim( $after_inc, '/' ) );
+		$directory_parts = explode( '/', trim( $after_dir, '/' ) );
 
 		// Check that the path matches the namespace, allowing parts to be dropped.
 		while ( ! empty( $directory_parts ) ) {
@@ -78,7 +79,7 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			if ( empty( $ns_part ) ) {
 				// Ran out of namespace, but directory still has parts.
 				$error = 'Directory %s for namespace %s found; nested too deep.';
-				$error_data = [ $after_inc, $namespace ];
+				$error_data = [ $after_dir, $namespace ];
 				$phpcsFile->addError( $error, $stackPtr, 'ExtraDirs', $error_data );
 				return;
 			}
