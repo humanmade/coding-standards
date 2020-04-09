@@ -74,7 +74,7 @@ class NamespaceDirectoryNameSniff implements Sniff {
 		$file_slug       = str_replace( '.php', '', $filename );
 
 		// Match the last directory parts item to the filename in certain cases.
-		// `namespace.php` and classes always accept the directory name's namespace and are except.
+		// `namespace.php` and classes always accept the directory name's namespace.
 		if ( $filename !== 'namespace.php' && stripos($filename, 'class-') === false ) {
 			$directory_parts[] = $file_slug;
 		}
