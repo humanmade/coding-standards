@@ -49,6 +49,8 @@ class NamespaceDirectoryNameUnitTest extends AbstractSniffUnitTest {
 		$pass = [
 			'grinder.php',
 			'namespace.php',
+			'camelcased-namespace.php',
+			'underscored-namespace.php',
 		];
 		if ( in_array( $file, $pass, true ) ) {
 			return [];

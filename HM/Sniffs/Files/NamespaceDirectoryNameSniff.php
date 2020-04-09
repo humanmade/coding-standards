@@ -93,7 +93,11 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			}
 
 			// Check that this directory bit matches the namespace bit.
-			if ( strtolower( $ns_part ) !== str_replace( '-', '_', $dir_part ) ) {
+			// We allow namespaces to be CamelCase or separated by an underscore.
+			if (
+				strtolower( $ns_part ) !== str_replace( '-', '_', $dir_part )
+				&& strtolower( $ns_part ) !== str_replace( '-', '', $dir_part )
+			) {
 				$error = $file_slug === $dir_part
 					? 'File %s.php for namespace %s found; use %s instead'
 					: 'Directory %s for namespace %s found; use %s instead';
