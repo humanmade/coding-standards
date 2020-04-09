@@ -46,14 +46,16 @@ class NamespaceDirectoryNameUnitTest extends AbstractSniffUnitTest {
 	 */
 	public function getErrorList() {
 		$file = func_get_arg( 0 );
-		switch ( $file ) {
-			case 'pass.php':
-				return [];
-
-			default:
-				return [
-					3 => 1,
-				];
+		$pass = [
+			'grinder.php',
+			'namespace.php',
+		];
+		if ( in_array( $file, $pass, true ) ) {
+			return [];
+		} else {
+			return [
+				3 => 1,
+			];
 		}
 	}
 
