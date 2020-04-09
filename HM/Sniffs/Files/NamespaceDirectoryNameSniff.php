@@ -73,7 +73,8 @@ class NamespaceDirectoryNameSniff implements Sniff {
 		$directory_parts = explode( '/', trim( $after_dir, '/' ) );
 		$file_slug       = str_replace( '.php', '', $filename );
 
-		// If not using a namespace.php file and is not a class, match the last directory parts item to the filename.
+		// Match the last directory parts item to the filename in certain cases.
+		// `namespace.php` and classes always accept the directory name's namespace and are except.
 		if ( $filename !== 'namespace.php' && stripos($filename, 'class-') === false ) {
 			$directory_parts[] = $file_slug;
 		}
@@ -92,7 +93,7 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			}
 
 			// Check that this directory bit matches the namespace bit.
-			if ( strtolower( $ns_part ) !== $dir_part ) {
+			if ( strtolower( $ns_part ) !== str_replace( '-', '_', $dir_part ) ) {
 				$error = $file_slug === $dir_part
 					? 'File %s.php for namespace %s found; use %s instead'
 					: 'Directory %s for namespace %s found; use %s instead';
