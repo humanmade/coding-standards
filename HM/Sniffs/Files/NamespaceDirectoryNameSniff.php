@@ -71,12 +71,11 @@ class NamespaceDirectoryNameSniff implements Sniff {
 
 		$namespace_parts = explode( '\\', $namespace );
 		$directory_parts = explode( '/', trim( $after_dir, '/' ) );
-		$file_slug       = str_replace( '.php', '', $filename );
 
-		// Match the last directory parts item to the filename in certain cases.
-		// `namespace.php` and classes always accept the directory name's namespace.
+		// If we're evaluating a {namespace}.php file, pull the last namespace item off
+		// the array as the file should match this last item.
 		if ( $filename !== 'namespace.php' && stripos($filename, 'class-') === false ) {
-			$directory_parts[] = $file_slug;
+			array_pop( $namespace_parts );
 		}
 
 		// Check that the path matches the namespace, allowing parts to be dropped.
@@ -98,9 +97,7 @@ class NamespaceDirectoryNameSniff implements Sniff {
 				strtolower( $ns_part ) !== str_replace( '-', '_', $dir_part )
 				&& strtolower( $ns_part ) !== str_replace( '-', '', $dir_part )
 			) {
-				$error = $file_slug === $dir_part
-					? 'File %s.php for namespace %s found; use %s instead'
-					: 'Directory %s for namespace %s found; use %s instead';
+				$error = 'Directory %s for namespace %s found; use %s instead';
 				$error_data = [ $dir_part, $namespace, strtolower( $ns_part ) ];
 				$phpcsFile->addError( $error, $stackPtr, 'NameMismatch', $error_data );
 				return;
