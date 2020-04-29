@@ -13,7 +13,6 @@
 	<autoload>../HM/bootstrap.php</autoload>
 
 	<!-- Check for PHP cross-version compatibility. -->
-	<config name="testVersion" value="7.1-" />
 	<rule ref="PHPCompatibilityWP">
 		<exclude name="PHPCompatibility.Miscellaneous.RemovedAlternativePHPTags.MaybeASPOpenTagFound" />
 	</rule>
