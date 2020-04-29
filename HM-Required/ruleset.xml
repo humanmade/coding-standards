@@ -69,6 +69,8 @@
 
 				<!-- Other templating tags. -->
 				<element value="paginate_links" />
+				<element value="get_the_title" />
+				<element value="get_post_gallery" /> <!-- with param 2 set to true, the default -->
 			</property>
 		</properties>
 	</rule>
