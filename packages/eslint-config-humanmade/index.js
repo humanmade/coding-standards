@@ -104,6 +104,7 @@ module.exports = {
 			'multiline': 'consistent',
 			'singleline': 'consistent',
 		} ],
+		'react/jsx-boolean-value': [ 'error', 'never' ],
 		'jsx-a11y/anchor-is-valid': [ 'error' ],
 	},
 };

@@ -127,7 +127,7 @@
 	</rule>
 
 	<!-- Disallow changing PHP's timezone. -->
-	<rule ref="WordPress.WP.TimezoneChange" />
+	<rule ref="WordPress.DateTime.RestrictedFunctions" />
 
 	<!-- Disallow short PHP tags. (From WordPress-Core) -->
 	<rule ref="Generic.PHP.DisallowShortOpenTag">

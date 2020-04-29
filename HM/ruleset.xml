@@ -2,12 +2,9 @@
 <ruleset name="HM">
 	<description>Human Made coding standards.</description>
 
-	<file>.</file>
-
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 
-	<arg name="basepath" value="." />
 	<arg name="extensions" value="php" />
 
 	<autoload>bootstrap.php</autoload>
@@ -27,6 +24,10 @@
 		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
 		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error" />
 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
+
+		<!-- We like short arrays and ternaries around here -->
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+		<exclude name="WordPress.PHP.DisallowShortTernary" />
 
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
@@ -49,6 +50,9 @@
 		-->
 		<exclude name="WordPress.PHP.YodaConditions" />
 	</rule>
+
+	<!-- Require proper docblocks be used in all PHP files -->
+	<rule ref="WordPress-Docs" />
 
 	<!-- Prefer alignment over line length. -->
 	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
