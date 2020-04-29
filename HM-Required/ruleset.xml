@@ -112,13 +112,6 @@
 		<message>The "goto" language construct should not be used.</message>
 	</rule>
 
-	<!-- Disallow cron checks which are too frequent. -->
-	<rule ref="WordPress.WP.CronInterval" />
-	<rule ref="WordPress.WP.CronInterval.CronSchedulesInterval">
-		<type>error</type>
-		<message>Scheduling crons at %s sec ( less than %s minutes ) is prohibited.</message>
-	</rule>
-
 	<!-- Disallow querying more than 100 posts at once. -->
 	<rule ref="WordPress.WP.PostsPerPage" />
 	<rule ref="WordPress.WP.PostsPerPage.posts_per_page_numberposts">
