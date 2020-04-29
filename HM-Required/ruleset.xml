@@ -99,7 +99,7 @@
 	<rule ref="Squiz.PHP.Eval"/>
 	<rule ref="Squiz.PHP.Eval.Discouraged">
 		<type>error</type>
-		<message>eval() is a security risk so not allowed.</message>
+		<message>eval() is a security risk and is not allowed.</message>
 	</rule>
 
 	<!-- Disallow create_function() -->
