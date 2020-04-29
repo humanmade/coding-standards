@@ -232,9 +232,6 @@
 		<!-- Set all to errors. -->
 		<type>error</type>
 	</rule>
-	<!-- <rule ref="WordPress.PHP.DiscouragedPHPFunctions.runtime_configuration">
-		<type>error</type>
-	</rule> -->
 
 	<!-- Disallow parts of WP which have been deprecated. -->
 	<rule ref="WordPress.WP.DeprecatedFunctions" />
@@ -298,10 +295,4 @@
 			</property>
 		</properties>
 	</rule>
-
-	<!-- Require strict types for in_array() calls. -->
-	<!-- <rule ref="WordPress.PHP.StrictInArray"/> -->
-
-	<!-- Require wp_safe_redirect() instead of wp_redirect -->
-	<!-- <rule ref="WordPress.Security.SafeRedirect"/> -->
 </ruleset>
