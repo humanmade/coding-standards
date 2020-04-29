@@ -63,6 +63,9 @@
 				<element value="__" />
 				<element value="_x" />
 				<element value="_n" />
+				<element value="_nx" />
+				<element value="date_i18n" />
+				<element value="number_format_i18n" />
 
 				<!-- Other templating tags. -->
 				<element value="paginate_links" />
