@@ -3,8 +3,8 @@
 namespace HM\Sniffs\Security;
 
 use HM\Sniffs\ExtraSniffCode;
-use PHP_CodeSniffer_File as PhpcsFile;
-use WordPress\Sniffs\Security\EscapeOutputSniff as WPCSEscapeOutputSniff;
+use PHP_CodeSniffer\Files\File as PhpcsFile;
+use WordPressCS\WordPress\Sniffs\Security\EscapeOutputSniff as WPCSEscapeOutputSniff;
 
 /**
  * Verify all strings are escaped.

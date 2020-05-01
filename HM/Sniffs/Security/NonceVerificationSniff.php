@@ -3,8 +3,8 @@
 namespace HM\Sniffs\Security;
 
 use HM\Sniffs\ExtraSniffCode;
-use PHP_CodeSniffer_File as PhpcsFile;
-use WordPress\Sniffs\Security\NonceVerificationSniff as WPCSNonceVerificationSniff;
+use PHP_CodeSniffer\Files\File as PhpcsFile;
+use WordPressCS\WordPress\Sniffs\Security\NonceVerificationSniff as WPCSNonceVerificationSniff;
 
 /**
  * Checks that nonce verification accompanies form processing.
