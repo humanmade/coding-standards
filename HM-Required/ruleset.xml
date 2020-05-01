@@ -126,7 +126,14 @@
 	</rule>
 
 	<!-- Disallow changing PHP's timezone. -->
-	<rule ref="WordPress.DateTime.RestrictedFunctions" />
+	<rule ref="WordPress.DateTime.RestrictedFunctions">
+		<properties>
+			<!-- Allow other datetime functions, just not timezone. -->
+			<property name="exclude" type="array">
+				<element value="date" />
+			</property>
+		</properties>
+	</rule>
 
 	<!-- Disallow short PHP tags. (From WordPress-Core) -->
 	<rule ref="Generic.PHP.DisallowShortOpenTag">
