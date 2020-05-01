@@ -110,9 +110,8 @@
 	<rule ref="WordPress.PHP.RestrictedPHPFunctions"/>
 
 	<!-- Disallow goto function. -->
-	<!-- Remove after https://github.com/squizlabs/PHP_CodeSniffer/pull/1664 -->
-	<rule ref="WordPress.PHP.DiscourageGoto"/>
-	<rule ref="WordPress.PHP.DiscourageGoto.Found">
+	<rule ref="Generic.PHP.DiscourageGoto"/>
+	<rule ref="Generic.PHP.DiscourageGoto.Found">
 		<type>error</type>
 		<message>The "goto" language construct should not be used.</message>
 	</rule>
