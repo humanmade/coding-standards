@@ -298,4 +298,7 @@
 			</property>
 		</properties>
 	</rule>
+	<rule ref="HM.Security.ValidatedSanitizedInput.MissingUnslash">
+		<message>%s data not unslashed before sanitization. Use wp_unslash()</message>
+	</rule>
 </ruleset>
