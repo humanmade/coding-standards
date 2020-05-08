@@ -105,6 +105,7 @@ module.exports = {
 			'singleline': 'consistent',
 		} ],
 		'react/jsx-boolean-value': [ 'error', 'never' ],
+		'react/jsx-sort-props': [ 'error' ],
 		'jsx-a11y/anchor-is-valid': [ 'error' ],
 	},
 };
