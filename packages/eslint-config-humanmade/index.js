@@ -105,7 +105,7 @@ module.exports = {
 			'singleline': 'consistent',
 		} ],
 		'react/jsx-boolean-value': [ 'error', 'never' ],
-		'react/jsx-sort-props': [ 'error', {
+		'react/jsx-sort-props': [ 'warn', {
 			'reservedFirst': [ 'key', 'ref' ],
 			'callbacksLast': true,
 		} ],
