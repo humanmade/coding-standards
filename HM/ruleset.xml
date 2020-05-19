@@ -153,4 +153,6 @@
 		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines" />
 	</rule>
 
+	<!-- Disallow usage of `use function`, while still allowing `use` and `use const` -->
+	<rule ref="Universal.UseStatements.DisallowUseFunction" />
 </ruleset>
