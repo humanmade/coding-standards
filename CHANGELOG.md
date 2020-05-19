@@ -3,7 +3,7 @@
 ### Added
  - Included `WordPress-Docs` by default in PHPCS #177
  - Add ESLint rule for JSX boolean values #183
- - Disallow `use function` #188
+ - Disallow `use function` and `use const` #188
 
 ### Updated
  - Updated WPCS to 2.2.1 #151
