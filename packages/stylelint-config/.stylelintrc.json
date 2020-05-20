@@ -50,6 +50,8 @@
         "ignoreAtRules": [ "if", "else if", "else" ]
       }
     ],
-    "number-max-precision": 3
+    "number-max-precision": 3,
+    "selector-class-pattern": "^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\\\[.+\\\\])?$",
+    "selector-id-pattern": null
   }
 }
