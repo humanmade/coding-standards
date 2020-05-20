@@ -7,6 +7,7 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'react-app',
+		'plugin:react-hooks/recommended',
 	],
 	'parserOptions': {
 		'ecmaVersion': 2018,
