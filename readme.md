@@ -80,17 +80,17 @@ If you want to add further rules (such as WordPress.com VIP-specific rules) or c
 ```xml
 <?xml version="1.0"?>
 <ruleset>
-    <!-- Files or directories to check -->
-    <file>.</file>
+	<!-- Files or directories to check -->
+	<file>.</file>
 
-    <!-- Path to strip from the front of file paths inside reports (displays shorter paths) -->
-    <arg name="basepath" value="." />
+	<!-- Path to strip from the front of file paths inside reports (displays shorter paths) -->
+	<arg name="basepath" value="." />
 
-    <!-- Only parse PHP files -->
-    <arg name="extensions" value="php" />
+	<!-- Only parse PHP files -->
+	<arg name="extensions" value="php" />
 
-    <!-- Set a minimum PHP version for PHPCompatibility -->
-    <config name="testVersion" value="7.2-" />
+	<!-- Set a minimum PHP version for PHPCompatibility -->
+	<config name="testVersion" value="7.2-" />
 
 	<!-- Use HM Coding Standards -->
 	<rule ref="vendor/humanmade/coding-standards" />
