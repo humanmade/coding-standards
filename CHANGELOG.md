@@ -10,6 +10,7 @@
  - Updated VIPCS to 2.0.0 #151
  - Updated DealerDirect to 0.6 #151
  - Fix FunctionCallSignature inconsistency in phpcbf #200
+ - Allow for multiple variable assignments #201
 
 ### Removed:
  - Remove `<file>` and `<basepath>` from ruleset #187

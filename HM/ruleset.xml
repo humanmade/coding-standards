@@ -153,4 +153,9 @@
 		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines" />
 	</rule>
 
+	<!-- Allow multiple variable assignments, but only outside of conditionals -->
+	<rule ref="Squiz.PHP.DisallowMultipleAssignments">
+		<exclude name="Squiz.PHP.DisallowMultipleAssignments.Found" />
+	</rule>
+
 </ruleset>
