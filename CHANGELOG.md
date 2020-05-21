@@ -14,7 +14,7 @@
  - Allow for multiple variable assignments #201
 
 ### Removed:
- - Remove `<file>` and `<basepath>` from ruleset #187
+ - Remove `<file>`, `<basepath>` and `testVersion` from ruleset #187, #198
 
 ##  0.8.0 (January 29, 2020)
 
