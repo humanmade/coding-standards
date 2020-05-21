@@ -86,9 +86,6 @@ If you want to add further rules (such as WordPress.com VIP-specific rules) or c
 	<!-- Path to strip from the front of file paths inside reports (displays shorter paths) -->
 	<arg name="basepath" value="." />
 
-	<!-- Only parse PHP files -->
-	<arg name="extensions" value="php" />
-
 	<!-- Set a minimum PHP version for PHPCompatibility -->
 	<config name="testVersion" value="7.2-" />
 
