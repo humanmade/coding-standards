@@ -9,6 +9,7 @@
  - Updated WPCS to 2.2.1 #151
  - Updated VIPCS to 2.0.0 #151
  - Updated DealerDirect to 0.6 #151
+ - Allow for multiple variable assignments #201
 
 ### Removed:
  - Remove `<file>` and `<basepath>` from ruleset #187
