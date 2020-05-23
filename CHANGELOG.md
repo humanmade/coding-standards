@@ -12,6 +12,7 @@
  - Updated DealerDirect to 0.6 #151
  - Fix FunctionCallSignature inconsistency in phpcbf #200
  - Allow for multiple variable assignments #201
+ - Allow for theme filenames when sniffing filename #202
 
 ### Removed:
  - Remove `<file>`, `<basepath>` and `testVersion` from ruleset #187, #198

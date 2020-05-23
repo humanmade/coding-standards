@@ -97,6 +97,13 @@
 
 	<rule ref="WordPress.DateTime.RestrictedFunctions" />
 
+	<!-- Allow for underscores in theme template file names -->
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="is_theme" value="true" />
+		</properties>
+	</rule>
+
 	<!--
 	Restore the ability to have multiple arguments per line
 
