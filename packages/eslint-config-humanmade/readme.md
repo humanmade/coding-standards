@@ -26,6 +26,22 @@ extends:
 - humanmade
 ```
 
+### Working with TypeScript
+
+If you desire to use TypeScript for your project, you will need to add another dependency:
+
+```
+npm install --save-dev @typescript-eslint/parser
+```
+
+Once it's installed, update your configuration with the `parser` parameter:
+
+```yml
+parser: "@typescript-eslint/parser"
+extends:
+    - humanmade
+```
+
 ## Global Installation
 
 When installing globally, you need to ensure the peer dependencies are also installed globally.

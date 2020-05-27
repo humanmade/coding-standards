@@ -10,7 +10,6 @@
 	<autoload>bootstrap.php</autoload>
 
 	<!-- Check for PHP cross-version compatibility. -->
-	<config name="testVersion" value="7.1-" />
 	<rule ref="PHPCompatibilityWP" />
 
 	<rule ref="WordPress-Core">
@@ -98,6 +97,13 @@
 
 	<rule ref="WordPress.DateTime.RestrictedFunctions" />
 
+	<!-- Allow for underscores in theme template file names -->
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="is_theme" value="true" />
+		</properties>
+	</rule>
+
 	<!--
 	Restore the ability to have multiple arguments per line
 
@@ -111,10 +117,10 @@
 		</properties>
 	</rule>
 	<rule ref="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket">
-		<severity phpcs-only="true">0</severity>
+		<severity>0</severity>
 	</rule>
 	<rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
-		<severity phpcs-only="true">0</severity>
+		<severity>0</severity>
 	</rule>
 
 	<!--
@@ -151,6 +157,11 @@
 	<!-- Our custom empty line rule handles superfluous whitespace better -->
 	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
 		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines" />
+	</rule>
+
+	<!-- Allow multiple variable assignments, but only outside of conditionals -->
+	<rule ref="Squiz.PHP.DisallowMultipleAssignments">
+		<exclude name="Squiz.PHP.DisallowMultipleAssignments.Found" />
 	</rule>
 
 </ruleset>

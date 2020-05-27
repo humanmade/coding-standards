@@ -7,6 +7,7 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'react-app',
+		'plugin:react-hooks/recommended',
 	],
 	'parserOptions': {
 		'ecmaVersion': 2018,
@@ -105,6 +106,10 @@ module.exports = {
 			'singleline': 'consistent',
 		} ],
 		'react/jsx-boolean-value': [ 'error', 'never' ],
+		'react/jsx-sort-props': [ 'warn', {
+			'reservedFirst': [ 'key', 'ref' ],
+			'callbacksLast': true,
+		} ],
 		'jsx-a11y/anchor-is-valid': [ 'error' ],
 	},
 };
