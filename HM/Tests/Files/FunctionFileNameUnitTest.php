@@ -45,6 +45,7 @@ class FunctionFileNameUnitTest extends AbstractSniffUnitTest {
 		$file = func_get_arg( 0 );
 		$pass = [
 			'namespace.php',
+			'matching-namespace.php',
 		];
 		if ( in_array( $file, $pass, true ) ) {
 			return [];

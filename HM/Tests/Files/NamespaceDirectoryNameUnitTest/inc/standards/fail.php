@@ -1,3 +1,3 @@
 <?php
 
-namespace HM\Coding\Standards\Tests;
+namespace HM\Coding\Standards\Tests\Fail;

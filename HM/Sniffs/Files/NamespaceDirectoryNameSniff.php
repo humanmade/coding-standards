@@ -72,10 +72,17 @@ class NamespaceDirectoryNameSniff implements Sniff {
 		$namespace_parts = explode( '\\', $namespace );
 		$directory_parts = explode( '/', trim( $after_dir, '/' ) );
 
+		// If we're evaluating a {namespace}.php file, pull the last namespace item off
+		// the array as the file should match this last item.
+		if ( $filename !== 'namespace.php' && stripos($filename, 'class-') === false ) {
+			array_pop( $namespace_parts );
+		}
+
 		// Check that the path matches the namespace, allowing parts to be dropped.
 		while ( ! empty( $directory_parts ) ) {
 			$dir_part = array_pop( $directory_parts );
 			$ns_part = array_pop( $namespace_parts );
+
 			if ( empty( $ns_part ) ) {
 				// Ran out of namespace, but directory still has parts.
 				$error = 'Directory %s for namespace %s found; nested too deep.';
@@ -84,7 +91,12 @@ class NamespaceDirectoryNameSniff implements Sniff {
 				return;
 			}
 
-			if ( strtolower( $ns_part ) !== $dir_part ) {
+			// Check that this directory bit matches the namespace bit.
+			// We allow namespaces to be CamelCase or separated by an underscore.
+			if (
+				strtolower( $ns_part ) !== str_replace( '-', '_', $dir_part )
+				&& strtolower( $ns_part ) !== str_replace( '-', '', $dir_part )
+			) {
 				$error = 'Directory %s for namespace %s found; use %s instead';
 				$error_data = [ $dir_part, $namespace, strtolower( $ns_part ) ];
 				$phpcsFile->addError( $error, $stackPtr, 'NameMismatch', $error_data );
