@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="HM-Required">
-	<description>Human Made base level coding standards.</description>
+<ruleset name="HM-Minimum">
+	<description>Minimum requirements for HM projects.</description>
 
 	<file>.</file>
 

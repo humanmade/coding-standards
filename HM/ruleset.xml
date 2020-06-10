@@ -9,8 +9,8 @@
 
 	<autoload>bootstrap.php</autoload>
 
-	<!-- Include everything from the required set -->
-	<rule ref="HM-Required" />
+	<!-- Include everything from the minimum set -->
+	<rule ref="HM-Minimum" />
 
 	<!-- Check for PHP cross-version compatibility. -->
 	<config name="testVersion" value="7.1-" />
