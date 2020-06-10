@@ -108,6 +108,7 @@ class FixtureTests extends TestCase {
 			'HM.Performance.SlowOrderBy',
 			'HM.Security.EscapeOutput',
 			'HM.Security.NonceVerification',
+			'HM.Security.ValidatedSanitizedInput',
 			'HM.Whitespace.MultipleEmptyLines',
 		];
 

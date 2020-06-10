@@ -1,0 +1,16 @@
+{
+	"6": [
+		{
+			"source": "HM.Security.ValidatedSanitizedInput.InputNotValidated",
+			"type": "error"
+		},
+		{
+			"source": "HM.Security.ValidatedSanitizedInput.MissingUnslash",
+			"type": "error"
+		},
+		{
+			"source": "HM.Security.ValidatedSanitizedInput.InputNotSanitized",
+			"type": "error"
+		}
+	]
+}
