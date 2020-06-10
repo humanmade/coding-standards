@@ -107,6 +107,7 @@ class FixtureTests extends TestCase {
 			'HM.Performance.SlowMetaQuery',
 			'HM.Performance.SlowOrderBy',
 			'HM.Security.EscapeOutput',
+			'HM.Security.NonceVerification',
 			'HM.Whitespace.MultipleEmptyLines',
 		];
 
@@ -117,6 +118,7 @@ class FixtureTests extends TestCase {
 			'my_custom_func',
 			'another_func',
 		] );
+		$this->ruleset->setSniffProperty( 'HM\\Sniffs\\Security\\NonceVerificationSniff', 'allowQueryVariables', true );
 	}
 
 	/**

@@ -24,5 +24,6 @@ require $phpcs_dir . '/tests/bootstrap.php';
 // Note: these are in a necessary order for subclassing.
 require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Sniff.php';
 require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/AbstractArrayAssignmentRestrictionsSniff.php';
+require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/Security/NonceVerificationSniff.php';
 require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/PHPCSHelper.php';
 require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/Security/EscapeOutputSniff.php';
