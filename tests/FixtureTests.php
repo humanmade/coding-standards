@@ -106,6 +106,7 @@ class FixtureTests extends TestCase {
 			'HM.Namespaces.NoLeadingSlashOnUse',
 			'HM.Performance.SlowMetaQuery',
 			'HM.Performance.SlowOrderBy',
+			'HM.Security.EscapeOutput',
 			'HM.Whitespace.MultipleEmptyLines',
 		];
 

@@ -21,5 +21,8 @@ require dirname( __DIR__ ) . '/vendor/autoload.php';
 require $phpcs_dir . '/tests/bootstrap.php';
 
 // Pull in required abstract classes from wpcs.
+// Note: these are in a necessary order for subclassing.
 require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Sniff.php';
 require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/AbstractArrayAssignmentRestrictionsSniff.php';
+require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/PHPCSHelper.php';
+require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/Security/EscapeOutputSniff.php';
