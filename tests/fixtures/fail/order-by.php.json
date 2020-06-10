@@ -1,0 +1,20 @@
+{
+	"4": [
+		{
+			"source": "HM.Performance.SlowOrderBy.slow_order",
+			"type": "warning"
+		}
+	],
+	"7": [
+		{
+			"source": "HM.Performance.SlowOrderBy.slow_order",
+			"type": "warning"
+		}
+	],
+	"10": [
+		{
+			"source": "HM.Performance.SlowOrderBy.slow_order",
+			"type": "warning"
+		}
+	]
+}
