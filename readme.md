@@ -75,11 +75,20 @@ Patterns are relative to the directory that the `.phpcsignore` file lives in. On
 
 ### Advanced/Extending
 
-If you want to add further rules (such as WordPress.com VIP-specific rules), you can create your own custom standard file (e.g. `phpcs.ruleset.xml`):
+If you want to add further rules (such as WordPress.com VIP-specific rules) or customize PHPCS defaults, you can create your own custom standard file (e.g. `phpcs.ruleset.xml`):
 
 ```xml
 <?xml version="1.0"?>
 <ruleset>
+	<!-- Files or directories to check -->
+	<file>.</file>
+
+	<!-- Path to strip from the front of file paths inside reports (displays shorter paths) -->
+	<arg name="basepath" value="." />
+
+	<!-- Set a minimum PHP version for PHPCompatibility -->
+	<config name="testVersion" value="7.2-" />
+
 	<!-- Use HM Coding Standards -->
 	<rule ref="vendor/humanmade/coding-standards" />
 
