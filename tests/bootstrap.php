@@ -19,3 +19,7 @@ if ( ! file_exists( $test_file ) ) {
 // Require autoloader and bootstrap.
 require dirname( __DIR__ ) . '/vendor/autoload.php';
 require $phpcs_dir . '/tests/bootstrap.php';
+
+// Pull in required abstract classes from wpcs.
+require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Sniff.php';
+require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/AbstractArrayAssignmentRestrictionsSniff.php';

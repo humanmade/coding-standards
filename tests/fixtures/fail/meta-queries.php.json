@@ -1,0 +1,44 @@
+{
+	"6": [
+		{
+			"source": "HM.Performance.SlowMetaQuery.slow_query_meta_value",
+			"type": "warning"
+		}
+	],
+	"11": [
+		{
+			"source": "HM.Performance.SlowMetaQuery.nonperformant_comparison",
+			"type": "warning"
+		}
+	],
+	"22": [
+		{
+			"source": "HM.Performance.SlowMetaQuery.nonperformant_comparison",
+			"type": "warning"
+		}
+	],
+	"30": [
+		{
+			"source": "HM.Performance.SlowMetaQuery.nonperformant_comparison",
+			"type": "warning"
+		}
+	],
+	"38": [
+		{
+			"source": "HM.Performance.SlowMetaQuery.nonperformant_comparison",
+			"type": "warning"
+		}
+	],
+	"48": [
+		{
+			"source": "HM.Performance.SlowMetaQuery.dynamic_compare",
+			"type": "warning"
+		}
+	],
+	"56": [
+		{
+			"source": "HM.Performance.SlowMetaQuery.dynamic_query",
+			"type": "warning"
+		}
+	]
+}
