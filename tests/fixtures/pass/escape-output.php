@@ -29,3 +29,7 @@ echo 'Foo.';
 // functions in wpcs.
 echo do_shortcode( '[foo]' );
 echo the_date();
+
+// Custom auto-escaped functions from config (see FixtureTests.php)
+echo my_custom_func();
+echo another_func();

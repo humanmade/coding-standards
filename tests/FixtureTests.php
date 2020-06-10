@@ -111,6 +111,12 @@ class FixtureTests extends TestCase {
 		];
 
 		$this->ruleset = new Ruleset( $this->config );
+
+		// Set configuration as needed too.
+		$this->ruleset->setSniffProperty( 'HM\\Sniffs\\Security\\EscapeOutputSniff', 'customAutoEscapedFunctions', [
+			'my_custom_func',
+			'another_func',
+		] );
 	}
 
 	/**
