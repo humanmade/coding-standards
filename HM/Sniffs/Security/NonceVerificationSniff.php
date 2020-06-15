@@ -18,7 +18,7 @@ class NonceVerificationSniff extends WPCSNonceVerificationSniff {
 	/**
 	 * Allow query ($_GET) variables to be used without checking nonces?
 	 *
-	 * Nonces are designed to protected against destructive actions taking
+	 * Nonces are designed to protect against destructive actions taking
 	 * place without user intent. However, query variables are typically used
 	 * for non-destructive actions, so this is a false positive in most cases.
 	 *
