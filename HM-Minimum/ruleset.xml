@@ -2,12 +2,9 @@
 <ruleset name="HM-Minimum">
 	<description>Minimum requirements for HM projects.</description>
 
-	<file>.</file>
-
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 
-	<arg name="basepath" value="." />
 	<arg name="extensions" value="php" />
 
 	<autoload>../HM/bootstrap.php</autoload>
