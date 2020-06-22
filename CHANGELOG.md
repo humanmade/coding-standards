@@ -8,6 +8,7 @@
  - Allow $namespace.php in function files #99
 
 ### Updated:
+ - Adjust Stylelint class and ID selector patterns #199
  - Updated WPCS to 2.2.1 #151
  - Updated VIPCS to 2.0.0 #151
  - Updated DealerDirect to 0.6 #151

@@ -50,6 +50,13 @@
         "ignoreAtRules": [ "if", "else if", "else" ]
       }
     ],
-    "number-max-precision": 3
+    "number-max-precision": 3,
+    "selector-class-pattern": [
+      "^(?<block>(?:[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)(?<element>(?:__[a-z][a-z0-9]*(?:-[a-z0-9]+)*))?(?<modifier>(?:--[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)?$",
+      {
+        "resolveNestedSelectors": true
+      }
+    ],
+    "selector-id-pattern": null
   }
 }
