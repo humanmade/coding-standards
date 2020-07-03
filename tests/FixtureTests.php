@@ -104,10 +104,22 @@ class FixtureTests extends TestCase {
 			'HM.Functions.NamespacedFunctions',
 			'HM.Layout.Order',
 			'HM.Namespaces.NoLeadingSlashOnUse',
+			'HM.Performance.SlowMetaQuery',
+			'HM.Performance.SlowOrderBy',
+			'HM.Security.EscapeOutput',
+			'HM.Security.NonceVerification',
+			'HM.Security.ValidatedSanitizedInput',
 			'HM.Whitespace.MultipleEmptyLines',
 		];
 
 		$this->ruleset = new Ruleset( $this->config );
+
+		// Set configuration as needed too.
+		$this->ruleset->setSniffProperty( 'HM\\Sniffs\\Security\\EscapeOutputSniff', 'customAutoEscapedFunctions', [
+			'my_custom_func',
+			'another_func',
+		] );
+		$this->ruleset->setSniffProperty( 'HM\\Sniffs\\Security\\NonceVerificationSniff', 'allowQueryVariables', true );
 	}
 
 	/**
@@ -131,6 +143,7 @@ class FixtureTests extends TestCase {
 		$phpcsFile = new LocalFile( $file, $this->ruleset, $this->config );
 		$phpcsFile->process();
 
+		$rel_file = substr( $file, strlen( __DIR__ ) );
 		$foundErrors = $phpcsFile->getErrors();
 		$foundWarnings = $phpcsFile->getWarnings();
 
@@ -168,7 +181,7 @@ class FixtureTests extends TestCase {
 			}
 		}
 
-		$this->assertEquals( $expected, $found );
+		$this->assertEquals( $expected, $found, sprintf( 'File %s should only contain specified errors', $rel_file ) );
 		// var_dump( $foundErrors );
 	}
 }
