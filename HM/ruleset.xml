@@ -51,7 +51,9 @@
 	</rule>
 
 	<!-- Require proper docblocks be used in all PHP files -->
-	<rule ref="WordPress-Docs" />
+	<rule ref="WordPress-Docs">
+		 <exclude name="Squiz.Commenting.FileComment.MissingPackageTag" />
+	</rule>
 
 	<!-- Prefer alignment over line length. -->
 	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
