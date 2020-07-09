@@ -101,6 +101,15 @@ module.exports = {
 				'!': true,
 			},
 		} ],
+		'require-jsdoc': [ 'error', {
+			'require': {
+				'FunctionDeclaration': true,
+				'MethodDefinition': true,
+				'ClassDeclaration': true,
+				'ArrowFunctionExpression': true,
+				'FunctionExpression': true,
+			},
+		} ],
 		'yoda': [ 'error', 'never' ],
 		'react/jsx-curly-spacing': [ 'error', {
 			'when': 'always',
