@@ -6,8 +6,8 @@ module.exports = {
 	},
 	'extends': [
 		'eslint:recommended',
-		'jsdoc/recommended',
 		'react-app',
+		'plugin:jsdoc/recommended',
 		'plugin:react-hooks/recommended',
 	],
 	'parserOptions': {
