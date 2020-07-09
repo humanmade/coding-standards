@@ -18,7 +18,6 @@ const Hello = () => (
  * Test class.
  */
 export default class Test extends React.Component {
-	/** @returns {React.ReactNode} Rendered component. */
 	render() {
 		return (
 			<div>
