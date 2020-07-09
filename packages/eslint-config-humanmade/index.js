@@ -6,6 +6,7 @@ module.exports = {
 	},
 	'extends': [
 		'eslint:recommended',
+		'jsdoc/recommended',
 		'react-app',
 		'plugin:react-hooks/recommended',
 	],
@@ -101,7 +102,8 @@ module.exports = {
 				'!': true,
 			},
 		} ],
-		'require-jsdoc': [ 'error', {
+		'yoda': [ 'error', 'never' ],
+		'jsdoc/require-jsdoc': [ 'error', {
 			'require': {
 				'FunctionDeclaration': true,
 				'MethodDefinition': true,
@@ -110,7 +112,6 @@ module.exports = {
 				'FunctionExpression': true,
 			},
 		} ],
-		'yoda': [ 'error', 'never' ],
 		'react/jsx-curly-spacing': [ 'error', {
 			'when': 'always',
 			'children': true,
