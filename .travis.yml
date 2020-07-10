@@ -1,3 +1,10 @@
+# Setup caching
+cache:
+  directories:
+    - $HOME/.cache/composer/files
+    - $HOME/.npm
+    - node_modules
+
 # Test in modern and recent versions of PHP & Node.
 # Run each code style tool in containers specific to that tool's language.
 jobs:
