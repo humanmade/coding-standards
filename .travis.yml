@@ -1,18 +1,44 @@
-language: php
-php:
-  - '7.1'
+# Test in modern and recent versions of PHP & Node.
+# Run each code style tool in containers specific to that tool's language.
+jobs:
+  include:
+    - language: php
+      php: 7.2
+      install:
+        - composer install
+      script:
+        - vendor/bin/phpunit
+    - language: php
+      php: 7.3
+      install:
+        - composer install
+      script:
+        - vendor/bin/phpunit
+    - language: php
+      php: 7.4
+      install:
+        - composer install
+      script:
+        - vendor/bin/phpunit
 
-install:
-  - composer install
-  - npm install
-
-  # Install for ESLint tests
-  - cd packages/eslint-config-humanmade
-  - npm install
-
-  # Reset
-  - cd ../..
-
-script:
-  - vendor/bin/phpunit
-  - node packages/eslint-config-humanmade/fixtures/test-lint-config
+    - language: node_js
+      node_js: 10
+      install:
+        - cd packages/eslint-config-humanmade
+        - npm install
+      script:
+        - npm test
+    - language: node_js
+      node_js: 12
+      install:
+        - cd packages/eslint-config-humanmade
+        - npm install
+      script:
+        - npm test
+    - language: node_js
+      node_js: 14
+      install:
+        - cd packages/eslint-config-humanmade
+        - npm install
+      script:
+        - npm test
