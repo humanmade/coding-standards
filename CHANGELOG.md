@@ -2,6 +2,7 @@
 
 ### Added:
  - Included `WordPress-Docs` by default in PHPCS #177
+ - Add ESLint rule for requiring docblocks #209
  - Add ESLint rule for JSX boolean values #183
  - Add ESLint rule for sorting JSX props #195  
  - Add ESLInt Rules of Hooks ruleset #197

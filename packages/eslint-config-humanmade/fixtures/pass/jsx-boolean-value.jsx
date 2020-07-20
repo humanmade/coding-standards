@@ -2,6 +2,9 @@
 
 import React from 'react';
 
+/**
+ * @returns {React.ReactNode} Rendered <A> component.
+ */
 const A = () => (
 	<div foo />
 );

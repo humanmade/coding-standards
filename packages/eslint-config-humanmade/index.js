@@ -7,6 +7,7 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'react-app',
+		'plugin:jsdoc/recommended',
 		'plugin:react-hooks/recommended',
 	],
 	'parserOptions': {
@@ -102,6 +103,14 @@ module.exports = {
 			},
 		} ],
 		'yoda': [ 'error', 'never' ],
+		'jsdoc/require-jsdoc': [ 'error', {
+			'require': {
+				'FunctionDeclaration': true,
+				'ClassDeclaration': true,
+				'ArrowFunctionExpression': true,
+				'FunctionExpression': true,
+			},
+		} ],
 		'react/jsx-curly-spacing': [ 'error', {
 			'when': 'always',
 			'children': true,
