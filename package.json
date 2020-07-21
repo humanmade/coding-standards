@@ -69,7 +69,7 @@
 	"devDependencies": {
 		"@wordpress/npm-package-json-lint-config": "^2.1.0",
 		"lerna": "^3.20.2",
-		"npm-package-json-lint": "^4.5.0",
+		"npm-package-json-lint": "^4.5.0"
 	},
 	"scripts": {
 		"lint-pkg-json": "npmPkgJsonLint . 'packages/*/package.json'",
@@ -77,6 +77,7 @@
 		"publish:dev": "lerna publish --dist-tag next",
 		"publish:legacy": "lerna publish --dist-tag legacy",
 		"publish:prod": "lerna publish",
-		"test": "npm run lint-pkg-json"
+		"test": "npm run lint-pkg-json && npm run test:packages",
+		"test:packages": "cd packages/eslint-config-humanmade && npm test"
 	}
 }
