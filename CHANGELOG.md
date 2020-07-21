@@ -30,8 +30,9 @@
 ##  0.8.0 (January 29, 2020)
 
 ### Added:
+ - Added PHPCS Rule to Detect Consecutive Newlines #168
+ - Enforce semicolons in JS #169
  - Added `WordPress.Security.EscapeOutput` PHPCS rule #166
- - Added Lerna for publishing packages #175
  - Added PHPCompatibilityWP standard to PHPCS #81
  - Disallowed usage of `!important` in CSS #164
  - Enforced consistent curly newlines in jsx #172
@@ -42,14 +43,6 @@
  - Bumped `stylelint-config-wordpress` package to v15 from v13 #165
  - Ignore stylelint `at-rule` line break for `if/else/elseif` #170
  - Restricted fixture tests to load only custom HM sniffs #163
- - Updated `.editorconfig` for YAML & Markdown files #175
-
-### Changed:
- - Formatted `package.json` files with tabs #175
- - Moved ESLint `.editorconfig` to project _root_ #175
- - Renamed _root_ `readme.md` to `README.md` #175
- - Updated `composer.json` description #175
- - Updated `package.json` files meta #175
 
 ## 0.7.0 (June 5, 2019)
 
