@@ -2,18 +2,17 @@
 <ruleset name="HM">
 	<description>Human Made coding standards.</description>
 
-	<file>.</file>
-
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 
-	<arg name="basepath" value="." />
 	<arg name="extensions" value="php" />
 
 	<autoload>bootstrap.php</autoload>
 
+	<!-- Include everything from the minimum set -->
+	<rule ref="HM-Minimum" />
+
 	<!-- Check for PHP cross-version compatibility. -->
-	<config name="testVersion" value="7.1-" />
 	<rule ref="PHPCompatibilityWP" />
 
 	<rule ref="WordPress-Core">
@@ -24,6 +23,10 @@
 		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
 		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error" />
 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
+
+		<!-- We like short arrays and ternaries around here -->
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+		<exclude name="WordPress.PHP.DisallowShortTernary" />
 
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
@@ -47,14 +50,19 @@
 		<exclude name="WordPress.PHP.YodaConditions" />
 	</rule>
 
+	<!-- Require proper docblocks be used in all PHP files -->
+	<rule ref="WordPress-Docs">
+		<exclude name="Squiz.Commenting.FileComment.MissingPackageTag" />
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop" />
+		<exclude name="Squiz.Commenting.FunctionComment.ThrowsNoFullStop" />
+	</rule>
+
 	<!-- Prefer alignment over line length. -->
 	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
 		<properties>
 			<property name="maxColumn" value="1000" />
 		</properties>
 	</rule>
-
-	<rule ref="WordPress.DB.SlowDBQuery" />
 
 	<!-- Allow . in hook names. -->
 	<rule ref="WordPress.NamingConventions.ValidHookName">
@@ -63,19 +71,9 @@
 		</properties>
 	</rule>
 
-	<rule ref="WordPress.Security.EscapeOutput" />
-
 	<rule ref="WordPress.Security.PluginMenuSlug" />
 	<rule ref="WordPress.Security.PluginMenuSlug.Using__FILE__">
 		<type>error</type>
-	</rule>
-
-	<!-- Allow the use of filesystem functions. -->
-	<rule ref="WordPress.WP.AlternativeFunctions">
-		<properties>
-			<property name="exclude" value="file_get_contents,file_system_read" />
-			<property name="exclude" value="json_encode,json_decode" />
-		</properties>
 	</rule>
 
 	<rule ref="WordPress.WP.CronInterval" />
@@ -84,15 +82,12 @@
 		<message>Scheduling crons at %s sec ( less than %s minutes ) is prohibited.</message>
 	</rule>
 
-	<rule ref="WordPress.WP.PostsPerPage" />
-	<rule ref="WordPress.WP.PostsPerPage.posts_per_page_numberposts">
-		<type>error</type>
+	<!-- Allow for underscores in theme template file names -->
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="is_theme" value="true" />
+		</properties>
 	</rule>
-	<rule ref="WordPress.WP.PostsPerPage.posts_per_page_posts_per_page">
-		<type>error</type>
-	</rule>
-
-	<rule ref="WordPress.WP.TimezoneChange" />
 
 	<!--
 	Restore the ability to have multiple arguments per line
@@ -107,10 +102,10 @@
 		</properties>
 	</rule>
 	<rule ref="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket">
-		<severity phpcs-only="true">0</severity>
+		<severity>0</severity>
 	</rule>
 	<rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
-		<severity phpcs-only="true">0</severity>
+		<severity>0</severity>
 	</rule>
 
 	<!--
@@ -147,6 +142,11 @@
 	<!-- Our custom empty line rule handles superfluous whitespace better -->
 	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
 		<exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EmptyLines" />
+	</rule>
+
+	<!-- Allow multiple variable assignments, but only outside of conditionals -->
+	<rule ref="Squiz.PHP.DisallowMultipleAssignments">
+		<exclude name="Squiz.PHP.DisallowMultipleAssignments.Found" />
 	</rule>
 
 </ruleset>

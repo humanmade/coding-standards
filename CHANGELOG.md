@@ -1,13 +1,44 @@
-## Unreleased (0.8.0)
+## Unreleased (1.0.0)
+
+### Added:
+ - Included `WordPress-Docs` by default in PHPCS #177
+ - Add ESLint rule for requiring docblocks #209
+ - Add ESLint rule for JSX boolean values #183
+ - Add ESLint rule for sorting JSX props #195  
+ - Add ESLInt Rules of Hooks ruleset #197
+ - Allow $namespace.php in function files #99
+ - Added Lerna for publishing packages #175
+
+### Updated:
+ - Adjust Stylelint class and ID selector patterns #199
+ - Updated WPCS to 2.2.1 #151
+ - Updated VIPCS to 2.0.0 #151
+ - Updated DealerDirect to 0.6 #151
+ - Fix FunctionCallSignature inconsistency in phpcbf #200
+ - Allow for multiple variable assignments #201
+ - Allow for theme filenames when sniffing filename #202
+ - Formatted `package.json` files with tabs #175
+ - Moved ESLint `.editorconfig` to project _root_ #175
+ - Renamed _root_ `readme.md` to `README.md` #175
+ - Updated `composer.json` description #175
+ - Updated `package.json` files meta #175
+ - Updated `.editorconfig` for YAML & Markdown files #175
+
+### Removed:
+ - Remove `<file>`, `<basepath>` and `testVersion` from ruleset #187, #198
+
+##  0.8.0 (January 29, 2020)
 
 ### Added:
  - Added `WordPress.Security.EscapeOutput` PHPCS rule #166
  - Added Lerna for publishing packages #175
  - Added PHPCompatibilityWP standard to PHPCS #81
- - Added PHPCS Rule to Detect Consecutive Newlines #168
- - Enforce semicolons in JS #169
+ - Disallowed usage of `!important` in CSS #164
+ - Enforced consistent curly newlines in jsx #172
+ - Added `eslint-plugin-sort-destructure-keys` package #179
 
-### Updated:
+### Updated
+ - Bumped PHPCS to v3.5 from v3.4 #173
  - Bumped `stylelint-config-wordpress` package to v15 from v13 #165
  - Ignore stylelint `at-rule` line break for `if/else/elseif` #170
  - Restricted fixture tests to load only custom HM sniffs #163
