@@ -38,6 +38,7 @@ jobs:
         - npm install
       script:
         - npm test
+        - cd ../../
         - node packages/eslint-config-humanmade/fixtures/test-lint-config
     - language: node_js
       node_js: 12
@@ -46,6 +47,7 @@ jobs:
         - npm install
       script:
         - npm test
+        - cd ../../
         - node packages/eslint-config-humanmade/fixtures/test-lint-config
     - language: node_js
       node_js: 14
@@ -54,4 +56,5 @@ jobs:
         - npm install
       script:
         - npm test
+        - cd ../../
         - node packages/eslint-config-humanmade/fixtures/test-lint-config
