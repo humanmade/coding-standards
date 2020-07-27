@@ -1,0 +1,83 @@
+{
+	"name": "@humanmade/coding-standards",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Human Made Coding Standards.",
+	"author": "Human Made",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"scripts",
+		"eslint",
+		"stylelint",
+		"npm-package-json-lint",
+		"lint",
+		"linter",
+		"humanmade"
+	],
+	"homepage": "https://github.com/humanmade/coding-standards",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/humanmade/coding-standards.git"
+	},
+	"bugs": {
+		"url": "https://github.com/humanmade/coding-standards/issues"
+	},
+	"engines": {
+		"node": ">=10"
+	},
+	"npmpackagejsonlint": {
+		"extends": "@wordpress/npm-package-json-lint-config",
+		"rules": {
+			"description-format": [
+				"error",
+				{
+					"requireCapitalFirstLetter": true,
+					"requireEndingPeriod": true
+				}
+			],
+			"prefer-no-devDependencies": "warning",
+			"require-publishConfig": "error",
+			"require-repository-directory": "error",
+			"valid-values-author": [
+				"error",
+				[
+					"Human Made"
+				]
+			],
+			"valid-values-publishConfig": [
+				"error",
+				[
+					{
+						"access": "public"
+					}
+				]
+			]
+		},
+		"overrides": [
+			{
+				"patterns": [
+					"./package.json"
+				],
+				"rules": {
+					"require-publishConfig": "off",
+					"require-repository-directory": "off",
+					"prefer-no-devDependencies": "off"
+				}
+			}
+		]
+	},
+	"devDependencies": {
+		"@wordpress/npm-package-json-lint-config": "^2.1.0",
+		"lerna": "^3.20.2",
+		"npm-package-json-lint": "^4.5.0"
+	},
+	"scripts": {
+		"lint-pkg-json": "npmPkgJsonLint . 'packages/*/package.json'",
+		"publish:check": "lerna updated",
+		"publish:dev": "lerna publish --dist-tag next",
+		"publish:legacy": "lerna publish --dist-tag legacy",
+		"publish:prod": "lerna publish",
+		"test": "npm run lint-pkg-json && npm run test:packages",
+		"test:packages": "cd packages/eslint-config-humanmade && npm test"
+	}
+}

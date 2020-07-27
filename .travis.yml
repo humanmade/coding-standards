@@ -31,25 +31,30 @@ jobs:
         - composer install
       script:
         - vendor/bin/phpunit
-
     - language: node_js
       node_js: 10
       install:
+        - npm install
         - cd packages/eslint-config-humanmade
         - npm install
+        - cd ../..
       script:
         - npm test
     - language: node_js
       node_js: 12
       install:
+        - npm install
         - cd packages/eslint-config-humanmade
         - npm install
+        - cd ../..
       script:
         - npm test
     - language: node_js
       node_js: 14
       install:
+        - npm install
         - cd packages/eslint-config-humanmade
         - npm install
+        - cd ../..
       script:
         - npm test

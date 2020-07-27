@@ -118,12 +118,8 @@ When publishing major releases, these need to be published in a two-step process
 The process for releasing is:
 
 * Ensure your working directory is clean and up-to-date on `master`
-* CD into `packages/eslint-config-humanmade` and run `yarn publish` and enter the tag number
-	* This publishes to npm, commits the version change, and creates a corresponding git tag
-* CD into `packages/stylelint-config` and run `yarn publish` and enter the tag number
-* Push the version bump commit to `master`: `git push`
-* Push the new tag: `git push --tags`
-	* This triggers Packagist to release the new version
+* Run `lerna publish` and add the new version number.
+	* This will prompt you for a new version number and create & push new release commits and tags which will trigger Packagist to release a new version of the Composer package.
 * Run `./publish.sh` to push the standards for hm-linter
 	* This will ask if you want to bump the latest version to the new version. Only do this for minor releases.
 * For major releases, publish a changelog to the Dev H2 (significant bugfixes may also warrant a post)

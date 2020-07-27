@@ -1,38 +1,61 @@
 {
-  "name": "eslint-config-humanmade",
-  "version": "0.8.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/humanmade/coding-standards.git"
-  },
-  "scripts": {
-    "test": "node fixtures/test-lint-config"
-  },
-  "devDependencies": {
-    "babel-eslint": "^10.0.0",
-    "chalk": "^2.4.1",
-    "eslint": "^5.10.0",
-    "eslint-config-react-app": "^3.0.5",
-    "eslint-plugin-flowtype": "^3.2.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsdoc": "^29.1.3",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^4.0.2",
-    "eslint-plugin-sort-destructure-keys": "^1.3.3"
-  },
-  "peerDependencies": {
-    "babel-eslint": "^10.0.0",
-    "eslint": "^5.10.0",
-    "eslint-config-react-app": "^3.0.5",
-    "eslint-plugin-flowtype": "^3.2.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^4.0.2"
-  },
-  "files": [
-    ".eslintrc",
-    "index.js"
-  ]
+	"name": "eslint-config-humanmade",
+	"version": "0.8.0",
+	"description": "Human Made Coding Standards for JavaScript.",
+	"author": "Human Made",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"eslint",
+		"eslint-config",
+		"js",
+		"react",
+		"lint",
+		"linter",
+		"humanmade"
+	],
+	"homepage": "https://github.com/humanmade/coding-standards/tree/master/packages/eslint-config-humanmade#eslint-config-humanmade",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/humanmade/coding-standards.git",
+		"directory": "packages/eslint-config-humanmade"
+	},
+	"bugs": {
+		"url": "https://github.com/humanmade/coding-standards/issues"
+	},
+	"engines": {
+		"node": ">=10"
+	},
+	"files": [
+		".eslintrc",
+		"index.js"
+	],
+	"devDependencies": {
+		"babel-eslint": "^10.0.0",
+		"chalk": "^2.4.1",
+		"eslint": "^5.10.0",
+		"eslint-config-react-app": "^3.0.5",
+		"eslint-plugin-flowtype": "^3.2.0",
+		"eslint-plugin-import": "^2.14.0",
+		"eslint-plugin-jsdoc": "^29.1.3",
+		"eslint-plugin-jsx-a11y": "^6.1.2",
+		"eslint-plugin-react": "^7.14.3",
+		"eslint-plugin-react-hooks": "^4.0.2",
+		"eslint-plugin-sort-destructure-keys": "^1.3.3"
+	},
+	"peerDependencies": {
+		"babel-eslint": "^10.0.0",
+		"eslint": "^5.10.0",
+		"eslint-config-react-app": "^3.0.5",
+		"eslint-plugin-flowtype": "^3.2.0",
+		"eslint-plugin-import": "^2.14.0",
+		"eslint-plugin-jsx-a11y": "^6.1.2",
+		"eslint-plugin-react": "^7.11.1",
+		"eslint-plugin-react-hooks": "^4.0.2"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"test": "node fixtures/test-lint-config"
+	}
 }

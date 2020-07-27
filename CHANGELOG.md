@@ -1,21 +1,30 @@
 ## Unreleased (1.0.0)
 
 ### Added:
- - Included `WordPress-Docs` by default in PHPCS #177
- - Add ESLint rule for requiring docblocks #209
- - Add ESLint rule for JSX boolean values #183
- - Add ESLint rule for sorting JSX props #195  
- - Add ESLInt Rules of Hooks ruleset #197
- - Allow $namespace.php in function files #99
+ - Added `WordPress-Docs` by default in PHPCS #177
+ - Added ESLint rule for requiring docblocks #209
+ - Added ESLint rule for JSX boolean values #183
+ - Added ESLint rule for sorting JSX props #195  
+ - Added ESLInt Rules of Hooks ruleset #197
+ - Allow `$namespace.php` in function files #99
+ - Added Lerna for publishing packages #175
 
 ### Updated:
  - Adjust Stylelint class and ID selector patterns #199
  - Updated WPCS to 2.2.1 #151
  - Updated VIPCS to 2.0.0 #151
  - Updated DealerDirect to 0.6 #151
- - Fix FunctionCallSignature inconsistency in phpcbf #200
+ - Fixed `FunctionCallSignature` inconsistency in phpcbf #200
  - Allow for multiple variable assignments #201
  - Allow for theme filenames when sniffing filename #202
+ - Updated `.editorconfig` for YAML & Markdown files #175
+ 
+### Changed:
+ - Formatted `package.json` files with tabs #175
+ - Moved ESLint `.editorconfig` to project _root_ #175
+ - Renamed _root_ `readme.md` to `README.md` #175
+ - Updated `composer.json` description #175
+ - Updated `package.json` files meta #175
 
 ### Removed:
  - Remove `<file>`, `<basepath>` and `testVersion` from ruleset #187, #198

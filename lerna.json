@@ -1,0 +1,15 @@
+{
+	"command": {
+		"publish": {
+			"message": "chore(release): publish"
+		}
+	},
+	"ignoreChanges": [
+		"**/CHANGELOG.md",
+		"**/{fixtures,test}/**"
+	],
+	"packages": [
+		"packages/*"
+	],
+	"version": "0.8.0"
+}
