@@ -1,4 +1,4 @@
-# eslint-config-humanmade
+# @humanmade/eslint-config
 
 Human Made coding standards for JavaScript.
 
@@ -9,7 +9,7 @@ This package is an ESLint shareable configuration, and requires `babel-eslint`, 
 To install this config and the peerDependencies when using **npm 5+**:
 
 ```
-npx install-peerdeps --dev eslint-config-humanmade@latest
+npx install-peerdeps --dev @humanmade/eslint-config@latest
 ```
 
 (Thanks to [Airbnb's package](https://www.npmjs.com/package/eslint-config-airbnb) for the command.)
@@ -49,7 +49,7 @@ When installing globally, you need to ensure the peer dependencies are also inst
 Run the same command as above, but instead with `--global`:
 
 ```
-npx install-peerdeps --global eslint-config-humanmade@latest
+npx install-peerdeps --global @humanmade/eslint-config@latest
 ```
 
 This allows you to use `eslint -c humanmade MyFile.js` anywhere on your filesystem.

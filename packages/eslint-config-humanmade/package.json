@@ -1,5 +1,5 @@
 {
-	"name": "eslint-config-humanmade",
+	"name": "@humanmade/eslint-config",
 	"version": "1.0.0",
 	"description": "Human Made Coding Standards for JavaScript.",
 	"author": "Human Made",
@@ -13,7 +13,7 @@
 		"linter",
 		"humanmade"
 	],
-	"homepage": "https://github.com/humanmade/coding-standards/tree/master/packages/eslint-config-humanmade#eslint-config-humanmade",
+	"homepage": "https://github.com/humanmade/coding-standards/tree/master/packages/eslint-config-humanmade#readme",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/humanmade/coding-standards.git",

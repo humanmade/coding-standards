@@ -6,7 +6,7 @@
 		</td>
 		<td align="center" width="30%">
 			<a href="https://packagist.org/packages/humanmade/coding-standards"><img src="https://img.shields.io/packagist/v/humanmade/coding-standards.svg" /></a>
-			<a href="https://www.npmjs.com/package/eslint-config-humanmade"><img src="https://img.shields.io/npm/v/eslint-config-humanmade.svg" /></a>
+			<a href="https://www.npmjs.com/package/humanmade/eslint-config"><img src="https://img.shields.io/npm/v/humanmade/eslint-config.svg" /></a>
 			<img src="https://travis-ci.org/humanmade/coding-standards.svg?branch=master" alt="Build Status" />
 		</td>
 	</tr>
@@ -31,7 +31,7 @@ We welcome contributions to these standards and want to make the experience as s
 Each ruleset is available individually via Composer or NPM. To install the needed ruleset, use one of the following commands:
 
  - PHPCS: `composer require --dev humanmade/coding-standards`
- - ESLint: `npx install-peerdeps --dev eslint-config-humanmade@latest`
+ - ESLint: `npx install-peerdeps --dev @humanmade/eslint-config@latest`
  - stylelint: `npm install --save-dev stylelint @humanmade/stylelint-config`
 
 ## Using PHPCS
@@ -126,9 +126,9 @@ The phpcs standard is based upon the `WordPress-VIP` standard from [WordPress Co
 
 ## Using ESLint
 
-The ESLint package contains an [ESLint](https://eslint.org/) configuration which you can use to validate your JavaScript code style. While it is possible to run ESLint via phpcs, we recommend you install and use eslint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `eslint-config-humanmade` package README](packages/eslint-config-humanmade/readme.md) for more information on configuring ESLint to use the Human Made coding standards.
+The ESLint package contains an [ESLint](https://eslint.org/) configuration which you can use to validate your JavaScript code style. While it is possible to run ESLint via phpcs, we recommend you install and use eslint via npm directly or use [linter-bot](https://github.com/humanmade/linter-bot). See [the `@humanmade/eslint-config` package README](packages/eslint-config-humanmade/readme.md) for more information on configuring ESLint to use the Human Made coding standards.
 
-Once you have installed the [`eslint-config-humanmade` npm package](https://www.npmjs.com/package/eslint-config-humanmade), you may simply specify that your own project-level ESLint file extends the `humanmade` configuration. If you install this globally (`npm install -g eslint-config-humanmade`) you can also reference the configuration directly from the command line via `eslint -c humanmade .`
+Once you have installed the [`@humanmade/eslint-config` npm package](https://www.npmjs.com/package/humanmade/eslint-config), you may simply specify that your own project-level ESLint file extends the `humanmade` configuration. If you install this globally (`npm install -g @humanmade/eslint-config`) you can also reference the configuration directly from the command line via `eslint -c humanmade .`
 
 Alternatively, you can create your own configuration and extend these rules:
 
