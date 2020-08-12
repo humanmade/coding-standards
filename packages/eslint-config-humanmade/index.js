@@ -124,6 +124,7 @@ module.exports = {
 		'react/jsx-sort-props': [ 'warn', {
 			'reservedFirst': [ 'key', 'ref' ],
 			'callbacksLast': true,
+			'ignoreCase': true,
 		} ],
 		'jsx-a11y/anchor-is-valid': [ 'error' ],
 	},
