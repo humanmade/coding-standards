@@ -1,4 +1,11 @@
-## Unreleased (1.0.0)
+## Unreleased
+
+### Added:
+
+ - Added ESLint `eslint-plugin-jsdoc` plugin #218
+ - Added ESLint `eslint-plugin-sort-destructure-keys` plugin #218
+
+##  1.0.0 (July 31, 2020)
 
 ### Added:
  - Added `WordPress-Docs` by default in PHPCS #177
