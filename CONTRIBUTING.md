@@ -121,7 +121,15 @@ The process for releasing is:
 * Run `lerna publish` and add the new version number.
 	* This will prompt you for a new version number and create & push new release commits and tags which will trigger Packagist to release a new version of the Composer package.
 * Run `./publish.sh` to push the standards for hm-linter
-	* This will ask if you want to bump the latest version to the new version. Only do this for minor releases.
-* For major releases, publish a changelog to the Dev H2 (significant bugfixes may also warrant a post)
+	* If you do not already have an AWS profile with access to the Linter Bot S3 bucket, make a request to the servers team for it before beginning this process.
+	* If you use a non-default AWS profile for the Linter Bot, you can use `AWS_DEFAULT_PROFILE={name of AWS profile} ./publish.sh` instead.
+	* This will ask if you want to bump the latest version to the new version. Only do this for patch releases.
+	* To verify that the changes pushed correctly, you can run `aws s3 ls s3://hm-linter/standards/ --profile {name of AWS profile}`
+* For major and minor releases, publish a changelog to the Dev H2 (significant bugfixes may also warrant a post)
+* Publish a new release in the GitHub Release UI with the changes from CHANGELOG.md and update CHANGELOG.md with the release version and date.
+* After a cool-off period (typically one month), bump the latest version of the standards for Linter bot.
+	* Checkout the Git tag for the release.
+	* Verify that your local is clean of changes.
+	* Run `./publish.sh` and bump `latest`.
 
 If you're releasing a major version, you should also create a branch for the major version so that bugfix releases can be created. This branch should be a humanised name of the version; e.g. 0.4 would be `oh-dot-four`, 1.6 would be `one-dot-six`.
