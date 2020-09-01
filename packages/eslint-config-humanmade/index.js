@@ -7,6 +7,7 @@ module.exports = {
 	'extends': [
 		'eslint:recommended',
 		'react-app',
+		'plugin:import/errors',
 		'plugin:jsdoc/recommended',
 		'plugin:react-hooks/recommended',
 	],
@@ -40,6 +41,23 @@ module.exports = {
 		'eol-last': [ 'error', 'unix' ],
 		'eqeqeq': [ 'error' ],
 		'func-call-spacing': [ 'error' ],
+		'import/no-unresolved': [ 'off' ],
+		'import/order': [ 'error', {
+			'alphabetize': {
+				'order': 'asc',
+				'caseInsensitive': true
+			},
+			'groups': [ 'builtin', 'external', 'parent', 'sibling', 'index' ],
+			'newlines-between': 'always',
+			'pathGroups': [
+				{
+					'pattern': '@wordpress/**',
+					'group': 'external',
+					'position': 'after'
+				}
+			],
+			'pathGroupsExcludedImportTypes': [ 'builtin' ]
+		} ],
 		'indent': [ 'error', 'tab', {
 			'SwitchCase': 1,
 		} ],
