@@ -4,10 +4,7 @@ Human Made coding standards for JavaScript.
 
 ## Installation
 
-This package is an ESLint shareable configuration, and requires:
-
-
-`babel-eslint`, `eslint`, `eslint-config-react-app`, `eslint-plugin-flowtype`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-jsdoc`, `eslint-plugin-react`, `eslint-plugin-react-hooks`.
+This package is an ESLint shareable configuration, and requires: `babel-eslint`, `eslint`, `eslint-config-react-app`, `eslint-plugin-flowtype`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-jsdoc`, `eslint-plugin-react`, `eslint-plugin-react-hooks`.
 
 To install this config and the peerDependencies when using **npm 5+**:
 
