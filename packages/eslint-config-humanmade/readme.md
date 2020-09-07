@@ -4,7 +4,7 @@ Human Made coding standards for JavaScript.
 
 ## Installation
 
-This package is an ESLint shareable configuration, and requires `babel-eslint`, `eslint`, `eslint-config-react-app`, `eslint-plugin-flowtype`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-react`.
+This package is an ESLint shareable configuration, and requires: `babel-eslint`, `eslint`, `eslint-config-react-app`, `eslint-plugin-flowtype`, `eslint-plugin-import`, `eslint-plugin-jsx-a11y`, `eslint-plugin-jsdoc`, `eslint-plugin-react`, `eslint-plugin-react-hooks`.
 
 To install this config and the peerDependencies when using **npm 5+**:
 
@@ -16,21 +16,21 @@ npx install-peerdeps --dev @humanmade/eslint-config@latest
 
 You can then use it directly on the command line:
 
-```
-eslint -c humanmade MyFile.js
+```shell
+./node_modules/.bin/eslint -c @humanmade/eslint-config MyFile.js
 ```
 
 Alternatively, you can create your own configuration and extend these rules:
 ```yaml
 extends:
-- humanmade
+- @humanmade/eslint-config
 ```
 
 ### Working with TypeScript
 
 If you desire to use TypeScript for your project, you will need to add another dependency:
 
-```
+```shell
 npm install --save-dev @typescript-eslint/parser
 ```
 
@@ -39,7 +39,7 @@ Once it's installed, update your configuration with the `parser` parameter:
 ```yml
 parser: "@typescript-eslint/parser"
 extends:
-    - humanmade
+    - @humanmade/eslint-config
 ```
 
 ## Global Installation
@@ -48,7 +48,7 @@ When installing globally, you need to ensure the peer dependencies are also inst
 
 Run the same command as above, but instead with `--global`:
 
-```
+```shell
 npx install-peerdeps --global @humanmade/eslint-config@latest
 ```
 
