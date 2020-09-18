@@ -135,7 +135,7 @@ Alternatively, you can create your own configuration and extend these rules:
 `.eslintrc`
 ```json
 {
-  "extends": "humanmade"
+  "extends": "@humanmade"
 }
 ```
 
