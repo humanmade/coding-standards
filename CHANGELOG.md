@@ -1,9 +1,14 @@
-## Unreleased
+## 1.1.0
 
 ### Added:
 
+ - Added ESLint `eslint-plugin-import` plugin to enforce consistent ordering of `import` statements in JavaScript module files #219, #84
  - Added ESLint `eslint-plugin-jsdoc` plugin #218
  - Added ESLint `eslint-plugin-sort-destructure-keys` plugin #218
+
+### Changed:
+
+ - Make JSX property sorting case-insensitive #217
 
 ##  1.0.0 (July 31, 2020)
 
@@ -101,7 +106,7 @@
         * Ensures there is no space between the operator and the variable it applies to
     * Added PSR12.Functions.NullableTypeDeclaration sniff
         * Ensures there is no space after the question mark in a nullable type declaration
-    * Added new Generic.PHP.LowerCaseType sniff -Ensures PHP types used for type hints, return types, and type casting are lowercase
+    * Added new Generic.PHP.LowerCaseType sniff-Ensures PHP types used for type hints, return types, and type casting are lowercase
     * Added new Generic.WhiteSpace.ArbitraryParenthesesSpacing sniff
         * Generates an error for whitespace inside parenthesis that don't belong to a function call/declaration or control structure
         * Generates a warning for any empty parenthesis found
@@ -112,8 +117,8 @@
     * Added new PSR12.Keywords.ShortFormTypeKeywords sniff
         * Ensures the short form of PHP types is used when type casting
     * Added new PSR12.Namespaces.CompundNamespaceDepth sniff
-        * Ensures compound namespace use statements have a max depth of 2 levels The max depth can be changed by setting the 'maxDepth' sniff property in a ruleset.xml file
-    * Added new PSR12.Operators.OperatorSpacing sniff -Ensures operators are preceded and followed by at least 1 space
+        * Ensures compound namespace use statements have a max depth of 2 levelsThe max depth can be changed by setting the 'maxDepth' sniff property in a ruleset.xml file
+    * Added new PSR12.Operators.OperatorSpacing sniff-Ensures operators are preceded and followed by at least 1 space
 </details> 
 
 ## 0.5.0 (May 22, 2018)
