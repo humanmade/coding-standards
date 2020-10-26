@@ -19,6 +19,44 @@ new WP_Query( [
 	],
 ] );
 
+// Specifying relation is OK.
+new WP_Query( [
+	'meta_query' => [
+		'relation' => 'AND',
+		[
+			'key' => 'foo',
+			'compare' => 'EXISTS',
+		],
+		[
+			'key' => 'bar',
+			'compare' => 'NOT EXISTS',
+		],
+	],
+] );
+new WP_Query( [
+	'meta_query' => [
+		'relation' => 'OR',
+		[
+			'key' => 'foo',
+			'compare' => 'NOT EXISTS',
+		],
+		[
+			'key' => 'bar',
+			'compare' => 'EXISTS',
+		],
+	],
+] );
+$relation = 'OR';
+new WP_Query( [
+	'meta_query' => [
+		'relation' => $relation,
+		[
+			'key' => 'foo',
+			'compare' => 'EXISTS',
+		],
+	],
+] );
+
 // Ignores should work.
 new WP_Query( [
 	'meta_query' => [
