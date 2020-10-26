@@ -136,8 +136,16 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			return;
 		}
 
-		// Otherwise, recurse.
 		foreach ( $elements as $element ) {
+			if ( isset( $element['index_start'] ) ) {
+				$index = $this->strip_quotes( $this->tokens[ $element['index_start'] ]['content'] );
+				if ( strtolower( $index ) === 'relation' ) {
+					// Skip 'relation' element.
+					continue;
+				}
+			}
+
+			// Otherwise, recurse.
 			$this->check_meta_query_item( $element['value_start'] );
 		}
 	}
