@@ -28,5 +28,11 @@
 			"source": "HM.PHP.Ternary.UnnecessaryTernary",
 			"type": "warning"
 		}
+	],
+	"13": [
+		{
+			"source": "HM.PHP.Ternary.UnnecessaryTernary",
+			"type": "warning"
+		}
 	]
 }

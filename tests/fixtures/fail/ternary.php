@@ -9,3 +9,5 @@ $result = ( $expr ? false : true );
 	// Missing semicolon on purpose.
 	return $expr ? true : false
 }
+
+print( $expr ? true : false, 'foo' );

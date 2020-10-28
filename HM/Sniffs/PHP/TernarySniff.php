@@ -29,7 +29,7 @@ class TernarySniff implements Sniff {
 			return;
 		}
 
-		$ternary_end_token = $phpcsFile->findNext( array( T_CLOSE_CURLY_BRACKET, T_CLOSE_PARENTHESIS, T_SEMICOLON ), $stackPtr + 1 );
+		$ternary_end_token = $phpcsFile->findNext( array( T_CLOSE_CURLY_BRACKET, T_CLOSE_PARENTHESIS, T_COMMA, T_SEMICOLON ), $stackPtr + 1 );
 
 		$value_if_false_tokens = $this->get_nonempty_tokens( $tokens, $stackPtr + 1, $ternary_end_token - 1 );
 		if ( count( $value_if_false_tokens ) !== 1 ) {
