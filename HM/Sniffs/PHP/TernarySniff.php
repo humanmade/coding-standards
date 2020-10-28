@@ -43,11 +43,11 @@ class TernarySniff implements Sniff {
 		}
 
 		$warning = 'Unnecessary ternary found: Instead of "$expr ? %s : %s", use "%s"';
-		$data = [
+		$data = array(
 			$value_if_true_tokens[0]['content'],
 			$value_if_false_tokens[0]['content'],
 			$value_if_true_tokens[0]['content'] === 'true' ? '(bool) $expr' : '! $expr'
-		];
+		);
 		$phpcsFile->addWarning( $warning, $stackPtr, 'UnnecessaryTernary', $data );
 	}
 
@@ -56,12 +56,12 @@ class TernarySniff implements Sniff {
 
 		return array_values( array_filter(
 			$tokens,
-			[ $this, 'is_nonempty_token' ]
+			array( $this, 'is_nonempty_token' )
 		) );
 	}
 
 	private function is_boolean_token( array $token ) {
-		return in_array( $token['code'], [ T_FALSE, T_TRUE ], true );
+		return in_array( $token['code'], array( T_FALSE, T_TRUE ), true );
 	}
 
 	private function is_nonempty_token( array $token ) {
