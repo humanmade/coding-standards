@@ -23,7 +23,7 @@ class IssetSniff implements Sniff {
 
 		$comma_token = $phpcsFile->findNext( T_COMMA, $open_parenthesis_token + 1 );
 		if ( $comma_token !== false && $comma_token < $tokens[ $open_parenthesis_token ]['parenthesis_closer'] ) {
-			$phpcsFile->addError( 'Only one argument is allowed per ISSET call', $stackPtr, 'MultipleArguments' );
+			$phpcsFile->addWarning( 'Only one argument should be used per ISSET call', $stackPtr, 'MultipleArguments' );
 		}
 	}
 }

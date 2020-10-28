@@ -2,13 +2,13 @@
 	"3": [
 		{
 			"source": "HM.PHP.Isset.MultipleArguments",
-			"type": "error"
+			"type": "warning"
 		}
 	],
 	"4": [
 		{
 			"source": "HM.PHP.Isset.MultipleArguments",
-			"type": "error"
+			"type": "warning"
 		}
 	]
 }
