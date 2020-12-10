@@ -1,3 +1,9 @@
+## 1.1.2 (December, 2020)
+
+### Removed:
+
+- Disabled requirement to align PHPDoc parameters, inherited from WordPress-Docs in July's 1.0 release #239
+
 ## 1.1.0 (September 18, 2020)
 
 ### Added:
@@ -52,7 +58,7 @@
  - Enforced consistent curly newlines in jsx #172
  - Added `eslint-plugin-sort-destructure-keys` package #179
 
-### Updated
+### Updated:
  - Bumped PHPCS to v3.5 from v3.4 #173
  - Bumped `stylelint-config-wordpress` package to v15 from v13 #165
  - Ignore stylelint `at-rule` line break for `if/else/elseif` #170
