@@ -4,6 +4,16 @@
 
 - Disabled requirement to align PHPDoc parameters, inherited from WordPress-Docs in July's 1.0 release #239
 
+## 1.1.1 (October 27, 2020)
+
+### Added:
+
+- Support Composer 2 #233
+
+### Changed:
+
+- Allowed use of the "relation" element in meta query sniff #232
+
 ## 1.1.0 (September 18, 2020)
 
 ### Added:
