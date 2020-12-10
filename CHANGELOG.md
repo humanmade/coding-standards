@@ -1,4 +1,4 @@
-## 1.1.2 (December, 2020)
+## 1.1.2 (December 10, 2020)
 
 ### Removed:
 
