@@ -1,0 +1,38 @@
+{
+	"3": [
+		{
+			"source": "HM.PHP.Ternary.UnnecessaryTernary",
+			"type": "warning"
+		}
+	],
+	"4": [
+		{
+			"source": "HM.PHP.Ternary.UnnecessaryTernary",
+			"type": "warning"
+		}
+	],
+	"5": [
+		{
+			"source": "HM.PHP.Ternary.UnnecessaryTernary",
+			"type": "warning"
+		}
+	],
+	"6": [
+		{
+			"source": "HM.PHP.Ternary.UnnecessaryTernary",
+			"type": "warning"
+		}
+	],
+	"10": [
+		{
+			"source": "HM.PHP.Ternary.UnnecessaryTernary",
+			"type": "warning"
+		}
+	],
+	"13": [
+		{
+			"source": "HM.PHP.Ternary.UnnecessaryTernary",
+			"type": "warning"
+		}
+	]
+}
