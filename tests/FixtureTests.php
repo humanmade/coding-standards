@@ -106,6 +106,7 @@ class FixtureTests extends TestCase {
 			'HM.Namespaces.NoLeadingSlashOnUse',
 			'HM.Performance.SlowMetaQuery',
 			'HM.Performance.SlowOrderBy',
+			'HM.PHP.Isset',
 			'HM.Security.EscapeOutput',
 			'HM.Security.NonceVerification',
 			'HM.Security.ValidatedSanitizedInput',

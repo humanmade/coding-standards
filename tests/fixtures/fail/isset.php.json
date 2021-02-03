@@ -1,0 +1,14 @@
+{
+	"3": [
+		{
+			"source": "HM.PHP.Isset.MultipleArguments",
+			"type": "warning"
+		}
+	],
+	"4": [
+		{
+			"source": "HM.PHP.Isset.MultipleArguments",
+			"type": "warning"
+		}
+	]
+}
