@@ -1,3 +1,8 @@
+# Changelog
+
+## 1.1.3 (February 3, 2021)
+
+- Open ESLint peer dependency range to accept ESLint v6 & v7 #222
 ## 1.1.2 (December 10, 2020)
 
 ### Removed:
