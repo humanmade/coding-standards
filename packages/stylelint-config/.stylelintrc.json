@@ -14,10 +14,10 @@
     "declaration-block-semicolon-newline-after": "always-multi-line",
     "declaration-block-single-line-max-declarations": 4,
     "declaration-no-important": true,
-    "declaration-property-unit-blacklist": {
+    "declaration-property-unit-disallowed-list": {
       "font-size": [ "px" ]
     },
-    "declaration-property-unit-whitelist": {
+    "declaration-property-unit-allowed-list": {
       "animation": [ "ms" ],
       "animation-delay": [ "ms" ],
       "animation-duration": [ "ms" ],
