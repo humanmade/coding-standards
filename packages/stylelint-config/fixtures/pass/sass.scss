@@ -1,0 +1,13 @@
+$adminbar-height-mobile: 42px;
+$header-height-small: 20px;
+
+.heading {
+	height: calc( 100vh - ( #{$adminbar-height-mobile} + #{$header-height-small} ) );
+}
+
+// At rule empty line before */
+@media screen and ( min-width: 500px ) {
+	.heading {
+		background: #00f;
+	}
+}
