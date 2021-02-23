@@ -1,0 +1,15 @@
+/**
+ * General styles that should pass.
+ */
+
+.heading {
+	background: #f00;
+	transition: all 300ms ease-in-out;
+}
+
+/* At rule empty line before */
+@media screen and ( min-width: 500px ) {
+	.heading {
+		background: #00f;
+	}
+}

@@ -78,6 +78,8 @@
 		"publish:legacy": "lerna publish --dist-tag legacy",
 		"publish:prod": "lerna publish",
 		"test": "npm run lint-pkg-json && npm run test:packages",
-		"test:packages": "cd packages/eslint-config-humanmade && npm test"
+		"test:package:eslint": "cd packages/eslint-config-humanmade && npm test",
+		"test:package:stylelint": "cd packages/stylelint-config && npm test",
+		"test:packages": "npm run test:package:eslint && npm run test:package:stylelint"
 	}
 }

@@ -1,0 +1,9 @@
+.heading {
+	background: #f00;
+	transition: all 300ms ease-in-out;
+}
+@media screen and ( min-width: 500px ) {
+	.heading {
+		background: #00f;
+	}
+}

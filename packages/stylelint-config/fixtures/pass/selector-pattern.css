@@ -1,0 +1,7 @@
+.block__element-test {
+	background: #f00;
+}
+
+.block__element--modifier {
+	background: #f00;
+}
