@@ -23,11 +23,11 @@
 		"url": "https://github.com/humanmade/coding-standards/issues"
 	},
 	"engines": {
-		"node": ">=10"
+		"node": ">=12"
 	},
 	"main": ".stylelintrc.json",
 	"dependencies": {
-		"stylelint-config-wordpress": "^17.0.0"
+		"@wordpress/stylelint-config": "^18.0.0"
 	},
 	"devDependencies": {
 		"stylelint": "^13.11.0"
