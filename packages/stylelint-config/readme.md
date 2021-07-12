@@ -1,4 +1,4 @@
-# stylelint-config-humanmade
+# @humanmade/stylelint-config
 
 Human Made coding standards for CSS and SCSS.
 
