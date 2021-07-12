@@ -7,7 +7,7 @@
 		<td align="center" width="30%">
 			<a href="https://packagist.org/packages/humanmade/coding-standards"><img src="https://img.shields.io/packagist/v/humanmade/coding-standards.svg" /></a>
 			<a href="https://www.npmjs.com/package/@humanmade/eslint-config"><img src="https://img.shields.io/npm/v/humanmade/eslint-config.svg" /></a>
-			<img src="https://travis-ci.org/humanmade/coding-standards.svg?branch=master" alt="Build Status" />
+			<img src="https://travis-ci.com/humanmade/coding-standards.svg?branch=master" alt="Build Status" />
 		</td>
 	</tr>
 	<tr>
