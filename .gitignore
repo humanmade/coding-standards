@@ -10,3 +10,6 @@ yarn.lock
 # Ignore built files
 archives/
 phpcs-standard/
+
+# Ignore tools
+/tools/
