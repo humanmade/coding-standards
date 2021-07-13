@@ -11,6 +11,10 @@ module.exports = {
 		'plugin:jsdoc/recommended',
 		'plugin:react-hooks/recommended',
 	],
+	'plugins': [
+		'@babel',
+	],
+	'parser': '@babel/eslint-parser',
 	'parserOptions': {
 		'ecmaVersion': 2018,
 		'ecmaFeatures': {
