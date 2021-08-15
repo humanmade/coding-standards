@@ -29,6 +29,7 @@
 		<properties>
 			<property name="customEscapingFunctions" type="array">
 				<element value="whitelist_html" />
+				<element value="clean_html" />
 			</property>
 			<property name="customAutoEscapedFunctions" type="array">
 				<!-- Allow all the built-in URL functions -->

@@ -17,7 +17,7 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/humanmade/coding-standards.git",
-		"directory": "packages/eslint-config-humanmade"
+		"directory": "packages/stylelint-config"
 	},
 	"bugs": {
 		"url": "https://github.com/humanmade/coding-standards/issues"
@@ -29,7 +29,7 @@
 	"dependencies": {
 		"@wordpress/stylelint-config": "^18.0.0"
 	},
-	"devDependencies": {
+	"peerDependencies": {
 		"stylelint": "^13.11.0"
 	},
 	"publishConfig": {

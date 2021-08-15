@@ -120,6 +120,7 @@ module.exports = {
 				'!': true,
 			},
 		} ],
+		'template-curly-spacing': [ 'error', 'always' ],
 		'yoda': [ 'error', 'never' ],
 		'jsdoc/require-jsdoc': [ 'error', {
 			'require': {
