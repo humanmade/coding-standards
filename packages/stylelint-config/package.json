@@ -23,14 +23,14 @@
 		"url": "https://github.com/humanmade/coding-standards/issues"
 	},
 	"engines": {
-		"node": ">=10"
+		"node": ">=12"
 	},
 	"main": ".stylelintrc.json",
 	"dependencies": {
-		"stylelint-config-wordpress": "^16.0.0"
+		"@wordpress/stylelint-config": "^18.0.0"
 	},
 	"peerDependencies": {
-		"stylelint": "^12.0.0"
+		"stylelint": "^13.11.0"
 	},
 	"publishConfig": {
 		"access": "public"
