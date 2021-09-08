@@ -2,6 +2,7 @@
 
 use Foo\Bar;
 use Foo\Baz as Zztop;
+use Some_Trait;
 
 require( 'some/file/that/exists.php' );
 
@@ -42,3 +43,7 @@ add_action( 'init', function () use ( $foo ) {
 $c = function() {
 	return true;
 };
+
+class My_Class {
+	use Some_Trait;
+}
