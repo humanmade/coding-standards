@@ -51,6 +51,9 @@ class OrderSniff implements Sniff {
 			if ( $next_token['code'] === T_USE && $phpcsFile->findPrevious( T_CLOSURE, $next_pos, null, false, null, true ) !== false ) {
 				continue;
 			}
+			if ( $next_token['code'] === T_USE && $phpcsFile->findPrevious( T_CLASS, $next_pos, null, false, null, true ) !== false ) {
+				continue;
+			}
 
 			// Must be current or higher.
 			$next_type_score = $look_for[ $next_token['code'] ];
