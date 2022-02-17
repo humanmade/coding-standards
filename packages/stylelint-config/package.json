@@ -27,10 +27,10 @@
 	},
 	"main": ".stylelintrc.json",
 	"dependencies": {
-		"@wordpress/stylelint-config": "^18.0.0"
+		"@wordpress/stylelint-config": "^20.0.0"
 	},
 	"peerDependencies": {
-		"stylelint": "^13.11.0"
+		"stylelint": "^14.2.0"
 	},
 	"publishConfig": {
 		"access": "public"
