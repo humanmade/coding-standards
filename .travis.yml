@@ -34,15 +34,16 @@ jobs:
     - language: php
       php: 8.0
       install:
-        - composer install
+        - composer install --ignore-platform-reqs
       script:
         - vendor/bin/phpunit
     - language: php
       php: 8.1
       install:
-        - composer install
+        - composer install --ignore-platform-reqs
       script:
-        - vendor/bin/phpunit
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php tests/FixtureTests.php
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php tests/AllSniffs.php
     - language: node_js
       node_js: 10
       install:
