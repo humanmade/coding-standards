@@ -1,0 +1,6 @@
+/* Bad BEM syntax */
+.foo__bar__foo,
+.foo--bar--foo,
+.foo--bar__foo {
+	display: block;
+}

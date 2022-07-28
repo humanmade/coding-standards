@@ -1,0 +1,16 @@
+// Max nesting depth.
+.element {
+	display: block;
+
+	.child-element {
+		display: block;
+
+		.child-element {
+			display: block;
+
+			.child-element {
+				display: block;
+			}
+		}
+	}
+}

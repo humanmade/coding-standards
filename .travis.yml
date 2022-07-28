@@ -39,7 +39,7 @@ jobs:
         - npm install
         - cd ../..
       script:
-        - npm test
+        - npm test:eslint
     - language: node_js
       node_js: 12
       install:
@@ -48,7 +48,7 @@ jobs:
         - npm install
         - cd ../..
       script:
-        - npm test
+        - npm test:eslint
     - language: node_js
       node_js: 14
       install:
