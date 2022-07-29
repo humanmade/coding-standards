@@ -32,7 +32,7 @@ jobs:
       script:
         - vendor/bin/phpunit
     - language: node_js
-      node_js: 10
+      node_js: 16
       install:
         - npm install
         - cd packages/eslint-config-humanmade
@@ -41,16 +41,7 @@ jobs:
       script:
         - npm test
     - language: node_js
-      node_js: 12
-      install:
-        - npm install
-        - cd packages/eslint-config-humanmade
-        - npm install
-        - cd ../..
-      script:
-        - npm test
-    - language: node_js
-      node_js: 14
+      node_js: 18
       install:
         - npm install
         - cd packages/eslint-config-humanmade
