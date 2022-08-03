@@ -35,7 +35,6 @@
 					"requireEndingPeriod": true
 				}
 			],
-			"prefer-no-devDependencies": "warning",
 			"require-publishConfig": "error",
 			"require-repository-directory": "error",
 			"valid-values-author": [
@@ -60,8 +59,7 @@
 				],
 				"rules": {
 					"require-publishConfig": "off",
-					"require-repository-directory": "off",
-					"prefer-no-devDependencies": "off"
+					"require-repository-directory": "off"
 				}
 			}
 		]
