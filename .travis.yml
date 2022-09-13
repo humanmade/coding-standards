@@ -46,8 +46,8 @@ jobs:
       script:
         # For PHP 8.1+, we need to ignore the config file so that PHPUnit 7 doesn't try to read it and cause an error.
         # Instead, we pass all required settings as part of the phpunit command.
-        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php tests/AllSniffs.php
-        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php tests/FixtureTests.php
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/AllSniffs.php
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php
     - language: node_js
       node_js: 10
       install:

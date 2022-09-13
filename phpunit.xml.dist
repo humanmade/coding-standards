@@ -1,4 +1,5 @@
 <phpunit
+	beStrictAboutTestsThatDoNotTestAnything="false"
 	bootstrap="tests/bootstrap.php"
 	colors="true"
 	convertErrorsToExceptions="true"
