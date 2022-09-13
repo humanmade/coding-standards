@@ -1,8 +1,18 @@
 # Changelog
 
+## 1.2.0 (September 13, 2022)
+
+- Add new Isset sniff #236
+- Update custom escaping functions for clean_html #264
+- Require spaces in template strings #256
+- Ignore "use" within "class" in OrderSniff #271
+- Add dealerdirect/phpcodesniffer-composer-installer to allow-plugins in composer.json #284
+- Update PHPCS to support PHP 8+ #282
+
 ## 1.1.3 (February 3, 2021)
 
 - Open ESLint peer dependency range to accept ESLint v6 & v7 #222
+
 ## 1.1.2 (December 10, 2020)
 
 ### Removed:
