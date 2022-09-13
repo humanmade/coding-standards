@@ -49,29 +49,11 @@ jobs:
         - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/AllSniffs.php
         - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php
     - language: node_js
-      node_js: 10
+      node_js: 16
       install:
         - npm install
         - cd packages/eslint-config-humanmade
-        - npm install
-        - cd ../..
-      script:
-        - npm test
-    - language: node_js
-      node_js: 12
-      install:
-        - npm install
-        - cd packages/eslint-config-humanmade
-        - npm install
-        - cd ../..
-      script:
-        - npm test
-    - language: node_js
-      node_js: 14
-      install:
-        - npm install
-        - cd packages/eslint-config-humanmade
-        - npm install
+        - npm install --legacy-peer-deps
         - cd ../..
       script:
         - npm test

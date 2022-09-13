@@ -22,8 +22,9 @@
 	"bugs": {
 		"url": "https://github.com/humanmade/coding-standards/issues"
 	},
-	"engines": {
-		"node": ">=10"
+	"engines" : {
+		"npm" : ">=7.0.0",
+		"node" : ">=16.0.0"
 	},
 	"npmpackagejsonlint": {
 		"extends": "@wordpress/npm-package-json-lint-config",
@@ -68,7 +69,7 @@
 	},
 	"devDependencies": {
 		"@wordpress/npm-package-json-lint-config": "^4.0.5",
-		"lerna": "^4.0.0",
+		"lerna": "^5.5.0",
 		"npm-package-json-lint": "^5.1.0"
 	},
 	"scripts": {

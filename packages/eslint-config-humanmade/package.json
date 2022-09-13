@@ -22,8 +22,9 @@
 	"bugs": {
 		"url": "https://github.com/humanmade/coding-standards/issues"
 	},
-	"engines": {
-		"node": ">=10"
+	"engines" : {
+		"npm" : ">=7.0.0",
+		"node" : ">=16.0.0"
 	},
 	"files": [
 		".eslintrc",
