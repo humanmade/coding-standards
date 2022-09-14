@@ -1,6 +1,6 @@
 {
 	"name": "@humanmade/eslint-config",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Human Made Coding Standards for JavaScript.",
 	"author": "Human Made",
 	"license": "GPL-2.0-or-later",
