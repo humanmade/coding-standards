@@ -56,7 +56,7 @@ jobs:
         - npm install --legacy-peer-deps
         - cd ../..
       script:
-        - npm test:eslint
+        - npm run test:eslint
     - language: node_js
       node_js: 16
       install:
@@ -65,4 +65,4 @@ jobs:
         - npm install
         - cd ../..
       script:
-        - npm test:stylelint
+        - npm run test:stylelint
