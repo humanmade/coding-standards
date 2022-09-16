@@ -6,8 +6,8 @@ define( 'PHP_CODESNIFFER_CBF', false );
 
 // Check phpcs is installed.
 $phpcs_dir = dirname( __DIR__ ) . '/vendor/squizlabs/php_codesniffer';
-if ( ! file_exists($phpcs_dir)) {
-	throw new Exception( 'Could not find PHP_CodeSniffer. Run `composer install --prefer-source --dev`' );
+if ( ! file_exists( $phpcs_dir ) ) {
+	throw new Exception( 'Could not find PHP_CodeSniffer. Run `composer install --prefer-source`' );
 }
 
 // Check phpcs' test framework is available.

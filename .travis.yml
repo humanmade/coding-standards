@@ -31,30 +31,38 @@ jobs:
         - composer install
       script:
         - vendor/bin/phpunit
+    - language: php
+      php: 8.0
+      install:
+        # For PHP 8.0+, we need to ignore platform reqs as PHPUnit 7 is still used.
+        - composer install --ignore-platform-reqs
+      script:
+        - vendor/bin/phpunit
+    - language: php
+      php: 8.1
+      install:
+        # For PHP 8.0+, we need to ignore platform reqs as PHPUnit 7 is still used.
+        - composer install --ignore-platform-reqs
+      script:
+        # For PHP 8.1+, we need to ignore the config file so that PHPUnit 7 doesn't try to read it and cause an error.
+        # Instead, we pass all required settings as part of the phpunit command.
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/AllSniffs.php
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php
     - language: node_js
-      node_js: 10
+      node_js: 16
       install:
         - npm install
         - cd packages/eslint-config-humanmade
-        - npm install
+        - npm install --legacy-peer-deps
         - cd ../..
       script:
         - npm test:eslint
     - language: node_js
-      node_js: 12
+      node_js: 16
       install:
         - npm install
-        - cd packages/eslint-config-humanmade
+        - cd packages/stylelint-config
         - npm install
         - cd ../..
       script:
-        - npm test:eslint
-    - language: node_js
-      node_js: 14
-      install:
-        - npm install
-        - cd packages/eslint-config-humanmade
-        - npm install
-        - cd ../..
-      script:
-        - npm test
+        - npm test:stylelint

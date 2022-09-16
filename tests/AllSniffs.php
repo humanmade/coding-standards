@@ -42,6 +42,7 @@ class AllSniffs {
 	public static function suite() {
 		$GLOBALS['PHP_CODESNIFFER_SNIFF_CODES']   = array();
 		$GLOBALS['PHP_CODESNIFFER_FIXABLE_CODES'] = array();
+		$GLOBALS['PHP_CODESNIFFER_SNIFF_CASE_FILES'] = array();
 
 		$suite = new TestSuite( 'HM Standards' );
 
