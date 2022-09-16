@@ -30,6 +30,9 @@
 	"dependencies": {
 		"@wordpress/stylelint-config": "^21.0.0"
 	},
+	"devDependencies": {
+		"chalk": "^4.1.2"
+	},
 	"peerDependencies": {
 		"stylelint": "^14.2.0"
 	},
@@ -38,8 +41,5 @@
 	},
 	"scripts": {
 		"test": "node fixtures/test-lint-config"
-	},
-	"devDependencies": {
-		"chalk": "^4.1.2"
 	}
 }
