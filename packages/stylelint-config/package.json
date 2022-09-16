@@ -28,7 +28,7 @@
 	},
 	"main": ".stylelintrc.json",
 	"dependencies": {
-		"@wordpress/stylelint-config": "^20.0.0"
+		"@wordpress/stylelint-config": "^21.0.0"
 	},
 	"peerDependencies": {
 		"stylelint": "^14.2.0"
