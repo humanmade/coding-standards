@@ -67,6 +67,9 @@
 			}
 		]
 	},
+	"dependencies": {
+		"chalk": "^4.1.2"
+	},
 	"devDependencies": {
 		"@wordpress/npm-package-json-lint-config": "^4.0.5",
 		"lerna": "^5.5.0",
@@ -81,8 +84,5 @@
 		"test": "npm run lint-pkg-json && npm run test:eslint && npm run test:stylelint",
 		"test:eslint": "cd packages/eslint-config-humanmade && npm test",
 		"test:stylelint": "cd packages/stylelint-config && npm test"
-	},
-	"dependencies": {
-		"chalk": "^4.1.2"
 	}
 }
