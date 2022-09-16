@@ -1,0 +1,21 @@
+// Max nesting depth.
+.element {
+	display: block;
+
+	// Nesting depth: 1
+	.child-element {
+		display: block;
+
+		// Nesting depth: 2. Maximum allowed.
+		.child-element {
+			display: block;
+		}
+
+		// Allowed to be nested deeper because it's within a media query.
+		@media screen {
+			.child-element {
+				display: block;
+			}
+		}
+	}
+}

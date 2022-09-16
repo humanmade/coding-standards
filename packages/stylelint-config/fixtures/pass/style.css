@@ -1,0 +1,11 @@
+/* No color-named */
+.element {
+	background: #f00;
+}
+
+/* Valid BEM syntax */
+.block__element,
+.block__element--modifier,
+.block--modifier {
+	display: block;
+}
