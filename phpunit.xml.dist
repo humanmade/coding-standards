@@ -1,4 +1,5 @@
 <phpunit
+	beStrictAboutTestsThatDoNotTestAnything="false"
 	bootstrap="tests/bootstrap.php"
 	colors="true"
 	convertErrorsToExceptions="true"
@@ -7,7 +8,7 @@
 >
 	<testsuites>
 		<!-- Default test suite to run all tests -->
-		<testsuite>
+		<testsuite name="all">
 			<file>tests/AllSniffs.php</file>
 			<file>tests/FixtureTests.php</file>
 		</testsuite>

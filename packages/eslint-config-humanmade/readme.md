@@ -53,3 +53,14 @@ npx install-peerdeps --global @humanmade/eslint-config@latest
 ```
 
 This allows you to use `eslint -c humanmade MyFile.js` anywhere on your filesystem.
+
+## Integration with Altis build script.
+
+We require the use of Node v16+ and npm v7+, however the Altis build container ships with Node 12.18 and npm 6.14 so it will not work out of the box.
+
+As per the Altis documentation, [you can install other versions of Node using nvm](https://docs.altis-dxp.com/cloud/build-scripts/#included-build-tools), so we recommend that you add the following to your build script.
+
+```
+nvm install 16
+nvm use 16
+```
