@@ -36,7 +36,6 @@
 					"requireEndingPeriod": true
 				}
 			],
-			"prefer-no-devDependencies": "warning",
 			"require-publishConfig": "error",
 			"require-repository-directory": "error",
 			"valid-values-author": [
