@@ -60,3 +60,15 @@ jobs:
         - cd ../..
       script:
         - npm run test
+    - language: node_js
+      node_js: 18
+      install:
+        - npm install --legacy-peer-deps
+        - cd packages/eslint-config-humanmade
+        - npm install --legacy-peer-deps
+        - cd ../..
+        - cd packages/stylelint-config
+        - npm install --legacy-peer-deps
+        - cd ../..
+      script:
+        - npm run test
