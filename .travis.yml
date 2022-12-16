@@ -55,14 +55,8 @@ jobs:
         - cd packages/eslint-config-humanmade
         - npm install --legacy-peer-deps
         - cd ../..
-      script:
-        - npm run test:eslint
-    - language: node_js
-      node_js: 16
-      install:
-        - npm install --legacy-peer-deps
         - cd packages/stylelint-config
         - npm install --legacy-peer-deps
         - cd ../..
       script:
-        - npm run test:stylelint
+        - npm run test
