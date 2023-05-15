@@ -71,6 +71,23 @@
 			<property name="additionalWordDelimiters" value="." />
 		</properties>
 	</rule>
+	
+	
+	<!-- Ease up on the PHP DOM* objects 
+	<rule ref="WordPress.NamingConventions.ValidVariableName">
+		<properties>
+			<property name="customPropertiesWhitelist" type="array">
+				<!-- DOMDocument::$documentElement -->
+				<element value="documentElement" />
+				<!-- DOMElement::$childElementCount -->				
+				<element value="childElementCount" />
+				<!-- DOMElement::$parentNode -->
+				<element value="parentNode" />
+				<!-- DOMNode::$childNodes -->				
+				<element value="childNodes" />
+			</property>
+		</properties>
+	</rule>
 
 	<rule ref="WordPress.Security.PluginMenuSlug" />
 	<rule ref="WordPress.Security.PluginMenuSlug.Using__FILE__">
