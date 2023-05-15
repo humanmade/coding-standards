@@ -146,5 +146,6 @@ module.exports = {
 			'ignoreCase': true,
 		} ],
 		'jsx-a11y/anchor-is-valid': [ 'error' ],
+		'jsx-quotes': [ 'error', 'prefer-double' ],
 	},
 };
