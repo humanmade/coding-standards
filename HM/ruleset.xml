@@ -72,7 +72,7 @@
 		</properties>
 	</rule>
 	
-	<!-- Ease up on the PHP DOM* objects 
+	<!-- Ease up on the PHP DOM* objects. -->
 	<rule ref="WordPress.NamingConventions.ValidVariableName">
 		<properties>
 			<property name="customPropertiesWhitelist" type="array">
