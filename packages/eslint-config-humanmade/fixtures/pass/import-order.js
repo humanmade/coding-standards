@@ -4,7 +4,6 @@ import path from 'path';
 
 import chalk from 'chalk';
 import eslint from 'eslint';
-
 import apiFetch from '@wordpress/api-fetch';
 
 import index from '../../index';
