@@ -56,13 +56,13 @@ class EscapeOutputSniff extends WPCSEscapeOutputSniff {
 	}
 
 	/**
-	 * Override init to duplicate any ignores.
+	 * Override process to duplicate any ignores.
 	 *
-	 * @param PhpcsFile $phpcsFile
+	 * @param PhpcsFile $file
+	 * @param int $stackPtr
 	 */
-	protected function init( PhpcsFile $phpcsFile ) {
-		parent::init( $phpcsFile );
-
-		$this->duplicate_ignores( 'WordPress.Security.EscapeOutput' );
+	public function process( PhpcsFile $file, $stackPtr ) {
+		$this->duplicate_ignores( $file, 'WordPress.Security.EscapeOutput' );
+		return parent::process( $file, $stackPtr );
 	}
 }
