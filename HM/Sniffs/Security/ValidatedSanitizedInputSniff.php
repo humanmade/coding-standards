@@ -36,14 +36,14 @@ class ValidatedSanitizedInputSniff extends WPCSValidatedSanitizedInputSniff {
 	];
 
 	/**
-	 * Override init to duplicate any ignores.
+	 * Override process to duplicate any ignores.
 	 *
 	 * @param PhpcsFile $phpcsFile
+	 * @param int $stackPtr
 	 */
-	protected function init( PhpcsFile $phpcsFile ) {
-		parent::init( $phpcsFile );
-
-		$this->duplicate_ignores( 'WordPress.Security.ValidatedSanitizedInput' );
+	public function process( PhpcsFile $file, $stackPtr ) {
+		$this->duplicate_ignores( $file, 'WordPress.Security.ValidatedSanitizedInput' );
+		return parent::process( $file, $stackPtr );
 	}
 
 	/**
