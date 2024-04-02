@@ -14,7 +14,7 @@ use WordPressCS\WordPress\Sniffs\Security\EscapeOutputSniff as WPCSEscapeOutputS
  *
  * @see https://github.com/WordPress/WordPress-Coding-Standards/issues/1864
  */
-#[AllowDynamicProperties]
+#[\AllowDynamicProperties]
 class EscapeOutputSniff extends WPCSEscapeOutputSniff {
 	use ExtraSniffCode;
 
