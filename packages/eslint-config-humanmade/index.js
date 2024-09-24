@@ -5,11 +5,7 @@ module.exports = {
 		'es6': true,
 	},
 	'extends': [
-		'eslint:recommended',
-		'react-app',
-		'plugin:import/errors',
-		'plugin:jsdoc/recommended',
-		'plugin:react-hooks/recommended',
+		'plugin:@wordpress/eslint-plugin/recommended',
 	],
 	'parserOptions': {
 		'ecmaVersion': 2018,
