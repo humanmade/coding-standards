@@ -118,7 +118,8 @@ module.exports = {
 		} ],
 		'template-curly-spacing': [ 'error', 'always' ],
 		'yoda': [ 'error', 'never' ],
-		'jsdoc/require-jsdoc': [ 'error', {
+		'jsdoc/check-line-alignment': [ 'warn' ],
+		'jsdoc/require-jsdoc': [ 'warn', {
 			'require': {
 				'FunctionDeclaration': true,
 				'ClassDeclaration': true,
@@ -126,6 +127,7 @@ module.exports = {
 				'FunctionExpression': true,
 			},
 		} ],
+		'prettier/prettier': [ 'off' ],
 		'react/jsx-curly-spacing': [ 'error', {
 			'when': 'always',
 			'children': true,
