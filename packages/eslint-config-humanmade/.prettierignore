@@ -1,0 +1,2 @@
+# Preserve fixture files as baseline - don't auto-format them
+fixtures/

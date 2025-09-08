@@ -1,6 +1,24 @@
 # @humanmade/eslint-config
 
-Human Made coding standards for JavaScript.
+Human Made coding standards for JavaScript, for ESLint v9+ using flat config format.
+
+## Usage
+
+Create an `eslint.config.js` file in your project root:
+
+```js
+import humanmadeConfig from '@humanmade/eslint-config';
+
+export default [
+	...humanmadeConfig,
+	// Your custom config overrides
+];
+```
+
+## Requirements
+
+- ESLint v9.0.0 or higher
+- Node.js 20.18.0 or higher
 
 ## Installation
 
@@ -8,7 +26,7 @@ This package is an ESLint shareable configuration, and requires: `babel-eslint`,
 
 To install this config and the peerDependencies when using **npm 5+**:
 
-```
+```bash
 npx install-peerdeps --dev @humanmade/eslint-config@latest
 ```
 
@@ -21,6 +39,7 @@ You can then use it directly on the command line:
 ```
 
 Alternatively, you can create your own configuration and extend these rules:
+
 ```yaml
 extends:
 - @humanmade/eslint-config
@@ -48,7 +67,7 @@ When installing globally, you need to ensure the peer dependencies are also inst
 
 Run the same command as above, but instead with `--global`:
 
-```shell
+```bash
 npx install-peerdeps --global @humanmade/eslint-config@latest
 ```
 
@@ -60,7 +79,7 @@ We require the use of Node v16+ and npm v7+, however the Altis build container s
 
 As per the Altis documentation, [you can install other versions of Node using nvm](https://docs.altis-dxp.com/cloud/build-scripts/#included-build-tools), so we recommend that you add the following to your build script.
 
-```
+```bash
 nvm install 16
 nvm use 16
 ```

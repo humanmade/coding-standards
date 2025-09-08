@@ -23,8 +23,8 @@
 		"url": "https://github.com/humanmade/coding-standards/issues"
 	},
 	"engines" : {
-		"npm" : ">=7.0.0",
-		"node" : ">=16.0.0"
+		"npm" : ">=10.8.2",
+		"node" : ">=20.18.0"
 	},
 	"npmpackagejsonlint": {
 		"extends": "@wordpress/npm-package-json-lint-config",
