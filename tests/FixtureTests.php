@@ -117,16 +117,10 @@ class FixtureTests extends TestCase {
 
 		// Set configuration as needed too.
 		$this->ruleset->setSniffProperty( 'HM\\Sniffs\\Security\\EscapeOutputSniff', 'customAutoEscapedFunctions', [
-			'scope' => 'sniff',
-			'value' => [
-				'my_custom_func',
-				'another_func',
-			]
+			'my_custom_func',
+			'another_func',
 		] );
-		$this->ruleset->setSniffProperty( 'HM\\Sniffs\\Security\\NonceVerificationSniff', 'allowQueryVariables', [
-			'scope' => 'sniff',
-			'value' => true
-		] );
+		$this->ruleset->setSniffProperty( 'HM\\Sniffs\\Security\\NonceVerificationSniff', 'allowQueryVariables', true );
 	}
 
 	/**
