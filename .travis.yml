@@ -14,31 +14,6 @@ branches:
 jobs:
   include:
     - language: php
-      php: 7.2
-      install:
-        - composer install
-      script:
-        - vendor/bin/phpunit
-    - language: php
-      php: 7.3
-      install:
-        - composer install
-      script:
-        - vendor/bin/phpunit
-    - language: php
-      php: 7.4
-      install:
-        - composer install
-      script:
-        - vendor/bin/phpunit
-    - language: php
-      php: 8.0
-      install:
-        # For PHP 8.0+, we need to ignore platform reqs as PHPUnit 7 is still used.
-        - composer install --ignore-platform-reqs
-      script:
-        - vendor/bin/phpunit
-    - language: php
       php: 8.1
       install:
         # For PHP 8.0+, we need to ignore platform reqs as PHPUnit 7 is still used.
@@ -48,6 +23,40 @@ jobs:
         # Instead, we pass all required settings as part of the phpunit command.
         - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/AllSniffs.php
         - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php
+
+    - language: php
+      php: 8.2
+      install:
+        # For PHP 8.0+, we need to ignore platform reqs as PHPUnit 7 is still used.
+        - composer install --ignore-platform-reqs
+      script:
+        # For PHP 8.1+, we need to ignore the config file so that PHPUnit 7 doesn't try to read it and cause an error.
+        # Instead, we pass all required settings as part of the phpunit command.
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/AllSniffs.php
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php
+
+    - language: php
+      php: 8.3
+      install:
+        # For PHP 8.0+, we need to ignore platform reqs as PHPUnit 7 is still used.
+        - composer install --ignore-platform-reqs
+      script:
+        # For PHP 8.1+, we need to ignore the config file so that PHPUnit 7 doesn't try to read it and cause an error.
+        # Instead, we pass all required settings as part of the phpunit command.
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/AllSniffs.php
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php
+
+    - language: php
+      php: 8.4
+      install:
+        # For PHP 8.0+, we need to ignore platform reqs as PHPUnit 7 is still used.
+        - composer install --ignore-platform-reqs
+      script:
+        # For PHP 8.1+, we need to ignore the config file so that PHPUnit 7 doesn't try to read it and cause an error.
+        # Instead, we pass all required settings as part of the phpunit command.
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/AllSniffs.php
+        - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php
+
     - language: node_js
       node_js: 20
       install:
@@ -57,6 +66,7 @@ jobs:
         - cd ../..
       script:
         - npm run test:eslint
+
     - language: node_js
       node_js: 20
       install:
@@ -66,6 +76,7 @@ jobs:
         - cd ../..
       script:
         - npm run test:stylelint
+
     - language: node_js
       node_js: 22
       install:
@@ -75,6 +86,7 @@ jobs:
         - cd ../..
       script:
         - npm run test:eslint
+
     - language: node_js
       node_js: 22
       install:
