@@ -2,7 +2,6 @@ import wordpress from '@wordpress/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
 import jsdocPlugin from 'eslint-plugin-jsdoc';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
-import prettierPlugin from 'eslint-plugin-prettier';
 import reactPlugin from 'eslint-plugin-react';
 
 /**
@@ -36,22 +35,133 @@ export default [
 			import: importPlugin,
 			jsdoc: jsdocPlugin,
 			'jsx-a11y': jsxA11yPlugin,
-			prettier: prettierPlugin,
 			react: reactPlugin,
 		},
 		rules: {
-			// WordPress recommended rules
-			...wordpress.configs.recommended.rules,
-
-			// Code Quality Rules (non-formatting)
+			// All formatting and code quality rules from master branch
+			'array-bracket-spacing': ['error', 'always'],
+			'arrow-parens': ['error', 'as-needed'],
+			'arrow-spacing': [
+				'error',
+				{
+					before: true,
+					after: true,
+				},
+			],
+			'block-spacing': ['error'],
+			'brace-style': ['error', '1tbs'],
+			'comma-dangle': [
+				'error',
+				{
+					arrays: 'always-multiline',
+					objects: 'always-multiline',
+					imports: 'always-multiline',
+					exports: 'always-multiline',
+					functions: 'never',
+				},
+			],
+			'comma-spacing': [
+				'error',
+				{
+					before: false,
+					after: true,
+				},
+			],
+			'eol-last': ['error', 'unix'],
 			'eqeqeq': ['error'],
+			'func-call-spacing': ['error'],
+			'indent': [
+				'error',
+				'tab',
+				{
+					SwitchCase: 1,
+				},
+			],
+			'key-spacing': [
+				'error',
+				{
+					beforeColon: false,
+					afterColon: true,
+				},
+			],
+			'keyword-spacing': [
+				'error',
+				{
+					after: true,
+					before: true,
+				},
+			],
+			'linebreak-style': ['error', 'unix'],
 			'no-console': ['warn'],
-			'no-unused-vars': ['error', { 
-				vars: 'all',
-				args: 'after-used',
-				ignoreRestSiblings: true
-			}],
+			'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
+			'no-multiple-empty-lines': [
+				'error',
+				{
+					max: 1,
+				},
+			],
+			'no-trailing-spaces': ['error'],
 			'no-var': ['warn'],
+			'object-curly-newline': [
+				'error',
+				{
+					ObjectExpression: {
+						consistent: true,
+						minProperties: 2,
+						multiline: true,
+					},
+					ObjectPattern: {
+						consistent: true,
+						multiline: true,
+					},
+					ImportDeclaration: {
+						consistent: true,
+						multiline: true,
+					},
+					ExportDeclaration: {
+						consistent: true,
+						minProperties: 2,
+						multiline: true,
+					},
+				},
+			],
+			'object-curly-spacing': ['error', 'always'],
+			'object-property-newline': ['error'],
+			'quotes': ['error', 'single'],
+			'semi': ['error', 'always'],
+			'semi-spacing': [
+				'error',
+				{
+					before: false,
+					after: true,
+				},
+			],
+			'space-before-function-paren': [
+				'error',
+				{
+					anonymous: 'always',
+					asyncArrow: 'always',
+					named: 'never',
+				},
+			],
+			'space-in-parens': [
+				'warn',
+				'always',
+				{
+					exceptions: ['empty'],
+				},
+			],
+			'space-unary-ops': [
+				'error',
+				{
+					words: true,
+					nonwords: false,
+					overrides: {
+						'!': true,
+					},
+				},
+			],
+			'template-curly-spacing': ['error', 'always'],
 			'yoda': ['error', 'never'],
 
 			// Import/Export Rules
@@ -76,11 +186,9 @@ export default [
 				},
 			],
 
-			// Formatting handled by Prettier
-			'prettier/prettier': ['error'],
-			'jsdoc/check-line-alignment': ['warn'],
+			// JSDoc Rules
 			'jsdoc/require-jsdoc': [
-				'warn',
+				'error',
 				{
 					require: {
 						FunctionDeclaration: true,
@@ -90,16 +198,23 @@ export default [
 					},
 				},
 			],
-			// JSX rules - important for Human Made standards
-			'react/jsx-curly-spacing': ['error', {
-				when: 'always',
-				children: true,
-			}],
+
+			// React/JSX Rules
+			'react/jsx-curly-spacing': [
+				'error',
+				{
+					when: 'always',
+					children: true,
+				},
+			],
 			'react/jsx-wrap-multilines': ['error'],
-			'react/jsx-curly-newline': ['warn', {
-				multiline: 'consistent',
-				singleline: 'consistent',
-			}],
+			'react/jsx-curly-newline': [
+				'warn',
+				{
+					multiline: 'consistent',
+					singleline: 'consistent',
+				},
+			],
 			'react/jsx-boolean-value': ['error', 'never'],
 			'react/jsx-sort-props': [
 				'warn',

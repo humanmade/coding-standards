@@ -1,13 +1,15 @@
 /* eslint-disable jsdoc/require-jsdoc */
 /* eslint-disable no-unused-vars */
 
-// This should trigger no-var rule
-var testVarUsage = 'foo';
+// Missing semicolon.
+const testMissingSemicolon = 'foo'
 
-// This should pass
-const testConstUsage = 'bar';
+// Incorrect space before semicolon.
+const testSemiSpacing = 'bar' ;
+
+// Double semicolon.
+const testDoubleSemiColon = 5;;
 
 const testFunc = function () {
-	// This should also trigger no-var
-	var localVar = 'baz';
-};
+	// ...
+}
