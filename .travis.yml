@@ -47,7 +47,7 @@ jobs:
         - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php
 
     - language: node_js
-      node_js: 20
+      node_js: 22
       install:
         - npm ci
         - cd packages/eslint-config-humanmade
@@ -57,7 +57,7 @@ jobs:
         - npm run test:eslint
 
     - language: node_js
-      node_js: 20
+      node_js: 22
       install:
         - npm ci
         - cd packages/stylelint-config
@@ -67,7 +67,7 @@ jobs:
         - npm run test:stylelint
 
     - language: node_js
-      node_js: 22
+      node_js: 24
       install:
         - npm ci
         - cd packages/eslint-config-humanmade
@@ -77,7 +77,7 @@ jobs:
         - npm run test:eslint
 
     - language: node_js
-      node_js: 22
+      node_js: 24
       install:
         - npm ci
         - cd packages/stylelint-config

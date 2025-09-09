@@ -43,11 +43,11 @@
 	},
 	"peerDependencies": {
 		"@babel/eslint-parser": "^7.25.0",
-		"@wordpress/eslint-plugin": "^20",
+		"@wordpress/eslint-plugin": "^20.0.0",
 		"eslint": "^9.0.0",
-		"eslint-plugin-import": "^2.0.0",
-		"eslint-plugin-jsx-a11y": "^6.0.0",
-		"eslint-plugin-react": "^7.0.0"
+		"eslint-plugin-import": "^2.30.0",
+		"eslint-plugin-jsx-a11y": "^6.8.0",
+		"eslint-plugin-react": "^7.35.0"
 	},
 	"publishConfig": {
 		"access": "public"
