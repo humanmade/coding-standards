@@ -24,7 +24,11 @@
 	},
 	"engines" : {
 		"npm" : ">=10.8.2",
-		"node" : ">=20.18.0"
+		"node" : ">=22.0.0"
+	},
+	"packageManager": "npm@10.8.2",
+	"overrides": {
+		"@babel/runtime": ">=7.26.10"
 	},
 	"npmpackagejsonlint": {
 		"extends": "@wordpress/npm-package-json-lint-config",
@@ -64,13 +68,21 @@
 					"require-repository-directory": "off",
 					"prefer-no-devDependencies": "off"
 				}
+			},
+			{
+				"patterns": [
+					"./packages/*/package.json"
+				],
+				"rules": {
+					"prefer-no-devDependencies": "off"
+				}
 			}
 		]
 	},
 	"devDependencies": {
-		"@wordpress/npm-package-json-lint-config": "^4.0.5",
-		"lerna": "^5.5.0",
-		"npm-package-json-lint": "^5.1.0"
+		"@wordpress/npm-package-json-lint-config": "^4.43.0",
+		"lerna": "^8.2.3",
+		"npm-package-json-lint": "^9.0.0"
 	},
 	"scripts": {
 		"lint-pkg-json": "npmPkgJsonLint . 'packages/*/package.json'",
