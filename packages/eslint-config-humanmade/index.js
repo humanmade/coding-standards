@@ -101,6 +101,7 @@ export default [
 				},
 			],
 			'no-trailing-spaces': ['error'],
+			'no-unused-vars': ['error'],
 			'no-var': ['warn'],
 			'object-curly-newline': [
 				'error',
