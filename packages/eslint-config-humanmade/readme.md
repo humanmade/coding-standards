@@ -4,14 +4,27 @@ Human Made coding standards for JavaScript, for ESLint v9+ using flat config for
 
 ## Usage
 
-Create an `eslint.config.js` file in your project root:
+**Required**: Create an `eslint.config.js` file in your project root (ESLint 9+ flat config format):
 
+### Basic Usage
+```js
+import humanmadeConfig from '@humanmade/eslint-config';
+
+export default humanmadeConfig;
+```
+
+### With Custom Overrides
 ```js
 import humanmadeConfig from '@humanmade/eslint-config';
 
 export default [
 	...humanmadeConfig,
 	// Your custom config overrides
+	{
+		rules: {
+			'no-console': 'off', // Example override
+		},
+	},
 ];
 ```
 
@@ -32,34 +45,15 @@ npx install-peerdeps --dev @humanmade/eslint-config@latest
 
 (Thanks to [Airbnb's package](https://www.npmjs.com/package/eslint-config-airbnb) for the command.)
 
-You can then use it directly on the command line:
+You can then run ESLint on your files:
 
 ```shell
-./node_modules/.bin/eslint -c @humanmade/eslint-config MyFile.js
-```
-
-Alternatively, you can create your own configuration and extend these rules:
-
-```yaml
-extends:
-- @humanmade/eslint-config
+npx eslint .
 ```
 
 ### Working with TypeScript
 
-If you desire to use TypeScript for your project, you will need to add another dependency:
-
-```shell
-npm install --save-dev @typescript-eslint/parser
-```
-
-Once it's installed, update your configuration with the `parser` parameter:
-
-```yml
-parser: "@typescript-eslint/parser"
-extends:
-    - @humanmade/eslint-config
-```
+This config already supports TypeScript files (.ts, .tsx) out of the box via the WordPress ESLint plugin. No additional setup is required.
 
 ## Global Installation
 
