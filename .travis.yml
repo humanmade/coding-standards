@@ -47,6 +47,26 @@ jobs:
         - vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php
 
     - language: node_js
+      node_js: 20
+      install:
+        - npm ci
+        - cd packages/eslint-config-humanmade
+        - npm ci
+        - cd ../..
+      script:
+        - npm run test:eslint
+
+    - language: node_js
+      node_js: 20
+      install:
+        - npm ci
+        - cd packages/stylelint-config
+        - npm ci
+        - cd ../..
+      script:
+        - npm run test:stylelint
+
+    - language: node_js
       node_js: 22
       install:
         - npm ci

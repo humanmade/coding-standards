@@ -31,7 +31,7 @@ export default [
 ## Requirements
 
 - ESLint v9.0.0 or higher
-- Node.js 22.0.0 or higher
+- Node.js 20.0.0 or higher (Node.js 22 recommended)
 
 ## Installation
 
@@ -69,7 +69,7 @@ This allows you to use `eslint -c humanmade MyFile.js` anywhere on your filesyst
 
 ## Integration with Altis build script.
 
-We require the use of Node v22+ and npm v10.8.2+, however the Altis build container may ship with older versions so it may not work out of the box.
+We require the use of Node v20+ and npm v10.8.2+ (Node v22+ recommended), however the Altis build container may ship with older versions so it may not work out of the box.
 
 As per the Altis documentation, [you can install other versions of Node using nvm](https://docs.altis-dxp.com/cloud/build-scripts/#included-build-tools), so we recommend that you add the following to your build script.
 
