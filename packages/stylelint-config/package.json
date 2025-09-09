@@ -1,6 +1,6 @@
 {
 	"name": "@humanmade/stylelint-config",
-	"version": "1.2.1",
+	"version": "1.3.0",
 	"description": "Human Made Coding Standards for CSS and SCSS.",
 	"author": "Human Made",
 	"license": "GPL-2.0-or-later",
@@ -23,18 +23,20 @@
 		"url": "https://github.com/humanmade/coding-standards/issues"
 	},
 	"engines": {
-		"npm": ">=7.0.0",
-		"node": ">=16.0.0"
+		"npm": ">=10.8.2",
+		"node": ">=22.0.0"
 	},
+	"type": "module",
 	"main": ".stylelintrc.json",
 	"dependencies": {
-		"@wordpress/stylelint-config": "^21.0.0"
+		"@wordpress/stylelint-config": "^23.22.0"
 	},
 	"devDependencies": {
-		"chalk": "^4.1.2"
+		"chalk": "^5.0.0",
+		"stylelint": "^16.24.0"
 	},
 	"peerDependencies": {
-		"stylelint": "^14.2.0"
+		"stylelint": "^16.8.2"
 	},
 	"publishConfig": {
 		"access": "public"
