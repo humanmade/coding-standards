@@ -18,9 +18,10 @@ class ESLintSniff implements Sniff {
 	/**
 	 * A list of tokenizers this sniff supports.
 	 *
+	 * Note: Disabled due to PHP_CodeSniffer 4.0 deprecation of CSS/JS scanning.
 	 * @var array
 	 */
-	public $supportedTokenizers = [ 'JS' ];
+	public $supportedTokenizers = [];
 
 	/**
 	 * ESLint configuration file path.

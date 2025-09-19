@@ -1,6 +1,7 @@
 {
   "extends": [
-    "@wordpress/stylelint-config/scss"
+    "@wordpress/stylelint-config/scss",
+    "@wordpress/stylelint-config/scss-stylistic"
   ],
   "rules": {
     "comment-empty-line-before": [
@@ -10,8 +11,9 @@
         "ignore": [ "stylelint-commands" ]
       }
     ],
-    "block-closing-brace-newline-before": "always-multi-line",
-    "declaration-block-semicolon-newline-after": "always-multi-line",
+    "@stylistic/block-closing-brace-newline-after": "always",
+    "@stylistic/block-closing-brace-newline-before": "always-multi-line",
+    "@stylistic/declaration-block-semicolon-newline-after": "always-multi-line",
     "declaration-block-single-line-max-declarations": 4,
     "declaration-no-important": true,
     "declaration-property-unit-disallowed-list": {
@@ -26,15 +28,15 @@
       "transition-delay": [ "ms" ],
       "transition-duration": [ "ms" ]
     },
-    "function-parentheses-space-inside": "always-single-line",
-    "function-comma-space-after": "always-single-line",
+    "@stylistic/function-comma-space-after": "always-single-line",
+    "@stylistic/function-parentheses-space-inside": "always-single-line",
     "function-url-quotes": "always",
-    "max-line-length": 100,
-    "max-empty-lines": 1,
+    "@stylistic/max-empty-lines": 1,
+    "@stylistic/max-line-length": 100,
     "max-nesting-depth": [ 2, {
       "ignore": [ "blockless-at-rules" ]
     } ],
-    "media-feature-parentheses-space-inside": "always",
+    "@stylistic/media-feature-parentheses-space-inside": "always",
     "rule-empty-line-before" : [
       "always",
       {

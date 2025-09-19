@@ -1,6 +1,6 @@
-const stylelint = require(  'stylelint' );
-const chalk = require(  'chalk' );
-const path = require(  'path' );
+import stylelint from 'stylelint';
+import chalk from 'chalk';
+import path from 'path';
 
 stylelint.lint( {
 	files: 'fixtures/pass/**/*.{css,scss}'
