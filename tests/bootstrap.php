@@ -27,4 +27,5 @@ require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Abstrac
 require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/Security/NonceVerificationSniff.php';
 require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/PHPCSHelper.php';
 require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/Security/EscapeOutputSniff.php';
+require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/Security/NonceVerificationSniff.php';
 require dirname( __DIR__ ) . '/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/Security/ValidatedSanitizedInputSniff.php';

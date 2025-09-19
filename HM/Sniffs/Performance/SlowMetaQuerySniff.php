@@ -4,6 +4,9 @@ namespace HM\Sniffs\Performance;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Util\Tokens;
+use PHPCSUtils\Utils\Arrays;
+use PHPCSUtils\Utils\MessageHelper;
+use PHPCSUtils\Utils\TextStrings;
 use WordPressCS\WordPress\AbstractArrayAssignmentRestrictionsSniff;
 
 /**
@@ -104,7 +107,8 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		$array_open_token = $this->tokens[ $array_open ];
 		if ( $array_open_token['code'] !== T_ARRAY && $array_open_token['code'] !== T_OPEN_SHORT_ARRAY ) {
 			// Dynamic value, we can't check.
-			$this->addMessage(
+			MessageHelper::addMessage(
+				$this->phpcsFile,
 				'meta_query is dynamic, cannot be checked.',
 				$array_open,
 				'warning',
@@ -114,7 +118,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			return;
 		}
 
-		$array_bounds = $this->find_array_open_close( $array_open );
+		$array_bounds = Arrays::getOpenClose( $this->phpcsFile, $array_open );
 		$elements = $this->get_array_indices( $array_bounds['opener'], $array_bounds['closer'] );
 
 		// Is this a "first-order" query?
@@ -138,7 +142,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 
 		foreach ( $elements as $element ) {
 			if ( isset( $element['index_start'] ) ) {
-				$index = $this->strip_quotes( $this->tokens[ $element['index_start'] ]['content'] );
+				$index = TextStrings::stripQuotes( $this->tokens[ $element['index_start'] ]['content'] );
 				if ( strtolower( $index ) === 'relation' ) {
 					// Skip 'relation' element.
 					continue;
@@ -176,7 +180,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			return static::DYNAMIC_VALUE;
 		}
 
-		return $this->strip_quotes( $this->tokens[ $value_start ]['content'] );
+		return TextStrings::stripQuotes( $this->tokens[ $value_start ]['content'] );
 	}
 
 	/**
@@ -208,7 +212,7 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 				continue;
 			}
 
-			$index = $this->strip_quotes( $this->tokens[ $start ]['content'] );
+			$index = TextStrings::stripQuotes( $this->tokens[ $start ]['content'] );
 			if ( $index !== $array_key ) {
 				// Not the item we want, skip.
 				continue;
@@ -270,7 +274,8 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 		}
 
 		if ( $compare === static::DYNAMIC_VALUE ) {
-			$this->addMessage(
+			MessageHelper::addMessage(
+				$this->phpcsFile,
 				'meta_query is using a dynamic comparison; this cannot be checked automatically, and may be non-performant.',
 				$stackPtr,
 				'warning',
@@ -278,7 +283,8 @@ class SlowMetaQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 			);
 		} elseif ( $compare !== 'EXISTS' && $compare !== 'NOT EXISTS' ) {
 			// Add a message ourselves.
-			$this->addMessage(
+			MessageHelper::addMessage(
+				$this->phpcsFile,
 				'meta_query is using %s comparison, which is non-performant.',
 				$stackPtr,
 				'warning',

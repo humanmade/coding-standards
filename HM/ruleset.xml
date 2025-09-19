@@ -24,9 +24,9 @@
 		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error" />
 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
 
-		<!-- We like short arrays and ternaries around here -->
-		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
-		<exclude name="WordPress.PHP.DisallowShortTernary" />
+		<!-- We like short arrays and short ternaries around here -->
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax" />
+		<exclude name="Universal.Operators.DisallowShortTernary" />
 
 		<!--
 		OK, real talk right now. Yoda conditions are ridiculous.
@@ -71,18 +71,18 @@
 			<property name="additionalWordDelimiters" value="." />
 		</properties>
 	</rule>
-	
+
 	<!-- Ease up on the PHP DOM* objects. -->
 	<rule ref="WordPress.NamingConventions.ValidVariableName">
 		<properties>
-			<property name="customPropertiesWhitelist" type="array">
+			<property name="allowed_custom_properties" type="array">
 				<!-- DOMDocument::$documentElement -->
 				<element value="documentElement" />
-				<!-- DOMElement::$childElementCount -->				
+				<!-- DOMElement::$childElementCount -->
 				<element value="childElementCount" />
 				<!-- DOMElement::$parentNode -->
 				<element value="parentNode" />
-				<!-- DOMNode::$childNodes -->				
+				<!-- DOMNode::$childNodes -->
 				<element value="childNodes" />
 			</property>
 		</properties>
