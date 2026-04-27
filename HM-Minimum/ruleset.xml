@@ -71,6 +71,17 @@
 				<element value="get_post_gallery" /> <!-- with param 2 set to true, the default -->
 			</property>
 		</properties>
+
+		<!--
+			Exception messages are internal program state, not an output boundary.
+			Escaping belongs at the point of output (catch/render), not at throw.
+			The OutputNotEscaped rule still covers actual HTML output points.
+			See: https://github.com/WordPress/WordPress-Coding-Standards/issues/2374
+
+			To opt back in to this check, add to your ruleset:
+			<rule ref="HM.Security.EscapeOutput.ExceptionNotEscaped" />
+		-->
+		<exclude name="HM.Security.EscapeOutput.ExceptionNotEscaped" />
 	</rule>
 
 	<!-- Disallow use of __FILE__ in menu slugs, which exposes the filesystem's data. -->
