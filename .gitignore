@@ -13,3 +13,4 @@ phpcs-standard/
 
 # OS generated files
 .DS_Store
+.phpunit.result.cache
