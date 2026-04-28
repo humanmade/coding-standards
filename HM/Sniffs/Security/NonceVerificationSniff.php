@@ -27,17 +27,17 @@ class NonceVerificationSniff extends WPCSNonceVerificationSniff {
 	public $allowQueryVariables = false;
 
 	/**
-	 * Override init to override config and duplicate any ignores.
+	 * Override process to override config and duplicate any ignores.
 	 *
 	 * @param PhpcsFile $phpcsFile
+	 * @param int $stackPtr
 	 */
-	public function init( PhpcsFile $file ) {
-		parent::init( $file );
-
+	public function process( PhpcsFile $file, $stackPtr ) {
 		if ( $this->allowQueryVariables ) {
 			unset( $this->superglobals[ '$_GET' ] );
 		}
 
-		$this->duplicate_ignores( 'WordPress.Security.NonceVerification' );
+		$this->duplicate_ignores( $file, 'WordPress.Security.NonceVerification' );
+		return parent::process( $file, $stackPtr );
 	}
 }
