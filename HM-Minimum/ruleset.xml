@@ -71,6 +71,17 @@
 				<element value="get_post_gallery" /> <!-- with param 2 set to true, the default -->
 			</property>
 		</properties>
+
+		<!--
+			Exception messages are internal program state, not an output boundary.
+			Escaping belongs at the point of output (catch/render), not at throw.
+			The OutputNotEscaped rule still covers actual HTML output points.
+			See: https://github.com/WordPress/WordPress-Coding-Standards/issues/2374
+
+			To opt back in to this check, add to your ruleset:
+			<rule ref="HM.Security.EscapeOutput.ExceptionNotEscaped" />
+		-->
+		<exclude name="HM.Security.EscapeOutput.ExceptionNotEscaped" />
 	</rule>
 
 	<!-- Disallow use of __FILE__ in menu slugs, which exposes the filesystem's data. -->
@@ -154,13 +165,12 @@
 	<rule ref="Generic.Files.ByteOrderMark" />
 
 	<!-- Disallow empty statements. -->
-	<rule ref="WordPress.CodeAnalysis.EmptyStatement" />
+	<rule ref="Generic.CodeAnalysis.EmptyPHPStatement" />
 
 	<!-- Require correct usage of WP's i18n functions. -->
 	<rule ref="WordPress.WP.I18n">
-		<properties>
-			<property name="check_translator_comments" value="false" />
-		</properties>
+		<!-- Ignore missing translator comments -->
+		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment" />
 
 		<!-- Allow empty strings to be translated (e.g. space character) -->
 		<exclude name="WordPress.WP.I18n.NoEmptyStrings" />
@@ -176,9 +186,6 @@
 	<!--
 		Rules based on WordPress-Extra
 	-->
-	<!-- Disallow parts of PHP which may cause compatibility issues. -->
-	<rule ref="Generic.Functions.CallTimePassByReference" />
-
 	<!-- Disallow "development" functions like var_dump/print_r/phpinfo -->
 	<rule ref="WordPress.PHP.DevelopmentFunctions">
 		<!-- Allow triggering errors for reporting purposes. -->

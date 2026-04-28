@@ -2,6 +2,8 @@
 
 namespace HM\Sniffs\Performance;
 
+use PHPCSUtils\Utils\MessageHelper;
+use PHPCSUtils\Utils\TextStrings;
 use WordPressCS\WordPress\AbstractArrayAssignmentRestrictionsSniff;
 
 /**
@@ -57,11 +59,13 @@ class SlowOrderBySniff extends AbstractArrayAssignmentRestrictionsSniff {
 	 *                       with custom error message passed to ->process().
 	 */
 	public function callback( $key, $val, $line, $group ) {
+		$val = TextStrings::stripQuotes( $val );
 		switch ( $val ) {
 			case 'rand':
 			case 'meta_value':
 			case 'meta_value_num':
-				$this->addMessage(
+				MessageHelper::addMessage(
+					$this->phpcsFile,
 					'Ordering query results by %s is not performant.',
 					$this->stackPtr,
 					'warning',
