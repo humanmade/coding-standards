@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1 (April 30, 2026)
+
+- Set PHP 8.2 as minimum testVersion in PHPCompatibility to fix exception in 2.0.0
+
 ## 2.0.0 (April 30, 2026)
 
 ### Breaking Changes:
