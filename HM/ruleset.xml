@@ -12,6 +12,8 @@
 	<!-- Include everything from the minimum set -->
 	<rule ref="HM-Minimum" />
 
+	<config name="testVersion" value="8.2-"/>
+
 	<!-- Check for PHP cross-version compatibility. -->
 	<rule ref="PHPCompatibilityWP" />
 
