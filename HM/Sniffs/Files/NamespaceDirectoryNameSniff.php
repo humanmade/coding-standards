@@ -30,7 +30,7 @@ class NamespaceDirectoryNameSniff implements Sniff {
 		$tokens = $phpcsFile->getTokens();
 		$namespace = '';
 
-		$name_ptr = $phpcsFile->findNext( T_STRING, 0);
+		$name_ptr = $phpcsFile->findNext( T_STRING, $stackPtr );
 		if ( ! $name_ptr ) {
 			// Non-namespaced, skip check.
 			return;
