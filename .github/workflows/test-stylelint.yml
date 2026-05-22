@@ -1,0 +1,52 @@
+name: Stylelint Tests
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'packages/stylelint-config/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/test-stylelint.yml'
+  pull_request:
+    paths:
+      - 'packages/stylelint-config/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/test-stylelint.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Stylelint / Node ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version:
+          - 20
+          - 22
+          - 24
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install Stylelint package dependencies
+        working-directory: packages/stylelint-config
+        run: npm ci
+
+      - name: Run Stylelint tests
+        run: npm run test:stylelint

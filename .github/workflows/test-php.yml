@@ -1,0 +1,67 @@
+name: PHP Tests
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'HM/**'
+      - 'HM-Minimum/**'
+      - 'tests/**'
+      - 'composer.json'
+      - 'phpunit.xml.dist'
+      - 'ruleset.xml'
+      - '.github/workflows/test-php.yml'
+  pull_request:
+    paths:
+      - 'HM/**'
+      - 'HM-Minimum/**'
+      - 'tests/**'
+      - 'composer.json'
+      - 'phpunit.xml.dist'
+      - 'ruleset.xml'
+      - '.github/workflows/test-php.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: PHP ${{ matrix.php-version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version:
+          - '8.2'
+          - '8.3'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f # 2.37.0
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: ~/.cache/composer/files
+          key: composer-${{ matrix.php-version }}-${{ hashFiles('composer.json') }}
+          restore-keys: |
+            composer-${{ matrix.php-version }}-
+            composer-
+
+      - name: Install Composer dependencies
+        # Ignore platform requirements as PHPUnit may require a higher PHP version than the minimum supported.
+        run: composer install --ignore-platform-reqs
+
+      - name: Run PHPUnit (AllSniffs)
+        # Pass settings via CLI to avoid PHPUnit config file compatibility issues across versions.
+        run: vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/AllSniffs.php
+
+      - name: Run PHPUnit (FixtureTests)
+        run: vendor/bin/phpunit --no-configuration --bootstrap=tests/bootstrap.php --dont-report-useless-tests tests/FixtureTests.php

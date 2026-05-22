@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.0.1 (April 30, 2026)
+
+- Set PHP 8.2 as minimum testVersion in PHPCompatibility to fix exception in 2.0.0
+
+## 2.0.0 (April 30, 2026)
+
+### Breaking Changes:
+
+- Updated WPCS to 3.0.0 and VIPCS to 3.0.0
+- Raised the minimum supported PHP version to 8.2
+- Raised the PHPUnit development dependency to 8.2
+- Updated `HM.Security.EscapeOutput` for WPCS 3.x: exception messages are no longer treated as an output boundary in `HM-Minimum`, while error-reporting function message arguments must still be escaped
+
+### Removed:
+
+- Removed the deprecated `Generic.Functions.CallTimePassByReference` sniff
+- Removed references to WPCS internals that no longer exist in WPCS 3.x
+
 ## 1.2.0 (September 13, 2022)
 
 - Add new Isset sniff #236
