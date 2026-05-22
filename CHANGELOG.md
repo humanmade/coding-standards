@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.2 (May 22, 2026)
+
+- Fix issue #319 where strict_types was misinterpreted as a namespace #333
+- Fix PHP 8.4 deprecation warning on a nullable argument within `SlowMetaQuerySniff` #326
+- Update docs with new GitHub organization for PHPCS #325
+
 ## 2.0.1 (April 30, 2026)
 
 - Set PHP 8.2 as minimum testVersion in PHPCompatibility to fix exception in 2.0.0
