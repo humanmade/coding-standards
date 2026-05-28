@@ -5,6 +5,7 @@
 	"license": "GPL-2.0-or-later",
 	"require": {
 		"php": ">=8.2",
+		"squizlabs/php_codesniffer": "^3.13.4",
 		"wp-coding-standards/wpcs": "^3.0.0",
 		"automattic/vipwpcs": "^3.0.0",
 		"fig-r/psr2r-sniffer": "^0.5.0",
