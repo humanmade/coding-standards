@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0 (June 11, 2026)
+
+- Support WPCS and VIPCS versions above 3.0.x (_e.g._ 3.1, 3.2, 3.3) #335
+
 ## 2.0.2 (May 22, 2026)
 
 - Fix issue #319 where strict_types was misinterpreted as a namespace #333
