@@ -117,6 +117,7 @@ class FixtureTests extends TestCase {
 			'HM.Security.NonceVerification',
 			'HM.Security.ValidatedSanitizedInput',
 			'HM.Whitespace.MultipleEmptyLines',
+			'WordPress.WP.PostsPerPage',
 		];
 
 		$this->ruleset = new Ruleset( $this->config );

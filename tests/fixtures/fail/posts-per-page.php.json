@@ -1,0 +1,14 @@
+{
+	"4": [
+		{
+			"source": "WordPress.WP.PostsPerPage.posts_per_page_posts_per_page",
+			"type": "error"
+		}
+	],
+	"8": [
+		{
+			"source": "WordPress.WP.PostsPerPage.posts_per_page_numberposts",
+			"type": "error"
+		}
+	]
+}
