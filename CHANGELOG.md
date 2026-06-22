@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 (June 22, 2026)
+
+- Adds official support for single-file must-use plugins when appropriate by relaxing side-effect and file name restrictions on direct children of mu-plugins/ and client-mu-plugins/ #337
+
 ## 2.1.0 (June 11, 2026)
 
 - Support WPCS and VIPCS versions above 3.0.x (_e.g._ 3.1, 3.2, 3.3) #335
