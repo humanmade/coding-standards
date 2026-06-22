@@ -1,6 +1,6 @@
 # Changelog
 
-## Next Patch
+<!-- Next -->
 
 - Do not flag get_block_wrapper_attributes as an escaping risk, this is a false positive as function escapes internally #340
 
