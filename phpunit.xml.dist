@@ -11,6 +11,7 @@
 		<testsuite name="all">
 			<file>tests/AllSniffs.php</file>
 			<file>tests/FixtureTests.php</file>
+			<file>tests/MuPluginSideEffectsTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>

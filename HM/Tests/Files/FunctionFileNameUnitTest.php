@@ -2,7 +2,8 @@
 
 namespace HM\Tests\Files;
 
-use DirectoryIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 /**
@@ -20,10 +21,12 @@ class FunctionFileNameUnitTest extends AbstractSniffUnitTest {
 		$test_base_dir = rtrim( $test_base_dir, '.' );
 		$test_files = [];
 
-		$di = new DirectoryIterator( $test_base_dir );
+		$di = new RecursiveIteratorIterator(
+			new RecursiveDirectoryIterator( $test_base_dir )
+		);
 
 		foreach ( $di as $file ) {
-			if ( $file->isDot() ) {
+			if ( ! $file->isFile() ) {
 				continue;
 			}
 
@@ -46,6 +49,9 @@ class FunctionFileNameUnitTest extends AbstractSniffUnitTest {
 		$pass = [
 			'namespace.php',
 			'matching-namespace.php',
+			// Single-file mu-plugins can't all be named namespace.php.
+			'my-plugin.php',
+			'my-client-plugin.php',
 		];
 		if ( in_array( $file, $pass, true ) ) {
 			return [];
