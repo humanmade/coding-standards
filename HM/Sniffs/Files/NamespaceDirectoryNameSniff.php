@@ -8,6 +8,8 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * Namespaced things must be in directories matching the namespace.
  */
 class NamespaceDirectoryNameSniff implements Sniff {
+	use MuPluginFileTrait;
+
 	/**
 	 * Returns an array of tokens this test wants to listen for.
 	 *
@@ -48,6 +50,11 @@ class NamespaceDirectoryNameSniff implements Sniff {
 		// Normalize the directory separator across operating systems
 		if ( DIRECTORY_SEPARATOR !== '/' ) {
 			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
+		}
+
+		if ( $this->is_single_file_mu_plugin( $full ) ) {
+			// Single-file mu-plugins will naturally never have an inc/ directory.
+			return;
 		}
 
 		if ( $filename === 'plugin.php' || $filename === 'functions.php' || $filename === 'load.php' ) {

@@ -143,7 +143,11 @@
 	<rule ref="PSR1.Classes.ClassDeclaration" />
 
 	<!-- Declare symbols or run code, but not both. -->
-	<rule ref="PSR1.Files.SideEffects" />
+	<rule ref="PSR1.Files.SideEffects">
+		<!-- Permit single-file mu-plugins, which can be pragmatically useful. -->
+		<exclude-pattern>*/mu-plugins/[^/]+\.php$</exclude-pattern>
+		<exclude-pattern>*/client-mu-plugins/[^/]+\.php$</exclude-pattern>
+	</rule>
 
 	<!-- Namespacing required for functions. -->
 	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
