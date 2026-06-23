@@ -71,6 +71,7 @@
 				<element value="paginate_links" />
 				<element value="get_the_title" />
 				<element value="get_post_gallery" /> <!-- with param 2 set to true, the default -->
+				<element value="get_block_wrapper_attributes" /> <!-- uses safecss_filter_attr and esc_attr internally -->
 			</property>
 		</properties>
 

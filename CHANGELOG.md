@@ -1,5 +1,9 @@
 # Changelog
 
+<!-- Next -->
+
+- Do not flag get_block_wrapper_attributes as an escaping risk, this is a false positive as function escapes internally #340
+
 ## 2.2.0 (June 22, 2026)
 
 - Adds official support for single-file must-use plugins when appropriate by relaxing side-effect and file name restrictions on direct children of mu-plugins/ and client-mu-plugins/ #337
