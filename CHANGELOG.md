@@ -1,8 +1,12 @@
 # Changelog
 
-<!-- Next -->
+<!-- When submitting a PR for a feature, add the appropriate prerelease heading here
+and fill in the contents as you go. This simplifies later release management. -->
+
+## 2.2.1
 
 - Do not flag get_block_wrapper_attributes as an escaping risk, this is a false positive as function escapes internally #340
+- Stop adding dates to changelog entries, they can be seen at https://github.com/humanmade/coding-standards/releases and they complicate release timing
 
 ## 2.2.0 (June 22, 2026)
 
