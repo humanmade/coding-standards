@@ -8,7 +8,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * Namespaced things must be in directories matching the namespace.
  */
 class NamespaceDirectoryNameSniff implements Sniff {
-	use MuPluginEntryPointTrait;
+	use PluginEntryPointTrait;
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.
@@ -52,8 +52,8 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			$directory = str_replace( DIRECTORY_SEPARATOR, '/', $directory );
 		}
 
-		if ( $this->is_mu_plugin_entry_point( $phpcsFile ) ) {
-			// Mu-plugin entry points will naturally never have an inc/ directory.
+		if ( $this->is_plugin_entry_point( $phpcsFile ) ) {
+			// Plugin entry points will naturally never have an inc/ directory.
 			return;
 		}
 

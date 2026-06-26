@@ -5,25 +5,27 @@ use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Util\Tokens;
 
 /**
- * Shared helper for detecting must-use plugin entry points.
+ * Shared helper for detecting plugin entry points.
  *
  * Two shapes qualify. A single-file mu-plugin lives as a direct child of a
- * `mu-plugins/` directory (or `client-mu-plugins/`, on VIP). A nested plugin's
- * entry point is the file inside `mu-plugins/<plugin>/` carrying the plugin
- * header; by convention it is `<plugin>/<plugin>.php` or `<plugin>/plugin.php`,
- * but any such file declaring a Plugin Name header counts.
+ * `mu-plugins/` directory (or `client-mu-plugins/`, on VIP); this is specific
+ * to mu-plugins, whose flat auto-loading means a plugin physically can't be
+ * split into a folder. A nested plugin's entry point is the file directly
+ * inside its own folder under `plugins/` (or `mu-plugins/`/`client-mu-plugins/`)
+ * carrying the plugin header; by convention it is `<plugin>/<plugin>.php` or
+ * `<plugin>/plugin.php`, but any such file declaring a Plugin Name header counts.
  *
  * Both are useful patterns to support: they can't be split into an inc/
  * directory or a named namespace.php, so they're exempt from those rules.
  */
-trait MuPluginEntryPointTrait {
+trait PluginEntryPointTrait {
 	/**
-	 * Is the file being checked a mu-plugin entry point?
+	 * Is the file being checked a plugin entry point?
 	 *
 	 * @param File $phpcsFile The file being scanned.
 	 * @return bool True if the file is a single-file mu-plugin or a nested plugin entry point.
 	 */
-	protected function is_mu_plugin_entry_point( File $phpcsFile ) {
+	protected function is_plugin_entry_point( File $phpcsFile ) {
 		$path = $phpcsFile->getFilename();
 
 		// Normalize the directory separator across operating systems.
@@ -36,9 +38,10 @@ trait MuPluginEntryPointTrait {
 			return true;
 		}
 
-		// Only a file directly inside a plugin directory can be its entry
-		// point; anything deeper is ordinary plugin code.
-		if ( ! preg_match( '#/(?:client-)?mu-plugins/([^/]+)/([^/]+)\.php$#', $path, $matches ) ) {
+		// Nested entry point: a file directly inside a plugin's own folder,
+		// under plugins/, mu-plugins/ or client-mu-plugins/. Anything deeper
+		// is ordinary plugin code.
+		if ( ! preg_match( '#/(?:(?:client-)?mu-)?plugins/([^/]+)/([^/]+)\.php$#', $path, $matches ) ) {
 			return false;
 		}
 

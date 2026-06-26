@@ -52,11 +52,13 @@ class FunctionFileNameUnitTest extends AbstractSniffUnitTest {
 			// Single-file mu-plugins can't all be named namespace.php.
 			'my-plugin.php',
 			'my-client-plugin.php',
-			// Nested plugin entry points are exempt too: <dir>/<dir>.php,
-			// <dir>/plugin.php, or any file with a Plugin Name header.
+			// Nested plugin entry points are exempt too -- in plugins/ as well
+			// as mu-plugins/ -- by name (<dir>/<dir>.php, <dir>/plugin.php) or
+			// by a Plugin Name header.
 			'sub-plugin.php',
 			'plugin.php',
 			'loader.php',
+			'standalone.php',
 		];
 		if ( in_array( $file, $pass, true ) ) {
 			return [];
