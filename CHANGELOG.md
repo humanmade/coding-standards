@@ -5,7 +5,7 @@ and fill in the contents as you go. This simplifies later release management. --
 
 ## 2.3.0
 
-- Allow a plugin's entry-point file -- a single-file mu-plugin, or the main file in a plugin folder under `plugins/`, `mu-plugins/`, or `client-mu-plugins/` named `<dir>/<dir>.php` or `<dir>/plugin.php` -- to declare a namespace without being named `namespace.php` #343
+- Broaden relaxation of "must be named namespace.php" check for plugin entrypoint files to allow the patterns `<plugin-name>/plugin.php` or `<plugin-name>/<plugin-name>.php` in both regular and mu-plugin folders. #343
 - Do not lint PHP within `build/` and `dist/` build directories #342
 
 ## 2.2.1
