@@ -56,7 +56,7 @@ class FunctionFileNameUnitTest extends AbstractSniffUnitTest {
 			// as mu-plugins/ -- when named <dir>/<dir>.php or <dir>/plugin.php.
 			'sub-plugin.php',
 			'plugin.php',
-			'standalone.php',
+			'plugin-name.php',
 		];
 		if ( in_array( $file, $pass, true ) ) {
 			return [];

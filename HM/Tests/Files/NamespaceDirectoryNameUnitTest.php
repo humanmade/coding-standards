@@ -57,9 +57,8 @@ class NamespaceDirectoryNameUnitTest extends AbstractSniffUnitTest {
 			'client-mu-plugin.php',
 			// Nested plugin entry points are exempt too -- in plugins/ as well
 			// as mu-plugins/ -- when named <dir>/<dir>.php or <dir>/plugin.php.
-			'sub-plugin.php',
 			'plugin.php',
-			'standalone.php',
+			'plugin-name.php',
 		];
 		if ( in_array( $file, $pass, true ) ) {
 			return [];
