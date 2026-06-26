@@ -55,6 +55,11 @@ class NamespaceDirectoryNameUnitTest extends AbstractSniffUnitTest {
 			// Single-file mu-plugins are exempt from the directory structure rules.
 			'mu-plugin.php',
 			'client-mu-plugin.php',
+			// Nested plugin entry points are exempt too: <dir>/<dir>.php,
+			// <dir>/plugin.php, or any file with a Plugin Name header.
+			'sub-plugin.php',
+			'plugin.php',
+			'loader.php',
 		];
 		if ( in_array( $file, $pass, true ) ) {
 			return [];

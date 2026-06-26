@@ -8,7 +8,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  * Sniff to check for namespaced functions are in `namespace.php`.
  */
 class FunctionFileNameSniff implements Sniff {
-	use MuPluginFileTrait;
+	use MuPluginEntryPointTrait;
 
 	public function register() {
 		return array( T_FUNCTION );
@@ -27,8 +27,8 @@ class FunctionFileNameSniff implements Sniff {
 			return;
 		}
 
-		if ( $this->is_single_file_mu_plugin( $phpcsFile->getFileName() ) ) {
-			// Single-file plugins cannot be split into a namespace.php file.
+		if ( $this->is_mu_plugin_entry_point( $phpcsFile ) ) {
+			// Mu-plugin entry points cannot be split into a namespace.php file.
 			return;
 		}
 

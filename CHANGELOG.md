@@ -3,6 +3,10 @@
 <!-- When submitting a PR for a feature, add the appropriate prerelease heading here
 and fill in the contents as you go. This simplifies later release management. -->
 
+## 2.3.0
+
+- Allow the entry-point file of a plugin nested in `mu-plugins/`/`client-mu-plugins/` (named `<dir>/<dir>.php` or `<dir>/plugin.php`, or any file declaring a `Plugin Name` header) to declare a namespace without being named `namespace.php` #XXX
+
 ## 2.2.1
 
 - Do not flag get_block_wrapper_attributes as an escaping risk, this is a false positive as function escapes internally #340
