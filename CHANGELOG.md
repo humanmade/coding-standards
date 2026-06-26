@@ -5,7 +5,7 @@ and fill in the contents as you go. This simplifies later release management. --
 
 ## 2.3.0
 
-- Exempt wp-scripts-generated `*.asset.php` manifests under `build/` and `dist/` from the file-name and file-doc-comment rules
+- Exempt wp-scripts-generated `*.asset.php` manifests under `build/` and `dist/` from stylistic sniffs
 
 ## 2.2.1
 

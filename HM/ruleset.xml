@@ -4,6 +4,8 @@
 
 	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
+	<!-- Exempt wp-scripts-generated asset manifests from stylistic rules. -->
+	<exclude-pattern>*/(build|dist)/*\.asset\.php$</exclude-pattern>
 
 	<arg name="extensions" value="php" />
 
@@ -106,14 +108,6 @@
 		<properties>
 			<property name="is_theme" value="true" />
 		</properties>
-	</rule>
-
-	<!-- Exempt wp-scripts-generated asset manifests from unnecessary rules. -->
-	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
-		<exclude-pattern>*/(build|dist)/*\.asset\.php$</exclude-pattern>
-	</rule>
-	<rule ref="Squiz.Commenting.FileComment.Missing">
-		<exclude-pattern>*/(build|dist)/*\.asset\.php$</exclude-pattern>
 	</rule>
 
 	<!--
