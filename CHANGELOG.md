@@ -3,6 +3,10 @@
 <!-- When submitting a PR for a feature, add the appropriate prerelease heading here
 and fill in the contents as you go. This simplifies later release management. -->
 
+## 2.3.0
+
+- Exempt wp-scripts-generated `*.asset.php` manifests under `build/` and `dist/` from the file-name and file-doc-comment rules
+
 ## 2.2.1
 
 - Do not flag get_block_wrapper_attributes as an escaping risk, this is a false positive as function escapes internally #340

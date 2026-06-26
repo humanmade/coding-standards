@@ -108,6 +108,14 @@
 		</properties>
 	</rule>
 
+	<!-- Exempt wp-scripts-generated asset manifests from unnecessary rules. -->
+	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+		<exclude-pattern>*/(build|dist)/*\.asset\.php$</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.Commenting.FileComment.Missing">
+		<exclude-pattern>*/(build|dist)/*\.asset\.php$</exclude-pattern>
+	</rule>
+
 	<!--
 	Restore the ability to have multiple arguments per line
 
