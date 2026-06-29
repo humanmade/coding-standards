@@ -62,6 +62,13 @@ class NamespaceDirectoryNameSniff implements Sniff {
 			return;
 		}
 
+		if ( in_array( basename( dirname( $directory ) ), [ 'plugins', 'client-mu-plugins', 'mu-plugins' ], true ) ) {
+			if ( pathinfo( $filename, PATHINFO_FILENAME ) === basename( $directory ) ) {
+				// Allow plugin entrypoints named `plugin-name/plugin-name.php` instead of `plugin.php`.
+				return;
+			}
+		}
+
 		if ( ! preg_match( '#(?:.*)(?:/inc|/tests)(/.*)?#', $directory, $matches ) ) {
 			$error = 'Namespaced classes and functions should live inside an inc directory.';
 			$phpcsFile->addError( $error, $stackPtr, 'NoIncDirectory' );
