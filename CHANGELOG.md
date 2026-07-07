@@ -3,6 +3,10 @@
 <!-- When submitting a PR for a feature, add the appropriate prerelease heading here
 and fill in the contents as you go. This simplifies later release management. -->
 
+## 2.4.0
+
+- Add `HM.Functions.RegisterBlockTypePath` sniff recommending `register_block_type_from_metadata()` when a file path is passed to `register_block_type()`
+
 ## 2.3.0
 
 - Do not lint PHP within `build/` and `dist/` build directories
